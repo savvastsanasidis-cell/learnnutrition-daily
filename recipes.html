@@ -3,25 +3,349 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viral Συνταγές της Ημέρας</title>
+<title>🍳 Viral Συνταγές της Ημέρας — learnnutrition.gr</title>
 <style>
-  body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#f4f6f8;color:#1a2b3c;margin:0;padding:40px 20px;}
-  .wrap{max-width:680px;margin:0 auto;}
-  a.back{color:#5b6b7b;text-decoration:none;font-size:.95rem;}
-  h1{font-size:1.7rem;margin:14px 0 4px;}
-  .empty{background:#fff;border-radius:14px;padding:40px 24px;text-align:center;color:#5b6b7b;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-top:20px;}
-  .empty .e{font-size:2.4rem;}
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f4f6f8;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1f2933;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 20px 16px 56px; }
+
+  .back {
+    display: inline-block;
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    transition: color .15s;
+  }
+  .back:hover { color: #2b6cb0; }
+
+  header.page { margin-bottom: 26px; }
+  header.page h1 {
+    font-size: 27px;
+    line-height: 1.25;
+    margin: 0 0 6px;
+    letter-spacing: -.3px;
+  }
+  header.page .date {
+    color: #718096;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  header.page .intro {
+    margin-top: 14px;
+    color: #52606d;
+    font-size: 15px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(16,24,40,.06), 0 1px 2px rgba(16,24,40,.04);
+    padding: 22px 20px;
+    margin-bottom: 22px;
+  }
+
+  .cat {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .cat.protein { background: #e6f4ea; color: #1e7a46; }
+  .cat.weight  { background: #eaf2fd; color: #2563a8; }
+  .cat.quick   { background: #fdf0e3; color: #b3621b; }
+
+  .card h2 {
+    font-size: 20px;
+    margin: 0 0 4px;
+    line-height: 1.3;
+    letter-spacing: -.2px;
+  }
+  .source {
+    font-size: 13px;
+    color: #718096;
+    margin: 0 0 16px;
+  }
+  .source a { color: #2b6cb0; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .sec-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #9aa5b1;
+    margin: 16px 0 6px;
+  }
+  .card ul { margin: 0; padding-left: 20px; }
+  .card li { margin-bottom: 3px; font-size: 15px; }
+  .steps li { margin-bottom: 6px; }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4f6f8;
+    border: 1px solid #e4e9ef;
+    border-radius: 10px;
+    padding: 7px 12px;
+    min-width: 62px;
+  }
+  .badge .v { font-size: 15px; font-weight: 700; color: #1f2933; }
+  .badge .l { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .3px; color: #8693a0; margin-top: 1px; }
+
+  .review {
+    margin-top: 18px;
+    background: #fbf7ee;
+    border-left: 4px solid #e0b252;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .review .rt {
+    font-size: 13px;
+    font-weight: 700;
+    color: #9a6b14;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .review p { margin: 0 0 8px; font-size: 14.5px; color: #4a4030; }
+  .review p:last-child { margin-bottom: 0; }
+
+  footer.page {
+    text-align: center;
+    color: #9aa5b1;
+    font-size: 13px;
+    margin-top: 34px;
+  }
+  footer.page a { color: #2b6cb0; text-decoration: none; }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="index.html">&larr; Daily Brief</a>
+<div class="wrap">
+
+  <a class="back" href="index.html">← Daily Brief</a>
+
+  <header class="page">
     <h1>🍳 Viral Συνταγές της Ημέρας</h1>
-    <div class="empty">
-      <div class="e">⏳</div>
-      <p>Εδώ θα βλέπεις τις trending συνταγές.</p>
-      <p>Το πρώτο αυτόματο update θα εμφανιστεί εδώ σύντομα.</p>
+    <div class="date">📅 30/05/2026</div>
+    <p class="intro">Μαζέψαμε τις πιο viral συνταγές που σαρώνουν αυτές τις μέρες σε TikTok, Instagram Reels και food blogs — και τις περάσαμε από το «κόσκινο» του διαιτολόγου. Για κάθε μία θα βρείτε υλικά, εκτέλεση, εκτιμώμενη διατροφική ανάλυση και την προσωπική μας κριτική.</p>
+  </header>
+
+  <!-- 1 -->
+  <div class="card">
+    <span class="cat protein">Υψηλή πρωτεΐνη</span>
+    <h2>Beef Bowl με Γλυκοπατάτα, Cottage Cheese &amp; Hot Honey</h2>
+    <p class="source">Προέλευση: TikTok / food blog —
+      <a href="https://iamafoodblog.com/sweet-potato-beef-bowl/" target="_blank" rel="noopener">i am a food blog</a></p>
+
+    <div class="sec-label">Υλικά (1 μερίδα)</div>
+    <ul>
+      <li>1 μέτρια γλυκοπατάτα, σε κύβους &amp; ψητή</li>
+      <li>120 g κιμάς μοσχαρίσιος (taco seasoning)</li>
+      <li>½ φλιτζάνι cottage cheese (τυρί κότατζ)</li>
+      <li>½ αβοκάντο</li>
+      <li>1 κ.γ. hot honey (καυτερό μέλι)</li>
+    </ul>
+
+    <div class="sec-label">Εκτέλεση</div>
+    <ul class="steps">
+      <li>Ψήνουμε τη γλυκοπατάτα στους 200°C ώσπου να μαλακώσει.</li>
+      <li>Σοτάρουμε τον κιμά με τα μπαχαρικά taco.</li>
+      <li>Στρώνουμε σε μπολ γλυκοπατάτα, κιμά, cottage cheese, αβοκάντο και περιχύνουμε με hot honey.</li>
+    </ul>
+
+    <div class="sec-label">Διατροφική ανάλυση (εκτίμηση/μερίδα)</div>
+    <div class="badges">
+      <div class="badge"><span class="v">~550</span><span class="l">θερμ.</span></div>
+      <div class="badge"><span class="v">38 g</span><span class="l">πρωτ.</span></div>
+      <div class="badge"><span class="v">42 g</span><span class="l">υδατ.</span></div>
+      <div class="badge"><span class="v">26 g</span><span class="l">λίπος</span></div>
+      <div class="badge"><span class="v">8 g</span><span class="l">ίνες</span></div>
+    </div>
+
+    <div class="review">
+      <p class="rt">👨‍⚕️ Κριτική Διαιτολόγου</p>
+      <p>Εδώ βλέπουμε ένα πραγματικά ισορροπημένο πιάτο: ποιοτική πρωτεΐνη από κιμά και cottage cheese, σύνθετοι υδατάνθρακες χαμηλού γλυκαιμικού δείκτη από τη γλυκοπατάτα και «καλά» λιπαρά (monounsaturated fats) από το αβοκάντο.</p>
+      <p>Θα προτείναμε άπαχο κιμά (5% λιπαρά) για να κρατήσουμε χαμηλά τα κορεσμένα, και φειδώ στο hot honey — είναι πρόσθετο σάκχαρο. Ταιριάζει ιδανικά μετά την προπόνηση ή ως χορταστικό γεύμα ανάκαμψης (post-workout).</p>
     </div>
   </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <span class="cat protein">Υψηλή πρωτεΐνη</span>
+    <h2>Protein Fluff — Αφράτο Παγωτό Πρωτεΐνης</h2>
+    <p class="source">Προέλευση: TikTok / Reels —
+      <a href="https://ifoodreal.com/protein-fluff/" target="_blank" rel="noopener">iFoodReal</a></p>
+
+    <div class="sec-label">Υλικά (1 μερίδα)</div>
+    <ul>
+      <li>1 scoop (~30 g) πρωτεΐνη σε σκόνη (βανίλια)</li>
+      <li>1 φλιτζάνι κατεψυγμένα μούρα (berries)</li>
+      <li>60–80 ml γάλα (ή φυτικό ρόφημα αμυγδάλου)</li>
+      <li>Προαιρετικά: λίγη ξανθή κόλλα (xanthan gum) για όγκο</li>
+    </ul>
+
+    <div class="sec-label">Εκτέλεση</div>
+    <ul class="steps">
+      <li>Ρίχνουμε όλα τα υλικά στο μπλέντερ.</li>
+      <li>Χτυπάμε 3–5 λεπτά, σταματώντας να σπρώχνουμε προς τα κάτω, ώσπου να τετραπλασιαστεί ο όγκος και να γίνει αφράτο σαν παγωτό.</li>
+      <li>Σερβίρουμε αμέσως.</li>
+    </ul>
+
+    <div class="sec-label">Διατροφική ανάλυση (εκτίμηση/μερίδα)</div>
+    <div class="badges">
+      <div class="badge"><span class="v">~160</span><span class="l">θερμ.</span></div>
+      <div class="badge"><span class="v">26 g</span><span class="l">πρωτ.</span></div>
+      <div class="badge"><span class="v">12 g</span><span class="l">υδατ.</span></div>
+      <div class="badge"><span class="v">2 g</span><span class="l">λίπος</span></div>
+      <div class="badge"><span class="v">4 g</span><span class="l">ίνες</span></div>
+    </div>
+
+    <div class="review">
+      <p class="rt">👨‍⚕️ Κριτική Διαιτολόγου</p>
+      <p>Το λατρεύουμε ως «έξυπνο» γλυκό: τεράστιος όγκος με ελάχιστες θερμίδες (high-volume eating), πολλή πρωτεΐνη και πραγματικά φρούτα. Ιδανικό για όποιον προσπαθεί να ικανοποιήσει την επιθυμία για γλυκό σε περίοδο διατροφής (cutting/deficit).</p>
+      <p>Προσέχουμε μόνο την ποιότητα της σκόνης — προτιμούμε whey ή φυτική πρωτεΐνη χωρίς υπερβολικά γλυκαντικά. Δεν αντικαθιστά γεύμα, αλλά είναι εξαιρετικό σνακ ή επιδόρπιο.</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <span class="cat weight">Απώλεια βάρους</span>
+    <h2>Το «Gelatin Trick» — Ζελατίνη πριν το Γεύμα</h2>
+    <p class="source">Προέλευση: viral TikTok &amp; Instagram (δεκάδες εκατ. προβολές)</p>
+
+    <div class="sec-label">Υλικά (1 μερίδα)</div>
+    <ul>
+      <li>1 κ.σ. άγευστη ζελατίνη σε σκόνη</li>
+      <li>½ φλιτζάνι ζεστό νερό (για διάλυση)</li>
+      <li>½ φλιτζάνι κρύο νερό ή πράσινο τσάι</li>
+      <li>1 κ.γ. χυμό λεμονιού</li>
+    </ul>
+
+    <div class="sec-label">Εκτέλεση</div>
+    <ul class="steps">
+      <li>Διαλύουμε τη ζελατίνη στο ζεστό νερό.</li>
+      <li>Προσθέτουμε κρύο νερό/τσάι και λεμόνι.</li>
+      <li>Πίνουμε 15–30 λεπτά πριν το γεύμα (ή το πήζουμε σε κυβάκια-σνακ).</li>
+    </ul>
+
+    <div class="sec-label">Διατροφική ανάλυση (εκτίμηση/μερίδα)</div>
+    <div class="badges">
+      <div class="badge"><span class="v">~25</span><span class="l">θερμ.</span></div>
+      <div class="badge"><span class="v">6 g</span><span class="l">πρωτ.</span></div>
+      <div class="badge"><span class="v">0 g</span><span class="l">υδατ.</span></div>
+      <div class="badge"><span class="v">0 g</span><span class="l">λίπος</span></div>
+      <div class="badge"><span class="v">0 g</span><span class="l">ίνες</span></div>
+    </div>
+
+    <div class="review">
+      <p class="rt">👨‍⚕️ Κριτική Διαιτολόγου</p>
+      <p>Εδώ χρειάζεται προσοχή — το trend υπόσχεται «GLP-1 effect» αλλά η επιστήμη δεν το στηρίζει. Η ζελατίνη δεν λειτουργεί σαν φάρμακο· όποιο αίσθημα κορεσμού νιώθουμε οφείλεται κυρίως στο υγρό και στην κίνηση «πίνω κάτι πριν φάω», όχι σε κάποια μαγική δράση.</p>
+      <p>Δεν είναι επικίνδυνο και τα 6 g πρωτεΐνης δεν βλάπτουν, όμως ας μην το δούμε ως «κόλπο αδυνατίσματος». Προτείνουμε να δουλέψουμε σε ένα ρεαλιστικό ισοζύγιο θερμίδων (energy balance) και επαρκή πρωτεΐνη/φυτικές ίνες — εκεί κρύβεται ο πραγματικός κορεσμός.</p>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <span class="cat quick">Γρήγορη / Meal-prep</span>
+    <h2>High-Protein Chicken Burrito Bowl</h2>
+    <p class="source">Προέλευση: viral food blogs &amp; Reels (meal-prep trend 2026)</p>
+
+    <div class="sec-label">Υλικά (1 μερίδα)</div>
+    <ul>
+      <li>120 g στήθος κοτόπουλο ψητό, σε κύβους</li>
+      <li>¾ φλιτζάνι ρύζι (ή καστανό ρύζι)</li>
+      <li>½ φλιτζάνι μαύρα φασόλια</li>
+      <li>¼ φλιτζάνι καλαμπόκι</li>
+      <li>½ αβοκάντο &amp; σάλσα</li>
+    </ul>
+
+    <div class="sec-label">Εκτέλεση</div>
+    <ul class="steps">
+      <li>Ψήνουμε/σχάρα το κοτόπουλο με μπαχαρικά και το κόβουμε.</li>
+      <li>Συναρμολογούμε σε μπολ: ρύζι, φασόλια, καλαμπόκι, κοτόπουλο.</li>
+      <li>Ολοκληρώνουμε με αβοκάντο και σάλσα. Ιδανικό σε δοχεία meal-prep για 3–4 μέρες.</li>
+    </ul>
+
+    <div class="sec-label">Διατροφική ανάλυση (εκτίμηση/μερίδα)</div>
+    <div class="badges">
+      <div class="badge"><span class="v">~520</span><span class="l">θερμ.</span></div>
+      <div class="badge"><span class="v">40 g</span><span class="l">πρωτ.</span></div>
+      <div class="badge"><span class="v">50 g</span><span class="l">υδατ.</span></div>
+      <div class="badge"><span class="v">15 g</span><span class="l">λίπος</span></div>
+      <div class="badge"><span class="v">11 g</span><span class="l">ίνες</span></div>
+    </div>
+
+    <div class="review">
+      <p class="rt">👨‍⚕️ Κριτική Διαιτολόγου</p>
+      <p>Από τα αγαπημένα μας για meal-prep: ολοκληρωμένο πιάτο με άπαχη πρωτεΐνη, σύνθετους υδατάνθρακες και εντυπωσιακές 11 g φυτικές ίνες χάρη στα φασόλια — σύμμαχος για το έντερο και τον κορεσμό.</p>
+      <p>Για όποιον μετράει θερμίδες, ρυθμίζουμε τη μερίδα ρυζιού και αβοκάντο. Ταιριάζει σε σχεδόν όλους: αθλούμενους, εργαζόμενους με γεμάτο πρόγραμμα, ακόμη και σε στόχο απώλειας βάρους με μικρή προσαρμογή.</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <span class="cat quick">Γρήγορη / Meal-prep</span>
+    <h2>Chili-Oil Rice Bowl με Κοτόπουλο (10 λεπτά)</h2>
+    <p class="source">Προέλευση: viral TikTok hack (rotisserie chicken bowl)</p>
+
+    <div class="sec-label">Υλικά (1 μερίδα)</div>
+    <ul>
+      <li>120 g κοτόπουλο ψητό (rotisserie), τραβηγμένο</li>
+      <li>¾ φλιτζάνι ζεστό ρύζι</li>
+      <li>1 σκελίδα σκόρδο ψιλοκομμένη</li>
+      <li>2 φρέσκα κρεμμυδάκια</li>
+      <li>1 κ.σ. chili oil (λάδι τσίλι)</li>
+    </ul>
+
+    <div class="sec-label">Εκτέλεση</div>
+    <ul class="steps">
+      <li>Ανακατεύουμε το τραβηγμένο κοτόπουλο μέσα στο ζεστό ρύζι.</li>
+      <li>Προσθέτουμε σκόρδο, κρεμμυδάκια και περιχύνουμε με chili oil.</li>
+      <li>Έτοιμο σε λιγότερο από 10 λεπτά.</li>
+    </ul>
+
+    <div class="sec-label">Διατροφική ανάλυση (εκτίμηση/μερίδα)</div>
+    <div class="badges">
+      <div class="badge"><span class="v">~470</span><span class="l">θερμ.</span></div>
+      <div class="badge"><span class="v">33 g</span><span class="l">πρωτ.</span></div>
+      <div class="badge"><span class="v">44 g</span><span class="l">υδατ.</span></div>
+      <div class="badge"><span class="v">17 g</span><span class="l">λίπος</span></div>
+      <div class="badge"><span class="v">2 g</span><span class="l">ίνες</span></div>
+    </div>
+
+    <div class="review">
+      <p class="rt">👨‍⚕️ Κριτική Διαιτολόγου</p>
+      <p>Τέλεια λύση για τις «δεν προλαβαίνω» μέρες — έτοιμη πρωτεΐνη, ελάχιστος χρόνος, μεγάλη γεύση. Βλέπουμε όμως δύο σημεία: λίγες φυτικές ίνες και αρκετό λίπος/νάτριο από το chili oil και το ψητό κοτόπουλο του εμπορίου.</p>
+      <p>Προτείνουμε να ρίξουμε μέσα μια χούφτα edamame ή σοταρισμένα λαχανικά για ίνες και όγκο, και να μετρήσουμε το λάδι τσίλι με το κουτάλι. Ιδανικό γρήγορο γεύμα για φοιτητές και πολυάσχολους.</p>
+    </div>
+  </div>
+
+  <footer class="page">
+    Με ❤️ από το <a href="https://learnnutrition.gr" target="_blank" rel="noopener">learnnutrition.gr</a> — Σάββας Τσανασίδης, Διαιτολόγος<br>
+    Οι διατροφικές τιμές είναι εκτιμήσεις ανά μερίδα και ενδέχεται να διαφέρουν ανάλογα με τα υλικά.
+  </footer>
+
+</div>
 </body>
 </html>
