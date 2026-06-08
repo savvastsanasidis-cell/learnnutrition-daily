@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📡 YouTube Newsletter — learnnutrition.gr</title>
+<style>
+  body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; padding: 20px; margin: 0; }
+  .container { max-width: 720px; margin: auto; }
+  .topnav { margin-bottom: 14px; }
+  .topnav a { color: #1a73e8; text-decoration: none; font-size: 0.9em; }
+  .header { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 16px; color: white; margin-bottom: 24px; }
+  .header h1 { font-size: 1.6em; margin: 0 0 8px; }
+  .header .date { color: #a0a0c0; }
+  .notice { background: #fff8e1; border: 1px solid #ffe082; border-left: 4px solid #ffb300; border-radius: 12px; padding: 16px 18px; margin-bottom: 24px; font-size: 0.88em; color: #5d4037; line-height: 1.5; }
+  .notice strong { color: #e65100; }
+  .channel-card { background: white; border-radius: 14px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .channel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .channel-avatar { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; flex-shrink: 0; }
+  .channel-meta { flex: 1; }
+  .channel-name { font-size: 1.15em; font-weight: 700; }
+  .channel-topic { font-size: 0.85em; color: #86868b; }
+  .badge { background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; font-weight: 600; white-space: nowrap; }
+  .badge-none { background: #f5f5f5; color: #999; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; font-weight: 600; white-space: nowrap; }
+  .video-item { border-top: 1px solid #f0f0f0; padding: 16px 0; }
+  .video-item:first-of-type { border-top: none; padding-top: 0; }
+  .video-title { display: flex; gap: 8px; align-items: baseline; margin-bottom: 8px; }
+  .play-icon { color: #e74c3c; }
+  .video-title a { font-weight: 600; color: #1a73e8; text-decoration: none; }
+  .summary { font-size: 0.93em; color: #333; padding-left: 20px; border-left: 3px solid #e8e8ed; line-height: 1.55; }
+  .sponsor-tag { background: #fff3e0; color: #e65100; font-size: 0.7em; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+  .fact-check { margin-top: 10px; padding-left: 20px; }
+  .fact-title { font-size: 0.82em; font-weight: 700; text-transform: uppercase; color: #555; margin-bottom: 6px; }
+  .fact-item { padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; display: flex; gap: 8px; font-size: 0.88em; line-height: 1.45; }
+  .fact-verified { background: #e8f5e9; border-left: 4px solid #4caf50; }
+  .fact-misleading { background: #fff3e0; border-left: 4px solid #ff9800; }
+  .fact-unverified { background: #f3e5f5; border-left: 4px solid #9c27b0; }
+  .fact-badge { font-weight: 700; white-space: nowrap; }
+  .fact-link { color: #1a73e8; }
+  .no-video { text-align: center; color: #999; font-size: 0.9em; line-height: 1.6; padding: 8px 0; }
+  .footer { text-align: center; color: #999; font-size: 0.78em; margin-top: 30px; line-height: 1.6; }
+  .footer a { color: #1a73e8; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="topnav"><a href="index.html">← Daily Brief</a></div>
+
+  <div class="header">
+    <h1>📡 YouTube Newsletter</h1>
+    <div class="date">Δευτέρα, 8 Ιουνίου 2026</div>
+  </div>
+
+  <div class="notice">
+    ⚠️ <strong>Σημείωση εκτέλεσης (cloud environment):</strong> Σήμερα το περιβάλλον cloud είχε <strong>αποκλεισμένη πρόσβαση στο YouTube</strong>. Όλες οι δίοδοι δεδομένων — επίσημα RSS feeds, σελίδες βίντεο, transcripts, το YouTube Data API (googleapis χωρίς κλειδί) και τα third-party mirrors (Piped, Invidious, Socialblade, rss2json) — επέστρεψαν <em>403 / εκτός allowlist</em>. Η ανίχνευση νέων βίντεο έγινε επομένως μόνο μέσω web search, του οποίου το ευρετήριο υστερεί για τα πιο πρόσφατα uploads. <strong>Κανένα νέο βίντεο 24ώρου δεν επιβεβαιώθηκε με βεβαιότητα.</strong> Παρακάτω αναφέρεται το πιο πρόσφατο γνωστό βίντεο ανά κανάλι. Για πλήρη λειτουργία (transcripts + fact-check), τρέξε τη ροή από περιβάλλον με το <em>youtube.com</em> / <em>googleapis.com</em> (με YouTube Data API key) στο network allowlist.
+  </div>
+
+  <!-- 1. Thomas DeLauer -->
+  <div class="channel-card">
+    <div class="channel-header">
+      <div class="channel-avatar" style="background:#e74c3c;">TD</div>
+      <div class="channel-meta">
+        <div class="channel-name">Thomas DeLauer</div>
+        <div class="channel-topic">Διατροφή &amp; Μεταβολισμός</div>
+      </div>
+      <div class="badge-none">Κανένα νέο βίντεο</div>
+    </div>
+    <div class="no-video">
+      Τελευταίο γνωστό βίντεο: <em>~τέλη Μαΐου 2026</em> — «½ Cup Stops Insulin Resistance and Kickstarts Mitochondria».<br>
+      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+    </div>
+  </div>
+
+  <!-- 2. Jeremy Ethier -->
+  <div class="channel-card">
+    <div class="channel-header">
+      <div class="channel-avatar" style="background:#27ae60;">JE</div>
+      <div class="channel-meta">
+        <div class="channel-name">Jeremy Ethier</div>
+        <div class="channel-topic">Επιστημονική Γυμναστική &amp; Διατροφή</div>
+      </div>
+      <div class="badge-none">Κανένα νέο βίντεο</div>
+    </div>
+    <div class="no-video">
+      Τελευταίο γνωστό βίντεο: <em>~Φεβρουάριος 2026</em> — θεματική γύρω από προπόνηση υπερτροφίας &amp; «stretch» training (το web search δεν επιβεβαίωσε νεότερο upload).<br>
+      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+    </div>
+  </div>
+
+  <!-- 3. Physionic -->
+  <div class="channel-card">
+    <div class="channel-header">
+      <div class="channel-avatar" style="background:#8e44ad;">PH</div>
+      <div class="channel-meta">
+        <div class="channel-name">Physionic</div>
+        <div class="channel-topic">Μοριακή Φυσιολογία &amp; Διατροφή</div>
+      </div>
+      <div class="badge-none">Κανένα νέο βίντεο</div>
+    </div>
+    <div class="no-video">
+      Τελευταίο γνωστό βίντεο: <em>~20 Απριλίου 2026</em> — multi-study ανάλυση (βερβερίνη &amp; καρκίνος παχέος εντέρου, περιορισμός γλυκίνης &amp; καρκίνος, λίθιο &amp; Alzheimer, βιταμίνη K &amp; καρδιαγγειακά).<br>
+      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+    </div>
+  </div>
+
+  <!-- 4. FoundMyFitness -->
+  <div class="channel-card">
+    <div class="channel-header">
+      <div class="channel-avatar" style="background:#f39c12;">FMF</div>
+      <div class="channel-meta">
+        <div class="channel-name">FoundMyFitness (Dr. Rhonda Patrick)</div>
+        <div class="channel-topic">Μακροζωία &amp; Διατροφική Επιστήμη</div>
+      </div>
+      <div class="badge-none">Κανένα νέο βίντεο</div>
+    </div>
+    <div class="no-video">
+      Τελευταίο γνωστό βίντεο: <em>~4 Μαΐου 2026</em> — AMA επεισόδιο (β-γλυκάνη &amp; PFAS, κρεατίνη + καφεΐνη, urolithin A, εξωγενείς κετόνες, σάουνα). <em>(Στις 6 Ιουνίου υπήρξε live Q&amp;A μόνο για Premium μέλη — όχι δημόσιο upload.)</em><br>
+      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+    </div>
+  </div>
+
+  <!-- 5. Clean & Delicious -->
+  <div class="channel-card">
+    <div class="channel-header">
+      <div class="channel-avatar" style="background:#6b8e23;">CD</div>
+      <div class="channel-meta">
+        <div class="channel-name">Clean &amp; Delicious (Dani Spies)</div>
+        <div class="channel-topic">Υγιεινές Συνταγές &amp; Απώλεια Βάρους</div>
+      </div>
+      <div class="badge-none">Κανένα νέο βίντεο</div>
+    </div>
+    <div class="no-video">
+      Τελευταίο γνωστό βίντεο: <em>~Παρασκευή 5 Ιουνίου 2026</em> — το κανάλι ανεβάζει σταθερά κάθε Παρασκευή (ο ακριβής τίτλος δεν επιβεβαιώθηκε μέσω web search).<br>
+      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+    </div>
+  </div>
+
+  <!-- 6. Leonid Kim MD -->
+  <div class="channel-card">
+    <div class="channel-header">
+      <div class="channel-avatar" style="background:#2980b9;">LK</div>
+      <div class="channel-meta">
+        <div class="channel-name">Leonid Kim MD</div>
+        <div class="channel-topic">Παχυσαρκία &amp; Μεταβολική Ιατρική</div>
+      </div>
+      <div class="badge-none">Κανένα νέο βίντεο</div>
+    </div>
+    <div class="no-video">
+      Τελευταίο γνωστό βίντεο: <em>πρόσφατο (ακριβής ημ/νία μη επιβεβαιωμένη)</em> — «The FASTEST Way to Reverse Fatty Liver, Naturally».<br>
+      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+    </div>
+  </div>
+
+  <div class="footer">
+    Αυτόματη εκτέλεση · Δευτέρα, 8 Ιουνίου 2026 · Πηγές: YouTube transcripts + PubMed fact-check<br>
+    <a href="index.html">← Daily Brief</a>
+  </div>
+
+</div>
+</body>
+</html>
