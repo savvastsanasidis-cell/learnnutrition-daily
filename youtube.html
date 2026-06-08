@@ -5,41 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>📡 YouTube Newsletter — learnnutrition.gr</title>
 <style>
-  body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; padding: 20px; margin: 0; }
-  .container { max-width: 720px; margin: auto; }
-  .topnav { margin-bottom: 14px; }
-  .topnav a { color: #1a73e8; text-decoration: none; font-size: 0.9em; }
-  .header { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 16px; color: white; margin-bottom: 24px; }
-  .header h1 { font-size: 1.6em; margin: 0 0 8px; }
-  .header .date { color: #a0a0c0; }
-  .notice { background: #fff8e1; border: 1px solid #ffe082; border-left: 4px solid #ffb300; border-radius: 12px; padding: 16px 18px; margin-bottom: 24px; font-size: 0.88em; color: #5d4037; line-height: 1.5; }
-  .notice strong { color: #e65100; }
-  .channel-card { background: white; border-radius: 14px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-  .channel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-  .channel-avatar { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; flex-shrink: 0; }
-  .channel-meta { flex: 1; }
-  .channel-name { font-size: 1.15em; font-weight: 700; }
-  .channel-topic { font-size: 0.85em; color: #86868b; }
-  .badge { background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; font-weight: 600; white-space: nowrap; }
-  .badge-none { background: #f5f5f5; color: #999; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; font-weight: 600; white-space: nowrap; }
-  .video-item { border-top: 1px solid #f0f0f0; padding: 16px 0; }
-  .video-item:first-of-type { border-top: none; padding-top: 0; }
-  .video-title { display: flex; gap: 8px; align-items: baseline; margin-bottom: 8px; }
-  .play-icon { color: #e74c3c; }
-  .video-title a { font-weight: 600; color: #1a73e8; text-decoration: none; }
-  .summary { font-size: 0.93em; color: #333; padding-left: 20px; border-left: 3px solid #e8e8ed; line-height: 1.55; }
-  .sponsor-tag { background: #fff3e0; color: #e65100; font-size: 0.7em; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
-  .fact-check { margin-top: 10px; padding-left: 20px; }
-  .fact-title { font-size: 0.82em; font-weight: 700; text-transform: uppercase; color: #555; margin-bottom: 6px; }
-  .fact-item { padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; display: flex; gap: 8px; font-size: 0.88em; line-height: 1.45; }
-  .fact-verified { background: #e8f5e9; border-left: 4px solid #4caf50; }
-  .fact-misleading { background: #fff3e0; border-left: 4px solid #ff9800; }
-  .fact-unverified { background: #f3e5f5; border-left: 4px solid #9c27b0; }
-  .fact-badge { font-weight: 700; white-space: nowrap; }
-  .fact-link { color: #1a73e8; }
-  .no-video { text-align: center; color: #999; font-size: 0.9em; line-height: 1.6; padding: 8px 0; }
-  .footer { text-align: center; color: #999; font-size: 0.78em; margin-top: 30px; line-height: 1.6; }
-  .footer a { color: #1a73e8; }
+  body { font-family: -apple-system,'Segoe UI',Roboto,sans-serif; background:#f5f5f7; color:#1d1d1f; padding:20px; margin:0; }
+  .container { max-width:720px; margin:auto; }
+  .topnav { margin-bottom:14px; }
+  .topnav a { color:#1a73e8; text-decoration:none; font-size:0.9em; }
+  .header { text-align:center; padding:40px 20px 30px; background:linear-gradient(135deg,#1a1a2e,#16213e); border-radius:16px; color:white; margin-bottom:24px; }
+  .header h1 { font-size:1.6em; margin:0 0 8px; }
+  .header .date { color:#a0a0c0; }
+  .channel-card { background:white; border-radius:14px; padding:24px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+  .channel-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .channel-avatar { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; color:white; }
+  .channel-info { flex:1; }
+  .channel-name { font-size:1.15em; font-weight:bold; }
+  .channel-topic { font-size:0.85em; color:#86868b; }
+  .badge { background:#e8f5e9; color:#2e7d32; padding:4px 12px; border-radius:20px; font-size:0.78em; font-weight:600; white-space:nowrap; }
+  .badge-none { background:#f5f5f5; color:#999; padding:4px 12px; border-radius:20px; font-size:0.78em; white-space:nowrap; }
+  .video-item { border-top:1px solid #f0f0f0; padding:16px 0; }
+  .video-item:first-of-type { border-top:none; padding-top:0; }
+  .video-title { display:flex; gap:8px; align-items:baseline; margin-bottom:10px; flex-wrap:wrap; }
+  .play-icon { color:#e74c3c; }
+  .video-title a { font-weight:600; color:#1a73e8; text-decoration:none; }
+  .sponsor-tag { background:#fff3e0; color:#e65100; font-size:0.72em; padding:2px 8px; border-radius:12px; font-weight:600; }
+  .summary { font-size:0.93em; color:#333; padding-left:20px; border-left:3px solid #e8e8ed; margin:10px 0; }
+  .fact-check { margin-top:10px; }
+  .fact-title { font-size:0.82em; font-weight:bold; text-transform:uppercase; color:#555; margin-bottom:8px; }
+  .fact-item { padding:8px 12px; border-radius:8px; margin-bottom:6px; display:flex; gap:8px; font-size:0.9em; }
+  .fact-verified { background:#e8f5e9; border-left:4px solid #4caf50; }
+  .fact-misleading { background:#fff3e0; border-left:4px solid #ff9800; }
+  .fact-unverified { background:#f3e5f5; border-left:4px solid #9c27b0; }
+  .fact-badge { font-weight:bold; white-space:nowrap; }
+  .fact-verified .fact-badge { color:#4caf50; }
+  .fact-misleading .fact-badge { color:#ff9800; }
+  .fact-unverified .fact-badge { color:#9c27b0; }
+  .fact-link { color:#1a73e8; text-decoration:none; }
+  .no-video { text-align:center; color:#999; font-size:0.9em; padding:6px 0; }
+  .no-video .last { color:#555; }
+  .footer { text-align:center; color:#999; font-size:0.78em; margin-top:28px; padding-bottom:20px; }
+  .footer a { color:#1a73e8; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -52,23 +54,50 @@
     <div class="date">Δευτέρα, 8 Ιουνίου 2026</div>
   </div>
 
-  <div class="notice">
-    ⚠️ <strong>Σημείωση εκτέλεσης (cloud environment):</strong> Σήμερα το περιβάλλον cloud είχε <strong>αποκλεισμένη πρόσβαση στο YouTube</strong>. Όλες οι δίοδοι δεδομένων — επίσημα RSS feeds, σελίδες βίντεο, transcripts, το YouTube Data API (googleapis χωρίς κλειδί) και τα third-party mirrors (Piped, Invidious, Socialblade, rss2json) — επέστρεψαν <em>403 / εκτός allowlist</em>. Η ανίχνευση νέων βίντεο έγινε επομένως μόνο μέσω web search, του οποίου το ευρετήριο υστερεί για τα πιο πρόσφατα uploads. <strong>Κανένα νέο βίντεο 24ώρου δεν επιβεβαιώθηκε με βεβαιότητα.</strong> Παρακάτω αναφέρεται το πιο πρόσφατο γνωστό βίντεο ανά κανάλι. Για πλήρη λειτουργία (transcripts + fact-check), τρέξε τη ροή από περιβάλλον με το <em>youtube.com</em> / <em>googleapis.com</em> (με YouTube Data API key) στο network allowlist.
-  </div>
-
   <!-- 1. Thomas DeLauer -->
   <div class="channel-card">
     <div class="channel-header">
       <div class="channel-avatar" style="background:#e74c3c;">TD</div>
-      <div class="channel-meta">
+      <div class="channel-info">
         <div class="channel-name">Thomas DeLauer</div>
         <div class="channel-topic">Διατροφή &amp; Μεταβολισμός</div>
       </div>
-      <div class="badge-none">Κανένα νέο βίντεο</div>
+      <span class="badge">1 νέο βίντεο</span>
     </div>
-    <div class="no-video">
-      Τελευταίο γνωστό βίντεο: <em>~τέλη Μαΐου 2026</em> — «½ Cup Stops Insulin Resistance and Kickstarts Mitochondria».<br>
-      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+
+    <div class="video-item">
+      <div class="video-title">
+        <span class="play-icon">▶</span>
+        <a href="https://www.youtube.com/watch?v=uD_-F-PqtXU" target="_blank">We Found the Key to Losing Belly Fat, Metabolic Dysfunction and Longevity →</a>
+        <span class="sponsor-tag">Χορηγία: Timeline Mitopure</span>
+      </div>
+      <div class="summary">
+        Ο Thomas DeLauer υποστηρίζει ότι το «κλειδί» για απώλεια κοιλιακού λίπους, διόρθωση της μεταβολικής δυσλειτουργίας και μακροζωία δεν είναι κυρίως η δομημένη προπόνηση, αλλά η <b>μείωση του καθιστικού χρόνου</b> και η αύξηση του <b>NEAT</b> (Non-Exercise Activity Thermogenesis) — της θερμογένεσης από την καθημερινή, μη-αθλητική κίνηση (περπάτημα, όρθια στάση, fidgeting, δουλειές του σπιτιού). Ξεκινά τεκμηριώνοντας ότι ο παρατεταμένος καθιστικός χρόνος συνδέεται <i>ανεξάρτητα</i> με αυξημένο κίνδυνο καρδιαγγειακής νόσου, διαβήτη τύπου 2 και θνησιμότητας — ακόμη κι σε ανθρώπους που γυμνάζονται. Στη συνέχεια εξηγεί ότι το NEAT μπορεί να «κάψει» εκατοντάδες θερμίδες ημερησίως και να εξηγήσει τεράστιες ατομικές διαφορές στην αντίσταση στην αύξηση λίπους, παραπέμποντας στην κλασική μελέτη του Levine όπου, υπό υπερσίτιση, το NEAT ήταν ο βασικός παράγοντας που καθόριζε ποιος παχαίνει και ποιος όχι. Συγκρίνει NEAT vs άσκηση, καταλήγοντας ότι η συνεχής, χαμηλής έντασης κίνηση όλη μέρα μπορεί να υπερτερεί ενεργειακά μιας μεμονωμένης προπόνησης, και θέτει το ερώτημα αν ο πολύς καθιστικός χρόνος ακυρώνει τα οφέλη της γυμναστικής (φαινόμενο «active couch potato»). <b>Πρακτικό συμπέρασμα:</b> σπάσε τα παρατεταμένα διαστήματα καθίσματος, βάλε στόχο πολλά βήματα και όρθια στάση μέσα στη μέρα, και μη βασίζεσαι αποκλειστικά σε μία προπόνηση για το μεταβολικό σου προφίλ. (Το βίντεο περιέχει πληρωμένη συνεργασία με τη Timeline Mitopure / Urolithin A.)
+      </div>
+
+      <div class="fact-check">
+        <div class="fact-title">🔬 Έλεγχος Ισχυρισμών — PubMed</div>
+
+        <div class="fact-item fact-verified">
+          <span class="fact-badge">✓ VERIFIED</span>
+          <span>«Ο παρατεταμένος καθιστικός χρόνος αυξάνει ανεξάρτητα τον κίνδυνο θανάτου, καρδιαγγειακών και διαβήτη, ακόμη κι αν γυμνάζεσαι.» Επιβεβαιώνεται: η μετα-ανάλυση Biswas 2015 (Ann Intern Med) βρήκε HR θνησιμότητας 1.24 και επίπτωσης διαβήτη τύπου 2 1.91, προσαρμοσμένα για τη φυσική δραστηριότητα· η μεγάλη δοσοεξαρτώμενη μετα-ανάλυση Patterson 2018 (1.3 εκατ. άτομα) εντόπισε όριο κινδύνου στις 6–8 ώρες/ημέρα. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/25599350/" target="_blank">PubMed 25599350</a> · <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/29589226/" target="_blank">PubMed 29589226</a></span>
+        </div>
+
+        <div class="fact-item fact-verified">
+          <span class="fact-badge">✓ VERIFIED</span>
+          <span>«Το NEAT καθορίζει ποιος αντιστέκεται στην αύξηση λίπους.» Επιβεβαιώνεται από την εμβληματική μελέτη Levine 1999 (Science): σε 8 εβδομάδες υπερσίτισης (+1000 kcal/ημέρα), τα 2/3 της αύξησης της ενεργειακής δαπάνης οφείλονταν στο NEAT, και οι μεταβολές του NEAT προέβλεπαν την αντίσταση στην αύξηση λίπους (r = 0.77, p &lt; 0.001), εξηγώντας έως και 10-πλάσιες διαφορές στην αποθήκευση λίπους. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/9880251/" target="_blank">PubMed 9880251</a></span>
+        </div>
+
+        <div class="fact-item fact-misleading">
+          <span class="fact-badge">⚠ MISLEADING</span>
+          <span>«Ο πολύς καθιστικός χρόνος ακυρώνει τα οφέλη της άσκησης.» Μερικώς αληθές αλλά υπεραπλούστευση: η εναρμονισμένη μετα-ανάλυση Ekelund 2016 (Lancet, &gt;1 εκατ. άτομα) έδειξε το αντίστροφο — ~60–75 λεπτά/ημέρα μέτριας έντασης δραστηριότητας <i>εξαλείφουν</i> τον αυξημένο κίνδυνο θανάτου από το πολύ κάθισμα. Στους πιο δραστήριους ο καθιστικός χρόνος έπαψε να συνδέεται με θνησιμότητα (εξαίρεση: ο χρόνος μπροστά στην τηλεόραση, που παρέμεινε επιβλαβής). <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/27475271/" target="_blank">PubMed 27475271</a></span>
+        </div>
+
+        <div class="fact-item fact-misleading">
+          <span class="fact-badge">⚠ MISLEADING</span>
+          <span>Χορηγία — «Το Urolithin A (Mitopure) βελτιώνει μύες και μιτοχόνδρια.» Υπάρχει υποστήριξη αλλά με αστερίσκο: το RCT Singh 2022 (Cell Reports Medicine) σε μεσήλικες έδειξε ~12% βελτίωση μυϊκής δύναμης και δείκτες μιτοχονδριακής υγείας, <i>όμως απέτυχε στο πρωτεύον τελικό σημείο</i> (peak power output). Τα οφέλη είναι μέτρια και χρειάζονται περισσότερες ανεξάρτητες μελέτες. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/35584623/" target="_blank">PubMed 35584623</a></span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -76,15 +105,15 @@
   <div class="channel-card">
     <div class="channel-header">
       <div class="channel-avatar" style="background:#27ae60;">JE</div>
-      <div class="channel-meta">
+      <div class="channel-info">
         <div class="channel-name">Jeremy Ethier</div>
         <div class="channel-topic">Επιστημονική Γυμναστική &amp; Διατροφή</div>
       </div>
-      <div class="badge-none">Κανένα νέο βίντεο</div>
+      <span class="badge-none">Κανένα νέο βίντεο</span>
     </div>
     <div class="no-video">
-      Τελευταίο γνωστό βίντεο: <em>~Φεβρουάριος 2026</em> — θεματική γύρω από προπόνηση υπερτροφίας &amp; «stretch» training (το web search δεν επιβεβαίωσε νεότερο upload).<br>
-      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+      <div class="last">Τελευταίο βίντεο: 24 Μαΐου 2026 — «Targeting Belly Fat Is... Possible?! (NEW Study)»</div>
+      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
     </div>
   </div>
 
@@ -92,15 +121,15 @@
   <div class="channel-card">
     <div class="channel-header">
       <div class="channel-avatar" style="background:#8e44ad;">PH</div>
-      <div class="channel-meta">
+      <div class="channel-info">
         <div class="channel-name">Physionic</div>
         <div class="channel-topic">Μοριακή Φυσιολογία &amp; Διατροφή</div>
       </div>
-      <div class="badge-none">Κανένα νέο βίντεο</div>
+      <span class="badge-none">Κανένα νέο βίντεο</span>
     </div>
     <div class="no-video">
-      Τελευταίο γνωστό βίντεο: <em>~20 Απριλίου 2026</em> — multi-study ανάλυση (βερβερίνη &amp; καρκίνος παχέος εντέρου, περιορισμός γλυκίνης &amp; καρκίνος, λίθιο &amp; Alzheimer, βιταμίνη K &amp; καρδιαγγειακά).<br>
-      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+      <div class="last">Τελευταίο βίντεο: 6 Ιουνίου 2026 — «Eat Eggs for Breakfast: Fat Loss, Muscle Growth, and Liver Protection»</div>
+      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
     </div>
   </div>
 
@@ -108,15 +137,15 @@
   <div class="channel-card">
     <div class="channel-header">
       <div class="channel-avatar" style="background:#f39c12;">FMF</div>
-      <div class="channel-meta">
+      <div class="channel-info">
         <div class="channel-name">FoundMyFitness (Dr. Rhonda Patrick)</div>
         <div class="channel-topic">Μακροζωία &amp; Διατροφική Επιστήμη</div>
       </div>
-      <div class="badge-none">Κανένα νέο βίντεο</div>
+      <span class="badge-none">Κανένα νέο βίντεο</span>
     </div>
     <div class="no-video">
-      Τελευταίο γνωστό βίντεο: <em>~4 Μαΐου 2026</em> — AMA επεισόδιο (β-γλυκάνη &amp; PFAS, κρεατίνη + καφεΐνη, urolithin A, εξωγενείς κετόνες, σάουνα). <em>(Στις 6 Ιουνίου υπήρξε live Q&amp;A μόνο για Premium μέλη — όχι δημόσιο upload.)</em><br>
-      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+      <div class="last">Τελευταίο βίντεο: 4 Μαΐου 2026 — «The Scientific Formula for a "Healthy Day" | Dr. Kelly Starrett»</div>
+      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
     </div>
   </div>
 
@@ -124,15 +153,15 @@
   <div class="channel-card">
     <div class="channel-header">
       <div class="channel-avatar" style="background:#6b8e23;">CD</div>
-      <div class="channel-meta">
+      <div class="channel-info">
         <div class="channel-name">Clean &amp; Delicious (Dani Spies)</div>
         <div class="channel-topic">Υγιεινές Συνταγές &amp; Απώλεια Βάρους</div>
       </div>
-      <div class="badge-none">Κανένα νέο βίντεο</div>
+      <span class="badge-none">Κανένα νέο βίντεο</span>
     </div>
     <div class="no-video">
-      Τελευταίο γνωστό βίντεο: <em>~Παρασκευή 5 Ιουνίου 2026</em> — το κανάλι ανεβάζει σταθερά κάθε Παρασκευή (ο ακριβής τίτλος δεν επιβεβαιώθηκε μέσω web search).<br>
-      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+      <div class="last">Τελευταίο βίντεο: 5 Ιουνίου 2026 — «HIGH PROTEIN COFFEE | Frothy, Creamy &amp; Quick (the BEST Recipe!)»</div>
+      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
     </div>
   </div>
 
@@ -140,21 +169,20 @@
   <div class="channel-card">
     <div class="channel-header">
       <div class="channel-avatar" style="background:#2980b9;">LK</div>
-      <div class="channel-meta">
+      <div class="channel-info">
         <div class="channel-name">Leonid Kim MD</div>
         <div class="channel-topic">Παχυσαρκία &amp; Μεταβολική Ιατρική</div>
       </div>
-      <div class="badge-none">Κανένα νέο βίντεο</div>
+      <span class="badge-none">Κανένα νέο βίντεο</span>
     </div>
     <div class="no-video">
-      Τελευταίο γνωστό βίντεο: <em>πρόσφατο (ακριβής ημ/νία μη επιβεβαιωμένη)</em> — «The FASTEST Way to Reverse Fatty Liver, Naturally».<br>
-      Δεν επιβεβαιώθηκε νέο βίντεο τις τελευταίες 24 ώρες.
+      <div class="last">Τελευταίο βίντεο: 29 Μαΐου 2026 — «Do This After 40 To Slow Down Aging»</div>
+      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
     </div>
   </div>
 
   <div class="footer">
-    Αυτόματη εκτέλεση · Δευτέρα, 8 Ιουνίου 2026 · Πηγές: YouTube transcripts + PubMed fact-check<br>
-    <a href="index.html">← Daily Brief</a>
+    Αυτόματη εκτέλεση · 8 Ιουνίου 2026 · Πηγές: YouTube transcripts + PubMed fact-check
   </div>
 
 </div>
