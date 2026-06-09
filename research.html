@@ -1,156 +1,372 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔬 Σύνοψη Ερευνών — 08/06/2026</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Σύνοψη Ερευνών — 09/06/2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f6f8;
+      color: #1a1a2e;
+      line-height: 1.65;
+      padding: 24px 16px 60px;
+    }
+    .container { max-width: 680px; margin: 0 auto; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #4a6fa5;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .header {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 28px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    .header .date {
+      font-size: 13px;
+      color: #8a8fa8;
+      margin-bottom: 18px;
+    }
+    .highlights {
+      background: #eef4ff;
+      border-left: 4px solid #4a6fa5;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-top: 8px;
+    }
+    .highlights h2 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #4a6fa5;
+      margin-bottom: 10px;
+    }
+    .highlights ul {
+      list-style: none;
+      padding: 0;
+    }
+    .highlights ul li {
+      font-size: 14px;
+      padding: 4px 0 4px 18px;
+      position: relative;
+      color: #2c3e6b;
+    }
+    .highlights ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #4a6fa5;
+      font-size: 12px;
+      top: 6px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 26px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 18px;
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .badge-weight    { background: #ffe8d6; color: #b85c00; }
+    .badge-hormones  { background: #fce4f0; color: #a3005a; }
+    .badge-meta      { background: #e8f4e8; color: #1e7a1e; }
+    .badge-pcos      { background: #ede8ff; color: #5500b8; }
+    .badge-if        { background: #e8f5ff; color: #005a9e; }
+    .badge-liver     { background: #fff8e1; color: #8a6000; }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.4;
+    }
+    .card-title-en {
+      font-size: 13px;
+      color: #7a7f96;
+      font-style: italic;
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+    .source-line {
+      font-size: 12px;
+      color: #8a8fa8;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .source-line a {
+      color: #4a6fa5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .source-line a:hover { text-decoration: underline; }
+    .source-dot { color: #c8ccd8; }
+    .card-text {
+      font-size: 14px;
+      color: #3a3f5c;
+      margin-bottom: 16px;
+    }
+    .hook-box {
+      background: #fff8ee;
+      border-left: 3px solid #f0a500;
+      border-radius: 6px;
+      padding: 11px 14px;
+      font-size: 13px;
+      color: #5a4200;
+      line-height: 1.55;
+    }
+    .hook-box strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #c07800;
+      margin-bottom: 5px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #b0b4c8;
+      margin-top: 40px;
+    }
+  </style>
 </head>
-<body style="margin:0; padding:0; background:#f4f6f8; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#1f2a37; line-height:1.6;">
-<div style="max-width:680px; margin:0 auto; padding:18px 14px 60px;">
+<body>
+<div class="container">
 
-  <!-- Top bar -->
-  <div style="margin-bottom:18px;">
-    <a href="index.html" style="display:inline-block; text-decoration:none; color:#2563eb; font-size:15px; font-weight:600;">← Daily Brief</a>
-  </div>
+  <a class="back-link" href="index.html">← Daily Brief</a>
 
-  <!-- Header -->
-  <div style="margin-bottom:8px;">
-    <h1 style="margin:0 0 6px; font-size:26px; line-height:1.25; color:#0f172a;">🔬 Σύνοψη Ερευνών</h1>
-    <div style="font-size:15px; color:#64748b;">Νέα στην επιστημονική βιβλιογραφία για τη διατροφή · 08/06/2026</div>
-  </div>
-  <div style="font-size:13px; color:#94a3b8; margin-bottom:22px;">Επιμέλεια: ερευνητικός βοηθός — learnnutrition.gr · Πηγή: PubMed (όλα τα links επαληθευμένα)</div>
-
-  <!-- Highlights -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:24px; border-top:4px solid #2563eb;">
-    <h2 style="margin:0 0 12px; font-size:19px; color:#0f172a;">✨ Τα κύρια highlights σήμερα</h2>
-    <ul style="margin:0; padding-left:20px; font-size:15.5px;">
-      <li style="margin-bottom:8px;">Το <strong>«πότε» τρως</strong> (διαλειμματική νηστεία / 9ωρο παράθυρο) δίνει <strong>παρόμοια — όχι καλύτερα</strong> αποτελέσματα με μια καλά δομημένη διαιτητική συμβουλή, σύμφωνα με δύο νέες μελέτες.</li>
-      <li style="margin-bottom:8px;">Δεν μετράει μόνο πόσα κιλά χάνεις: η μείωση του <strong>σπλαχνικού &amp; ηπατικού λίπους</strong> αναδεικνύεται ως ο πραγματικός στόχος για καρδιά και συκώτι (10ετής παρακολούθηση με MRI + μετα-ανάλυση).</li>
-      <li style="margin-bottom:0;">Οι «λεπτομέρειες» κάνουν τη διαφορά: η <strong>κατανομή της πρωτεΐνης</strong> στα γεύματα και η <strong>ποιότητα του σνακ</strong> (αμύγδαλα) αλλάζουν την όρεξη και τις ορμόνες της πείνας.</li>
-    </ul>
-  </div>
-
-  <!-- ===== CARD 1 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#ecfdf5; color:#047857; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">⏱️ Διαλειμματική νηστεία</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Χρονικά περιορισμένη διατροφή έναντι διαιτολογικής καθοδήγησης για τη γλυκαιμία σε άτομα με κίνδυνο διαβήτη τύπου 2</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Time-restricted eating versus dietetic guidance on glycaemic outcomes in adults at risk of type 2 diabetes: a non-inferiority randomised clinical trial)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Diabetologia</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42251202/" style="color:#2563eb; text-decoration:none;">PubMed: 42251202 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">247 ενήλικες με αυξημένο κίνδυνο διαβήτη τύπου 2 τυχαιοποιήθηκαν σε 9ωρο παράθυρο φαγητού (τελευταίο γεύμα έως τις 19:00) ή σε εξατομικευμένη διαιτολογική καθοδήγηση. Στους 4 μήνες η χρονικά περιορισμένη διατροφή ήταν <strong>μη κατώτερη — αλλά όχι ανώτερη</strong> από την κλασική συμβουλή ως προς τη HbA1c. Δηλαδή το «πότε» τρως μπορεί να αποδώσει παρόμοια με το «τι» τρως, χωρίς όμως να το ξεπερνά.</p>
-    <div style="background:#eff6ff; border-left:4px solid #3b82f6; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#1d4ed8;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#1e3a5f;">Αρκεί να κλείνεις το ψυγείο στις 7 το απόγευμα; Νέα μελέτη συγκρίνει το 9ωρο παράθυρο φαγητού με την κλασική διαιτολογική συμβουλή — και δείχνει ότι το ένα δεν νικάει το άλλο.</p>
+  <div class="header">
+    <h1>🔬 Σύνοψη Ερευνών</h1>
+    <div class="date">09 Ιουνίου 2026 &nbsp;|&nbsp; Πηγή: PubMed (τελευταίες 45 ημέρες)</div>
+    <div class="highlights">
+      <h2>✦ Κύρια Highlights Σήμερα</h2>
+      <ul>
+        <li>Ο συνδυασμός κορεσμένων λιπαρών <em>και</em> χοληστερόλης στη διατροφή αποδεικνύεται πολύ πιο επιβαρυντικός για το συκώτι σε σύγκριση με κάθε παράγοντα χωριστά — μέσω αλλαγών στο εντερικό μικροβίωμα.</li>
+        <li>Δύο νέες μελέτες αποκαλύπτουν μοριακούς μηχανισμούς (AMPK/TBK1 &amp; αντίσταση κατεχολαμινών) που εξηγούν γιατί ο οργανισμός «σαμποτάρει» την απώλεια βάρους κατά τη δίαιτα.</li>
+        <li>Η διαλειμματική νηστεία με παράθυρο 9 ωρών αποδείχθηκε εφάρμοσιμη εναλλακτική στη διαιτολογική συμβουλή για πρόληψη διαβήτη τύπου 2, σε RCT με 247 συμμετέχοντες.</li>
+      </ul>
     </div>
   </div>
 
-  <!-- ===== CARD 2 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#ecfdf5; color:#047857; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">⏱️ Διαλειμματική νηστεία</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Σε υπέρβαρα/παχύσαρκα άτομα, η διαλειμματική νηστεία δεν διαφέρει από τη διαιτητική συμβουλή — αλλά υπερτερεί έναντι «καμίας παρέμβασης»</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(In overweight or obesity, intermittent fasting does not differ from dietary advice but increases weight loss vs. no intervention)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Annals of Internal Medicine</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42224690/" style="color:#2563eb; text-decoration:none;">PubMed: 42224690 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">Σύνοψη τεκμηρίων που τοποθετεί τη διαλειμματική νηστεία στη θέση της: οδηγεί σε <strong>μεγαλύτερη απώλεια βάρους από το να μην κάνεις τίποτα</strong>, αλλά <strong>δεν υπερέχει</strong> έναντι μιας απλής, καλά δομημένης διαιτητικής συμβουλής. Επιβεβαιώνει ότι η νηστεία είναι ένα χρήσιμο εργαλείο — όχι μια μαγική λύση.</p>
-    <div style="background:#eff6ff; border-left:4px solid #3b82f6; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#1d4ed8;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#1e3a5f;">Η διαλειμματική νηστεία λειτουργεί — αλλά όχι καλύτερα από μια καλή δίαιτα. Τι σημαίνει αυτό αν δυσκολεύεσαι με τα αυστηρά ωράρια;</p>
+  <!-- CARD 1: Resistant Starch -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-weight">Απώλεια Βάρους</span>
+    </div>
+    <div class="card-title">Ανθεκτικό Άμυλο Τύπου I: Μειώνει το σωματικό βάρος 23,7% σε δίαιτα υψηλών λιπαρών μέσω εντερικού μικροβιώματος, GLP-1 και λιπιδικού μεταβολισμού</div>
+    <div class="card-title-en">Type I corn resistant starch attenuates obesity in high-fat diet-induced mice by modulating the gut microbiota, appetite and lipid metabolism genes</div>
+    <div class="source-line">
+      <span>Food Research International, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42169267/" target="_blank">PubMed 42169267</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1016/j.foodres.2026.119290" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Μελέτη σε ποντίκια με δίαιτα υψηλών λιπαρών έδειξε ότι η μεσαία δόση ανθεκτικού αμύλου τύπου I (RS1) από καλαμπόκι μείωσε το σωματικό βάρος κατά <strong>23,7%</strong> σε 8 εβδομάδες. Το RS1 αύξησε τα επίπεδα των ορμονών κορεσμού GLP-1 και PYY, βελτίωσε την αντίσταση ινσουλίνης και ανέστειλε τη λιπογένεση μειώνοντας γονίδια όπως ACC, FAS και SREBP-1c. Παράλληλα, ενίσχυσε ωφέλιμα βακτήρια (Faecalibaculum, Dubosiella, Lactobacillaceae) και μείωσε φλεγμονώδεις κυτοκίνες (TNF-α, IL-6). Τα ευρήματα τοποθετούν το RS1 ως πολλά υποσχόμενο prebiotic εργαλείο για τη διαχείριση παχυσαρκίας.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Ξέρετε ότι ο τρόπος που μαγειρεύουμε το αμύλι αλλάζει δραματικά τι κάνει στο σώμα μας; Νέα έρευνα δείχνει ότι το «ανθεκτικό άμυλο» αυξάνει τις ορμόνες κορεσμού και μειώνει την αντίσταση ινσουλίνης — αλλάζοντας ακόμα και τη σύσταση του εντερικού μικροβιώματος.
     </div>
   </div>
 
-  <!-- ===== CARD 3 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#fef2f2; color:#b91c1c; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">❤️ Μεταβολική υγεία</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Η απώλεια σπλαχνικού λίπους μέσω τρόπου ζωής ως κλειδί για διαρκή καρδιομεταβολική υγεία — 5ετής &amp; 10ετής παρακολούθηση με MRI</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Lifestyle-Induced Visceral Fat Loss as a Key Target for Durable Cardiometabolic Health: MRI-Assessed 5- and 10-Year Follow-Up After 2 Clinical Trials)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Circulation</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42227111/" style="color:#2563eb; text-decoration:none;">PubMed: 42227111 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">Ερευνητές επανεξέτασαν συμμετέχοντες των μελετών CENTRAL και DIRECT-PLUS, 5 και 10 χρόνια μετά. Η μείωση του σπλαχνικού/εκτοπικού λίπους κατά τη διάρκεια της παρέμβασης (δίαιτες χαμηλών υδατανθράκων &amp; «πράσινη» Μεσογειακή) συνδέθηκε με <strong>μακροχρόνια καλύτερο καρδιομεταβολικό προφίλ</strong>, ακόμη και χρόνια αργότερα. Το ποιο λίπος χάνεις (σπλαχνικό) φαίνεται να μετράει περισσότερο από τον αριθμό στη ζυγαριά.</p>
-    <div style="background:#fff7ed; border-left:4px solid #f97316; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#c2410c;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#7c3a12;">Δεν είναι όλα τα κιλά ίδια: μια παρακολούθηση με MRI 10 χρόνια μετά δείχνει ότι το λίπος της κοιλιάς κρύβει το πραγματικό στοίχημα για την καρδιά σου.</p>
+  <!-- CARD 2: White adipose tissue & hormones -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-hormones">Ορμόνες &amp; Παχυσαρκία</span>
+    </div>
+    <div class="card-title">Επέκταση λευκού λιπώδους ιστού: Ο κεντρικός οδηγός αντίστασης ινσουλίνης και ορμονικών διαταραχών στην παχυσαρκία</div>
+    <div class="card-title-en">White adipose tissue expansion as the driver of insulin resistance and secondary endocrine disturbances in obesity — a narrative review</div>
+    <div class="source-line">
+      <span>Diabetology &amp; Metabolic Syndrome, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42163380/" target="_blank">PubMed 42163380</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1186/s13098-026-02185-1" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Αυτή η ανασκόπηση ξεκαθαρίζει ότι δεν είναι το <em>συνολικό</em> λίπος, αλλά η <strong>δυσλειτουργία του λευκού λιπώδους ιστού και η σπλαχνική λιπώδης εναπόθεση</strong> που ευθύνεται για την αντίσταση ινσουλίνης και τις ορμονικές διαταραχές. Στην παχυσαρκία, η φυσιολογία της λεπτίνης (αντίσταση), της γκρελίνης, των ινκρετινών (GLP-1) αλλάζει δραστικά. Επιπλέον, η κοιλιακή λιπώδης εναπόθεση συνδέεται με διαταραχές θυρεοειδούς, επινεφριδίων και γονάδων. Το καλό νέο: <strong>η απώλεια βάρους μπορεί να επαναφέρει τη μεταβολική και ορμονική ισορροπία</strong>.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Γιατί η παχυσαρκία μπορεί να «μπλοκάρει» τον θυρεοειδή, τα επινεφρίδια, ακόμα και τις γονάδες; Νέα ανασκόπηση εξηγεί πώς η κοιλιακή λιπώδης εναπόθεση ξεκινά μια αλυσίδα ορμονικών διαταραχών — και γιατί η απώλεια κιλών μπορεί να τις αναστρέψει.
     </div>
   </div>
 
-  <!-- ===== CARD 4 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#f5f3ff; color:#6d28d9; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">🔄 Μεταβολική προσαρμογή</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Ενεργειακές προσαρμογές μετά από μέτριο θερμιδικό περιορισμό σε ενήλικες φυσιολογικού βάρους</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Energetic adaptations in response to moderate calorie restriction-induced weight loss in normal-weight adults)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Physiology &amp; Behavior</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/41966292/" style="color:#2563eb; text-decoration:none;">PubMed: 41966292 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">35 ενήλικες φυσιολογικού βάρους έχασαν 3% και στη συνέχεια 6% του βάρους τους. Με έμμεση θερμιδομετρία και αιματολογικούς δείκτες, η μελέτη κατέγραψε αλλαγές στη <strong>δαπάνη ενέργειας</strong>, στην οξείδωση υποστρωμάτων (ηρεμία &amp; άσκηση) και στο ορμονικό προφίλ. Φωτίζει τη μεταβολική προσαρμογή σε έναν πληθυσμό που σπάνια μελετάται: ανθρώπους που κάνουν δίαιτα χωρίς να είναι υπέρβαροι.</p>
-    <div style="background:#eff6ff; border-left:4px solid #3b82f6; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#1d4ed8;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#1e3a5f;">Τι συμβαίνει στον μεταβολισμό όταν κάνει δίαιτα κάποιος που δεν χρειάζεται καν να χάσει κιλά; Μια μελέτη ρίχνει φως στη «σιωπηλή» μεταβολική προσαρμογή.</p>
+  <!-- CARD 3: Catecholamine resistance -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-meta">Μεταβολική Προσαρμογή</span>
+    </div>
+    <div class="card-title">Αντίσταση κατεχολαμινών στο λιπώδη ιστό: Ένα μεταβολικό «φρένο» που δυσκολεύει τον έλεγχο βάρους</div>
+    <div class="card-title-en">Adipose tissue catecholamine resistance: a metabolic safeguard that challenges weight control</div>
+    <div class="source-line">
+      <span>Metabolism: Clinical and Experimental, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41833661/" target="_blank">PubMed 41833661</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1016/j.metabol.2026.156590" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Στην παχυσαρκία, ο λιπώδης ιστός «μαθαίνει» να αντιστέκεται στα σήματα κατεχολαμινών (αδρεναλίνη, νοραδρεναλίνη), μειώνοντας τη λιπόλυση και τη θερμογένεση. Αυτή η <strong>αντίσταση κατεχολαμινών</strong> λειτουργεί αρχικά ως προστατευτικός μηχανισμός έναντι υπερβολικής ορμονικής διέγερσης, αλλά τελικά εγκλωβίζει τον οργανισμό σε ενεργειακή αποθήκευση. Κατά την καλορική περιορισμό, αυτό σημαίνει μειωμένη ικανότητα κινητοποίησης λίπους — ένας από τους βασικούς μηχανισμούς <strong>μεταβολικής προσαρμογής</strong> στη δίαιτα.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Γιατί τελικά δεν καίμε λίπος με τη δίαιτα όσο θα έπρεπε; Νέα ανασκόπηση στο Metabolism αποκαλύπτει πώς ο οργανισμός στην παχυσαρκία «κλειδώνει» τον λιπώδη ιστό, κάνοντας τον σχεδόν ανίκανο να αποδεσμεύσει ενέργεια ακόμα και με αδρεναλίνη.
     </div>
   </div>
 
-  <!-- ===== CARD 5 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#fefce8; color:#a16207; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">⚖️ Απώλεια βάρους</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Η ισοκατανομή της ημερήσιας πρωτεΐνης σε τρία γεύματα μειώνει την «ανταμοιβή» και την πρόσληψη ενεργοβόρων σνακ κατά την απώλεια βάρους</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Evenly distributing daily dietary protein across three meals reduces women's snack food reinforcement and intake of energy-dense snack foods during weight loss: A randomized controlled trial)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Journal of the Academy of Nutrition and Dietetics</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42242423/" style="color:#2563eb; text-decoration:none;">PubMed: 42242423 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">Σε τυχαιοποιημένη μελέτη 16 εβδομάδων, γυναίκες που μοίραζαν την πρωτεΐνη <strong>ισόποσα στα τρία γεύματα</strong> εμφάνισαν μειωμένη «αξία ανταμοιβής» των ενεργοβόρων σνακ και έτρωγαν λιγότερα από αυτά. Δείχνει ότι δεν μετράει μόνο πόση πρωτεΐνη τρως, αλλά και <strong>πώς την κατανέμεις</strong> μέσα στην ημέρα.</p>
-    <div style="background:#fff7ed; border-left:4px solid #f97316; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#c2410c;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#7c3a12;">Το «μυστικό» για λιγότερο τσιμπολόγημα μπορεί να μην είναι η ποσότητα πρωτεΐνης — αλλά το πώς τη μοιράζεις στα γεύματα της ημέρας.</p>
+  <!-- CARD 4: AMPK/TBK1 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-meta">Μεταβολική Προσαρμογή</span>
+    </div>
+    <div class="card-title">Κύκλωμα AMPK/TBK1: Ο μοριακός μηχανισμός που «φρενάρει» τον καταβολισμό λίπους κατά τη νηστεία και τη δίαιτα</div>
+    <div class="card-title-en">A nutrient-responsive AMPK/TBK1 circuit restricts adipocyte catabolism</div>
+    <div class="source-line">
+      <span>JCI Insight, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42100877/" target="_blank">PubMed 42100877</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1172/jci.insight.200168" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Η μελέτη αναγνωρίζει το TBK1 ως έναν «διακόπτη» που ο οργανισμός ενεργοποιεί κατά τη νηστεία για να φρενάρει την AMPK και να μειώσει τον καταβολισμό — μηχανισμός ενεργειακής εξοικονόμησης. Στην παχυσαρκία, το TBK1 είναι χρόνια υπερ-ενεργοποιημένο, περιορίζοντας μόνιμα τη λιπόλυση και τη θερμογένεση. Η γενετική ή φαρμακολογική αναστολή του TBK1 (με amlexanox) σε ποντίκια βελτίωσε δραματικά την ευαισθησία στην ινσουλίνη, ενίσχυσε την απώλεια βάρους, και μείωσε τη φλεγμονή — ανοίγοντας δρόμο για νέες θεραπευτικές στρατηγικές κατά της <strong>μεταβολικής προσαρμογής</strong>.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Υπάρχει ένα γονίδιο μέσα στα λιποκύτταρα που «σβήνει» την καύση λίπους κατά τη δίαιτα — και νέα έρευνα στο JCI Insight δείχνει ακριβώς πώς λειτουργεί, και πώς μπορεί να απενεργοποιηθεί.
     </div>
   </div>
 
-  <!-- ===== CARD 6 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#fdf2f8; color:#be185d; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">🧬 Ορμόνες &amp; βάρος</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Ρύθμιση της όρεξης μετά από θερμιδικό περιορισμό: δίαιτα με αμύγδαλα έναντι δίαιτας χωρίς ξηρούς καρπούς</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Appetite regulation following energy restriction with almond-enriched vs. nut-free diets — a randomised controlled trial)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Obesity Research &amp; Clinical Practice</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42014246/" style="color:#2563eb; text-decoration:none;">PubMed: 42014246 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">140 υπέρβαρα άτομα κατανάλωναν αμύγδαλα ή μπάρες πλούσιες σε υδατάνθρακες κατά την απώλεια και τη διατήρηση βάρους. Στην ομάδα των αμυγδάλων η νηστική <strong>γκρελίνη</strong> (ορμόνη πείνας) μειώθηκε, ενώ η <strong>λεπτίνη</strong> αυξήθηκε περισσότερο — ένα ορμονικό προφίλ που ευνοεί τον κορεσμό. Στοιχείο ότι η ποιότητα του σνακ επηρεάζει τις ορμόνες της όρεξης, όχι μόνο τις θερμίδες.</p>
-    <div style="background:#eff6ff; border-left:4px solid #3b82f6; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#1d4ed8;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#1e3a5f;">Μια χούφτα αμύγδαλα αντί για μπάρα: πώς αλλάζει τις ορμόνες της πείνας σου; Νέα τυχαιοποιημένη μελέτη μετρά γκρελίνη και λεπτίνη.</p>
+  <!-- CARD 5: PCOS antioxidants -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-pcos">PCOS / Αντίσταση Ινσουλίνης</span>
+    </div>
+    <div class="card-title">Αντιοξειδωτική ικανότητα διατροφής, φλεγμονή και αντίσταση ινσουλίνης σε γυναίκες με PCOS</div>
+    <div class="card-title-en">Dietary Antioxidant Capacity, Inflammation, and Insulin Resistance in Women with Polycystic Ovary Syndrome: An Integrated Metabolic and Nutritional Assessment</div>
+    <div class="source-line">
+      <span>Diabetes, Metabolic Syndrome and Obesity, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42221149/" target="_blank">PubMed 42221149</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.2147/DMSO.S586793" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Σε 264 γυναίκες (129 με PCOS, 135 μάρτυρες), οι γυναίκες με PCOS είχαν σημαντικά <strong>χαμηλότερη συνολική αντιοξειδωτική πρόσληψη</strong> (score 11,8 vs 14,3), υψηλότερα δείκτες φλεγμονής (NLR: 2,09 vs 1,63) και σχεδόν <strong>διπλάσιο HOMA-IR</strong> (3,52 vs 1,98). Μοντέλο δομικών εξισώσεων (SEM) έδειξε ότι η υψηλή αντιοξειδωτική πρόσληψη μειώνει την αντίσταση ινσουλίνης τόσο άμεσα (β= -0,21) όσο και έμμεσα μέσω μείωσης φλεγμονής (β= -0,13). Η ενίσχυση της αντιοξειδωτικής διατροφής αναδεικνύεται ως ανεξάρτητη θεραπευτική στρατηγική για PCOS.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Αν έχεις PCOS, αυτό που τρως κάθε μέρα μπορεί να «σβήνει» ή να «ανάβει» τη φλεγμονή που επιδεινώνει την αντίσταση ινσουλίνης — νέα μελέτη σε 264 γυναίκες δείχνει πώς η αντιοξειδωτική διατροφή παίζει αποφασιστικό ρόλο.
     </div>
   </div>
 
-  <!-- ===== CARD 7 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#eef2ff; color:#4338ca; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">🩸 PCOS / Ινσουλίνη</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Διατροφική αντιοξειδωτική ικανότητα, φλεγμονή και αντίσταση στην ινσουλίνη σε γυναίκες με σύνδρομο πολυκυστικών ωοθηκών</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Dietary Antioxidant Capacity, Inflammation, and Insulin Resistance in Women with Polycystic Ovary Syndrome: An Integrated Metabolic and Nutritional Assessment)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Diabetes, Metabolic Syndrome and Obesity</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42221149/" style="color:#2563eb; text-decoration:none;">PubMed: 42221149 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">Συγκριτική μελέτη σε 129 γυναίκες με PCOS και 135 υγιείς. Διερευνά πώς η <strong>αντιοξειδωτική «αξία» της διατροφής</strong> συνδέεται με δείκτες φλεγμονής (NLR) και αντίστασης στην ινσουλίνη. Υπογραμμίζει τον πιθανό ρόλο μιας διατροφής πλούσιας σε αντιοξειδωτικά στη διαχείριση των μεταβολικών διαταραχών του PCOS.</p>
-    <div style="background:#fff7ed; border-left:4px solid #f97316; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#c2410c;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#7c3a12;">Μπορεί το χρώμα στο πιάτο να βοηθήσει στο PCOS; Μελέτη συνδέει τα αντιοξειδωτικά της διατροφής με τη φλεγμονή και την αντίσταση στην ινσουλίνη.</p>
+  <!-- CARD 6: TRE vs dietetic guidance RCT -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-if">Διαλειμματική Νηστεία</span>
+    </div>
+    <div class="card-title">Διαλειμματική νηστεία (9ωρο παράθυρο) vs εξατομικευμένη διαιτολογική συμβουλή για τον προδιαβήτη: RCT μη-κατωτερότητας</div>
+    <div class="card-title-en">Time-restricted eating versus dietetic guidance on glycaemic outcomes in adults at risk of type 2 diabetes: a non-inferiority randomised clinical trial</div>
+    <div class="source-line">
+      <span>Diabetologia, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42251202/" target="_blank">PubMed 42251202</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1007/s00125-026-06762-x" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Σε αυτή τη μεγάλη αυστραλιανή RCT (247 συμμετέχοντες με αυξημένο κίνδυνο Τ2ΔΜ), το 9ωρο παράθυρο διατροφής (<em>time-restricted eating</em>) αποδείχθηκε <strong>μη κατώτερο</strong> της εξατομικευμένης διαιτολογικής καθοδήγησης στη μείωση HbA1c στους 4 μήνες. Και στις δύο ομάδες οι αλλαγές HbA1c ήταν μικρές αλλά χωρίς κλινικά σημαντικές διαφορές. Η TRE αναδεικνύεται ως <strong>πρακτική εναλλακτική</strong> όταν η πρόσβαση σε διαιτολόγο είναι περιορισμένη ή όταν ο ασθενής την προτιμά λόγω απλότητας. (Χρηματοδότηση: Australian Government MRFF)
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Είναι η διαλειμματική νηστεία εξίσου αποτελεσματική με τη διαιτολογική συμβουλή για τον προδιαβήτη; Μια νέα κλινική δοκιμή σε 247 άτομα από την Αυστραλία δίνει μια ξεκάθαρη — και εκπληκτική — απάντηση.
     </div>
   </div>
 
-  <!-- ===== CARD 8 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#f0fdf4; color:#15803d; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">🫀 Υγιές συκώτι</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Αποτελεσματικότητα των διαιτών χαμηλών υδατανθράκων στη μείωση του σπλαχνικού και του ηπατικού λίπους σε υπέρβαρα/παχύσαρκα άτομα</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(The efficacy of carbohydrate-restricted diets on reducing visceral and liver fat in individuals with overweight and obesity: a systematic review and pairwise and network meta-analyses)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Critical Reviews in Food Science and Nutrition</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42234546/" style="color:#2563eb; text-decoration:none;">PubMed: 42234546 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">Συστηματική ανασκόπηση και μετα-ανάλυση δικτύου τυχαιοποιημένων μελετών έδειξε ότι οι δίαιτες περιορισμού υδατανθράκων (μέτριου έως πολύ χαμηλού επιπέδου) <strong>μείωσαν σημαντικά το σπλαχνικό και το ηπατικό λίπος</strong> σε σχέση με την έναρξη. Σημαντικό εύρημα για όσους έχουν λιπώδες ήπαρ (MASLD), όπου το ηπατικό λίπος αποτελεί κεντρικό θεραπευτικό στόχο.</p>
-    <div style="background:#eff6ff; border-left:4px solid #3b82f6; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#1d4ed8;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#1e3a5f;">Λιγότεροι υδατάνθρακες, λιγότερο λίπος στο συκώτι; Μια μετα-ανάλυση βάζει σε τάξη τι πραγματικά δουλεύει για το ηπατικό λίπος.</p>
+  <!-- CARD 7: Gut microbes & liver fibrosis -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-liver">Υγεία Συκωτιού</span>
+    </div>
+    <div class="card-title">Εντερικό μικροβίωμα, κορεσμένα λιπαρά και χοληστερόλη: Συνεργατική δράση που οδηγεί σε ινωτική MASH</div>
+    <div class="card-title-en">Gut microbes mediate the synergistic effects of dietary cholesterol and saturated fat in driving fibrosing MASH</div>
+    <div class="source-line">
+      <span>Gut Microbes, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42108649/" target="_blank">PubMed 42108649</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1080/19490976.2026.2668121" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Η μελέτη αποδεικνύει ότι κορεσμένα λιπαρά ΚΑΙ χοληστερόλη μαζί έχουν <strong>συνεργιστική επίδραση</strong> στην ανάπτυξη ινωτικής MASH — αλλά μόνο όταν υπάρχει εντερικό μικροβίωμα (ασηπτικοί ποντικοί δεν εμφάνισαν την ανάλογη βλάβη). Ο μηχανισμός: η σύνθεση των δύο τροφικών παραγόντων ευνοεί αύξηση <em>Akkermansia</em> spp. και παραγωγή δεοξυχολικού οξέος, το οποίο ενεργοποιεί τα ηπατικά αστεροειδή κύτταρα, προκαλώντας ίνωση. Το εύρημα επανατοποθετεί το εντερικό μικροβίωμα ως βασικό διαμεσολαβητή της ηπατικής βλάβης από τη δυτική διατροφή.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Δεν είναι μόνο το λίπος, ούτε μόνο η χοληστερόλη — είναι ο <em>συνδυασμός</em> τους που «εκπαιδεύει» τα εντερικά βακτήρια να καταστρέφουν το συκώτι: νέα έρευνα ρίχνει φως στο πώς ακριβώς η δυτική διατροφή οδηγεί σε σκλήρυνση του ήπατος.
     </div>
   </div>
 
-  <!-- ===== CARD 9 ===== -->
-  <div style="background:#ffffff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:20px 22px; margin-bottom:18px;">
-    <span style="display:inline-block; background:#f5f3ff; color:#6d28d9; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; margin-bottom:12px;">🔄 Μεταβολική προσαρμογή</span>
-    <h3 style="margin:0 0 6px; font-size:18px; color:#0f172a;">Άμβλυνση της προσαρμοστικής θερμογένεσης από μια «μαγειρική» δόση κόκκινης πιπεριάς σε 24ωρο αρνητικό ενεργειακό ισοζύγιο</h3>
-    <p style="margin:0 0 10px; font-size:13px; color:#94a3b8; font-style:italic;">(Attenuation of Adaptive Thermogenesis by a Culinary Dose of Red Pepper During 24-Hour Negative Energy Balance)</p>
-    <p style="margin:0 0 10px; font-size:13px; color:#64748b;">📚 <em>Nutrition Reviews</em>, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42186269/" style="color:#2563eb; text-decoration:none;">PubMed: 42186269 ↗</a></p>
-    <p style="margin:0 0 14px; font-size:15.5px;">Επικαιροποιημένη ανασκόπηση 22 δημοσιεύσεων εξετάζει αν η <strong>καψαϊκίνη</strong> (η καυτερή ουσία της κόκκινης πιπεριάς) σε καθημερινές, «μαγειρικές» δόσεις μπορεί να αμβλύνει την προσαρμοστική θερμογένεση και τη μειωμένη αίσθηση πληρότητας κατά τη δίαιτα. Διερευνά αν ένα απλό μπαχαρικό μπορεί να στηρίξει τη διατήρηση του βάρους, αντισταθμίζοντας μέρος της μεταβολικής προσαρμογής.</p>
-    <div style="background:#fff7ed; border-left:4px solid #f97316; border-radius:8px; padding:12px 14px;">
-      <span style="font-size:13px; font-weight:700; color:#c2410c;">🎣 Hook για άρθρο/βίντεο</span>
-      <p style="margin:6px 0 0; font-size:15px; color:#7c3a12;">Μπορεί λίγη καυτερή πιπεριά στο φαγητό να «αντισταθεί» στη μεταβολική προσαρμογή της δίαιτας; Νέα ανασκόπηση 22 μελετών εξετάζει τα στοιχεία.</p>
+  <!-- CARD 8: Camelina seeds -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-liver">Υγεία Συκωτιού</span>
+    </div>
+    <div class="card-title">Σπόροι camelina και γλυκοσινολάτη τους: Αντιμετωπίζουν τη λιπώδη νόσο ήπατος σε παχύσαρκα τρωκτικά μέσω ενεργοποίησης FGF21</div>
+    <div class="card-title-en">Camelina seeds and their glucosinolate, glucocamelinin, counteract severe fatty liver in rodents with monogenic obesity</div>
+    <div class="source-line">
+      <span>Genes &amp; Nutrition, 2026</span>
+      <span class="source-dot">·</span>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42251266/" target="_blank">PubMed 42251266</a>
+      <span class="source-dot">·</span>
+      <a href="https://doi.org/10.1186/s12263-026-00807-x" target="_blank">DOI</a>
+    </div>
+    <p class="card-text">
+      Σε παχύσαρκους αρουραίους και ποντίκια γενετικής παχυσαρκίας, οι σπόροι <em>Camelina sativa</em> μείωσαν δραματικά τη λιπώδη διήθηση ήπατος, μειώνοντας ολικά λιπίδια, τριγλυκερίδια και χοληστερόλη (p&lt;0,01). Η δραστική ουσία είναι η <strong>glucocamelinin</strong> (γλυκοσινολάτη), η οποία φαίνεται να ενεργοποιεί τον υποδοχέα θυρεοειδικής ορμόνης β (THR-β) αυξάνοντας την έκφραση <strong>FGF21</strong> — ένα σήμα που ρυθμίζει τον λιπιδικό μεταβολισμό στο ήπαρ. Η camelina τοποθετείται ως νέο υποψήφιο λειτουργικό τρόφιμο/nutraceutical για τη MASLD.
+    </p>
+    <div class="hook-box">
+      <strong>🎣 Hook για άρθρο/βίντεο</strong>
+      Υπάρχει ένας σπόρος που ίσως δεν έχετε ακούσει — και νέα επιστημονική μελέτη δείχνει ότι η δραστική ουσία του ενεργοποιεί έναν βασικό ρυθμιστή του λιπιδικού μεταβολισμού ήπατος, αντιστρέφοντας τη λιπώδη νόσο σε παχύσαρκα ζώα.
     </div>
   </div>
 
-  <!-- Footer -->
-  <div style="text-align:center; margin-top:30px; padding-top:20px; border-top:1px solid #e2e8f0;">
-    <p style="font-size:13px; color:#94a3b8; margin:0 0 6px;">Όλα τα links οδηγούν σε επαληθευμένες καταχωρίσεις PubMed. Καμία μελέτη, PMID ή link δεν δημιουργήθηκε αυθαίρετα.</p>
-    <p style="font-size:13px; color:#94a3b8; margin:0;">🔬 Σύνοψη Ερευνών · learnnutrition.gr · 08/06/2026</p>
+  <div class="footer">
+    Πηγή: PubMed / NCBI &nbsp;|&nbsp; learnnutrition.gr &nbsp;|&nbsp; Σάββας Τσανασίδης, Διαιτολόγος
   </div>
 
 </div>
