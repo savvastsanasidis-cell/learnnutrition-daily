@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LearnNutrition — Ιδέες Άρθρων</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 20px 24px 40px; }
+.topnav { margin-bottom: 18px; font-size: 12.5px; }
+.topnav a { color: #3b82f6; text-decoration: none; }
+.topnav a:hover { text-decoration: underline; }
+.header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 2px solid #e2e8f0; }
+.header h1 { font-size: 19px; font-weight: 700; color: #2d3748; }
+.meta { font-size: 11.5px; color: #718096; text-align: right; line-height: 1.6; }
+.sessions-banner { background: #ebf8ff; border: 1px solid #bee3f8; border-radius: 8px; padding: 8px 14px; font-size: 12px; color: #2b6cb0; margin-bottom: 12px; }
+.sources-panel { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; }
+.sources-title { font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px; }
+.sources-list { font-size: 11.5px; color: #64748b; line-height: 1.8; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+.tab-btn { padding: 6px 14px; border: none; border-radius: 20px; font-size: 12px; cursor: pointer; font-weight: 600; transition: all 0.15s; background: #e2e8f0; color: #4a5568; }
+.tab-btn.active, .tab-btn:hover { color: white; }
+.tab-btn[data-cat="enimerotika"].active, .tab-btn[data-cat="enimerotika"]:hover { background: #3b82f6; }
+.tab-btn[data-cat="psixologia"].active, .tab-btn[data-cat="psixologia"]:hover { background: #ec4899; }
+.tab-btn[data-cat="dyskolies"].active, .tab-btn[data-cat="dyskolies"]:hover { background: #f59e0b; }
+.tab-btn[data-cat="simperifora"].active, .tab-btn[data-cat="simperifora"]:hover { background: #8b5cf6; }
+.tab-btn[data-cat="erotiseis"].active, .tab-btn[data-cat="erotiseis"]:hover { background: #06b6d4; }
+.tab-btn[data-cat="sintages"].active, .tab-btn[data-cat="sintages"]:hover { background: #22c55e; }
+.tab-btn[data-cat="all"].active, .tab-btn[data-cat="all"]:hover { background: #1e293b; }
+.cat-section { display: none; }
+.cat-section.visible { display: block; }
+.cat-header { font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 8px; margin-bottom: 12px; }
+.cat-enimerotika .cat-header { background: #ebf4ff; color: #1a56db; }
+.cat-psixologia .cat-header { background: #fdf2f8; color: #9d174d; }
+.cat-dyskolies .cat-header { background: #fffbeb; color: #92400e; }
+.cat-simperifora .cat-header { background: #f5f3ff; color: #4c1d95; }
+.cat-erotiseis .cat-header { background: #ecfeff; color: #164e63; }
+.cat-sintages .cat-header { background: #f0fdf4; color: #166534; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.card { background: white; border-radius: 9px; padding: 13px 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); border-top: 3px solid transparent; }
+.cat-enimerotika .card { border-top-color: #3b82f6; }
+.cat-psixologia .card { border-top-color: #ec4899; }
+.cat-dyskolies .card { border-top-color: #f59e0b; }
+.cat-simperifora .card { border-top-color: #8b5cf6; }
+.cat-erotiseis .card { border-top-color: #06b6d4; }
+.cat-sintages .card { border-top-color: #22c55e; }
+.card-title { font-size: 12.5px; font-weight: 600; line-height: 1.45; margin-bottom: 7px; color: #1a202c; }
+.card-bullets { list-style: none; }
+.card-bullets li { font-size: 11.5px; color: #4a5568; padding: 2px 0 2px 14px; position: relative; line-height: 1.45; }
+.card-bullets li::before { content: "–"; position: absolute; left: 2px; color: #a0aec0; }
+.card-source { margin-top: 8px; padding-top: 7px; border-top: 1px solid #f0f0f0; font-size: 10.5px; color: #a0aec0; font-style: italic; }
+.empty { text-align: center; padding: 60px 20px; color: #718096; }
+.empty h3 { font-size: 15px; margin-bottom: 8px; color: #4a5568; }
+.empty p { font-size: 13px; line-height: 1.6; }
+@media (max-width: 700px) { .cards-grid { grid-template-columns: 1fr; } .header { flex-direction: column; gap: 8px; } .meta { text-align: left; } }
+</style>
+</head>
+<body>
+<div class="topnav"><a href="index.html">← LearnNutrition Daily Brief</a></div>
+<div class="header">
+  <h1>💡 Ιδέες Άρθρων από Συνεδρίες</h1>
+  <div class="meta" id="meta">Αναμονή πρώτης εκτέλεσης...</div>
+</div>
+<div id="banner" style="display:none" class="sessions-banner"></div>
+<div id="sourcesPanel" style="display:none" class="sources-panel">
+  <div class="sources-title">📂 Αρχεία που αναλύθηκαν</div>
+  <div id="sourcesList" class="sources-list"></div>
+</div>
+<div class="tabs" id="tabs"></div>
+<div id="content"></div>
+
+<script>
+const DATA = {"lastUpdate":"09/06/2026 16:36","sessionCount":2,"dietCount":0,"totalFileCount":2,"sessionDates":"09/06/2026","generationMode":"auto","analyzedFiles":[{"client":"Λένου Τάνια","kind":"transcript","file":"9 6 2026, 9_47_40.mp3.md"},{"client":"Αραμπατζή Άννα","kind":"transcript","file":"Arampatzi 9 6 2026, 10_52_36.mp3.md"}],"ideas":{"enimerotika":[{"title":"Σίδηρος και διατροφή: Πώς να ενισχύσεις τα επίπεδά σου φυσικά","bullets":["Ποια τρόφιμα έχουν την υψηλότερη περιεκτικότητα σε σίδηρο (αίμης και μη αίμης)","Τι βοηθά ή εμποδίζει την απορρόφηση του σιδήρου (βιταμίνη C vs καφές/τσάι)","Πότε χρειάζεσαι συμπλήρωμα και τι να ρωτήσεις τον γιατρό σου"],"source":"Πελάτης: Λένου Τάνια + Αραμπατζή Άννα | Αρχεία: 9 6 2026 | 09/06/2026"},{"title":"Κλιμακτήριο και διατροφή: Τι αλλάζει στο σώμα και τι να κάνεις","bullets":["Πώς επηρεάζει ο κλιμακτήριος τον μεταβολισμό και τη διανομή λίπους","Ποια θρεπτικά συστατικά γίνονται πιο κρίσιμα (ασβέστιο, βιταμίνη D, σίδηρος)","Πρακτικές διατροφικές αλλαγές που βοηθούν στον έλεγχο βάρους σε αυτή τη φάση"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"Αγελαδινό vs Πρόβειο vs Κατσικίσιο γιαούρτι: Ποιο ταιριάζει σε ποιον;","bullets":["Διαφορές σε πρωτεΐνη, λιπαρά και προβιοτικά ανά τύπο γιαουρτιού","Γιατί κάποιοι ανέχονται πρόβειο/κατσικίσιο καλύτερα (διαφορετική πρωτεΐνη, πεπτικότητα)","Πότε αξίζει να δοκιμάσεις εναλλακτικό αν το αγελαδινό σε ενοχλεί"],"source":"Πελάτης: Αραμπατζή Άννα | Αρχείο: Arampatzi 9 6 2026, 10_52_36.mp3.md | 09/06/2026"},{"title":"Νηστεία Αποστόλων: Πώς να νηστέψεις χωρίς να χάσεις πρωτεΐνη","bullets":["Ποια τρόφιμα επιτρέπονται στη νηστεία των Αποστόλων (ψάρι, θαλασσινά, λάδι)","Πώς να καλύψεις τις ανάγκες σου σε πρωτεΐνη μέσα από φυτικές και θαλασσινές πηγές","Πρακτικές ιδέες γευμάτων για κάθε μέρα της εβδομάδας (και Τετάρτη/Παρασκευή)"],"source":"Πελάτης: Λένου Τάνια + Αραμπατζή Άννα | Αρχεία: 9 6 2026 | 09/06/2026"},{"title":"Καλοκαιρινά φρούτα και διατροφή: Κεράσια, καρπούζι, πεπόνι — πόσο μπορώ να φάω;","bullets":["Θερμίδες και σάκχαρα των πιο δημοφιλών καλοκαιρινών φρούτων σε πρακτικές μερίδες","Γιατί δεν χρειάζεται να τα αποφεύγεις — αλλά ούτε να τρως χωρίς μέτρο","Πώς να εντάξεις φρούτα στο απογευματινό σου σνακ έξυπνα"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"}],"psixologia":[{"title":"«Απαγορευμένες τροφές»: Γιατί αυτή η λέξη κάνει περισσότερο κακό από ό,τι νομίζεις","bullets":["Πώς η γλώσσα που χρησιμοποιούμε για το φαγητό επηρεάζει τη σχέση μας μαζί του","Το φαινόμενο της «απαγορευμένης επιθυμίας» και γιατί τα περιοριστικά μοτίβα αντιστρέφονται","Εναλλακτικές λέξεις και αντιλήψεις για μια πιο υγιή σχέση με το φαγητό"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"Λιγούρα μετά το μεσημεριανό: τι κρύβεται πίσω από αυτή","bullets":["Γιατί νιώθουμε λιγούρα λίγο μετά ένα γεύμα — φυσιολογικές και ψυχολογικές αιτίες","Ρόλος των σακχάρων στη γλυκαιμική καμπύλη και τη λαχτάρα για γλυκό","3 πρακτικές στρατηγικές για να σπάσεις τον κύκλο της μεσημεριανής λιγούρας"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"Τρώω από άγχος: Πώς να διαχωρίσεις πείνα από συναίσθημα","bullets":["Σημάδια που δείχνουν ότι τρως συναισθηματικά και όχι από πραγματική πείνα","Πώς το οικογενειακό και εργασιακό άγχος μεταφράζεται σε αύξηση βάρους","Απλά βήματα για να δημιουργήσεις πιο συνειδητή σχέση με το φαγητό"],"source":"Πελάτης: Λένου Τάνια | Obsidian: Λένου Τάνια.md | 09/06/2026"}],"dyskolies":[{"title":"Διατροφή με ανομοιόμορφο ωράριο: Πώς να φας σωστά όταν δεν προλαβαίνεις","bullets":["Γιατί το να παραλείπεις γεύματα δεν βοηθά — και τι κάνει στον μεταβολισμό σου","Στρατηγικές για να εξασφαλίσεις έστω 2-3 γεύματα ακόμα και σε βάρδιες/σχολή","Γρήγορα, φορητά γεύματα που δεν χρειάζονται ψυγείο ή παρασκευή επί τόπου"],"source":"Πελάτης: Αραμπατζή Άννα | Αρχείο: Arampatzi 9 6 2026, 10_52_36.mp3.md | 09/06/2026"},{"title":"Τι τρώω όταν αρρωσταίνω; Γαστρεντερίτιδα, αδυναμία και επιστροφή στη διατροφή","bullets":["Ποια τρόφιμα ηρεμούν το στομάχι μετά από γαστρεντερίτιδα (ρύζι, φρυγανιές, μπανάνα, γιαούρτι)","Πότε μπορείς να επιστρέψεις στην κανονική σου διατροφή — και πώς","Γιατί μία βδομάδα αρρώστια δεν ακυρώνει την πρόοδό σου"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"Πώς να διατηρήσεις τη διατροφή σου όταν μαγειρεύεις για πολυμελή οικογένεια","bullets":["Τεχνικές για να φτιάχνεις ένα φαγητό και να τρως ό,τι σου ταιριάζει","Έξυπνες αντικαταστάσεις που δεν αλλάζουν τη γεύση για τους άλλους","Πώς να διαχειριστείς ψυχολογικά το «φαγητό της οικογένειας» χωρίς ενοχές"],"source":"Πελάτης: Λένου Τάνια | Obsidian: Λένου Τάνια.md | 09/06/2026"}],"simperifora":[{"title":"Τσιμπολόγημα απογεύματος: Πώς να το σταματήσεις οριστικά","bullets":["Γιατί το απόγευμα είναι η πιο ευάλωτη ώρα για ανεξέλεγκτη κατανάλωση","Ρόλος του οργανωμένου απογευματινού σνακ στην αποφυγή τσιμπολογήματος","Πρακτικές επιλογές σνακ που κόβουν τη λιγούρα χωρίς θερμίδες εκτός ελέγχου"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"«Δεν πεινάω το πρωί» — Γιατί να φας πρωινό ακόμα και αν δεν το ζητά το σώμα σου","bullets":["Τι συμβαίνει στον μεταβολισμό όταν παραλείπεις το πρωινό συστηματικά","Πώς η απουσία πρωινού οδηγεί σε υπερκατανάλωση αργότερα","Ελαφριές επιλογές πρωινού για αυτούς που δεν έχουν όρεξη το πρωί"],"source":"Πελάτης: Αραμπατζή Άννα | Αρχείο: Arampatzi 9 6 2026, 10_52_36.mp3.md | 09/06/2026"},{"title":"Ζύγισμα τροφίμων: Γιατί αξίζει να το κάνεις στην αρχή μιας διατροφής","bullets":["Πώς το ζύγισμα σε βοηθά να 'εκπαιδεύσεις' το μάτι σου και να καταλάβεις τις ποσότητες","Μύθοι γύρω από το ζύγισμα — δεν είναι εμμονή, είναι εργαλείο","Πότε μπορείς να σταματήσεις να ζυγίζεις και να εμπιστευτείς τον εαυτό σου"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"}],"erotiseis":[{"title":"«Μπορώ να φάω σε ταβέρνα ενώ κάνω διατροφή;» — Ναι, και να χαρείς και αυτό","bullets":["Πώς να διαβάσεις μενού ταβέρνας και να βρεις τις σωστές επιλογές","Η λογική του «ψητό ψάρι/κρέας + σαλάτα» και γιατί δουλεύει","Μικρές παραχωρήσεις (π.χ. ένα κομμάτι ψωμί) χωρίς τύψεις — ο ρόλος τους"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"«Γιατί το γιαούρτι με ενοχλεί ενώ τρώω άλλα γαλακτοκομικά κανονικά;»","bullets":["Δυσανεξία λακτόζης vs ευαισθησία σε συγκεκριμένες πρωτεΐνες γάλακτος","Γιατί μια μάρκα μπορεί να σε ενοχλεί και άλλη όχι — ρόλος ζύμωσης και πρόσθετων","Πότε αξίζει να κάνεις εξέταση δυσανεξίας και τι δείχνει"],"source":"Πελάτης: Αραμπατζή Άννα | Αρχείο: Arampatzi 9 6 2026, 10_52_36.mp3.md | 09/06/2026"},{"title":"«Πόσα κεράσια/φρούτα μπορώ να φάω ενώ χάνω κιλά;» — Τα φρούτα δεν είναι εχθρός","bullets":["Γλυκαιμικός δείκτης και φορτίο κερασιών, καρπουζιού, πεπονιού σε πρακτικές μερίδες","Πότε η «πολλή ζάχαρη από φρούτα» γίνεται πρόβλημα — και πότε δεν είναι","Έξυπνος τρόπος να τα εντάξεις στο πρόγραμμά σου χωρίς άγχος"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"}],"sintages":[{"title":"Φρυγανιά με αυγό, ταχίνι και μέλι — Το γρήγορο πρωινό που σε κρατά 3-4 ώρες","bullets":["Γιατί ο συνδυασμός πρωτεΐνης (αυγό) + υγιεινά λιπαρά (ταχίνι) + σύνθετοι υδατάνθρακες (ολικής) κρατά χορτάτο","Γρήγορη συνταγή σε 5 λεπτά ακόμα και σε βιαστικές μέρες","Παραλλαγές: με βούτυρο αμυγδάλου, μπανάνα ή φρέσκα φρούτα εποχής"],"source":"Πελάτης: Αραμπατζή Άννα | Αρχείο: Arampatzi 9 6 2026, 10_52_36.mp3.md | 09/06/2026"},{"title":"Ζελέ ως snack μετά το μεσημέρι: Λειτουργεί πραγματικά;","bullets":["Πώς ένα ελαφρύ, γλυκό snack χαμηλών θερμίδων μπορεί να σβήσει τη λιγούρα","Ποια ζελέ είναι καλύτερες επιλογές (χωρίς ζάχαρη, με πρωτεΐνη) και ποια να αποφεύγεις","Ο ψυχολογικός ρόλος του γλυκού στη μεσημεριανή λιγούρα"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"},{"title":"Πουτίγκα πρωτεΐνης ως απογευματινό snack — Τι να κοιτάς στην ετικέτα","bullets":["Πότε μια πουτίγκα πρωτεΐνης είναι πραγματικά καλή επιλογή (και πότε είναι απλώς γλυκό)","Τι να ελέγχεις στη διατροφική ετικέτα: πρωτεΐνη, ζάχαρη, πρόσθετα","Γρήγορες σπιτικές εναλλακτικές με ίδιο αποτέλεσμα"],"source":"Πελάτης: Λένου Τάνια | Αρχείο: 9 6 2026, 9_47_40.mp3.md | 09/06/2026"}]}};
+
+const CATS = [
+  { key: 'all',          label: '📋 Όλες',                  css: '' },
+  { key: 'enimerotika',  label: '📰 Ενημερωτικά',           css: 'cat-enimerotika' },
+  { key: 'psixologia',   label: '🧠 Ψυχολογία',             css: 'cat-psixologia' },
+  { key: 'dyskolies',    label: '⚡ Δυσκολίες',             css: 'cat-dyskolies' },
+  { key: 'simperifora',  label: '🔄 Συμπεριφορά',           css: 'cat-simperifora' },
+  { key: 'erotiseis',    label: '❓ Ερωτήσεις',             css: 'cat-erotiseis' },
+  { key: 'sintages',     label: '🍽️ Συνταγές / Γεύματα',   css: 'cat-sintages' },
+];
+
+function renderTabs(activeKey) {
+  const tabsEl = document.getElementById('tabs');
+  tabsEl.innerHTML = '';
+  CATS.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (c.key === activeKey ? ' active' : '');
+    btn.dataset.cat = c.key;
+    const ideas = c.key === 'all'
+      ? Object.values(DATA.ideas || {}).flat()
+      : (DATA.ideas || {})[c.key] || [];
+    btn.textContent = c.label + (ideas.length ? ` (${ideas.length})` : '');
+    btn.onclick = () => renderTabs(c.key);
+    tabsEl.appendChild(btn);
+  });
+  renderContent(activeKey);
+}
+
+function renderContent(activeKey) {
+  const el = document.getElementById('content');
+  el.innerHTML = '';
+
+  const catsToShow = activeKey === 'all'
+    ? CATS.filter(c => c.key !== 'all')
+    : CATS.filter(c => c.key === activeKey);
+
+  let anyContent = false;
+  catsToShow.forEach(cat => {
+    const ideas = (DATA.ideas || {})[cat.key] || [];
+    if (!ideas.length) return;
+    anyContent = true;
+    const section = document.createElement('div');
+    section.className = 'cat-section visible ' + cat.css;
+    const hdr = document.createElement('div');
+    hdr.className = 'cat-header';
+    hdr.textContent = cat.label;
+    section.appendChild(hdr);
+    const grid = document.createElement('div');
+    grid.className = 'cards-grid';
+    ideas.forEach(idea => {
+      const card = document.createElement('div'); card.className = 'card';
+      const t = document.createElement('div'); t.className = 'card-title'; t.textContent = idea.title; card.appendChild(t);
+      const ul = document.createElement('ul'); ul.className = 'card-bullets';
+      (idea.bullets || []).forEach(b => { const li = document.createElement('li'); li.textContent = b; ul.appendChild(li); });
+      card.appendChild(ul);
+      if (idea.source) { const s = document.createElement('div'); s.className = 'card-source'; s.textContent = '→ ' + idea.source; card.appendChild(s); }
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    el.appendChild(section);
+  });
+
+  if (!anyContent) {
+    el.innerHTML = '<div class="empty"><h3>Δεν υπάρχουν ιδέες ακόμα</h3><p>Το σύστημα ανανεώνεται αυτόματα κάθε 2 μέρες στις 8:30 πμ.<br>Ιδέες εμφανίζονται μόνο αν υπήρξαν συνεδρίες ή ενημερώσεις στο τελευταίο 48ωρο.</p></div>';
+  }
+}
+
+// Init
+document.getElementById('meta').innerHTML = 'Τελευταία ενημέρωση: <strong>' + DATA.lastUpdate + '</strong>';
+if (DATA.sessionCount > 0) {
+  const b = document.getElementById('banner');
+  b.style.display = 'block';
+  b.textContent = DATA.totalFileCount + ' αρχεία αναλύθηκαν (' + DATA.sessionDates + ')';
+}
+if ((DATA.analyzedFiles || []).length) {
+  const panel = document.getElementById('sourcesPanel');
+  const list = document.getElementById('sourcesList');
+  panel.style.display = 'block';
+  list.innerHTML = DATA.analyzedFiles.map(f => '📄 ' + f.client + ' — ' + f.kind + ' — ' + f.file).join('<br>');
+}
+renderTabs('all');
+</script>
+</body>
+</html>
