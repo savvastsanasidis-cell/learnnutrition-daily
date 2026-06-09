@@ -1,190 +1,38 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📡 YouTube Newsletter — learnnutrition.gr</title>
-<style>
-  body { font-family: -apple-system,'Segoe UI',Roboto,sans-serif; background:#f5f5f7; color:#1d1d1f; padding:20px; margin:0; }
-  .container { max-width:720px; margin:auto; }
-  .topnav { margin-bottom:14px; }
-  .topnav a { color:#1a73e8; text-decoration:none; font-size:0.9em; }
-  .header { text-align:center; padding:40px 20px 30px; background:linear-gradient(135deg,#1a1a2e,#16213e); border-radius:16px; color:white; margin-bottom:24px; }
-  .header h1 { font-size:1.6em; margin:0 0 8px; }
-  .header .date { color:#a0a0c0; }
-  .channel-card { background:white; border-radius:14px; padding:24px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
-  .channel-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
-  .channel-avatar { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; color:white; }
-  .channel-info { flex:1; }
-  .channel-name { font-size:1.15em; font-weight:bold; }
-  .channel-topic { font-size:0.85em; color:#86868b; }
-  .badge { background:#e8f5e9; color:#2e7d32; padding:4px 12px; border-radius:20px; font-size:0.78em; font-weight:600; white-space:nowrap; }
-  .badge-none { background:#f5f5f5; color:#999; padding:4px 12px; border-radius:20px; font-size:0.78em; white-space:nowrap; }
-  .video-item { border-top:1px solid #f0f0f0; padding:16px 0; }
-  .video-item:first-of-type { border-top:none; padding-top:0; }
-  .video-title { display:flex; gap:8px; align-items:baseline; margin-bottom:10px; flex-wrap:wrap; }
-  .play-icon { color:#e74c3c; }
-  .video-title a { font-weight:600; color:#1a73e8; text-decoration:none; }
-  .sponsor-tag { background:#fff3e0; color:#e65100; font-size:0.72em; padding:2px 8px; border-radius:12px; font-weight:600; }
-  .summary { font-size:0.93em; color:#333; padding-left:20px; border-left:3px solid #e8e8ed; margin:10px 0; }
-  .fact-check { margin-top:10px; }
-  .fact-title { font-size:0.82em; font-weight:bold; text-transform:uppercase; color:#555; margin-bottom:8px; }
-  .fact-item { padding:8px 12px; border-radius:8px; margin-bottom:6px; display:flex; gap:8px; font-size:0.9em; }
-  .fact-verified { background:#e8f5e9; border-left:4px solid #4caf50; }
-  .fact-misleading { background:#fff3e0; border-left:4px solid #ff9800; }
-  .fact-unverified { background:#f3e5f5; border-left:4px solid #9c27b0; }
-  .fact-badge { font-weight:bold; white-space:nowrap; }
-  .fact-verified .fact-badge { color:#4caf50; }
-  .fact-misleading .fact-badge { color:#ff9800; }
-  .fact-unverified .fact-badge { color:#9c27b0; }
-  .fact-link { color:#1a73e8; text-decoration:none; }
-  .no-video { text-align:center; color:#999; font-size:0.9em; padding:6px 0; }
-  .no-video .last { color:#555; }
-  .footer { text-align:center; color:#999; font-size:0.78em; margin-top:28px; padding-bottom:20px; }
-  .footer a { color:#1a73e8; text-decoration:none; }
-</style>
-</head>
-<body>
-<div class="container">
+<!DOCTYPE html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouTube Newsletter — Τρίτη, 9 Ιουνίου 2026</title><style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;padding:20px;margin:0}
+.container{max-width:720px;margin:auto}
+.back{display:inline-block;margin-bottom:14px;color:#1a73e8;text-decoration:none;font-size:.9em}
+.header{text-align:center;padding:40px 20px 30px;background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:16px;color:#fff;margin-bottom:24px}
+.header h1{font-size:1.6em;margin:0 0 6px} .date{color:#a0a0c0}
+.channel-card{background:#fff;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.channel-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.channel-avatar{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.channel-name{font-size:1.15em;font-weight:700} .channel-topic{font-size:.85em;color:#86868b}
+.badge{background:#e8f5e9;color:#2e7d32;padding:4px 12px;border-radius:20px;font-size:.8em;font-weight:600}
+.badge-none{background:#f5f5f5;color:#999}
+.video-item{border-top:1px solid #f0f0f0;padding:16px 0} .video-item:first-of-type{border-top:none}
+.video-title{display:flex;gap:8px;align-items:baseline;margin-bottom:8px} .play-icon{color:#e74c3c}
+.video-title a{font-weight:600;color:#1a73e8;text-decoration:none}
+.summary{font-size:.93em;color:#333;padding-left:20px;border-left:3px solid #e8e8ed;line-height:1.55}
+.sponsor-tag{background:#fff3e0;color:#e65100;font-size:.72em;padding:2px 8px;border-radius:20px}
+.fact-check{margin-top:12px} .fact-title{font-size:.82em;font-weight:700;text-transform:uppercase;color:#555;margin-bottom:6px}
+.fact-item{padding:8px 12px;border-radius:8px;margin-bottom:6px;display:flex;gap:8px;font-size:.9em;line-height:1.5}
+.fact-verified{background:#e8f5e9;border-left:4px solid #4caf50}
+.fact-misleading{background:#fff3e0;border-left:4px solid #ff9800}
+.fact-unverified{background:#f3e5f5;border-left:4px solid #9c27b0}
+.fact-badge{font-weight:700;white-space:nowrap} .fact-link{color:#1a73e8}
+.no-video{text-align:center;color:#999;font-size:.9em;line-height:1.6}
+.footer{text-align:center;color:#999;font-size:.78em;margin-top:10px} .footer a{color:#1a73e8}
+</style></head><body><div class="container">
+<a class="back" href="index.html">← Daily Brief</a>
+<div class="header"><h1>📡 YouTube Newsletter</h1><div class="date">Τρίτη, 9 Ιουνίου 2026</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#e74c3c">TD</div><div><div class="channel-name">Thomas DeLauer</div><div class="channel-topic">Διατροφή & Μεταβολισμός</div></div></div><span class="badge">1 νέο βίντεο</span><div class="video-item"><div class="video-title"><span class="play-icon">▶</span><a href="https://www.youtube.com/watch?v=gUIANdHa9p0" target="_blank">1/2 Cup of This Specific White Rice Drops Insulin (use it instead) →</a> <span class="sponsor-tag">χορηγία</span></div><div class="summary">Ο DeLauer εξηγεί ότι η επίδραση του ρυζιού στο σάκχαρο ΔΕΝ καθορίζεται από το «λευκό vs καστανό», αλλά από τον λόγο <b>αμυλόζης / αμυλοπηκτίνης</b>. Η αμυλοπηκτίνη (κολλώδη ρύζια όπως jasmine & sushi) διασπάται γρήγορα → απότομη αύξηση γλυκόζης· η αμυλόζη (basmati, long-grain) πέπτεται αργά, ένα μέρος φτάνει άθικτο στο παχύ έντερο και τρέφει τη μικροχλωρίδα → ηπιότερη γλυκαιμική απόκριση. Πρακτικός κανόνας από την υφή: κολλώδες = γρήγορο spike, ξεχωριστό/αφράτο = αργή απελευθέρωση — και η <b>ποικιλία μετράει περισσότερο από το χρώμα</b> (λευκό basmati μπορεί να είναι καλύτερο από κοντόκοκκο καστανό). Επιπλέον, αν μαγειρέψεις και ΚΡΥΩΣΕΙΣ το ρύζι (retrogradation), σχηματίζεται ανθεκτικό άμυλο που μειώνει κι άλλο τη γλυκαιμική απόκριση. Τέλος αναφέρει 10γρ ψύλλιο ως «λεβιέ» που μετριάζει την ινσουλινική απόκριση σε γεύματα με υδατάνθρακες.</div><div class="fact-check"><div class="fact-title">Έλεγχος ισχυρισμών</div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Το κρύωμα μαγειρεμένου ρυζιού δημιουργεί ανθεκτικό άμυλο και μειώνει τη μεταγευματική γλυκαιμία — επιβεβαιωμένο σε διαβητικούς τύπου 2. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/35429987/" target="_blank">PubMed 35429987</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Το ψύλλιο μετριάζει σημαντικά τη μεταγευματική απόκριση γλυκόζης/εντερικών πεπτιδίων σε γεύμα. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/20147463/" target="_blank">PubMed 20147463</a></span></div></div></div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#27ae60">JE</div><div><div class="channel-name">Jeremy Ethier</div><div class="channel-topic">Επιστημονική Γυμναστική & Διατροφή</div></div></div><span class="badge badge-none">Κανένα νέο βίντεο</span><div class="no-video">Τελευταίο βίντεο: 24 Μαΐου 2026 — "Targeting Belly Fat Is... Possible?! (NEW Study)"<br>Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#8e44ad">PH</div><div><div class="channel-name">Physionic</div><div class="channel-topic">Μοριακή Φυσιολογία & Διατροφή</div></div></div><span class="badge">1 νέο βίντεο</span><div class="video-item"><div class="video-title"><span class="play-icon">▶</span><a href="https://www.youtube.com/watch?v=Mz2pmsvwlt0" target="_blank">This New Protein Study just Changed how we Think about Protein →</a></div><div class="summary">Νέα μελέτη (σε ποντίκια) προτείνει μηχανισμό για το ΓΙΑΤΙ η πρωτεΐνη κόβει την πρόσληψη τροφής: το αμινοξύ <b>λευκίνη</b> ενεργοποιεί μια λειτουργική πρωτεΐνη (CaV3.1) στους POMC νευρώνες του υποθαλάμου, που στέλνουν σήματα κορεσμού. Όταν «σβήνεται» η CaV3.1, χάνεται η μείωση πρόσληψης τροφής στην υψηλή πρωτεΐνη. Το πρακτικό συμπέρασμα για ανθρώπους: η υψηλή πρωτεΐνη (~25–30% της πρόσληψης) βοηθά σε απώλεια βάρους/λίπους κυρίως όταν ΔΕΝ μετράμε θερμίδες — όταν οι θερμίδες «κλειδώνονται», το όφελος εξαφανίζεται. Η λευκίνη ίσως έχει ανεξάρτητο αλλά μικρό αποτέλεσμα κορεσμού· ο ίδιος ο ομιλητής παραδέχεται ότι οι σχετικές μελέτες είναι υποτονικές (underpowered) και θέλουν περισσότερα δεδομένα.</div><div class="fact-check"><div class="fact-title">Έλεγχος ισχυρισμών</div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Υψηλή πρωτεΐνη ad libitum (30% της πρόσληψης) → μειωμένη όρεξη, αυθόρμητη μείωση θερμίδων και απώλεια βάρους. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/16002798/" target="_blank">PubMed 16002798</a></span></div><div class="fact-item fact-unverified"><span class="fact-badge" style="color:#9c27b0">❓ UNVERIFIED</span><span>Ο συγκεκριμένος μηχανισμός «λευκίνη → CaV3.1 → POMC νευρώνες» είναι πολύ πρόσφατος και δεν κατάφερα να τον εντοπίσω/επαληθεύσω στο PubMed — οπότε δεν μπαίνει link (μην τον θεωρείς ακόμη επιβεβαιωμένο).</span></div><div class="fact-item fact-misleading"><span class="fact-badge" style="color:#ff9800">⚠ MISLEADING</span><span>Το «ανεξάρτητο» αποτέλεσμα της λευκίνης στον κορεσμό παρουσιάζεται πιο σίγουρα απ' ό,τι δείχνουν τα δεδομένα (μικρό δείγμα, οριακή στατιστική σημαντικότητα) — όπως παραδέχεται κι ο ίδιος.</span></div></div></div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#f39c12">FMF</div><div><div class="channel-name">FoundMyFitness (Dr. Rhonda Patrick)</div><div class="channel-topic">Μακροζωία & Διατροφική Επιστήμη</div></div></div><span class="badge badge-none">Κανένα νέο βίντεο</span><div class="no-video">Τελευταίο βίντεο: 4 Μαΐου 2026 — "Watch my new episode with Dr. Kelly Starrett"<br>Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#6b8e23">CD</div><div><div class="channel-name">Clean &amp; Delicious (Dani Spies)</div><div class="channel-topic">Υγιεινές Συνταγές & Απώλεια Βάρους</div></div></div><span class="badge badge-none">Κανένα νέο βίντεο</span><div class="no-video">Τελευταίο βίντεο: 5 Ιουνίου 2026 — "HIGH PROTEIN COFFEE | Frothy, Creamy &amp; Quick (the BEST Recipe!)"<br>Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#2980b9">LK</div><div><div class="channel-name">Leonid Kim MD</div><div class="channel-topic">Παχυσαρκία & Μεταβολική Ιατρική</div></div></div><span class="badge">1 νέο βίντεο</span><div class="video-item"><div class="video-title"><span class="play-icon">▶</span><a href="https://www.youtube.com/watch?v=UaWxB8EyYWA" target="_blank">Cut Your DEMENTIA Risk in HALF (What Actually Works) →</a></div><div class="summary">Ο Dr. Kim παρουσιάζει 4 «συστήματα» πρόληψης άνοιας, με τη λογική ότι η παρέμβαση πρέπει να γίνει νωρίς — ακόμη και με υψηλό γενετικό κίνδυνο (APOE). <b>(1) Σύστημα καθαρισμού (glymphatic):</b> εξαρτάται από την ποιότητα ύπνου· οι διαταραχές ύπνου συνδέονται με ~57% υψηλότερο κίνδυνο· κανόνας 3-2-1 πριν τον ύπνο, έλεγχος για άπνοια, αποφυγή αλκοόλ. <b>(2) BDNF / νευρογένεση:</b> η αερόβια άσκηση αυξάνει τον όγκο του ιπποκάμπου ~2% σε 1 χρόνο· ~9.800 βήματα/μέρα ≈ 50% μείωση κινδύνου, 3.800 ≈ 25%. <b>(3) Αγγειακό:</b> έλεγχος πίεσης & σακχάρου, ιδίως στη μέση ηλικία. <b>(4) Γνωστικό απόθεμα:</b> νέες δεξιότητες, αθλήματα ρακέτας (τένις ≈ +9,7 χρόνια προσδόκιμο στη μελέτη της Κοπεγχάγης). Συνολικά, η Lancet εκτιμά ότι έως 45% των περιπτώσεων άνοιας μπορούν δυνητικά να προληφθούν.</div><div class="fact-check"><div class="fact-title">Έλεγχος ισχυρισμών</div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Έως 45% των περιπτώσεων άνοιας είναι δυνητικά προλήψιμες με αντιμετώπιση συγκεκριμένων παραγόντων (Lancet Commission 2024). <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/39096926/" target="_blank">PubMed 39096926</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>1 χρόνος αερόβιας άσκησης αυξάνει τον όγκο του ιπποκάμπου (~2%) και βελτιώνει τη μνήμη. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/21282661/" target="_blank">PubMed 21282661</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Περισσότερα ημερήσια βήματα συνδέονται με χαμηλότερο κίνδυνο άνοιας (~9.800 βήματα ≈ μέγιστο όφελος) — JAMA Neurology, 78.430 άτομα. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/36066874/" target="_blank">PubMed 36066874</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Τα αθλήματα ρακέτας/τένις συνδέονται με σημαντικά μεγαλύτερο προσδόκιμο ζωής (Copenhagen City Heart Study). <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/30193744/" target="_blank">PubMed 30193744</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Οι διαταραχές ύπνου / αϋπνία αυξάνουν τον κίνδυνο άνοιας (μετα-ανάλυση)· το ακριβές ποσοστό ποικίλλει ανά μελέτη. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/27017287/" target="_blank">PubMed 27017287</a></span></div></div></div></div>
 
-  <div class="topnav"><a href="index.html">← Daily Brief</a></div>
-
-  <div class="header">
-    <h1>📡 YouTube Newsletter</h1>
-    <div class="date">Δευτέρα, 8 Ιουνίου 2026</div>
-  </div>
-
-  <!-- 1. Thomas DeLauer -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="channel-avatar" style="background:#e74c3c;">TD</div>
-      <div class="channel-info">
-        <div class="channel-name">Thomas DeLauer</div>
-        <div class="channel-topic">Διατροφή &amp; Μεταβολισμός</div>
-      </div>
-      <span class="badge">1 νέο βίντεο</span>
-    </div>
-
-    <div class="video-item">
-      <div class="video-title">
-        <span class="play-icon">▶</span>
-        <a href="https://www.youtube.com/watch?v=uD_-F-PqtXU" target="_blank">We Found the Key to Losing Belly Fat, Metabolic Dysfunction and Longevity →</a>
-        <span class="sponsor-tag">Χορηγία: Timeline Mitopure</span>
-      </div>
-      <div class="summary">
-        Ο Thomas DeLauer υποστηρίζει ότι το «κλειδί» για απώλεια κοιλιακού λίπους, διόρθωση της μεταβολικής δυσλειτουργίας και μακροζωία δεν είναι κυρίως η δομημένη προπόνηση, αλλά η <b>μείωση του καθιστικού χρόνου</b> και η αύξηση του <b>NEAT</b> (Non-Exercise Activity Thermogenesis) — της θερμογένεσης από την καθημερινή, μη-αθλητική κίνηση (περπάτημα, όρθια στάση, fidgeting, δουλειές του σπιτιού). Ξεκινά τεκμηριώνοντας ότι ο παρατεταμένος καθιστικός χρόνος συνδέεται <i>ανεξάρτητα</i> με αυξημένο κίνδυνο καρδιαγγειακής νόσου, διαβήτη τύπου 2 και θνησιμότητας — ακόμη κι σε ανθρώπους που γυμνάζονται. Στη συνέχεια εξηγεί ότι το NEAT μπορεί να «κάψει» εκατοντάδες θερμίδες ημερησίως και να εξηγήσει τεράστιες ατομικές διαφορές στην αντίσταση στην αύξηση λίπους, παραπέμποντας στην κλασική μελέτη του Levine όπου, υπό υπερσίτιση, το NEAT ήταν ο βασικός παράγοντας που καθόριζε ποιος παχαίνει και ποιος όχι. Συγκρίνει NEAT vs άσκηση, καταλήγοντας ότι η συνεχής, χαμηλής έντασης κίνηση όλη μέρα μπορεί να υπερτερεί ενεργειακά μιας μεμονωμένης προπόνησης, και θέτει το ερώτημα αν ο πολύς καθιστικός χρόνος ακυρώνει τα οφέλη της γυμναστικής (φαινόμενο «active couch potato»). <b>Πρακτικό συμπέρασμα:</b> σπάσε τα παρατεταμένα διαστήματα καθίσματος, βάλε στόχο πολλά βήματα και όρθια στάση μέσα στη μέρα, και μη βασίζεσαι αποκλειστικά σε μία προπόνηση για το μεταβολικό σου προφίλ. (Το βίντεο περιέχει πληρωμένη συνεργασία με τη Timeline Mitopure / Urolithin A.)
-      </div>
-
-      <div class="fact-check">
-        <div class="fact-title">🔬 Έλεγχος Ισχυρισμών — PubMed</div>
-
-        <div class="fact-item fact-verified">
-          <span class="fact-badge">✓ VERIFIED</span>
-          <span>«Ο παρατεταμένος καθιστικός χρόνος αυξάνει ανεξάρτητα τον κίνδυνο θανάτου, καρδιαγγειακών και διαβήτη, ακόμη κι αν γυμνάζεσαι.» Επιβεβαιώνεται: η μετα-ανάλυση Biswas 2015 (Ann Intern Med) βρήκε HR θνησιμότητας 1.24 και επίπτωσης διαβήτη τύπου 2 1.91, προσαρμοσμένα για τη φυσική δραστηριότητα· η μεγάλη δοσοεξαρτώμενη μετα-ανάλυση Patterson 2018 (1.3 εκατ. άτομα) εντόπισε όριο κινδύνου στις 6–8 ώρες/ημέρα. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/25599350/" target="_blank">PubMed 25599350</a> · <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/29589226/" target="_blank">PubMed 29589226</a></span>
-        </div>
-
-        <div class="fact-item fact-verified">
-          <span class="fact-badge">✓ VERIFIED</span>
-          <span>«Το NEAT καθορίζει ποιος αντιστέκεται στην αύξηση λίπους.» Επιβεβαιώνεται από την εμβληματική μελέτη Levine 1999 (Science): σε 8 εβδομάδες υπερσίτισης (+1000 kcal/ημέρα), τα 2/3 της αύξησης της ενεργειακής δαπάνης οφείλονταν στο NEAT, και οι μεταβολές του NEAT προέβλεπαν την αντίσταση στην αύξηση λίπους (r = 0.77, p &lt; 0.001), εξηγώντας έως και 10-πλάσιες διαφορές στην αποθήκευση λίπους. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/9880251/" target="_blank">PubMed 9880251</a></span>
-        </div>
-
-        <div class="fact-item fact-misleading">
-          <span class="fact-badge">⚠ MISLEADING</span>
-          <span>«Ο πολύς καθιστικός χρόνος ακυρώνει τα οφέλη της άσκησης.» Μερικώς αληθές αλλά υπεραπλούστευση: η εναρμονισμένη μετα-ανάλυση Ekelund 2016 (Lancet, &gt;1 εκατ. άτομα) έδειξε το αντίστροφο — ~60–75 λεπτά/ημέρα μέτριας έντασης δραστηριότητας <i>εξαλείφουν</i> τον αυξημένο κίνδυνο θανάτου από το πολύ κάθισμα. Στους πιο δραστήριους ο καθιστικός χρόνος έπαψε να συνδέεται με θνησιμότητα (εξαίρεση: ο χρόνος μπροστά στην τηλεόραση, που παρέμεινε επιβλαβής). <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/27475271/" target="_blank">PubMed 27475271</a></span>
-        </div>
-
-        <div class="fact-item fact-misleading">
-          <span class="fact-badge">⚠ MISLEADING</span>
-          <span>Χορηγία — «Το Urolithin A (Mitopure) βελτιώνει μύες και μιτοχόνδρια.» Υπάρχει υποστήριξη αλλά με αστερίσκο: το RCT Singh 2022 (Cell Reports Medicine) σε μεσήλικες έδειξε ~12% βελτίωση μυϊκής δύναμης και δείκτες μιτοχονδριακής υγείας, <i>όμως απέτυχε στο πρωτεύον τελικό σημείο</i> (peak power output). Τα οφέλη είναι μέτρια και χρειάζονται περισσότερες ανεξάρτητες μελέτες. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/35584623/" target="_blank">PubMed 35584623</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Jeremy Ethier -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="channel-avatar" style="background:#27ae60;">JE</div>
-      <div class="channel-info">
-        <div class="channel-name">Jeremy Ethier</div>
-        <div class="channel-topic">Επιστημονική Γυμναστική &amp; Διατροφή</div>
-      </div>
-      <span class="badge-none">Κανένα νέο βίντεο</span>
-    </div>
-    <div class="no-video">
-      <div class="last">Τελευταίο βίντεο: 24 Μαΐου 2026 — «Targeting Belly Fat Is... Possible?! (NEW Study)»</div>
-      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
-    </div>
-  </div>
-
-  <!-- 3. Physionic -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="channel-avatar" style="background:#8e44ad;">PH</div>
-      <div class="channel-info">
-        <div class="channel-name">Physionic</div>
-        <div class="channel-topic">Μοριακή Φυσιολογία &amp; Διατροφή</div>
-      </div>
-      <span class="badge-none">Κανένα νέο βίντεο</span>
-    </div>
-    <div class="no-video">
-      <div class="last">Τελευταίο βίντεο: 6 Ιουνίου 2026 — «Eat Eggs for Breakfast: Fat Loss, Muscle Growth, and Liver Protection»</div>
-      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
-    </div>
-  </div>
-
-  <!-- 4. FoundMyFitness -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="channel-avatar" style="background:#f39c12;">FMF</div>
-      <div class="channel-info">
-        <div class="channel-name">FoundMyFitness (Dr. Rhonda Patrick)</div>
-        <div class="channel-topic">Μακροζωία &amp; Διατροφική Επιστήμη</div>
-      </div>
-      <span class="badge-none">Κανένα νέο βίντεο</span>
-    </div>
-    <div class="no-video">
-      <div class="last">Τελευταίο βίντεο: 4 Μαΐου 2026 — «The Scientific Formula for a "Healthy Day" | Dr. Kelly Starrett»</div>
-      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
-    </div>
-  </div>
-
-  <!-- 5. Clean & Delicious -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="channel-avatar" style="background:#6b8e23;">CD</div>
-      <div class="channel-info">
-        <div class="channel-name">Clean &amp; Delicious (Dani Spies)</div>
-        <div class="channel-topic">Υγιεινές Συνταγές &amp; Απώλεια Βάρους</div>
-      </div>
-      <span class="badge-none">Κανένα νέο βίντεο</span>
-    </div>
-    <div class="no-video">
-      <div class="last">Τελευταίο βίντεο: 5 Ιουνίου 2026 — «HIGH PROTEIN COFFEE | Frothy, Creamy &amp; Quick (the BEST Recipe!)»</div>
-      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
-    </div>
-  </div>
-
-  <!-- 6. Leonid Kim MD -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="channel-avatar" style="background:#2980b9;">LK</div>
-      <div class="channel-info">
-        <div class="channel-name">Leonid Kim MD</div>
-        <div class="channel-topic">Παχυσαρκία &amp; Μεταβολική Ιατρική</div>
-      </div>
-      <span class="badge-none">Κανένα νέο βίντεο</span>
-    </div>
-    <div class="no-video">
-      <div class="last">Τελευταίο βίντεο: 29 Μαΐου 2026 — «Do This After 40 To Slow Down Aging»</div>
-      Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.
-    </div>
-  </div>
-
-  <div class="footer">
-    Αυτόματη εκτέλεση · 8 Ιουνίου 2026 · Πηγές: YouTube transcripts + PubMed fact-check
-  </div>
-
-</div>
-</body>
-</html>
+<div class="footer">Αυτόματη εκτέλεση · Τρίτη, 9 Ιουνίου 2026 · Πηγές: YouTube transcripts (yt-dlp) + PubMed fact-check</div>
+</div></body></html>
