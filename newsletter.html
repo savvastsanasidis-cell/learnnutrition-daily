@@ -1,260 +1,38 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube Newsletter</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; color: #1a202c; min-height: 100vh; }
-  .header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; }
-  .header-title { font-size: 22px; font-weight: 700; color: #1a202c; }
-  .header-title span { color: #3182ce; }
-  .header-date { font-size: 13px; color: #718096; background: #f7fafc; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 20px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 28px 20px; }
-  .channel-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .channel-header { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-bottom: 1px solid #e2e8f0; background: #f7fafc; }
-  .avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: #fff; flex-shrink: 0; }
-  .av-delauer { background: linear-gradient(135deg, #e53e3e, #c53030); }
-  .av-ethier  { background: linear-gradient(135deg, #38a169, #276749); }
-  .av-physionic { background: linear-gradient(135deg, #805ad5, #6b46c1); }
-  .av-foundmyfitness { background: linear-gradient(135deg, #d69e2e, #b7791f); }
-  .av-cleandelicious { background: linear-gradient(135deg, #48bb78, #2f855a); }
-  .av-leonidkim { background: linear-gradient(135deg, #4299e1, #2b6cb0); }
-  .channel-info { flex: 1; }
-  .channel-name { font-size: 16px; font-weight: 600; color: #1a202c; }
-  .channel-topic { font-size: 12px; color: #a0aec0; margin-top: 2px; }
-  .no-videos-badge { font-size: 12px; color: #a0aec0; background: #edf2f7; border: 1px solid #e2e8f0; padding: 4px 12px; border-radius: 12px; }
-  .new-badge { font-size: 12px; color: #276749; background: #f0fff4; border: 1px solid #9ae6b4; padding: 4px 12px; border-radius: 12px; }
-  .video-block { padding: 20px 22px; border-bottom: 1px solid #e2e8f0; }
-  .video-block:last-child { border-bottom: none; }
-  .video-title-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
-  .video-title { font-size: 15px; font-weight: 600; color: #2b6cb0; text-decoration: none; line-height: 1.4; flex: 1; }
-  .video-title:hover { color: #2c5282; text-decoration: underline; }
-  .play-icon { flex-shrink: 0; width: 28px; height: 28px; background: #e53e3e; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: white; margin-top: 1px; }
-  .summary { font-size: 14px; color: #4a5568; line-height: 1.7; margin-bottom: 16px; }
-  .factcheck-section { margin-top: 4px; }
-  .factcheck-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin-bottom: 8px; }
-  .fact-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 8px; margin-bottom: 6px; font-size: 13px; line-height: 1.55; }
-  .fact-item:last-child { margin-bottom: 0; }
-  .fact-verified   { background: #f0fff4; border: 1px solid #9ae6b4; }
-  .fact-unverified { background: #fffaf0; border: 1px solid #fbd38d; }
-  .fact-misleading { background: #fff5f0; border: 1px solid #fbb6a0; }
-  .fact-badge { flex-shrink: 0; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 5px; margin-top: 1px; white-space: nowrap; }
-  .badge-verified   { background: #c6f6d5; color: #276749; }
-  .badge-unverified { background: #feebc8; color: #c05621; }
-  .badge-misleading { background: #fed7c7; color: #c53030; }
-  .fact-content { flex: 1; }
-  .fact-claim { color: #2d3748; font-weight: 500; margin-bottom: 3px; }
-  .fact-detail { color: #718096; font-size: 12.5px; }
-  .fact-link { color: #3182ce; text-decoration: none; font-size: 12px; display: inline-block; margin-top: 4px; }
-  .fact-link:hover { text-decoration: underline; }
-  .no-videos-card { padding: 20px 22px; color: #a0aec0; font-size: 14px; font-style: italic; }
-  .footer { text-align: center; font-size: 12px; color: #a0aec0; padding: 20px; border-top: 1px solid #e2e8f0; margin-top: 8px; }
-  .promo-note { font-size: 11.5px; color: #c05621; background: #fffaf0; border: 1px solid #fbd38d; border-radius: 6px; padding: 6px 10px; margin-top: 10px; display: inline-block; }
-</style>
-</head>
-<body>
-<div class="header">
-  <div class="header-title">&#128225; YouTube <span>Newsletter</span></div>
-  <div class="header-date">&#931;&#940;&#946;&#946;&#945;&#964;&#959;, 6 &#921;&#959;&#965;&#957;&#943;&#959;&#965; 2026</div>
-</div>
-<div class="container">
+<!DOCTYPE html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouTube Newsletter — Τρίτη, 9 Ιουνίου 2026</title><style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;padding:20px;margin:0}
+.container{max-width:720px;margin:auto}
+.back{display:inline-block;margin-bottom:14px;color:#1a73e8;text-decoration:none;font-size:.9em}
+.header{text-align:center;padding:40px 20px 30px;background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:16px;color:#fff;margin-bottom:24px}
+.header h1{font-size:1.6em;margin:0 0 6px} .date{color:#a0a0c0}
+.channel-card{background:#fff;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.channel-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.channel-avatar{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.channel-name{font-size:1.15em;font-weight:700} .channel-topic{font-size:.85em;color:#86868b}
+.badge{background:#e8f5e9;color:#2e7d32;padding:4px 12px;border-radius:20px;font-size:.8em;font-weight:600}
+.badge-none{background:#f5f5f5;color:#999}
+.video-item{border-top:1px solid #f0f0f0;padding:16px 0} .video-item:first-of-type{border-top:none}
+.video-title{display:flex;gap:8px;align-items:baseline;margin-bottom:8px} .play-icon{color:#e74c3c}
+.video-title a{font-weight:600;color:#1a73e8;text-decoration:none}
+.summary{font-size:.93em;color:#333;padding-left:20px;border-left:3px solid #e8e8ed;line-height:1.55}
+.sponsor-tag{background:#fff3e0;color:#e65100;font-size:.72em;padding:2px 8px;border-radius:20px}
+.fact-check{margin-top:12px} .fact-title{font-size:.82em;font-weight:700;text-transform:uppercase;color:#555;margin-bottom:6px}
+.fact-item{padding:8px 12px;border-radius:8px;margin-bottom:6px;display:flex;gap:8px;font-size:.9em;line-height:1.5}
+.fact-verified{background:#e8f5e9;border-left:4px solid #4caf50}
+.fact-misleading{background:#fff3e0;border-left:4px solid #ff9800}
+.fact-unverified{background:#f3e5f5;border-left:4px solid #9c27b0}
+.fact-badge{font-weight:700;white-space:nowrap} .fact-link{color:#1a73e8}
+.no-video{text-align:center;color:#999;font-size:.9em;line-height:1.6}
+.footer{text-align:center;color:#999;font-size:.78em;margin-top:10px} .footer a{color:#1a73e8}
+</style></head><body><div class="container">
+<a class="back" href="index.html">← Daily Brief</a>
+<div class="header"><h1>📡 YouTube Newsletter</h1><div class="date">Τρίτη, 9 Ιουνίου 2026</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#e74c3c">TD</div><div><div class="channel-name">Thomas DeLauer</div><div class="channel-topic">Διατροφή & Μεταβολισμός</div></div></div><span class="badge">1 νέο βίντεο</span><div class="video-item"><div class="video-title"><span class="play-icon">▶</span><a href="https://www.youtube.com/watch?v=gUIANdHa9p0" target="_blank">1/2 Cup of This Specific White Rice Drops Insulin (use it instead) →</a> <span class="sponsor-tag">χορηγία</span></div><div class="summary">Ο DeLauer εξηγεί ότι η επίδραση του ρυζιού στο σάκχαρο ΔΕΝ καθορίζεται από το «λευκό vs καστανό», αλλά από τον λόγο <b>αμυλόζης / αμυλοπηκτίνης</b>. Η αμυλοπηκτίνη (κολλώδη ρύζια όπως jasmine & sushi) διασπάται γρήγορα → απότομη αύξηση γλυκόζης· η αμυλόζη (basmati, long-grain) πέπτεται αργά, ένα μέρος φτάνει άθικτο στο παχύ έντερο και τρέφει τη μικροχλωρίδα → ηπιότερη γλυκαιμική απόκριση. Πρακτικός κανόνας από την υφή: κολλώδες = γρήγορο spike, ξεχωριστό/αφράτο = αργή απελευθέρωση — και η <b>ποικιλία μετράει περισσότερο από το χρώμα</b> (λευκό basmati μπορεί να είναι καλύτερο από κοντόκοκκο καστανό). Επιπλέον, αν μαγειρέψεις και ΚΡΥΩΣΕΙΣ το ρύζι (retrogradation), σχηματίζεται ανθεκτικό άμυλο που μειώνει κι άλλο τη γλυκαιμική απόκριση. Τέλος αναφέρει 10γρ ψύλλιο ως «λεβιέ» που μετριάζει την ινσουλινική απόκριση σε γεύματα με υδατάνθρακες.</div><div class="fact-check"><div class="fact-title">Έλεγχος ισχυρισμών</div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Το κρύωμα μαγειρεμένου ρυζιού δημιουργεί ανθεκτικό άμυλο και μειώνει τη μεταγευματική γλυκαιμία — επιβεβαιωμένο σε διαβητικούς τύπου 2. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/35429987/" target="_blank">PubMed 35429987</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Το ψύλλιο μετριάζει σημαντικά τη μεταγευματική απόκριση γλυκόζης/εντερικών πεπτιδίων σε γεύμα. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/20147463/" target="_blank">PubMed 20147463</a></span></div></div></div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#27ae60">JE</div><div><div class="channel-name">Jeremy Ethier</div><div class="channel-topic">Επιστημονική Γυμναστική & Διατροφή</div></div></div><span class="badge badge-none">Κανένα νέο βίντεο</span><div class="no-video">Τελευταίο βίντεο: 24 Μαΐου 2026 — "Targeting Belly Fat Is... Possible?! (NEW Study)"<br>Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#8e44ad">PH</div><div><div class="channel-name">Physionic</div><div class="channel-topic">Μοριακή Φυσιολογία & Διατροφή</div></div></div><span class="badge">1 νέο βίντεο</span><div class="video-item"><div class="video-title"><span class="play-icon">▶</span><a href="https://www.youtube.com/watch?v=Mz2pmsvwlt0" target="_blank">This New Protein Study just Changed how we Think about Protein →</a></div><div class="summary">Νέα μελέτη (σε ποντίκια) προτείνει μηχανισμό για το ΓΙΑΤΙ η πρωτεΐνη κόβει την πρόσληψη τροφής: το αμινοξύ <b>λευκίνη</b> ενεργοποιεί μια λειτουργική πρωτεΐνη (CaV3.1) στους POMC νευρώνες του υποθαλάμου, που στέλνουν σήματα κορεσμού. Όταν «σβήνεται» η CaV3.1, χάνεται η μείωση πρόσληψης τροφής στην υψηλή πρωτεΐνη. Το πρακτικό συμπέρασμα για ανθρώπους: η υψηλή πρωτεΐνη (~25–30% της πρόσληψης) βοηθά σε απώλεια βάρους/λίπους κυρίως όταν ΔΕΝ μετράμε θερμίδες — όταν οι θερμίδες «κλειδώνονται», το όφελος εξαφανίζεται. Η λευκίνη ίσως έχει ανεξάρτητο αλλά μικρό αποτέλεσμα κορεσμού· ο ίδιος ο ομιλητής παραδέχεται ότι οι σχετικές μελέτες είναι υποτονικές (underpowered) και θέλουν περισσότερα δεδομένα.</div><div class="fact-check"><div class="fact-title">Έλεγχος ισχυρισμών</div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Υψηλή πρωτεΐνη ad libitum (30% της πρόσληψης) → μειωμένη όρεξη, αυθόρμητη μείωση θερμίδων και απώλεια βάρους. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/16002798/" target="_blank">PubMed 16002798</a></span></div><div class="fact-item fact-unverified"><span class="fact-badge" style="color:#9c27b0">❓ UNVERIFIED</span><span>Ο συγκεκριμένος μηχανισμός «λευκίνη → CaV3.1 → POMC νευρώνες» είναι πολύ πρόσφατος και δεν κατάφερα να τον εντοπίσω/επαληθεύσω στο PubMed — οπότε δεν μπαίνει link (μην τον θεωρείς ακόμη επιβεβαιωμένο).</span></div><div class="fact-item fact-misleading"><span class="fact-badge" style="color:#ff9800">⚠ MISLEADING</span><span>Το «ανεξάρτητο» αποτέλεσμα της λευκίνης στον κορεσμό παρουσιάζεται πιο σίγουρα απ' ό,τι δείχνουν τα δεδομένα (μικρό δείγμα, οριακή στατιστική σημαντικότητα) — όπως παραδέχεται κι ο ίδιος.</span></div></div></div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#f39c12">FMF</div><div><div class="channel-name">FoundMyFitness (Dr. Rhonda Patrick)</div><div class="channel-topic">Μακροζωία & Διατροφική Επιστήμη</div></div></div><span class="badge badge-none">Κανένα νέο βίντεο</span><div class="no-video">Τελευταίο βίντεο: 4 Μαΐου 2026 — "Watch my new episode with Dr. Kelly Starrett"<br>Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#6b8e23">CD</div><div><div class="channel-name">Clean &amp; Delicious (Dani Spies)</div><div class="channel-topic">Υγιεινές Συνταγές & Απώλεια Βάρους</div></div></div><span class="badge badge-none">Κανένα νέο βίντεο</span><div class="no-video">Τελευταίο βίντεο: 5 Ιουνίου 2026 — "HIGH PROTEIN COFFEE | Frothy, Creamy &amp; Quick (the BEST Recipe!)"<br>Δεν ανέβηκε νέο βίντεο τις τελευταίες 24 ώρες.</div></div>
+<div class="channel-card"><div class="channel-header"><div class="channel-avatar" style="background:#2980b9">LK</div><div><div class="channel-name">Leonid Kim MD</div><div class="channel-topic">Παχυσαρκία & Μεταβολική Ιατρική</div></div></div><span class="badge">1 νέο βίντεο</span><div class="video-item"><div class="video-title"><span class="play-icon">▶</span><a href="https://www.youtube.com/watch?v=UaWxB8EyYWA" target="_blank">Cut Your DEMENTIA Risk in HALF (What Actually Works) →</a></div><div class="summary">Ο Dr. Kim παρουσιάζει 4 «συστήματα» πρόληψης άνοιας, με τη λογική ότι η παρέμβαση πρέπει να γίνει νωρίς — ακόμη και με υψηλό γενετικό κίνδυνο (APOE). <b>(1) Σύστημα καθαρισμού (glymphatic):</b> εξαρτάται από την ποιότητα ύπνου· οι διαταραχές ύπνου συνδέονται με ~57% υψηλότερο κίνδυνο· κανόνας 3-2-1 πριν τον ύπνο, έλεγχος για άπνοια, αποφυγή αλκοόλ. <b>(2) BDNF / νευρογένεση:</b> η αερόβια άσκηση αυξάνει τον όγκο του ιπποκάμπου ~2% σε 1 χρόνο· ~9.800 βήματα/μέρα ≈ 50% μείωση κινδύνου, 3.800 ≈ 25%. <b>(3) Αγγειακό:</b> έλεγχος πίεσης & σακχάρου, ιδίως στη μέση ηλικία. <b>(4) Γνωστικό απόθεμα:</b> νέες δεξιότητες, αθλήματα ρακέτας (τένις ≈ +9,7 χρόνια προσδόκιμο στη μελέτη της Κοπεγχάγης). Συνολικά, η Lancet εκτιμά ότι έως 45% των περιπτώσεων άνοιας μπορούν δυνητικά να προληφθούν.</div><div class="fact-check"><div class="fact-title">Έλεγχος ισχυρισμών</div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Έως 45% των περιπτώσεων άνοιας είναι δυνητικά προλήψιμες με αντιμετώπιση συγκεκριμένων παραγόντων (Lancet Commission 2024). <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/39096926/" target="_blank">PubMed 39096926</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>1 χρόνος αερόβιας άσκησης αυξάνει τον όγκο του ιπποκάμπου (~2%) και βελτιώνει τη μνήμη. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/21282661/" target="_blank">PubMed 21282661</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Περισσότερα ημερήσια βήματα συνδέονται με χαμηλότερο κίνδυνο άνοιας (~9.800 βήματα ≈ μέγιστο όφελος) — JAMA Neurology, 78.430 άτομα. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/36066874/" target="_blank">PubMed 36066874</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Τα αθλήματα ρακέτας/τένις συνδέονται με σημαντικά μεγαλύτερο προσδόκιμο ζωής (Copenhagen City Heart Study). <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/30193744/" target="_blank">PubMed 30193744</a></span></div><div class="fact-item fact-verified"><span class="fact-badge" style="color:#4caf50">✓ VERIFIED</span><span>Οι διαταραχές ύπνου / αϋπνία αυξάνουν τον κίνδυνο άνοιας (μετα-ανάλυση)· το ακριβές ποσοστό ποικίλλει ανά μελέτη. <a class="fact-link" href="https://pubmed.ncbi.nlm.nih.gov/27017287/" target="_blank">PubMed 27017287</a></span></div></div></div></div>
 
-  <!-- Thomas DeLauer -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="avatar av-delauer">TD</div>
-      <div class="channel-info">
-        <div class="channel-name">Thomas DeLauer</div>
-        <div class="channel-topic">&#924;&#949;&#964;&#945;&#946;&#959;&#955;&#953;&#963;&#956;&#972;&#962; &middot; &#916;&#953;&#945;&#964;&#961;&#959;&#966;&#942; &middot; Ketogenic</div>
-      </div>
-      <div class="new-badge">2 &#957;&#941;&#945; &#946;&#943;&#957;&#964;&#949;&#959;</div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title-row">
-        <div class="play-icon">&#9654;</div>
-        <a class="video-title" href="https://www.youtube.com/watch?v=cG9lsylBmCw" target="_blank">
-          1 Cup Strips Fat, Drops Inflammation and Lowers Insulin &mdash; 5 &#921;&#959;&#965;&#957;&#943;&#959;&#965; 2026
-        </a>
-      </div>
-      <div class="summary">
-        &#927; Thomas &#945;&#957;&#945;&#955;&#973;&#949;&#953; &#956;&#949;&#955;&#941;&#964;&#951; &#963;&#964;&#959; <em>BMC Public Health</em> &#946;&#945;&#963;&#953;&#963;&#956;&#941;&#957;&#951; &#963;&#964;&#945; &#948;&#949;&#948;&#959;&#956;&#941;&#957;&#945; NHANES &#956;&#949; 10.639 &#949;&#957;&#942;&#955;&#953;&#954;&#949;&#962; &#963;&#949; &#960;&#945;&#961;&#945;&#954;&#959;&#955;&#959;&#973;&#952;&#951;&#963;&#951; 13 &#949;&#964;&#974;&#957;. &#922;&#949;&#957;&#964;&#961;&#953;&#954;&#972; &#949;&#973;&#961;&#951;&#956;&#945;: &#972;&#963;&#959;&#953; &#954;&#940;&#952;&#959;&#957;&#964;&#945;&#953; &gt;8&#974;/&#951;&#956;&#941;&#961;&#945; &#941;&#967;&#959;&#965;&#957; 46% &#965;&#968;&#951;&#955;&#972;&#964;&#949;&#961;&#959; &#954;&#943;&#957;&#948;&#965;&#957;&#959; &#959;&#955;&#953;&#954;&#942;&#962; &#952;&#957;&#951;&#963;&#953;&#956;&#972;&#964;&#951;&#964;&#945;&#962; &#954;&#945;&#953; 79% &#965;&#968;&#951;&#955;&#972;&#964;&#949;&#961;&#959; &#954;&#945;&#961;&#948;&#953;&#945;&#947;&#947;&#949;&#953;&#945;&#954;&#942;&#962; &#952;&#957;&#951;&#963;&#953;&#956;&#972;&#964;&#951;&#964;&#945;&#962;, &#945;&#955;&#955;&#940; &#951; &#954;&#945;&#964;&#945;&#957;&#940;&#955;&#969;&#963;&#951; &#954;&#945;&#966;&#941; &#956;&#949;&#964;&#961;&#953;&#940;&#950;&#949;&#953; &#963;&#951;&#956;&#945;&#957;&#964;&#953;&#954;&#940; &#945;&#965;&#964;&#972;&#957; &#964;&#959;&#957; &#954;&#943;&#957;&#948;&#965;&#957;&#959;. &#924;&#951;&#967;&#945;&#957;&#953;&#963;&#956;&#959;&#943;: (1) &#945;&#957;&#945;&#963;&#964;&#959;&#955;&#942; PDE &#8594; &#949;&#957;&#949;&#961;&#947;&#959;&#960;&#959;&#943;&#951;&#963;&#951; cAMP &#8594; &#946;&#949;&#955;&#964;&#943;&#969;&#963;&#951; &#949;&#957;&#948;&#959;&#952;&#951;&#955;&#953;&#945;&#954;&#942;&#962; &#955;&#949;&#953;&#964;&#959;&#965;&#961;&#947;&#943;&#945;&#962;, (2) &#956;&#949;&#943;&#969;&#963;&#951; CRP/IL-6, (3) &#949;&#957;&#943;&#963;&#967;&#965;&#963;&#951; &#949;&#965;&#945;&#953;&#963;&#952;&#951;&#963;&#943;&#945;&#962; &#963;&#964;&#951;&#957; &#953;&#957;&#963;&#959;&#965;&#955;&#943;&#957;&#951;. &#928;&#961;&#945;&#954;&#964;&#953;&#954;&#942;: &#954;&#945;&#966;&#941;&#962; &#960;&#961;&#953;&#957; &#963;&#973;&#957;&#964;&#959;&#956;&#945; &#948;&#953;&#945;&#955;&#949;&#943;&#956;&#956;&#945;&#964;&#945; &#954;&#943;&#957;&#951;&#963;&#951;&#962;, &#960;&#961;&#959;&#963;&#952;&#942;&#954;&#951; &#954;&#945;&#957;&#941;&#955;&#945;&#962; &#942; &#954;&#959;&#955;&#955;&#945;&#947;&#972;&#957;&#959;&#965;. &#931;&#951;&#956;&#949;&#943;&#969;&#963;&#951;: &#959; &#964;&#943;&#964;&#955;&#959;&#962; &laquo;strips fat&raquo; &#949;&#943;&#957;&#945;&#953; clickbait &mdash; &#951; &#956;&#949;&#955;&#941;&#964;&#951; &#945;&#966;&#959;&#961;&#940; &#952;&#957;&#951;&#963;&#953;&#956;&#972;&#964;&#951;&#964;&#945;, &#972;&#967;&#953; &#940;&#956;&#949;&#963;&#951; &#955;&#953;&#960;&#972;&#955;&#965;&#963;&#951;.
-      </div>
-      <div class="factcheck-section">
-        <div class="factcheck-title">Fact Check</div>
-        <div class="fact-item fact-verified">
-          <span class="fact-badge badge-verified">&#10003; Verified</span>
-          <div class="fact-content">
-            <div class="fact-claim">&#924;&#949;&#955;&#941;&#964;&#951; BMC Public Health / NHANES: &#954;&#940;&#952;&#953;&#963;&#956;&#945; &gt;8&#974;/&#951;&#956;&#941;&#961;&#945; = +46% &#959;&#955;&#953;&#954;&#942; &#952;&#957;&#951;&#963;&#953;&#956;&#972;&#964;&#951;&#964;&#945;, +79% &#954;&#945;&#961;&#948;&#953;&#945;&#947;&#947;&#949;&#953;&#945;&#954;&#942;.</div>
-            <div class="fact-detail">&#919; &#956;&#949;&#955;&#941;&#964;&#951; &#965;&#960;&#940;&#961;&#967;&#949;&#953; &#954;&#945;&#953; &#964;&#945; &#963;&#964;&#945;&#964;&#953;&#963;&#964;&#953;&#954;&#940; &#945;&#957;&#945;&#966;&#941;&#961;&#959;&#957;&#964;&#945;&#953; &#963;&#969;&#963;&#964;&#940;.</div>
-            <a class="fact-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11022421/" target="_blank">&#8594; PMC11022421</a>
-          </div>
-        </div>
-        <div class="fact-item fact-verified">
-          <span class="fact-badge badge-verified">&#10003; Verified</span>
-          <div class="fact-content">
-            <div class="fact-claim">&#927; &#954;&#945;&#966;&#941;&#962; &#963;&#965;&#963;&#967;&#949;&#964;&#943;&#950;&#949;&#964;&#945;&#953; &#956;&#949; &#956;&#949;&#953;&#969;&#956;&#941;&#957;&#951; &#952;&#957;&#951;&#963;&#953;&#956;&#972;&#964;&#951;&#964;&#945; &#945;&#954;&#972;&#956;&#945; &#954;&#945;&#953; &#963;&#949; &#954;&#945;&#952;&#953;&#963;&#964;&#953;&#954;&#942; &#950;&#969;&#942;.</div>
-            <div class="fact-detail">&#917;&#960;&#953;&#946;&#949;&#946;&#945;&#953;&#974;&#957;&#949;&#964;&#945;&#953; &#945;&#960;&#972; &#964;&#951;&#957; &#943;&#948;&#953;&#945; &#956;&#949;&#955;&#941;&#964;&#951;: &#965;&#968;&#951;&#955;&#972;&#964;&#949;&#961;&#951; &#954;&#945;&#964;&#945;&#957;&#940;&#955;&#969;&#963;&#951; &#954;&#945;&#966;&#941; &#8594; &#956;&#949;&#953;&#969;&#956;&#941;&#957;&#951; &#952;&#957;&#951;&#963;&#953;&#956;&#972;&#964;&#951;&#964;&#945; &#954;&#945;&#953; &#956;&#949; &gt;6&#974; &#954;&#945;&#952;&#943;&#963;&#956;&#945;&#964;&#959;&#962;.</div>
-            <a class="fact-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11022421/" target="_blank">&#8594; PMC11022421</a>
-          </div>
-        </div>
-        <div class="fact-item fact-unverified">
-          <span class="fact-badge badge-unverified">? Unverified</span>
-          <div class="fact-content">
-            <div class="fact-claim">&#927; &#954;&#945;&#966;&#941;&#962; &laquo;&#949;&#958;&#945;&#955;&#949;&#943;&#966;&#949;&#953;&raquo; &#960;&#955;&#942;&#961;&#969;&#962; &#964;&#951; &#946;&#955;&#940;&#946;&#951; &#964;&#951;&#962; &#954;&#945;&#952;&#953;&#963;&#964;&#953;&#954;&#942;&#962; &#950;&#969;&#942;&#962;.</div>
-            <div class="fact-detail">&#919; &#956;&#949;&#955;&#941;&#964;&#951; &#948;&#949;&#943;&#967;&#957;&#949;&#953; &#956;&#949;&#943;&#969;&#963;&#951; &#954;&#953;&#957;&#948;&#973;&#957;&#959;&#965;, &#972;&#967;&#953; &#960;&#955;&#942;&#961;&#951; &#949;&#958;&#940;&#955;&#949;&#953;&#968;&#951;. &#927; &#953;&#963;&#967;&#965;&#961;&#953;&#963;&#956;&#972;&#962; &laquo;erases the damage&raquo; &#965;&#960;&#949;&#961;&#946;&#945;&#943;&#957;&#949;&#953; &#964;&#951;&#957; &#940;&#956;&#949;&#963;&#951; &#964;&#949;&#954;&#956;&#951;&#961;&#943;&#969;&#963;&#951;.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="video-block">
-      <div class="video-title-row">
-        <div class="play-icon">&#9654;</div>
-        <a class="video-title" href="https://www.youtube.com/watch?v=EOixgw0p87A" target="_blank">
-          Literally 1 Nut PER WEEK Restores Metabolic Function &mdash; 4 &#921;&#959;&#965;&#957;&#943;&#959;&#965; 2026
-        </a>
-      </div>
-      <div class="summary">
-        &#932;&#959; &#946;&#943;&#957;&#964;&#949;&#959; &#949;&#963;&#964;&#953;&#940;&#950;&#949;&#953; &#963;&#964;&#959; &#963;&#949;&#955;&#942;&#957;&#953;&#959; &#954;&#945;&#953; &#964;&#959;&#957; &#961;&#972;&#955;&#959; &#964;&#959;&#965; &#963;&#964;&#951; &#956;&#949;&#964;&#945;&#964;&#961;&#959;&#960;&#942; T4&#8594;T3 &#956;&#941;&#963;&#969; &#953;&#969;&#948;&#959;&#952;&#965;&#961;&#959;&#957;&#943;&#957;&#951;&#962;-&#945;&#960;&#959;&#970;&#969;&#948;&#953;&#957;&#940;&#963;&#951;. &#927; Thomas &#953;&#963;&#967;&#965;&#961;&#943;&#950;&#949;&#964;&#945;&#953; &#972;&#964;&#953; 1-2 Brazil nuts/&#949;&#946;&#948;&#959;&#956;&#940;&#948;&#945; &#945;&#957;&#964;&#953;&#963;&#964;&#945;&#952;&#956;&#943;&#950;&#959;&#965;&#957; &#945;&#957;&#949;&#960;&#940;&#961;&#954;&#949;&#953;&#945; &#963;&#949;&#955;&#951;&#957;&#943;&#959;&#965;, &#949;&#960;&#953;&#954;&#945;&#955;&#959;&#973;&#956;&#949;&#957;&#959;&#962; RCT &#974;&#960;&#959;&#965; 2 Brazil nuts &#953;&#963;&#959;&#948;&#973;&#957;&#945;&#956;&#945;&#957; &#956;&#949; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#965;&#964;&#953;&#954;&#940; &#963;&#965;&#956;&#960;&#955;&#951;&#961;&#974;&#956;&#945;&#964;&#945; &#963;&#949;&#955;&#951;&#957;&#943;&#959;&#965;. &#917;&#958;&#951;&#947;&#949;&#943; &#949;&#960;&#943;&#963;&#951;&#962; &#960;&#974;&#962; &#951; &#967;&#961;&#972;&#957;&#953;&#945; &#954;&#959;&#961;&#964;&#953;&#950;&#972;&#955;&#951; &#956;&#960;&#955;&#959;&#954;&#940;&#961;&#949;&#953; &#964;&#951;&#957; &#943;&#948;&#953;&#945; &#956;&#949;&#964;&#945;&#964;&#961;&#959;&#960;&#942; T4&#8594;T3 &#945;&#960;&#972; &#948;&#953;&#945;&#966;&#959;&#961;&#949;&#964;&#953;&#954;&#942; &#954;&#945;&#964;&#949;&#973;&#952;&#965;&#957;&#963;&#951;. &#928;&#961;&#945;&#954;&#964;&#953;&#954;&#942;: 1 Brazil nut/&#949;&#946;&#948;&#959;&#956;&#940;&#948;&#945; &mdash; &#972;&#967;&#953; &#954;&#945;&#952;&#951;&#956;&#949;&#961;&#953;&#957;&#940; (&#954;&#943;&#957;&#948;&#965;&#957;&#959;&#962; selenosis).
-      </div>
-      <div class="factcheck-section">
-        <div class="factcheck-title">Fact Check</div>
-        <div class="fact-item fact-verified">
-          <span class="fact-badge badge-verified">&#10003; Verified</span>
-          <div class="fact-content">
-            <div class="fact-claim">&#932;&#959; &#963;&#949;&#955;&#942;&#957;&#953;&#959; &#949;&#943;&#957;&#945;&#953; &#945;&#960;&#945;&#961;&#945;&#943;&#964;&#951;&#964;&#959; &#947;&#953;&#945; &#956;&#949;&#964;&#945;&#964;&#961;&#959;&#960;&#942; T4&#8594;T3 &#956;&#941;&#963;&#969; &#953;&#969;&#948;&#959;&#952;&#965;&#961;&#959;&#957;&#943;&#957;&#951;&#962; &#945;&#960;&#959;&#970;&#969;&#948;&#953;&#957;&#940;&#963;&#951;&#962;. Brazil nuts: &#940;&#961;&#953;&#963;&#964;&#951; &#960;&#951;&#947;&#942; &#963;&#949;&#955;&#951;&#957;&#943;&#959;&#965;.</div>
-            <div class="fact-detail">&#922;&#945;&#955;&#940; &#964;&#949;&#954;&#956;&#951;&#961;&#953;&#969;&#956;&#941;&#957;&#959;&#962; &#946;&#953;&#959;&#967;&#951;&#956;&#953;&#954;&#972;&#962; &#956;&#951;&#967;&#945;&#957;&#953;&#963;&#956;&#972;&#962;.</div>
-          </div>
-        </div>
-        <div class="fact-item fact-misleading">
-          <span class="fact-badge badge-misleading">&#9888; Misleading</span>
-          <div class="fact-content">
-            <div class="fact-claim">&laquo;Brazil nuts &#945;&#960;&#959;&#954;&#945;&#952;&#953;&#963;&#964;&#959;&#973;&#957; &#964;&#951; &#956;&#949;&#964;&#945;&#946;&#959;&#955;&#953;&#954;&#942; &#955;&#949;&#953;&#964;&#959;&#965;&#961;&#947;&#943;&#945;&raquo; &mdash; 2 nuts &#953;&#963;&#959;&#948;&#973;&#957;&#945;&#956;&#945;&#953; &#956;&#949; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#965;&#964;&#953;&#954;&#972; &#963;&#965;&#956;&#960;&#955;&#942;&#961;&#969;&#956;&#945;.</div>
-            <div class="fact-detail">&#924;&#949;&#964;&#945;-&#945;&#957;&#940;&#955;&#965;&#963;&#951; 7 RCTs (315 &#963;&#965;&#956;&#956;&#949;&#964;&#941;&#967;&#959;&#957;&#964;&#949;&#962;): Brazil nuts &#945;&#965;&#958;&#940;&#957;&#959;&#965;&#957; &#963;&#949;&#955;&#942;&#957;&#953;&#959; &#945;&#943;&#956;&#945;&#964;&#959;&#962;, &#945;&#955;&#955;&#940; &#916;&#917;&#925; &#949;&#943;&#967;&#945;&#957; &#963;&#951;&#956;&#945;&#957;&#964;&#953;&#954;&#942; &#949;&#960;&#943;&#948;&#961;&#945;&#963;&#951; &#963;&#964;&#945; &#949;&#960;&#943;&#960;&#949;&#948;&#945; T3, T4 &#942; TSH. &#927; &#953;&#963;&#967;&#965;&#961;&#953;&#963;&#956;&#972;&#962; &laquo;&#945;&#960;&#959;&#954;&#945;&#952;&#953;&#963;&#964;&#940; &#956;&#949;&#964;&#945;&#946;&#959;&#955;&#953;&#954;&#942; &#955;&#949;&#953;&#964;&#959;&#965;&#961;&#947;&#943;&#945;&raquo; &#948;&#949;&#957; &#965;&#960;&#959;&#963;&#964;&#951;&#961;&#943;&#950;&#949;&#964;&#945;&#953; &#954;&#955;&#953;&#957;&#953;&#954;&#940;.</div>
-            <a class="fact-link" href="https://www.sciencedirect.com/science/article/pii/S1018364720300215" target="_blank">&#8594; Systematic Review &amp; Meta-analysis (ScienceDirect)</a>
-          </div>
-        </div>
-        <div class="fact-item fact-verified">
-          <span class="fact-badge badge-verified">&#10003; Verified</span>
-          <div class="fact-content">
-            <div class="fact-claim">&#913;&#957;&#949;&#954;&#964;&#942; &#945;&#957;&#974;&#964;&#945;&#964;&#951; &#960;&#961;&#972;&#963;&#955;&#951;&#968;&#951; &#963;&#949;&#955;&#951;&#957;&#943;&#959;&#965;: 400 &#956;g/&#951;&#956;&#941;&#961;&#945;. &#919; &#963;&#973;&#963;&#964;&#945;&#963;&#951; &#947;&#953;&#945; &#956;&#941;&#964;&#961;&#953;&#945; &#954;&#945;&#964;&#945;&#957;&#940;&#955;&#969;&#963;&#951; &#949;&#943;&#957;&#945;&#953; &#963;&#969;&#963;&#964;&#942;.</div>
-            <div class="fact-detail">1 Brazil nut &#8776; 70-90 &#956;g &#963;&#949;&#955;&#951;&#957;&#943;&#959;&#965;. &#922;&#945;&#952;&#951;&#956;&#949;&#961;&#953;&#957;&#942; &#954;&#945;&#964;&#945;&#957;&#940;&#955;&#969;&#963;&#951; &gt;4-5 nuts &#955;&#945;&#957;&#952;&#940;&#957;&#949;&#953; &#964;&#959; &#972;&#961;&#953;&#959;.</div>
-          </div>
-        </div>
-        <div class="promo-note">&#9888; Thrive Market &#948;&#953;&#945;&#966;&#951;&#956;&#953;&#963;&#964;&#953;&#954;&#972;&#962; &#963;&#973;&#957;&#948;&#949;&#963;&#956;&#959;&#962; &#963;&#964;&#959; &#946;&#943;&#957;&#964;&#949;&#959; (&#960;&#955;&#951;&#961;&#969;&#956;&#941;&#957;&#951; &#960;&#961;&#959;&#974;&#952;&#951;&#963;&#951;)</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Jeremy Ethier -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="avatar av-ethier">JE</div>
-      <div class="channel-info">
-        <div class="channel-name">Jeremy Ethier</div>
-        <div class="channel-topic">&#915;&#965;&#956;&#957;&#945;&#963;&#964;&#953;&#954;&#942; &middot; Hypertrophy &middot; Evidence-based</div>
-      </div>
-      <div class="no-videos-badge">&#922;&#945;&#957;&#941;&#957;&#945; &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959; (&#964;&#949;&#955;&#949;&#965;&#964;&#945;&#943;&#959;: 24/5)</div>
-    </div>
-    <div class="no-videos-card">&#916;&#949;&#957; &#945;&#957;&#941;&#946;&#951;&#954;&#949; &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959; &#964;&#953;&#962; &#964;&#949;&#955;&#949;&#965;&#964;&#945;&#943;&#949;&#962; 48 &#974;&#961;&#949;&#962;.</div>
-  </div>
-
-  <!-- Physionic -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="avatar av-physionic">PH</div>
-      <div class="channel-info">
-        <div class="channel-name">Physionic</div>
-        <div class="channel-topic">&#917;&#960;&#953;&#963;&#964;&#942;&#956;&#951; &middot; &#924;&#949;&#964;&#945;&#946;&#959;&#955;&#953;&#963;&#956;&#972;&#962; &middot; Peptides</div>
-      </div>
-      <div class="new-badge">1 &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959;</div>
-    </div>
-    <div class="video-block">
-      <div class="video-title-row">
-        <div class="play-icon">&#9654;</div>
-        <a class="video-title" href="https://www.youtube.com/watch?v=uVhoK-qwK1E" target="_blank">
-          30 Million People experience an unexpectedly positive Side Effect of Fat Loss Peptides &mdash; 4 &#921;&#959;&#965;&#957;&#943;&#959;&#965; 2026
-        </a>
-      </div>
-      <div class="summary">
-        &#925;&#941;&#945; &#941;&#961;&#949;&#965;&#957;&#945; &#945;&#960;&#959;&#948;&#949;&#953;&#954;&#957;&#973;&#949;&#953; &#972;&#964;&#953; &#964;&#945; GLP-1 peptides (&#960;.&#967;. &#963;&#949;&#956;&#945;&#947;&#955;&#959;&#965;&#964;&#943;&#948;&#951;) &#946;&#949;&#955;&#964;&#953;&#974;&#957;&#959;&#965;&#957; &#964;&#951;&#957; &#965;&#947;&#949;&#943;&#945; &#964;&#959;&#965; &#942;&#960;&#945;&#964;&#959;&#962; <strong>&#945;&#957;&#949;&#958;&#940;&#961;&#964;&#951;&#964;&#945; &#945;&#960;&#972; &#964;&#951;&#957; &#945;&#960;&#974;&#955;&#949;&#953;&#945; &#946;&#940;&#961;&#959;&#965;&#962;</strong>. &#931;&#949; &#960;&#949;&#953;&#961;&#940;&#956;&#945;&#964;&#945; &#972;&#960;&#959;&#965; &#945;&#966;&#945;&#953;&#961;&#941;&#952;&#951;&#954;&#945;&#957; &#959;&#953; GLP-1 &#965;&#960;&#959;&#948;&#959;&#967;&#949;&#943;&#962; &#963;&#964;&#959;&#965;&#962; &#957;&#949;&#965;&#961;&#974;&#957;&#949;&#962; (&#956;&#951;&#948;&#949;&#957;&#953;&#954;&#942; &#945;&#960;&#974;&#955;&#949;&#953;&#945; &#946;&#940;&#961;&#959;&#965;&#962;), &#964;&#945; &#951;&#960;&#945;&#964;&#953;&#954;&#940; &#941;&#957;&#950;&#965;&#956;&#945; ALT/AST &#945;&#957;&#949;&#946;&#951;&#954;&#940;&#957; &#963;&#965;&#957;&#949;&#967;&#953;&#950;&#972;&#956;&#949;&#957;&#945; &#957;&#945; &#946;&#949;&#955;&#964;&#953;&#974;&#957;&#959;&#957;&#964;&#945;&#953;. &#927; &#956;&#951;&#967;&#945;&#957;&#953;&#963;&#956;&#972;&#962;: &#956;&#949;&#943;&#969;&#963;&#951; &#949;&#953;&#963;&#946;&#959;&#955;&#942;&#962; &#966;&#955;&#949;&#947;&#956;&#959;&#957;&#969;&#948;&#974;&#957; &#956;&#945;&#954;&#961;&#959;&#966;&#940;&#947;&#969;&#957; &#963;&#964;&#959; &#951;&#960;&#945;&#964;&#953;&#954;&#972; &#960;&#945;&#961;&#941;&#947;&#967;&#965;&#956;&#945;. &#922;&#955;&#953;&#957;&#953;&#954;&#942; &#963;&#951;&#956;&#945;&#963;&#943;&#945;: GLP-1 &#966;&#940;&#961;&#956;&#945;&#954;&#945; &#956;&#960;&#959;&#961;&#949;&#943; &#957;&#945; &#969;&#966;&#949;&#955;&#959;&#973;&#957; NAFLD/MASH &#945;&#954;&#972;&#956;&#945; &#954;&#945;&#953; &#972;&#964;&#945;&#957; &#951; &#945;&#960;&#974;&#955;&#949;&#953;&#945; &#946;&#940;&#961;&#959;&#965;&#962; &#949;&#943;&#957;&#945;&#953; &#949;&#955;&#940;&#967;&#953;&#963;&#964;&#951;.
-      </div>
-      <div class="factcheck-section">
-        <div class="factcheck-title">Fact Check</div>
-        <div class="fact-item fact-verified">
-          <span class="fact-badge badge-verified">&#10003; Verified</span>
-          <div class="fact-content">
-            <div class="fact-claim">GLP-1 peptides &#946;&#949;&#955;&#964;&#953;&#974;&#957;&#959;&#965;&#957; &#951;&#960;&#945;&#964;&#953;&#954;&#959;&#973;&#962; &#948;&#949;&#943;&#954;&#964;&#949;&#962; &#945;&#957;&#949;&#958;&#940;&#961;&#964;&#951;&#964;&#945; &#945;&#960;&#972; &#945;&#960;&#974;&#955;&#949;&#953;&#945; &#946;&#940;&#961;&#959;&#965;&#962;.</div>
-            <div class="fact-detail">&#928;&#961;&#972;&#963;&#966;&#945;&#964;&#951; &#941;&#961;&#949;&#965;&#957;&#945; (Sinai Health / Univ. Toronto, 2026, Cell Metabolism) &#949;&#960;&#953;&#946;&#949;&#946;&#945;&#953;&#974;&#957;&#949;&#953; &#940;&#956;&#949;&#963;&#951; &#951;&#960;&#945;&#964;&#959;&#960;&#961;&#959;&#963;&#964;&#945;&#964;&#949;&#965;&#964;&#953;&#954;&#942; &#948;&#961;&#940;&#963;&#951; GLP-1 &#945;&#947;&#969;&#957;&#953;&#963;&#964;&#974;&#957; &#945;&#957;&#949;&#958;&#940;&#961;&#964;&#951;&#964;&#951; &#945;&#960;&#972; &#956;&#949;&#943;&#969;&#963;&#951; &#946;&#940;&#961;&#959;&#965;&#962;.</div>
-            <a class="fact-link" href="https://temertymedicine.utoronto.ca/news/glp-1-medicine-improves-liver-health-independent-weight-loss" target="_blank">&#8594; Univ. Toronto (2026)</a>
-          </div>
-        </div>
-        <div class="fact-item fact-verified">
-          <span class="fact-badge badge-verified">&#10003; Verified</span>
-          <div class="fact-content">
-            <div class="fact-claim">GLP-1 &#945;&#947;&#969;&#957;&#953;&#963;&#964;&#941;&#962; &#949;&#943;&#957;&#945;&#953; &#960;&#955;&#941;&#959;&#957; FDA-approved &#947;&#953;&#945; MASH.</div>
-            <div class="fact-detail">&#913;&#955;&#951;&#952;&#941;&#962; &mdash; &#949;&#960;&#953;&#946;&#949;&#946;&#945;&#953;&#974;&#957;&#949;&#953; &#964;&#951;&#957; &#940;&#956;&#949;&#963;&#951; &#951;&#960;&#945;&#964;&#953;&#954;&#942; &#948;&#961;&#940;&#963;&#951; &#960;&#941;&#961;&#945; &#945;&#960;&#972; &#945;&#960;&#974;&#955;&#949;&#953;&#945; &#946;&#940;&#961;&#959;&#965;&#962;.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FoundMyFitness -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="avatar av-foundmyfitness">FMF</div>
-      <div class="channel-info">
-        <div class="channel-name">FoundMyFitness (Dr. Rhonda Patrick)</div>
-        <div class="channel-topic">Longevity &middot; Micronutrients &middot; Science</div>
-      </div>
-      <div class="no-videos-badge">&#922;&#945;&#957;&#941;&#957;&#945; &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959; (&#964;&#949;&#955;&#949;&#965;&#964;&#945;&#943;&#959;: 4/5)</div>
-    </div>
-    <div class="no-videos-card">&#916;&#949;&#957; &#945;&#957;&#941;&#946;&#951;&#954;&#949; &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959; &#964;&#953;&#962; &#964;&#949;&#955;&#949;&#965;&#964;&#945;&#943;&#949;&#962; 48 &#974;&#961;&#949;&#962;.</div>
-  </div>
-
-  <!-- Clean & Delicious -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="avatar av-cleandelicious">CD</div>
-      <div class="channel-info">
-        <div class="channel-name">Clean &amp; Delicious (Dani Spies)</div>
-        <div class="channel-topic">&#933;&#947;&#953;&#949;&#953;&#957;&#941;&#962; &#963;&#965;&#957;&#964;&#945;&#947;&#941;&#962; &middot; High-protein</div>
-      </div>
-      <div class="new-badge">1 &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959;</div>
-    </div>
-    <div class="video-block">
-      <div class="video-title-row">
-        <div class="play-icon">&#9654;</div>
-        <a class="video-title" href="https://www.youtube.com/watch?v=fAjOv1_cfcs" target="_blank">
-          HIGH PROTEIN COFFEE | Frothy, Creamy &amp; Quick &mdash; 5 &#921;&#959;&#965;&#957;&#943;&#959;&#965; 2026
-        </a>
-      </div>
-      <div class="summary">
-        &#919; Dani &#960;&#945;&#961;&#959;&#965;&#963;&#953;&#940;&#950;&#949;&#953; &#963;&#965;&#957;&#964;&#945;&#947;&#942; &#947;&#953;&#945; protein coffee &#956;&#949; &gt;20g &#960;&#961;&#969;&#964;&#949;&#970;&#957;&#951;&#962; &#960;&#959;&#965; &#956;&#959;&#953;&#940;&#950;&#949;&#953; &#956;&#949; &#946;&#945;&#957;&#943;&#955;&#953;&#945; latte. &#933;&#955;&#953;&#954;&#940;: espresso &#942; &#948;&#965;&#957;&#945;&#964;&#972;&#962; &#954;&#945;&#966;&#941;&#962; (6 oz), &#963;&#954;&#972;&#957;&#951; &#960;&#961;&#969;&#964;&#949;&#970;&#957;&#951;&#962;, &#947;&#940;&#955;&#945; &#945;&#947;&#949;&#955;&#945;&#948;&#953;&#957;&#972; &#942; &#966;&#965;&#964;&#953;&#954;&#972; (oat milk &#947;&#953;&#945; &#954;&#945;&#955;&#973;&#964;&#949;&#961;&#959; &#945;&#966;&#961;&#972;). &#914;&#945;&#963;&#953;&#954;&#942; &#963;&#973;&#956;&#946;&#959;&#965;&#955;&#951;: &#947;&#940;&#955;&#945; &#950;&#949;&#963;&#964;&#972; &#940;&#955;&#955;&#940; &#972;&#967;&#953; &#946;&#961;&#945;&#963;&#964;&#972; (~60-65&#176;C &mdash; &#940;&#957;&#969; &#945;&#960;&#972; 70&#176;C &#951; &#960;&#961;&#969;&#964;&#949;&#970;&#957;&#951; &#960;&#942;&#950;&#949;&#953;). &#916;&#973;&#959; &#960;&#945;&#961;&#945;&#955;&#955;&#945;&#947;&#941;&#962;: hot latte &#954;&#945;&#953; iced version. &#391;&#960;&#955;&#942; &#963;&#965;&#957;&#964;&#945;&#947;&#942; &#947;&#953;&#945; &#949;&#973;&#954;&#959;&#955;&#951; &#945;&#973;&#958;&#951;&#963;&#951; &#960;&#961;&#969;&#964;&#949;&#970;&#957;&#951;&#962; &#967;&#969;&#961;&#943;&#962; &#965;&#960;&#949;&#961;&#946;&#959;&#955;&#953;&#954;&#942; &#950;&#940;&#967;&#945;&#961;&#951;.
-      </div>
-    </div>
-  </div>
-
-  <!-- Leonid Kim MD -->
-  <div class="channel-card">
-    <div class="channel-header">
-      <div class="avatar av-leonidkim">LK</div>
-      <div class="channel-info">
-        <div class="channel-name">Leonid Kim MD</div>
-        <div class="channel-topic">&#921;&#945;&#964;&#961;&#953;&#954;&#942; &middot; Longevity &middot; Visceral fat</div>
-      </div>
-      <div class="no-videos-badge">&#922;&#945;&#957;&#941;&#957;&#945; &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959; (&#964;&#949;&#955;&#949;&#965;&#964;&#945;&#943;&#959;: 29/5)</div>
-    </div>
-    <div class="no-videos-card">&#916;&#949;&#957; &#945;&#957;&#941;&#946;&#951;&#954;&#949; &#957;&#941;&#959; &#946;&#943;&#957;&#964;&#949;&#959; &#964;&#953;&#962; &#964;&#949;&#955;&#949;&#965;&#964;&#945;&#943;&#949;&#962; 48 &#974;&#961;&#949;&#962;.</div>
-  </div>
-
-</div>
-<div class="footer">
-  &#913;&#965;&#964;&#972;&#956;&#945;&#964;&#951; &#949;&#954;&#964;&#941;&#955;&#949;&#963;&#951; &middot; 6 &#921;&#959;&#965;&#957;&#943;&#959;&#965; 2026 &middot; &#928;&#951;&#947;&#941;&#962;: YouTube transcripts + PubMed fact-check
-</div>
-</body>
-</html>
+<div class="footer">Αυτόματη εκτέλεση · Τρίτη, 9 Ιουνίου 2026 · Πηγές: YouTube transcripts (yt-dlp) + PubMed fact-check</div>
+</div></body></html>
