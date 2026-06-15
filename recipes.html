@@ -1,351 +1,463 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viral Συνταγές της Ημέρας | learnnutrition.gr</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:-apple-system,'Segoe UI',Roboto,sans-serif;
-      background:#f4f6f8;
-      color:#1a2b3c;
-      padding:24px 16px 64px;
-      line-height:1.5;
-    }
-    .container{max-width:680px;margin:0 auto}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viral Συνταγές της Ημέρας – learnnutrition.gr</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1a2b3c;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 20px 16px 60px;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
 
-    .back-link{
-      display:inline-flex;align-items:center;gap:5px;
-      color:#2e9e5b;text-decoration:none;font-size:14px;font-weight:600;
-      margin-bottom:24px;
-    }
-    .back-link:hover{text-decoration:underline}
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2e9e5b;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    margin-bottom: 24px;
+    padding: 6px 0;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color .2s;
+  }
+  .back-link:hover { border-bottom-color: #2e9e5b; }
 
-    header{margin-bottom:32px}
-    header h1{font-size:28px;font-weight:800;color:#1a2b3c;line-height:1.25}
-    header .meta{font-size:13px;color:#5b6b7b;margin-top:8px}
+  /* Header */
+  .page-header { margin-bottom: 28px; }
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a2b3c;
+    letter-spacing: -.3px;
+    line-height: 1.2;
+  }
+  .page-header .meta {
+    font-size: 13px;
+    color: #5b6b7b;
+    margin-top: 6px;
+  }
+  .page-header .meta span { color: #2e9e5b; font-weight: 600; }
 
-    .cat-label{
-      display:inline-flex;align-items:center;gap:7px;
-      background:#2e9e5b;color:#fff;
-      font-size:11px;font-weight:700;letter-spacing:.7px;
-      text-transform:uppercase;
-      padding:5px 14px;border-radius:20px;
-      margin:24px 0 14px;
-    }
+  /* Category label */
+  .category-section { margin-bottom: 10px; }
+  .category-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5b6b7b;
+    background: #eef1f4;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
 
-    .card{
-      background:#fff;
-      border-radius:14px;
-      box-shadow:0 2px 10px rgba(0,0,0,.06);
-      padding:22px 20px 26px;
-      margin-bottom:20px;
-    }
-    .card h2{font-size:20px;font-weight:800;color:#1a2b3c;margin-bottom:6px}
+  /* Recipe card */
+  .recipe-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .recipe-card:last-child { margin-bottom: 0; }
 
-    .platform{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-    .platform-note{font-size:13px;color:#5b6b7b}
-    .chip{
-      display:inline-block;
-      background:#eef1f4;color:#5b6b7b;
-      border-radius:6px;padding:3px 9px;font-size:12px;font-weight:500;
-    }
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2b3c;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .platform-badge {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #1a2b3c;
+    padding: 4px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .platform-badge.tiktok { background: #010101; }
+  .platform-badge.instagram { background: #C13584; }
+  .platform-badge.youtube { background: #FF0000; }
 
-    .sec-title{
-      font-size:11px;font-weight:700;
-      text-transform:uppercase;letter-spacing:.6px;
-      color:#5b6b7b;
-      margin:16px 0 7px;
-    }
+  /* Ingredients */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5b6b7b;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+  .ingredients-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ingredients-list li {
+    background: #f4f6f8;
+    border: 1px solid #e3e8ed;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #1a2b3c;
+    padding: 4px 10px;
+  }
 
-    ul.ing{list-style:none;padding:0}
-    ul.ing li{
-      font-size:14px;color:#1a2b3c;
-      padding:3px 0 3px 16px;
-      position:relative;
-    }
-    ul.ing li::before{content:'·';color:#2e9e5b;position:absolute;left:0;font-size:18px;line-height:1.1}
+  /* Steps */
+  .steps-list {
+    list-style: none;
+    counter-reset: step-counter;
+  }
+  .steps-list li {
+    counter-increment: step-counter;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #1a2b3c;
+  }
+  .steps-list li::before {
+    content: counter(step-counter);
+    min-width: 22px;
+    height: 22px;
+    background: #2e9e5b;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
 
-    ol.steps{padding-left:20px}
-    ol.steps li{font-size:14px;color:#1a2b3c;padding:4px 0;line-height:1.55}
+  /* Nutrition chips */
+  .nutrition-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .chip {
+    background: #eef1f4;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #1a2b3c;
+    text-align: center;
+  }
+  .chip .chip-val {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #2e9e5b;
+    line-height: 1.1;
+  }
+  .chip .chip-label {
+    display: block;
+    font-size: 10px;
+    color: #5b6b7b;
+    margin-top: 1px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
 
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-    .badge{
-      background:#eef1f4;color:#1a2b3c;
-      border-radius:8px;padding:7px 12px;
-      font-size:13px;font-weight:500;
-    }
-    .badge b{color:#2e9e5b;font-weight:700}
+  /* Dietitian critique */
+  .critique {
+    background: #eef9f0;
+    border-left: 3px solid #2e9e5b;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-top: 16px;
+  }
+  .critique-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2e9e5b;
+    margin-bottom: 7px;
+  }
+  .critique p {
+    font-size: 14px;
+    color: #1a2b3c;
+    line-height: 1.65;
+  }
 
-    .crit{
-      background:#eef9f0;
-      border-left:3px solid #2e9e5b;
-      border-radius:0 10px 10px 0;
-      padding:14px 16px;
-      margin-top:18px;
-    }
-    .crit-title{
-      font-size:13px;font-weight:700;color:#2e9e5b;
-      margin-bottom:8px;display:flex;align-items:center;gap:5px;
-    }
-    .crit p{font-size:14px;color:#1a2b3c;line-height:1.65}
+  /* Divider */
+  .divider { height: 1px; background: #e8ecf0; margin: 6px 0 18px; }
 
-    footer{
-      text-align:center;font-size:12px;color:#5b6b7b;margin-top:44px;
-    }
-    footer a{color:#2e9e5b;text-decoration:none}
-    footer a:hover{text-decoration:underline}
-  </style>
+  /* Footer */
+  .page-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #5b6b7b;
+  }
+  .page-footer a { color: #2e9e5b; text-decoration: none; }
+  .page-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .recipe-card { padding: 18px 16px; }
+    .card-title { font-size: 16px; }
+    .chip { padding: 5px 9px; }
+  }
+</style>
 </head>
 <body>
 <div class="container">
 
   <a class="back-link" href="index.html">← Daily Brief</a>
 
-  <header>
+  <div class="page-header">
     <h1>🍳 Viral Συνταγές της Ημέρας</h1>
-    <div class="meta">09/06/2026 &nbsp;·&nbsp; learnnutrition.gr &nbsp;·&nbsp; Σάββας Τσανασίδης, Διαιτολόγος-Διατροφολόγος</div>
-  </header>
+    <div class="meta">Επιλογή &amp; ανάλυση από <span>Σάββα Τσανασίδη</span> · 15/06/2026</div>
+  </div>
 
-  <!-- ══════════════════════════════════════════
-       ΚΑΤΗΓΟΡΙΑ Α — ΥΨΗΛΗ ΠΡΩΤΕΪΝΗ
-  ══════════════════════════════════════════ -->
-  <div class="cat-label">💪 Υψηλής Πρωτεΐνης</div>
+  <!-- ===== ΚΑΤΗΓΟΡΙΑ 1: ΥΨΗΛΗΣ ΠΡΩΤΕΪΝΗΣ ===== -->
 
-  <!-- ΣΥΝΤΑΓΗ 1 -->
-  <div class="card">
-    <h2>Cottage Cheese Flatbread (2 Υλικά)</h2>
-    <div class="platform">
-      <span class="platform-note">Viral στο</span>
-      <span class="chip">📱 TikTok</span>
-      <span class="chip">📸 Instagram Reels</span>
+  <div class="category-label">💪 Υψηλής Πρωτεΐνης</div>
+
+  <!-- Συνταγή 1: Protein Fluff -->
+  <div class="recipe-card">
+    <div class="card-head">
+      <div class="card-title">Protein Fluff – Η «αέρινη» απόλαυση με 13g πρωτεΐνη</div>
+      <span class="platform-badge tiktok">TikTok</span>
     </div>
-    <div style="font-size:13px;color:#5b6b7b;margin-bottom:4px;">Δημιουργός: @HealthyMumWay (Francesca Aralla) — εκατομμύρια views &amp; αναπαραγωγές σε όλο τον κόσμο</div>
 
-    <div class="sec-title">Υλικά (2 μερίδες)</div>
-    <ul class="ing">
-      <li>1 cup (226g) cottage cheese — πλήρες, 2% ή light</li>
-      <li>2 αυγά μέτρια</li>
-      <li>½ κτγ σκόρδο σε σκόνη</li>
-      <li>1 κτγ ιταλικά μυρωδικά ή everything bagel seasoning</li>
-      <li>Αλάτι &amp; πιπέρι κατά βούληση</li>
+    <div class="section-title">Υλικά (1 μερίδα)</div>
+    <ul class="ingredients-list">
+      <li>1 scoop πρωτεΐνη βανίλια (~30g)</li>
+      <li>150g κατεψυγμένο μάνγκο ή φράουλες</li>
+      <li>80ml γάλα αμυγδάλου</li>
+      <li>4–5 παγάκια</li>
     </ul>
 
-    <div class="sec-title">Εκτέλεση</div>
-    <ol class="steps">
-      <li>Βάλε το cottage cheese και τα αυγά στο μπλέντερ — ανακάτεψε 30–40 δευτερόλεπτα μέχρι να γίνει απολύτως ομοιογενές.</li>
-      <li>Άπλωσε σε λαδόκολλα σε ταψί (ορθογώνιο, πάχος ½ cm περίπου). Πρόσθεσε τα μπαχαρικά από πάνω.</li>
-      <li>Ψήσε στους 175°C (350°F) για 35–40 λεπτά μέχρι να σφίξει και να ροδίσει ελαφρά στις άκρες.</li>
-      <li>Άφησε να κρυώσει εντελώς πριν χρησιμοποιήσεις — γίνεται τέλειο wrap, βάση πίτσας ή σάντουιτς!</li>
+    <div class="section-title">Εκτέλεση</div>
+    <ol class="steps-list">
+      <li>Βάλε όλα τα υλικά στο blender – πρώτα τη σκόνη πρωτεΐνης, μετά τα κατεψυγμένα φρούτα και τέλος το γάλα.</li>
+      <li>Χτύπα σε υψηλή ταχύτητα για 2–3 λεπτά μέχρι το μείγμα να γίνει αέρινο και να τριπλασιαστεί σε όγκο.</li>
+      <li>Σέρβιρε αμέσως σε μεγάλο μπολ – λιώνει γρήγορα!</li>
     </ol>
 
-    <div class="sec-title">Διατροφική Ανάλυση (ανά μερίδα)</div>
-    <div class="badges">
-      <div class="badge">🔥 <b>168</b> kcal</div>
-      <div class="badge">🥩 Πρωτεΐνη <b>17g</b></div>
-      <div class="badge">🌾 Υδατάνθρακες <b>4g</b></div>
-      <div class="badge">🫒 Λίπος <b>9g</b></div>
-      <div class="badge">🌿 Φυτ. Ίνες <b>0g</b></div>
+    <div class="section-title">Διατροφική Ανάλυση ανά Μερίδα</div>
+    <div class="nutrition-row">
+      <div class="chip"><span class="chip-val">126</span><span class="chip-label">kcal</span></div>
+      <div class="chip"><span class="chip-val">13g</span><span class="chip-label">Πρωτεΐνη</span></div>
+      <div class="chip"><span class="chip-val">17g</span><span class="chip-label">Υδατ/κες</span></div>
+      <div class="chip"><span class="chip-val">2g</span><span class="chip-label">Λίπος</span></div>
+      <div class="chip"><span class="chip-val">2g</span><span class="chip-label">Φυτ. Ίνες</span></div>
     </div>
 
-    <div class="crit">
-      <div class="crit-title">🩺 Κριτική Διαιτολόγου — Σάββας Τσανασίδης</div>
-      <p>Ένα από τα πιο έξυπνα viral trends που έχουμε δει τα τελευταία χρόνια — 2 μόνο υλικά, μηδέν αλεύρι, και τόση πρωτεΐνη σε τόσο λίγες θερμίδες! Είναι ιδανικό για όσους θέλουν να μειώσουν τους υδατάνθρακες χωρίς να θυσιάσουν την αίσθηση ότι τρώνε «ψωμί». Ένα μικρό μυστικό: επιλέξτε cottage cheese με χαμηλά λιπαρά αν βρίσκεστε σε πρόγραμμα αδυνατίσματος, και φροντίστε να το αφήσετε να κρυώσει πριν το πάρετε από το ταψί — αλλιώς «πέφτει»!</p>
+    <div class="critique">
+      <div class="critique-header">🥗 Κριτική Διαιτολόγου</div>
+      <p>Το Protein Fluff είναι μια έξυπνη λύση για όταν θέλουμε κάτι γλυκό χωρίς τύψεις — ο μεγάλος όγκος ξεγελά την πείνα ψυχολογικά και βιολογικά. Η επιλογή φρούτων προσθέτει φυσικά σάκχαρα και αντιοξειδωτικά, κάτι που κάνει αυτό το σνακ πολύ ανώτερο από ένα τυπικό πρωτεϊνικό μπαρ. Ιδανικό μετά την άσκηση ή ως απογευματινό σνακ για όσους βρίσκονται σε πρόγραμμα μυϊκής ανάπτυξης ή ελέγχου βάρους.</p>
     </div>
   </div>
 
-  <!-- ΣΥΝΤΑΓΗ 2 -->
-  <div class="card">
-    <h2>High-Protein Chicken Burrito Bowl</h2>
-    <div class="platform">
-      <span class="platform-note">Viral στο</span>
-      <span class="chip">📱 TikTok</span>
-      <span class="chip">📸 Instagram Reels</span>
-      <span class="chip">#mealprep #highprotein</span>
+  <!-- Συνταγή 2: Cottage Cheese Tacos -->
+  <div class="recipe-card">
+    <div class="card-head">
+      <div class="card-title">Cottage Cheese Tacos – Το viral «shell» από τυρί</div>
+      <span class="platform-badge tiktok">TikTok</span>
     </div>
 
-    <div class="sec-title">Υλικά (1 μερίδα)</div>
-    <ul class="ing">
-      <li>200g στήθος κοτόπουλου</li>
-      <li>150g ρύζι μαγειρεμένο (basmati ή jasmine)</li>
-      <li>80g μαύρα φασόλια από κονσέρβα (στραγγιστά)</li>
-      <li>50g κατεψυγμένο καλαμπόκι (ξεπαγωμένο)</li>
-      <li>½ αβοκάντο, σε φέτες</li>
-      <li>1 ντομάτα &amp; ¼ κόκκινο κρεμμύδι, ψιλοκομμένα</li>
-      <li>2 tbsp Greek yogurt 0% + χυμό ½ lime (yogurt crema)</li>
-      <li>Μπαχαρικά: κύμινο, paprika, σκόρδο σε σκόνη, αλάτι, πιπέρι</li>
+    <div class="section-title">Υλικά (2 tacos / 1 μερίδα)</div>
+    <ul class="ingredients-list">
+      <li>½ φλ. cottage cheese (full-fat)</li>
+      <li>2 ασπράδια αυγού</li>
+      <li>Αλάτι, πάπρικα, σκόρδο σκόνη</li>
+      <li>2 αυγά (για γέμιση)</li>
+      <li>½ αβοκάντο</li>
+      <li>Sriracha &amp; φρέσκο κρεμμυδάκι</li>
     </ul>
 
-    <div class="sec-title">Εκτέλεση</div>
-    <ol class="steps">
-      <li>Μαρινάρισε το κοτόπουλο με τα μπαχαρικά και 1 κτγ ελαιόλαδο για 10–15 λεπτά. Ψήσε σε grill ή τηγάνι ώσπου να ψηθεί καλά, κόψε σε κύβους ή λωρίδες.</li>
-      <li>Ανακάτεψε το Greek yogurt με χυμό lime και λίγο κόλιανδρο για να φτιάξεις την crema.</li>
-      <li>Σε μεγάλο bowl: στρώσε το ρύζι, πρόσθεσε κοτόπουλο, φασόλια, καλαμπόκι, αβοκάντο, ντομάτα, κρεμμύδι.</li>
-      <li>Ρίξε τη yogurt crema από πάνω. Σερβίρισε αμέσως ή αποθήκευσε σε αεροστεγές δοχείο για meal prep 3–4 ημερών!</li>
+    <div class="section-title">Εκτέλεση</div>
+    <ol class="steps-list">
+      <li>Ανάκατεψε cottage cheese, ασπράδια και μπαχαρικά· άπλωσε σε 2 κύκλους σε λαδόκολλα (διάμετρος ~15 εκ.).</li>
+      <li>Ψήσε στους 200°C για 22–25 λεπτά μέχρι τα «shells» να ροδίσουν και να σταθεροποιηθούν.</li>
+      <li>Ετοίμασε αυγά scrambled, γέμισε τα shells, γαρνίρισε με αβοκάντο και sriracha.</li>
     </ol>
 
-    <div class="sec-title">Διατροφική Ανάλυση (ανά μερίδα)</div>
-    <div class="badges">
-      <div class="badge">🔥 <b>560</b> kcal</div>
-      <div class="badge">🥩 Πρωτεΐνη <b>50g</b></div>
-      <div class="badge">🌾 Υδατάνθρακες <b>58g</b></div>
-      <div class="badge">🫒 Λίπος <b>12g</b></div>
-      <div class="badge">🌿 Φυτ. Ίνες <b>9g</b></div>
+    <div class="section-title">Διατροφική Ανάλυση ανά Μερίδα</div>
+    <div class="nutrition-row">
+      <div class="chip"><span class="chip-val">195</span><span class="chip-label">kcal</span></div>
+      <div class="chip"><span class="chip-val">22g</span><span class="chip-label">Πρωτεΐνη</span></div>
+      <div class="chip"><span class="chip-val">6g</span><span class="chip-label">Υδατ/κες</span></div>
+      <div class="chip"><span class="chip-val">9g</span><span class="chip-label">Λίπος</span></div>
+      <div class="chip"><span class="chip-val">2g</span><span class="chip-label">Φυτ. Ίνες</span></div>
     </div>
 
-    <div class="crit">
-      <div class="crit-title">🩺 Κριτική Διαιτολόγου — Σάββας Τσανασίδης</div>
-      <p>Μία από τις πιο ολοκληρωμένες meal-prep επιλογές που κυκλοφορούν αυτή τη στιγμή — έχει υψηλής ποιότητας πρωτεΐνη, σύνθετους υδατάνθρακες, υγιή λίπη και άφθονες φυτικές ίνες σε ένα μπολ. Ταιριάζει άριστα σε αθλητές και όσους θέλουν να χτίσουν μυϊκή μάζα. Μία μικρή σύσταση: αν μετράτε θερμίδες, το αβοκάντο προσθέτει ~80 kcal — απολαύστε το, αλλά μετρήστε μισό. Για meal prep, φυλάξτε χωριστά το αβοκάντο και το crema ώστε να μην μαυρίσουν!</p>
+    <div class="critique">
+      <div class="critique-header">🥗 Κριτική Διαιτολόγου</div>
+      <p>Εξαιρετική ιδέα για όσους θέλουν να αυξήσουν την πρωτεΐνη χωρίς τους επιπλέον υδατάνθρακες από τορτίγιες — ιδίως για άτομα με διαβήτη τύπου 2 ή σε κετογονική δίαιτα. Το cottage cheese είναι πλούσιο σε καζεΐνη, μια αργής απορρόφησης πρωτεΐνη που μας κρατά χορτάτους. Η προσθήκη αβοκάντο φέρνει καλά μονοακόρεστα λιπαρά, αλλά προσοχή στην ποσότητα αν βρισκόμαστε σε θερμιδικό έλλειμμα.</p>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       ΚΑΤΗΓΟΡΙΑ Β — LOW CALORIE / ΑΠΟΒΟΛΗ ΒΑΡΟΥΣ
-  ══════════════════════════════════════════ -->
-  <div class="cat-label">🥗 Απώλεια Βάρους / Low-Calorie</div>
+  <div class="divider"></div>
 
-  <!-- ΣΥΝΤΑΓΗ 3 -->
-  <div class="card">
-    <h2>Protein Overnight Oats (Blended)</h2>
-    <div class="platform">
-      <span class="platform-note">Viral στο</span>
-      <span class="chip">📱 TikTok</span>
-      <span class="chip">▶️ YouTube Shorts</span>
-      <span class="chip">2M+ views</span>
+  <!-- ===== ΚΑΤΗΓΟΡΙΑ 2: ΑΠΩΛΕΙΑ ΒΑΡΟΥΣ / LOW-CALORIE ===== -->
+
+  <div class="category-label">🔥 Απώλεια Βάρους / Low-Calorie</div>
+
+  <!-- Συνταγή 3: Chicken Fajita Cauliflower Rice Bowl -->
+  <div class="recipe-card">
+    <div class="card-head">
+      <div class="card-title">Chicken Fajita Bowl με Cauliflower Rice & Greek Yogurt Crema</div>
+      <span class="platform-badge tiktok">TikTok</span>
     </div>
 
-    <div class="sec-title">Υλικά (1 μερίδα)</div>
-    <ul class="ing">
-      <li>½ cup (45g) βρώμη παλαιού τύπου (gluten-free αν χρειάζεται)</li>
-      <li>1 tbsp σπόροι chia</li>
-      <li>¾ cup (180ml) γάλα αμυγδάλου ή γάλα της επιλογής σου</li>
-      <li>¼ cup (60g) Greek yogurt 0%</li>
-      <li>1 scoop (~25g) πρωτεΐνη βανίλια ή σοκολάτα</li>
-      <li>1 tbsp φυστικοβούτυρο (χωρίς ζάχαρη)</li>
-      <li>½ μπανάνα (για φυσική γλύκα)</li>
-      <li>Toppings: φρέσκα μούρα, κανέλα, ½ tbsp κακάο</li>
+    <div class="section-title">Υλικά (1 μερίδα)</div>
+    <ul class="ingredients-list">
+      <li>150g στήθος κοτόπουλου</li>
+      <li>1½ φλ. κουνουπίδι ρυζάκι</li>
+      <li>½ κόκκινη + ½ πράσινη πιπεριά</li>
+      <li>¼ κρεμμύδι φέτες</li>
+      <li>½ αβοκάντο</li>
+      <li>2 κ.σ. 0% Greek yogurt</li>
+      <li>Χυμός ½ λεμονιού</li>
+      <li>Cumin, chili powder, paprika, σκόρδο, ελαιόλαδο</li>
     </ul>
 
-    <div class="sec-title">Εκτέλεση</div>
-    <ol class="steps">
-      <li>Ανακάτεψε βρώμη, chia, γάλα, yogurt, πρωτεΐνη και μπανάνα σε γυάλινο βάζο ή μπολ. Σκέπασε καλά.</li>
-      <li>Βάλε στο ψυγείο για τουλάχιστον 6 ώρες — ιδανικά όλο το βράδυ.</li>
-      <li>Το πρωί: <strong>το viral τρικ!</strong> Βάλτο στο μπλέντερ για 20–30 δευτερόλεπτα — γίνεται κρεμώδες σαν παγωτό!</li>
-      <li>Πρόσθεσε φυστικοβούτυρο και toppings πριν σερβίρεις. Έτοιμο σε 2 λεπτά!</li>
+    <div class="section-title">Εκτέλεση</div>
+    <ol class="steps-list">
+      <li>Μαρίναρε το κοτόπουλο 30' σε ελαιόλαδο, χυμό λεμονιού και μπαχαρικά fajita· ψήσε σε τηγάνι ή air fryer στους 200°C.</li>
+      <li>Σοτάρισε το κουνουπίδι ρυζάκι με πιπεριές και κρεμμύδι 5–7 λεπτά σε δυνατή φωτιά.</li>
+      <li>Φτιάξε crema: ανακάτεψε Greek yogurt + χυμό λεμονιού + αλάτι. Συναρμολόγησε το bowl και γαρνίρισε με αβοκάντο.</li>
     </ol>
 
-    <div class="sec-title">Διατροφική Ανάλυση (ανά μερίδα)</div>
-    <div class="badges">
-      <div class="badge">🔥 <b>420</b> kcal</div>
-      <div class="badge">🥩 Πρωτεΐνη <b>30g</b></div>
-      <div class="badge">🌾 Υδατάνθρακες <b>44g</b></div>
-      <div class="badge">🫒 Λίπος <b>12g</b></div>
-      <div class="badge">🌿 Φυτ. Ίνες <b>9g</b></div>
+    <div class="section-title">Διατροφική Ανάλυση ανά Μερίδα</div>
+    <div class="nutrition-row">
+      <div class="chip"><span class="chip-val">432</span><span class="chip-label">kcal</span></div>
+      <div class="chip"><span class="chip-val">38g</span><span class="chip-label">Πρωτεΐνη</span></div>
+      <div class="chip"><span class="chip-val">20g</span><span class="chip-label">Υδατ/κες</span></div>
+      <div class="chip"><span class="chip-val">22g</span><span class="chip-label">Λίπος</span></div>
+      <div class="chip"><span class="chip-val">9g</span><span class="chip-label">Φυτ. Ίνες</span></div>
     </div>
 
-    <div class="crit">
-      <div class="crit-title">🩺 Κριτική Διαιτολόγου — Σάββας Τσανασίδης</div>
-      <p>Εξαιρετική επιλογή για ένα πλήρες πρωινό που ετοιμάζεις σε 5 λεπτά το βράδυ και δεν σκέφτεσαι το πρωί! Η βρώμη με τους σπόρους chia παρέχουν β-γλυκάνες που βοηθούν στη ρύθμιση του σακχάρου και στη μείωση της LDL χοληστερόλης, ενώ η πρωτεΐνη κρατά τον κορεσμό ώς το μεσημέρι. Ταιριάζει ιδανικά σε όσους θέλουν να ελέγξουν την πρωινή τους πείνα. Μικρό tip: μία κουταλιά φυστικοβούτυρο φτάνει — η δεύτερη προσθέτει 95 θερμίδες που δεν τις νιώθεις!</p>
+    <div class="critique">
+      <div class="critique-header">🥗 Κριτική Διαιτολόγου</div>
+      <p>Αυτό το bowl είναι ένα από τα πιο ισορροπημένα γεύματα που μπορούμε να φτιάξουμε — υψηλή πρωτεΐνη, λίγοι «κενοί» υδατάνθρακες και σχεδόν 10g φυτικών ινών που στηρίζουν το έντερο. Το cauliflower rice μειώνει τις θερμίδες κατά ~40% σε σχέση με κανονικό ρύζι, χωρίς να θυσιάζει τον κορεσμό. Ταιριάζει τέλεια σε όσους βρίσκονται σε θερμιδικό έλλειμμα ή ακολουθούν low-carb πλάνο, αλλά να θυμόμαστε ότι το λίπος από το αβοκάντο είναι ευεργετικό — δεν το παραλείπουμε!</p>
     </div>
   </div>
 
-  <!-- ΣΥΝΤΑΓΗ 4 -->
-  <div class="card">
-    <h2>Low-Carb Cauliflower Fajita Bowl</h2>
-    <div class="platform">
-      <span class="platform-note">Viral στο</span>
-      <span class="chip">📱 TikTok</span>
-      <span class="chip">#lowcarb #weightloss 2026</span>
+  <div class="divider"></div>
+
+  <!-- ===== ΚΑΤΗΓΟΡΙΑ 3: ΓΡΗΓΟΡΕΣ / MEAL PREP ===== -->
+
+  <div class="category-label">⚡ Γρήγορες / Meal Prep</div>
+
+  <!-- Συνταγή 4: Baked Feta Pasta -->
+  <div class="recipe-card">
+    <div class="card-head">
+      <div class="card-title">Viral Baked Feta Pasta – Ο κλασικός που επιστρέφει</div>
+      <span class="platform-badge tiktok">TikTok</span>
     </div>
 
-    <div class="sec-title">Υλικά (1 μερίδα)</div>
-    <ul class="ing">
-      <li>200g ρύζι κουνουπίδι — φρέσκο ή κατεψυγμένο</li>
-      <li>150g στήθος κοτόπουλου ή μοσχαρίσια μπριζόλα, σε λωρίδες</li>
-      <li>1 πιπεριά κόκκινη + 1 κίτρινη, σε λωρίδες</li>
-      <li>½ κρεμμύδι, σε λωρίδες</li>
-      <li>2 tbsp Greek yogurt 0% + χυμό ½ lime + κόλιανδρο (crema)</li>
-      <li>Μπαχαρικά: κύμινο, chili, σκόρδο σε σκόνη, paprika, αλάτι</li>
-      <li>Ελαιόλαδο για το μαγείρεμα</li>
+    <div class="section-title">Υλικά (2 μερίδες)</div>
+    <ul class="ingredients-list">
+      <li>200g block φέτα ΠΟΠ</li>
+      <li>400g cherry ντομάτες</li>
+      <li>160g penne ολικής αλέσεως</li>
+      <li>3 σκελίδες σκόρδο</li>
+      <li>3 κ.σ. ελαιόλαδο</li>
+      <li>Φρέσκος βασιλικός</li>
+      <li>Αλάτι, πιπέρι, νιφάδες chili</li>
     </ul>
 
-    <div class="sec-title">Εκτέλεση</div>
-    <ol class="steps">
-      <li>Μαγείρεψε το κουνουπίδι ρύζι σε αντικολλητικό τηγάνι με 1 κτγ ελαιόλαδο για 5–6 λεπτά μέχρι να εξατμιστεί η υγρασία. Αλάτισε.</li>
-      <li>Σε ξεχωριστό τηγάνι σε δυνατή φωτιά, σοτάρισε πιπεριές &amp; κρεμμύδι 3 λεπτά, πρόσθεσε την πρωτεΐνη με τα μπαχαρικά, μαγείρεψε ώσπου να ροδίσει καλά.</li>
-      <li>Φτιάξε τη crema: ανακάτεψε yogurt, lime και κόλιανδρο.</li>
-      <li>Στρώσε το cauliflower rice στο bowl, πρόσθεσε τα fajita, τελείωσε με τη crema. Σερβίρισε ζεστό!</li>
+    <div class="section-title">Εκτέλεση</div>
+    <ol class="steps-list">
+      <li>Βάλε τις ντομάτες και το σκόρδο σε ταψί, τοποθέτησε τη φέτα στη μέση, πέρασε με ελαιόλαδο, αλάτι &amp; chili.</li>
+      <li>Ψήσε στους 200°C (αέρας) για 30–35 λεπτά — η φέτα πρέπει να κατακόκκινη από πάνω.</li>
+      <li>Βράσε τα ζυμαρικά al dente, ανακάτεψε με το ζεστό μείγμα φέτας-ντομάτας, πρόσθεσε φρέσκο βασιλικό.</li>
     </ol>
 
-    <div class="sec-title">Διατροφική Ανάλυση (ανά μερίδα)</div>
-    <div class="badges">
-      <div class="badge">🔥 <b>320</b> kcal</div>
-      <div class="badge">🥩 Πρωτεΐνη <b>35g</b></div>
-      <div class="badge">🌾 Υδατάνθρακες <b>18g</b></div>
-      <div class="badge">🫒 Λίπος <b>10g</b></div>
-      <div class="badge">🌿 Φυτ. Ίνες <b>6g</b></div>
+    <div class="section-title">Διατροφική Ανάλυση ανά Μερίδα</div>
+    <div class="nutrition-row">
+      <div class="chip"><span class="chip-val">435</span><span class="chip-label">kcal</span></div>
+      <div class="chip"><span class="chip-val">18g</span><span class="chip-label">Πρωτεΐνη</span></div>
+      <div class="chip"><span class="chip-val">51g</span><span class="chip-label">Υδατ/κες</span></div>
+      <div class="chip"><span class="chip-val">18g</span><span class="chip-label">Λίπος</span></div>
+      <div class="chip"><span class="chip-val">4g</span><span class="chip-label">Φυτ. Ίνες</span></div>
     </div>
 
-    <div class="crit">
-      <div class="crit-title">🩺 Κριτική Διαιτολόγου — Σάββας Τσανασίδης</div>
-      <p>Αν βρίσκεστε σε πρόγραμμα απώλειας βάρους, αυτή η συνταγή είναι ο καλύτερός σας σύμμαχος — μόλις 320 θερμίδες, 35g πρωτεΐνης και γεύση που σε κάνει να ξεχνάς ότι «τρως διαιτητικά»! Το κουνουπίδι ρύζι μειώνει τους υδατάνθρακες κατά ~70% σε σχέση με το κανονικό ρύζι, χωρίς να θυσιάζεις τον κορεσμό. Ταιριάζει ιδανικά σε διαβητικούς, σε όσους κάνουν low-carb ή απλά θέλουν ένα ελαφρύ βραδινό με «σφιχτά» μακρό.</p>
+    <div class="critique">
+      <div class="critique-header">🥗 Κριτική Διαιτολόγου</div>
+      <p>Η baked feta pasta ξαναβγαίνει στην επιφάνεια και για καλό λόγο: είναι ένα γεύμα με εξαιρετική ισορροπία γεύσης και θρεπτικής αξίας. Η φέτα ΠΟΠ μάς δίνει ασβέστιο, προβιοτικά και καλά κορεσμένα λιπαρά, ενώ οι ψητές ντομάτες αυξάνουν τη βιοδιαθεσιμότητα του λυκοπενίου. Για να ανεβάσουμε την πρωτεΐνη, μπορούμε να προσθέσουμε 100g κοτόπουλο ή τόνο — η συνταγή σε ¼ ώρα παρασκευής είναι ιδανική για μαζικό meal prep Κυριακής.</p>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       ΚΑΤΗΓΟΡΙΑ Γ — ΓΡΗΓΟΡΕΣ / MEAL PREP
-  ══════════════════════════════════════════ -->
-  <div class="cat-label">⚡ Γρήγορες / Meal Prep</div>
-
-  <!-- ΣΥΝΤΑΓΗ 5 -->
-  <div class="card">
-    <h2>Viral Baked Feta Pasta</h2>
-    <div class="platform">
-      <span class="platform-note">Viral στο</span>
-      <span class="chip">📱 TikTok</span>
-      <span class="chip">📸 Instagram</span>
-      <span class="chip">Επιστρέφει δυναμικά 2026!</span>
+  <!-- Συνταγή 5: Salmon Sushi Bowl -->
+  <div class="recipe-card">
+    <div class="card-head">
+      <div class="card-title">Viral Salmon Rice Bowl (Emily Mariko Style) – Το trending πιάτο της γενιάς</div>
+      <span class="platform-badge tiktok">TikTok</span>
     </div>
-    <div style="font-size:13px;color:#5b6b7b;margin-bottom:4px;">Δημιουργός: Jenni Häyrinen (Φινλανδία) — η πιο viral συνταγή όλης της TikTok ιστορίας</div>
 
-    <div class="sec-title">Υλικά (4 μερίδες)</div>
-    <ul class="ing">
-      <li>200g μπλοκ φέτα ΠΟΠ (ολόκληρο — ΟΧΙ τριμμένο)</li>
-      <li>500g ντοματίνια</li>
-      <li>4 σκελίδες σκόρδο, ολόκληρες</li>
-      <li>60ml (¼ cup) ελαιόλαδο extra virgin</li>
-      <li>300g pasta — penne, rigatoni ή fusilli (κρατάει καλύτερα τη σάλτσα)</li>
-      <li>Φρέσκος βασιλικός, αλάτι, πιπέρι, νιφάδες chili (προαιρετικά)</li>
+    <div class="section-title">Υλικά (1 μερίδα)</div>
+    <ul class="ingredients-list">
+      <li>150g φιλέτο σολομός</li>
+      <li>¾ φλ. ρύζι sushi (ψημένο)</li>
+      <li>1 κ.σ. Kewpie mayo</li>
+      <li>1 κ.σ. σάλτσα σόγιας (χαμηλή σε νάτριο)</li>
+      <li>1 κ.γ. sriracha</li>
+      <li>½ αβοκάντο (φέτες)</li>
+      <li>1 κ.γ. furikake</li>
+      <li>Φύκια nori &amp; φρέσκο κρεμμυδάκι</li>
     </ul>
 
-    <div class="sec-title">Εκτέλεση</div>
-    <ol class="steps">
-      <li>Προθέρμανε φούρνο στους 200°C. Βάλε ντοματίνια &amp; σκόρδο σε ταψί, ρίξε ελαιόλαδο, αλάτι, πιπέρι — ανακάτεψε.</li>
-      <li>Τοποθέτησε τη φέτα στο κέντρο. Ψήσε 30–35 λεπτά ώσπου τα ντοματίνια να σκάσουν και η φέτα να ροδίσει ελαφρά.</li>
-      <li>Εν τω μεταξύ, βράσε την pasta al dente — κράτα ½ cup από το νερό βρασμού.</li>
-      <li>Λιώσε τη φέτα με πιρούνι, ανακάτεψε με τα ντοματίνια και το σκόρδο. Πρόσθεσε την pasta (+ λίγο νερό βρασμού αν χρειάζεται για κρεμώδη σάλτσα). Σερβίρισε με φρέσκο βασιλικό!</li>
+    <div class="section-title">Εκτέλεση</div>
+    <ol class="steps-list">
+      <li>Ψήσε τον σολομό στο air fryer ή τηγάνι με λίγη σόγια και σησαμέλαιο για 8–10 λεπτά· ξεφλούδισε τον σε κομμάτια.</li>
+      <li>Ανακάτεψε τον σολομό με Kewpie mayo, sriracha και σόγια μέχρι να γίνει ενιαίο μείγμα.</li>
+      <li>Βάλε ρύζι στη βάση του bowl, πασπάλισε furikake, βάλε το μείγμα σολομού και γαρνίρισε με αβοκάντο, nori και κρεμμυδάκι.</li>
     </ol>
 
-    <div class="sec-title">Διατροφική Ανάλυση (ανά μερίδα)</div>
-    <div class="badges">
-      <div class="badge">🔥 <b>376</b> kcal</div>
-      <div class="badge">🥩 Πρωτεΐνη <b>10g</b></div>
-      <div class="badge">🌾 Υδατάνθρακες <b>53g</b></div>
-      <div class="badge">🫒 Λίπος <b>15g</b></div>
-      <div class="badge">🌿 Φυτ. Ίνες <b>4g</b></div>
+    <div class="section-title">Διατροφική Ανάλυση ανά Μερίδα</div>
+    <div class="nutrition-row">
+      <div class="chip"><span class="chip-val">480</span><span class="chip-label">kcal</span></div>
+      <div class="chip"><span class="chip-val">32g</span><span class="chip-label">Πρωτεΐνη</span></div>
+      <div class="chip"><span class="chip-val">46g</span><span class="chip-label">Υδατ/κες</span></div>
+      <div class="chip"><span class="chip-val">17g</span><span class="chip-label">Λίπος</span></div>
+      <div class="chip"><span class="chip-val">4g</span><span class="chip-label">Φυτ. Ίνες</span></div>
     </div>
 
-    <div class="crit">
-      <div class="crit-title">🩺 Κριτική Διαιτολόγου — Σάββας Τσανασίδης</div>
-      <p>Κλασικό viral recipe με εξαιρετική γεύση και ελάχιστη προσπάθεια — ιδανικό για εκείνα τα απογεύματα που δεν έχουμε ούτε λεπτό διάθεση! Η φέτα ΠΟΠ προσφέρει ασβέστιο και προβιοτικά, ενώ τα ντοματίνια ψημένα με ελαιόλαδο αυξάνουν σημαντικά τη βιοδιαθεσιμότητα του λυκοπενίου. Αν βρίσκεστε σε πρόγραμμα απώλειας βάρους, μειώστε το ελαιόλαδο στις 2 tbsp και προτιμήστε ολικής αλέσεως pasta για επιπλέον φυτικές ίνες και χαμηλότερο γλυκαιμικό δείκτη.</p>
+    <div class="critique">
+      <div class="critique-header">🥗 Κριτική Διαιτολόγου</div>
+      <p>Το salmon bowl είναι ένα από τα πιο ολοκληρωμένα γεύματα που μπορούμε να φτιάξουμε — ο σολομός μάς δίνει ω-3 λιπαρά οξέα που μειώνουν τη φλεγμονή, υποστηρίζουν τον εγκέφαλο και βελτιώνουν τα τριγλυκερίδια. Η Kewpie mayo προσθέτει λιπαρά, οπότε για όσους είναι σε πρόγραμμα αδυνατίσματος προτείνουμε να ξεκινήσουν με ½ κ.σ. Ιδανικό για meal prep: ο σολομός διατηρείται 3 μέρες στο ψυγείο, το bowl συναρμολογείται σε 5 λεπτά.</p>
     </div>
   </div>
 
-  <footer>
-    <p>© 2026 <a href="index.html">learnnutrition.gr</a> &nbsp;·&nbsp; Σάββας Τσανασίδης, Διαιτολόγος-Διατροφολόγος</p>
-    <p style="margin-top:8px;font-size:11px;">Οι διατροφικές αναλύσεις είναι εκτιμήσεις βάσει τυπικών ποσοτήτων υλικών. Συμβουλευτείτε τον διαιτολόγο σας για εξατομικευμένες διατροφικές συστάσεις.</p>
-  </footer>
+  <div class="page-footer">
+    <p>Δημιουργήθηκε από τον βοηθό του <a href="https://learnnutrition.gr">learnnutrition.gr</a> · Σάββας Τσανασίδης, Διαιτολόγος-Διατροφολόγος</p>
+    <p style="margin-top:4px;">Οι διατροφικές αναλύσεις είναι εκτιμήσεις βάσει μέσων τιμών — συμβουλευτείτε τον διαιτολόγο σας για εξατομικευμένο πλάνο.</p>
+  </div>
 
 </div>
 </body>
