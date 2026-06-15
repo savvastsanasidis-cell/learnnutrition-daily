@@ -2,47 +2,183 @@
   "_comment": "Ρυθμίσεις για το Daily Research Brief του learnnutrition.gr. Διαβάζεται σε κάθε session ώστε η μεθοδολογία να είναι σταθερή. Κανόνας: ΜΟΝΟ ανθρώπινες μελέτες (αποκλεισμός μελετών σε ζώα/in vitro), αληθινά PMID από PubMed, de-duplication μέσω seen_pmids.json.",
   "rules": {
     "humans_only": true,
-    "exclude_publication_or_subjects": ["Animals", "Mice", "Rats", "in vitro", "cell line"],
-    "prefer_publication_types": ["Randomized Controlled Trial", "Clinical Trial", "Meta-Analysis", "Systematic Review", "Observational Study", "Cohort"],
+    "exclude_publication_or_subjects": [
+      "Animals",
+      "Mice",
+      "Rats",
+      "in vitro",
+      "cell line"
+    ],
+    "prefer_publication_types": [
+      "Randomized Controlled Trial",
+      "Clinical Trial",
+      "Meta-Analysis",
+      "Systematic Review",
+      "Observational Study",
+      "Cohort"
+    ],
     "default_reldate_days": 45,
     "studies_per_brief": "6-10",
     "dedup_file": "seen_pmids.json"
   },
   "topics": {
     "weight_loss_obesity": {
-      "label_el": "Απώλεια βάρους / Παχυσαρκία",
-      "keywords": ["weight loss", "obesity", "caloric restriction", "very low calorie diet", "energy deficit", "body composition", "diet quality", "Mediterranean diet", "Planetary Health Diet"]
+      "label_el": "Δίαιτες απώλειας βάρους & λίπους (συγκριτικές)",
+      "focus_el": "Ποιες δίαιτες πετυχαίνουν την ιδανικότερη απώλεια ΛΙΠΟΥΣ. Προτεραιότητα σε ΣΥΓΚΡΙΤΙΚΕΣ μελέτες (δίαιτα vs δίαιτα) με αξιόπιστη μέτρηση σύστασης σώματος. ΟΧΙ θέματα συμπεριφοράς φαγητού / UPF / συναισθηματικού φαγητού.",
+      "keywords": [
+        "weight loss diet",
+        "fat loss",
+        "body composition",
+        "low-carbohydrate diet",
+        "low-fat diet",
+        "ketogenic diet",
+        "high-protein diet",
+        "Mediterranean diet",
+        "caloric restriction",
+        "visceral fat",
+        "DXA fat mass"
+      ]
     },
     "hormones_weight": {
       "label_el": "Ορμόνες & απώλεια βάρους",
-      "keywords": ["GLP-1", "semaglutide", "tirzepatide", "incretin", "leptin", "ghrelin", "PYY", "LEAP2", "appetite hormones", "satiety"]
+      "keywords": [
+        "GLP-1",
+        "semaglutide",
+        "tirzepatide",
+        "incretin",
+        "leptin",
+        "ghrelin",
+        "PYY",
+        "LEAP2",
+        "appetite hormones",
+        "satiety"
+      ]
+    },
+    "nutrition_muscle_mass": {
+      "label_el": "Διατροφή, άσκηση & μυϊκή μάζα",
+      "focus_el": "Διατροφικά μοντέλα + άσκηση που αυξάνουν τη μυϊκή / άλιπη μάζα. Προτεραιότητα σε μελέτες που μετρούν τη ΜΕΤΑΒΟΛΗ μυϊκής μάζας ΚΑΙ λιπώδους ιστού με ισχυρές μεθόδους.",
+      "keywords": [
+        "resistance training",
+        "muscle hypertrophy",
+        "lean body mass",
+        "skeletal muscle mass",
+        "muscle protein synthesis",
+        "protein intake",
+        "sarcopenia",
+        "fat-free mass",
+        "creatine supplementation",
+        "muscle cross-sectional area"
+      ]
     },
     "metabolic_health_metabolism": {
       "label_el": "Μεταβολική υγεία & μεταβολισμός",
-      "keywords": ["metabolic health", "metabolic syndrome", "energy expenditure", "RMR", "resting metabolic rate", "cardiometabolic risk", "gut microbiota"]
+      "keywords": [
+        "metabolic health",
+        "metabolic syndrome",
+        "energy expenditure",
+        "RMR",
+        "resting metabolic rate",
+        "cardiometabolic risk",
+        "gut microbiota"
+      ]
     },
     "metabolic_adaptation": {
       "label_el": "Μεταβολική προσαρμογή",
-      "keywords": ["metabolic adaptation", "adaptive thermogenesis", "weight regain", "weight maintenance", "refeeding", "energy compensation"]
+      "keywords": [
+        "metabolic adaptation",
+        "adaptive thermogenesis",
+        "weight regain",
+        "weight maintenance",
+        "refeeding",
+        "energy compensation"
+      ]
     },
     "insulin_resistance_pcos": {
       "label_el": "Αντίσταση ινσουλίνης / PCOS",
-      "keywords": ["insulin resistance", "insulin sensitivity", "PCOS", "hyperandrogenism", "inositol", "prediabetes", "type 2 diabetes remission", "HOMA-IR", "glycemic variability"]
-    },
-    "intermittent_fasting": {
-      "label_el": "Διαλειμματική νηστεία",
-      "keywords": ["intermittent fasting", "time-restricted eating", "alternate-day fasting", "chrononutrition", "modified fasting", "eating window"]
+      "keywords": [
+        "insulin resistance",
+        "insulin sensitivity",
+        "PCOS",
+        "hyperandrogenism",
+        "inositol",
+        "prediabetes",
+        "type 2 diabetes remission",
+        "HOMA-IR",
+        "glycemic variability"
+      ]
     },
     "liver_health": {
       "label_el": "Υγεία συκωτιού",
-      "keywords": ["MASLD", "NAFLD", "MASH", "hepatic steatosis", "liver fat", "fibrosis", "ectopic lipids"]
+      "keywords": [
+        "MASLD",
+        "NAFLD",
+        "MASH",
+        "hepatic steatosis",
+        "liver fat",
+        "fibrosis",
+        "ectopic lipids"
+      ]
     }
   },
   "target_journals_ta": {
-    "obesity_weight": ["Obesity (Silver Spring)", "Int J Obes (Lond)", "Obes Rev", "Diabetes Obes Metab", "Obes Pillars"],
-    "metabolism_nutrition": ["Am J Clin Nutr", "Cell Metab", "Metabolism", "Diabetes Care", "Nutrients", "Clin Nutr", "Clin Nutr ESPEN", "Lancet Diabetes Endocrinol"],
-    "liver": ["J Hepatol", "Hepatology", "Liver Int", "Clin Gastroenterol Hepatol"],
-    "endocrine_pcos": ["J Clin Endocrinol Metab", "Hum Reprod", "Front Endocrinol (Lausanne)"],
-    "top_general": ["Lancet", "JAMA", "JAMA Netw Open", "N Engl J Med", "BMJ"]
+    "obesity_weight": [
+      "Obesity (Silver Spring)",
+      "Int J Obes (Lond)",
+      "Obes Rev",
+      "Diabetes Obes Metab",
+      "Obes Pillars"
+    ],
+    "metabolism_nutrition": [
+      "Am J Clin Nutr",
+      "Cell Metab",
+      "Metabolism",
+      "Diabetes Care",
+      "Nutrients",
+      "Clin Nutr",
+      "Clin Nutr ESPEN",
+      "Lancet Diabetes Endocrinol"
+    ],
+    "liver": [
+      "J Hepatol",
+      "Hepatology",
+      "Liver Int",
+      "Clin Gastroenterol Hepatol"
+    ],
+    "endocrine_pcos": [
+      "J Clin Endocrinol Metab",
+      "Hum Reprod",
+      "Front Endocrinol (Lausanne)"
+    ],
+    "top_general": [
+      "Lancet",
+      "JAMA",
+      "JAMA Netw Open",
+      "N Engl J Med",
+      "BMJ"
+    ],
+    "muscle_exercise": [
+      "J Cachexia Sarcopenia Muscle",
+      "Med Sci Sports Exerc",
+      "Sports Med",
+      "J Int Soc Sports Nutr",
+      "Am J Clin Nutr",
+      "Med Sci Sports Exerc"
+    ]
+  },
+  "weight_page": {
+    "_comment": "Δομή & προτεραιότητες ΑΠΟΚΛΕΙΣΤΙΚΑ για το research-weight.html. Το research-inflammation.html ΔΕΝ επηρεάζεται.",
+    "filename": "research-weight.html",
+    "title": "⚖️ Έρευνες: Βάρος & Μεταβολισμός",
+    "sections": [
+      "🥗 1. Δίαιτες Απώλειας Βάρους & Λίπους",
+      "💊 2. Ορμόνες & Φάρμακα Βάρους (GLP-1)",
+      "💪 3. Διατροφή, Άσκηση & Μυϊκή Μάζα",
+      "🔬 4. Μεταβολική Υγεία & Κατευθυντήριες Οδηγίες"
+    ],
+    "section_rules_el": {
+      "1": "Δίαιτες που οδηγούν στην ιδανικότερη απώλεια ΛΙΠΟΥΣ (όχι απλώς βάρους). Προτίμησε ΣΥΓΚΡΙΤΙΚΕΣ μελέτες (δίαιτα vs δίαιτα). ΜΗΝ βάζεις θέματα συμπεριφοράς φαγητού, υπερ-επεξεργασμένων τροφίμων ή συναισθηματικού φαγητού εδώ.",
+      "3": "Διατροφικά μοντέλα + άσκηση που αυξάνουν τη μυϊκή / άλιπη μάζα. Δείξε τη μεταβολή ΚΑΙ της μυϊκής μάζας ΚΑΙ του λιπώδους ιστού. (Αυτή η ενότητα ΑΝΤΙΚΑΤΕΣΤΗΣΕ τη Διαλειμματική Νηστεία — ΜΗΝ ξαναβάζεις νηστεία/TRE/IF στη σελίδα weight.)"
+    },
+    "measurement_preference_el": "Προτίμησε μελέτες με ισχυρές, αντικειμενικές μεθόδους σύστασης σώματος αντί για απλό ΔΜΣ ή βάρος ζυγαριάς. Για ΛΙΠΟΣ ιδανικά: DXA, MRI, BodPod / air-displacement plethysmography, 4-compartment model, υποβρύχια ζύγιση ή κορυφαίοι αναλυτές σύστασης σώματος. Για ΜΥΪΚΗ ΜΑΖΑ ιδανικά: MRI, CT, DXA, D3-creatine dilution ή υπέρηχος μυός. Υποβάθμισε μελέτες που βασίζονται μόνο σε ΔΜΣ/περίμετρο/απλή ζυγαριά."
   }
 }
