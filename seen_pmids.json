@@ -86,7 +86,19 @@
     "42221753",
     "42211106",
     "42281243",
-    "42265997"
+    "42265997",
+    "42289790",
+    "42299884",
+    "42231340",
+    "41856826",
+    "41936548",
+    "42234428",
+    "42290037",
+    "42113435",
+    "42280466",
+    "42120324",
+    "42208206",
+    "41941962"
   ],
   "history": [
     {
@@ -201,6 +213,24 @@
         "42211106",
         "42281243",
         "42265997"
+      ]
+    },
+    {
+      "date": "2026-06-17",
+      "note": "Routine ΒΑΡΟΣ & ΜΕΤΑΒΟΛΙΣΜΟΣ: 12 ανθρωπινες μελετες, 4 ενοτητες - high-protein diet renal/body comp MA, protein reduction isocaloric RCT, sleep loss metabolomics RCT, exercise visceral fat variability, GLP-1 nondiabetic network MA, HRS-7535 oral GLP-1 phase 2 RCT, tirzepatide sex vs age, bariatric exercise sarcopenia MA, continuous vs intermittent CR diet breaks RCT, caffeine fat oxidation RCT, IF+TRE vs CR behavior RCT, eTRE phenotype subgroups RCT",
+      "pmids": [
+        "42289790",
+        "42299884",
+        "42231340",
+        "41856826",
+        "41936548",
+        "42234428",
+        "42290037",
+        "42113435",
+        "42280466",
+        "42120324",
+        "42208206",
+        "41941962"
       ]
     }
   ]
