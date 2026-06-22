@@ -3,215 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔥 Έρευνες: Φλεγμονή, Όργανα & Ορμόνες</title>
+<title>Έρευνες: Φλεγμονή, Όργανα & Ορμόνες</title>
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 0 14px 40px;
-    background: #f4f6f8;
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #1f2a37; line-height: 1.6;
-  }
-  .wrap { max-width: 680px; margin: 0 auto; }
-  .top { padding: 18px 0 4px; }
-  .back {
-    display: inline-block; text-decoration: none; color: #2563eb;
-    font-size: 15px; font-weight: 600; margin-bottom: 10px;
-  }
-  h1 { font-size: 25px; margin: 6px 0 2px; line-height: 1.25; }
-  .date { color: #6b7280; font-size: 14px; margin-bottom: 18px; }
-  .highlights {
-    background: #fff7ed; border: 1px solid #fed7aa; border-radius: 14px;
-    padding: 14px 16px 14px 18px; margin-bottom: 26px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  .highlights h2 { font-size: 17px; margin: 0 0 8px; color: #c2410c; }
-  .highlights ul { margin: 0; padding-left: 20px; }
-  .highlights li { margin-bottom: 7px; font-size: 14.5px; }
-  h2.section {
-    font-size: 20px; margin: 30px 0 14px; padding-bottom: 6px;
-    border-bottom: 2px solid #e5e7eb;
-  }
-  .card {
-    background: #fff; border-radius: 14px; padding: 16px 17px;
-    margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-  .badge {
-    display: inline-block; font-size: 12px; font-weight: 700;
-    padding: 3px 10px; border-radius: 999px; margin-bottom: 9px;
-    letter-spacing: .2px;
-  }
-  .b-meta { background: #ede9fe; color: #6d28d9; }
-  .b-sys  { background: #dbeafe; color: #1d4ed8; }
-  .b-rct  { background: #dcfce7; color: #15803d; }
-  .b-clin { background: #fef9c3; color: #a16207; }
-  .card h3 { font-size: 16.5px; margin: 0 0 4px; line-height: 1.35; }
-  .eng { color: #6b7280; font-size: 13px; font-style: italic; display: block; margin-bottom: 6px; }
-  .src { font-size: 13px; color: #374151; margin-bottom: 8px; }
-  .src a { color: #2563eb; text-decoration: none; }
-  .card p.body { margin: 8px 0 0; font-size: 14.5px; }
-  .hook {
-    margin-top: 12px; padding: 10px 14px;
-    background: #f0f9ff; border-left: 4px solid #38bdf8;
-    border-radius: 0 8px 8px 0; font-size: 14px;
-  }
-  .hook strong { color: #0369a1; }
-  footer { text-align: center; color: #9ca3af; font-size: 12.5px; margin-top: 30px; }
+  body{margin:0;background:#f4f6f8;color:#1f2933;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}
+  .wrap{max-width:680px;margin:0 auto;padding:18px 16px 60px;}
+  a.back{display:inline-block;color:#2563eb;text-decoration:none;font-size:15px;margin-bottom:10px;}
+  h1{font-size:23px;margin:6px 0 2px;}
+  .date{color:#6b7280;font-size:14px;margin-bottom:18px;}
+  .hl{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px;margin-bottom:26px;border-left:5px solid #f59e0b;}
+  .hl h2{font-size:17px;margin:0 0 8px;}
+  .hl ul{margin:0;padding-left:20px;}
+  .hl li{margin-bottom:6px;}
+  h2.sec{font-size:19px;margin:30px 0 14px;padding-bottom:6px;border-bottom:2px solid #e5e7eb;}
+  .card{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px;margin-bottom:16px;}
+  .card h3{font-size:16px;margin:0 0 6px;}
+  .src{color:#6b7280;font-size:13px;margin-bottom:8px;}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;margin-bottom:9px;color:#fff;}
+  .meta{background:#7c3aed;}
+  .rct{background:#059669;}
+  .obs{background:#0284c7;}
+  .card p{margin:6px 0;font-size:15px;}
+  .links a{color:#2563eb;text-decoration:none;font-size:13px;margin-right:12px;}
+  .hook{background:#fff7ed;border-left:4px solid #fb923c;border-radius:8px;padding:10px 12px;margin-top:10px;font-size:14px;}
+  .foot{color:#9ca3af;font-size:12px;text-align:center;margin-top:30px;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top">
-    <a class="back" href="index.html">← Daily Brief</a>
-    <h1>🔥 Έρευνες: Φλεγμονή, Όργανα &amp; Ορμόνες</h1>
-    <div class="date">📅 17/06/2026 · Ανθρώπινες μελέτες (τελευταίες 30 ημέρες)</div>
-  </div>
+<a class="back" href="index.html">← Daily Brief</a>
+<h1>🔥 Έρευνες: Φλεγμονή, Όργανα &amp; Ορμόνες</h1>
+<div class="date">22/06/2026 · Μόνο ανθρώπινες μελέτες · Πηγή: PubMed</div>
 
-  <div class="highlights">
-    <h2>✨ Τα κύρια highlights σήμερα</h2>
-    <ul>
-      <li>Η <strong>απώλεια βάρους</strong> αναδεικνύεται ως πραγματική «θεραπεία» για την ψωρίαση (υψηλής βεβαιότητας μετα-ανάλυση), ενώ η <strong>βιταμίνη D</strong> μειώνει τις υποτροπές στη σκλήρυνση κατά πλάκας — η διατροφή μπαίνει επίσημα στη διαχείριση των αυτοάνοσων.</li>
-      <li>Σελήνιο, μαγνήσιο και βιταμίνη D ξεχωρίζουν για τη <strong>φλεγμονή και την αγγειακή υγεία</strong> — αλλά τα οφέλη είναι στοχευμένα σε συγκεκριμένους δείκτες (CRP, οξειδωτικό στρες), όχι πανάκεια.</li>
-      <li>Στο συκώτι, ακόμη και μια φθηνή ουσία όπως η <strong>βεταΐνη</strong> μειώνει αποδεδειγμένα τα ηπατικά ένζυμα (ALT/AST) σε άτομα με MASLD.</li>
-    </ul>
-  </div>
+<div class="hl">
+<h2>📌 Τα κύρια highlights σήμερα</h2>
+<ul>
+<li>Νέα <strong>umbrella review</strong> 30 ανασκοπήσεων επιβεβαιώνει: η <strong>Μεσογειακή</strong> (και η χορτοφαγική) διατροφή είναι το πιο τεκμηριωμένο μοτίβο για χαμηλότερη CRP &amp; IL-6 σε άτομα με χρόνια νόσο.</li>
+<li>Στο <strong>PCOS</strong>, η ολιγόωρη σίτιση (time-restricted eating 6 ωρών) έδωσε ίδια απώλεια βάρους με την κλασική θερμιδική περιοριστική δίαιτα — χωρίς μέτρημα θερμίδων (RCT στο Nature Medicine).</li>
+<li>Για το <strong>συκώτι</strong>, η απώλεια βάρους μείωσε το ηπατικό λίπος κατά ~33% και βελτίωσε την ευαισθησία στην ινσουλίνη 42%, ξεπερνώντας την άσκηση χωρίς απώλεια βάρους.</li>
+</ul>
+</div>
 
-  <!-- ENOTHTA 1 -->
-  <h2 class="section">🛡️ Διατροφή &amp; Αυτοάνοσα Νοσήματα</h2>
+<!-- ENOTHTA 1 -->
+<h2 class="sec">🛡️ Διατροφή &amp; Αυτοάνοσα Νοσήματα</h2>
 
-  <div class="card">
-    <span class="badge b-meta">Μετα-ανάλυση</span>
-    <h3>Βιταμίνη D ως επικουρική θεραπεία στη σκλήρυνση κατά πλάκας</h3>
-    <span class="eng">Vitamin D for multiple sclerosis as an adjuvant therapy: A network meta-analysis of randomized controlled trials</span>
-    <div class="src">Clinical Nutrition, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42242131/">PubMed</a></div>
-    <p class="body">Δικτυακή μετα-ανάλυση 32 RCT με 2.254 ασθενείς με ΣΚΠ. Η συμπλήρωση βιταμίνης D μαζί με τη συμβατική αγωγή μείωσε τον κίνδυνο υποτροπής κατά ~20% (RR 0,80) και βελτίωσε ελαφρά την αναπηρία (EDSS −0,22). Οι υψηλές δόσεις για μεγάλο διάστημα ήταν οι πιο αποτελεσματικές, χωρίς αύξηση σοβαρών ανεπιθύμητων ενεργειών — ιδιαίτερα σε άτομα με ανεπάρκεια.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Η βιταμίνη D δεν είναι «θεραπεία» για τη σκλήρυνση κατά πλάκας — αλλά 32 μελέτες δείχνουν ότι μπορεί να ρίξει τις υποτροπές κατά ένα πέμπτο. Έχεις ελέγξει τα επίπεδά σου;</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Μεσογειακή δίαιτα vs οδηγίες υγιεινής διατροφής στη ρευματοειδή αρθρίτιδα (Comparison of Mediterranean and healthy eating guideline interventions on the dietary inflammatory index in rheumatoid arthritis)</h3>
+<div class="src">European Journal of Nutrition, 2026</div>
+<p>Σε 40 ασθενείς με ρευματοειδή αρθρίτιδα, 12 εβδομάδες είτε Μεσογειακής δίαιτας είτε των ιρλανδικών οδηγιών υγιεινής διατροφής <strong>βελτίωσαν εξίσου</strong> τον Δείκτη Φλεγμονώδους Διατροφής (e-DII· p=0,022 και p=0,004 αντίστοιχα).</p>
+<p>Όσοι βρέθηκαν στην πιο αντιφλεγμονώδη ομάδα έτρωγαν σημαντικά περισσότερα ω-3, φυτικές ίνες, βιταμίνη A, E, φυλλικό &amp; β-καροτένιο. Η βελτίωση της ποιότητας της διατροφής —όχι μια συγκεκριμένη «ετικέτα»— μετράει.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42191934/">PubMed</a><a href="https://doi.org/10.1007/s00394-026-03987-9">DOI</a></div>
+<div class="hook">🎣 Hook: «Δεν χρειάζεται “τέλεια” δίαιτα για τη ρευματοειδή — αρκεί να ανεβάσεις την ποιότητα: περισσότερα ω-3, ίνες και χρώματα στο πιάτο μειώνουν το φλεγμονώδες φορτίο της διατροφής σου.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-meta">Μετα-ανάλυση</span>
-    <h3>Η απώλεια βάρους μειώνει τη βαρύτητα της ψωρίασης</h3>
-    <span class="eng">Impact of weight-loss interventions on psoriasis severity: A systematic review and meta-analysis</span>
-    <div class="src">JEADV, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/41416383/">PubMed</a></div>
-    <p class="body">13 RCT με 1.145 συμμετέχοντες. Παρεμβάσεις απώλειας βάρους (κυρίως διατροφικές, μέση απώλεια ~6,7 kg) μείωσαν τη βαρύτητα της ψωρίασης (PASI −2,5) και αύξησαν κατά 60% την πιθανότητα επίτευξης PASI75, με σημαντική βελτίωση της ποιότητας ζωής. Οι συγγραφείς το χαρακτηρίζουν «υψηλής βεβαιότητας» στοιχείο — η απώλεια βάρους πρέπει να είναι μέρος της θεραπείας.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> 8 στους 10 ανθρώπους με ψωρίαση έχουν και περιττά κιλά. Η απάντηση μπορεί να μην είναι μόνο μια κρέμα — αλλά και το πιάτο σου.</div>
-  </div>
+<div class="card">
+<span class="badge obs">Observational</span>
+<h3>Αυξημένα μονοακόρεστα λιπαρά στο πλάσμα &amp; ενεργότητα νόσου στη ρευματοειδή αρθρίτιδα (Elevated plasma monounsaturated fatty acids and their associations with disease activity in rheumatoid arthritis)</h3>
+<div class="src">RMD Open, 2026</div>
+<p>Σε 52 ασθενείς με ρευματοειδή vs 30 μάρτυρες, οι ασθενείς είχαν χαμηλότερη ευαισθησία στην ινσουλίνη και υψηλότερα ολεϊκό &amp; παλμιτελαϊκό οξύ — δείκτη αυξημένης ενδογενούς σύνθεσης λίπους (SCD-1).</p>
+<p>Μετά από διόρθωση για τη διατροφή, το ολεϊκό οξύ συσχετίστηκε με την ενεργότητα της νόσου (DAS28-CRP) &amp; την κοιλιακή λιπώδη μάζα, δείχνοντας ότι ο μεταβολισμός των λιπιδίων —όχι μόνο η πρόσληψη— εμπλέκεται στη φλεγμονή.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42303380/">PubMed</a><a href="https://doi.org/10.1136/rmdopen-2026-006777">DOI</a></div>
+<div class="hook">🎣 Hook: «Στη ρευματοειδή, το σώμα μπορεί να “φτιάχνει” μόνο του προφλεγμονώδη λίπη — γι’ αυτό η ρύθμιση της ινσουλίνης και του βάρους είναι κομμάτι της αντιφλεγμονώδους στρατηγικής.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Προβιοτικό + φυτικές στερόλες σε ενήλικες με κοιλιοκάκη</h3>
-    <span class="eng">Combined Probiotic ECGC 13110402 and Plant Sterol Supplement May Improve Lipids and Gut Microbiota in Coeliac Adults</span>
-    <div class="src">Molecules, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42197276/">PubMed</a></div>
-    <p class="body">Διπλά τυφλό RCT 9 εβδομάδων σε άτομα με κοιλιοκάκη και υπερχοληστερολαιμία — πληθυσμός όπου η δίαιτα χωρίς γλουτένη αυξάνει τον καρδιαγγειακό κίνδυνο. Ο συνδυασμός προβιοτικού + φυτικών στερολών μείωσε ολική, LDL, non-HDL χοληστερόλη και ApoB, αύξησε τη βιταμίνη D και βελτίωσε την ποικιλότητα του μικροβιώματος. Μια μη φαρμακευτική επιλογή για καρδιομεταβολική υγεία στην κοιλιοκάκη.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Η δίαιτα χωρίς γλουτένη δεν είναι αυτομάτως «υγιεινή» — μπορεί να ανεβάσει τη χοληστερόλη. Δες πώς προβιοτικά και φυτικές στερόλες αντισταθμίζουν.</div>
-  </div>
+<!-- ENOTHTA 2 -->
+<h2 class="sec">🔥 Χρόνια Φλεγμονή</h2>
 
-  <!-- ENOTHTA 2 -->
-  <h2 class="section">🔥 Χρόνια Φλεγμονή</h2>
+<div class="card">
+<span class="badge meta">Umbrella Review</span>
+<h3>Διατροφικά μοτίβα με αντιφλεγμονώδη δράση — umbrella review συστηματικών ανασκοπήσεων &amp; μετα-αναλύσεων (Dietary patterns associated with anti-inflammatory effects)</h3>
+<div class="src">Nutrition Reviews, 2026</div>
+<p>Συγκέντρωσε 30 ανασκοπήσεις (225 πρωτογενείς μελέτες, 60 μετα-αναλύσεις). Η <strong>Μεσογειακή διατροφή</strong> έδειξε σταθερή ευεργετική σχέση με χαμηλότερη <strong>CRP, IL-6 και υψηλότερη αδιπονεκτίνη</strong> (βεβαιότητα από υψηλή έως χαμηλή).</p>
+<p>Η <strong>χορτοφαγική</strong> δίαιτα συσχετίστηκε με χαμηλότερη CRP. Για τα άλλα μοτίβα τα στοιχεία ήταν περιορισμένα — η Μεσογειακή παραμένει η πιο τεκμηριωμένη αντιφλεγμονώδης επιλογή.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/40657695/">PubMed</a><a href="https://doi.org/10.1093/nutrit/nuaf104">DOI</a></div>
+<div class="hook">🎣 Hook: «Από 225 μελέτες, ένα μοτίβο ξεχωρίζει ξανά για να “σβήσει” τη σιγανή φλεγμονή: η Μεσογειακή διατροφή — και τα νούμερα στην CRP το δείχνουν.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-meta">Μετα-ανάλυση</span>
-    <h3>Σελήνιο: μείωση φλεγμονής &amp; οξειδωτικού στρες σε μεταβολικές νόσους</h3>
-    <span class="eng">The effects of selenium supplementation on cardiovascular risk factors in patients with metabolic diseases</span>
-    <div class="src">Nutrición Hospitalaria, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/41738711/">PubMed</a></div>
-    <p class="body">Μετα-ανάλυση 11 RCT με 656 ασθενείς. Το σελήνιο μείωσε σημαντικά την hs-CRP (δείκτη φλεγμονής), τη μηλονική διαλδεΰδη (οξειδωτικό στρες) και τα τριγλυκερίδια, και αύξησε τη συνολική αντιοξειδωτική ικανότητα. Δεν επηρέασε όμως γλυκόζη νηστείας, ινσουλίνη, HOMA-IR ή χοληστερόλη — δηλαδή στοχευμένο όφελος σε φλεγμονή/οξείδωση, όχι σε όλα.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Το σελήνιο ρίχνει την CRP και το οξειδωτικό στρες — αλλά δεν αγγίζει την ινσουλίνη. Μάθε πού πραγματικά βοηθάει ένα ιχνοστοιχείο.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Έλαιο κριλ για χρόνιο μυοσκελετικό πόνο σε ηλικιωμένους (Pilot RCT of krill oil supplementation for chronic musculoskeletal pain in older adults)</h3>
+<div class="src">The Journal of Nutrition, 2026</div>
+<p>12 εβδομάδες έλαιο κριλ (4 g/ημέρα, 1288 mg EPA+DHA) σε 40 ηλικιωμένους με χρόνιο πόνο ανέβασαν τον δείκτη ω-3 από <strong>4,3% σε 7,4%</strong>, με τάση για λιγότερη ένταση πόνου και λιγότερα σημεία πόνου (rate ratio 0,59).</p>
+<p>Πιλοτική μελέτη με υψηλή συμμόρφωση (95% παραμονή)· τα ευρήματα στηρίζουν μεγαλύτερη δοκιμή των ω-3 ως διατροφικής στρατηγικής για χρόνιο πόνο.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41933837/">PubMed</a><a href="https://doi.org/10.1016/j.tjnut.2026.101517">DOI</a></div>
+<div class="hook">🎣 Hook: «Σε 12 εβδομάδες, τα ω-3 σχεδόν διπλασίασαν τον δείκτη ω-3 του αίματος σε ηλικιωμένους με χρόνιο πόνο — με λιγότερα σημεία πόνου στο σώμα.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-meta">Μετα-ανάλυση</span>
-    <h3>Ποια θρεπτικά βελτιώνουν την ενδοθηλιακή λειτουργία;</h3>
-    <span class="eng">Comparative Efficacy of Nutraceuticals on Endothelial Function: A Systematic Review and Network Meta-Analysis</span>
-    <div class="src">Current Atherosclerosis Reports, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42277453/">PubMed</a></div>
-    <p class="body">Δικτυακή μετα-ανάλυση σε άτομα με καρδιαγγειακή νόσο/υπέρταση. Οι μεγαλύτερες βελτιώσεις στη ροή-μεσολαβούμενη διαστολή (FMD, δείκτης υγείας του ενδοθηλίου) προήλθαν από μαγνήσιο και βιταμίνη D (υψηλή βεβαιότητα), και ακολούθησαν λιναρόσπορος, βερβερίνη (barberry), φολικό οξύ και ω-3. Στοιχεία ότι στοχευμένες διατροφικές στρατηγικές μπορούν να στηρίξουν την αγγειακή υγεία.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Δεν είναι όλα τα συμπληρώματα ίδια για τα αγγεία σου: μαγνήσιο και βιταμίνη D κερδίζουν με διαφορά.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Το διατροφικό λινολεϊκό οξύ (σπορέλαια) μετατοπίζει το προφίλ προς προφλεγμονώδη λιπίδια (Effect of dietary linoleic acid intake on EPA status and oxylipin biosynthesis in healthy adults)</h3>
+<div class="src">Nutrients, 2026</div>
+<p>RCT 12 εβδομάδων σε 52 υγιείς ενήλικες: η υψηλή πρόσληψη λινολεϊκού οξέος (10% θερμίδων) <strong>μείωσε σημαντικά το EPA</strong> στο πλάσμα σε σχέση με τη χαμηλή (2,5%).</p>
+<p>Η υψηλή πρόσληψη αύξησε τον λόγο αραχιδονικού/EPA &amp; των αντίστοιχων οξυλιπινών, μετατοπίζοντας την ισορροπία προς ένα <strong>πιο ω-6, προφλεγμονώδες</strong> προφίλ — ένα επιχείρημα για μείωση των βιομηχανικών σπορελαίων.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42280457/">PubMed</a><a href="https://doi.org/10.3390/nu18111814">DOI</a></div>
+<div class="hook">🎣 Hook: «Όσο περισσότερα σπορέλαια στο πιάτο, τόσο λιγότερο αντιφλεγμονώδες EPA στο αίμα — μια ελεγχόμενη δοκιμή το δείχνει σε 12 εβδομάδες.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Μείγμα βοτάνων &amp; φρούτων για το αντιοξειδωτικό σύστημα</h3>
-    <span class="eng">Effects of a Mixed Herbal and Fruit Dietary Supplement Shot on Antioxidant Status and Oxidative Stress in Middle-Aged Women</span>
-    <div class="src">The Journal of Nutrition, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42082020/">PubMed</a></div>
-    <p class="body">Διπλά τυφλό RCT 12 εβδομάδων σε 30 μεσήλικες γυναίκες. Το συμπλήρωμα αύξησε τη δραστικότητα της SOD (κεντρικού αντιοξειδωτικού ενζύμου) και μείωσε την ένταση πορφυρίνης στο δέρμα, αλλά τα υπόλοιπα αντιοξειδωτικά και δερματικά μέτρα δεν άλλαξαν. Καλά ανεκτό — αλλά λόγω μικρού δείγματος τα ευρήματα χρειάζονται επιβεβαίωση.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Ένα «shot» βοτάνων ενίσχυσε το βασικό αντιοξειδωτικό ένζυμο SOD — μικρή μελέτη, αλλά ενδιαφέρουσα αρχή για τη γυναικεία υγεία στη μέση ηλικία.</div>
-  </div>
+<!-- ENOTHTA 3 -->
+<h2 class="sec">🔋 Μιτοχονδριακή Λειτουργία &amp; Ενέργεια</h2>
 
-  <!-- ENOTHTA 3 -->
-  <h2 class="section">🔋 Μιτοχονδριακή Λειτουργία &amp; Ενέργεια</h2>
+<div class="card">
+<span class="badge meta">Μετα-ανάλυση</span>
+<h3>Κρεατίνη για άλιπη μάζα, δύναμη &amp; οστική πυκνότητα σε μετεμμηνοπαυσιακές γυναίκες (Creatine monohydrate for lean mass, strength, and bone density in postmenopausal women)</h3>
+<div class="src">Journal of the International Society of Sports Nutrition, 2026</div>
+<p>7 RCT (608 γυναίκες, μ.ο. ~62 ετών): η κρεατίνη βελτίωσε την άλιπη μάζα (+0,37 kg) και τη δύναμη ποδιών (+7,5 kg στο 1RM), <strong>ιδίως σε δόση ≥5 g/ημέρα μαζί με προπόνηση αντίστασης</strong>.</p>
+<p>Δόσεις ≤3 g χωρίς άσκηση δεν είχαν μετρήσιμο όφελος. Οι παρενέργειες ήταν ήπιες, με αμετάβλητους νεφρικούς δείκτες — ασφαλές «καύσιμο» για το μυϊκό/ενεργειακό σύστημα.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42141930/">PubMed</a><a href="https://doi.org/10.1080/15502783.2026.2668435">DOI</a></div>
+<div class="hook">🎣 Hook: «Κρεατίνη + βάρη = περισσότερη δύναμη και άλιπη μάζα μετά την εμμηνόπαυση — με μία προϋπόθεση που οι περισσότεροι αγνοούν: τουλάχιστον 5 γραμμάρια τη μέρα.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-clin">Κλινική δοκιμή</span>
-    <h3>CoQ10 υψηλής δόσης &amp; βιοδιαθεσιμότητα σε μιτοχονδριακά νοσήματα</h3>
-    <span class="eng">Evaluating a Coenzyme Q10-Based Food for Special Medical Purpose for Mitochondrial Diseases Management: An Open-Label Pilot Trial</span>
-    <div class="src">International Journal of Molecular Sciences, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42278649/">PubMed</a></div>
-    <p class="body">Pilot δοκιμή σε 10 ασθενείς με πρωτοπαθή μιτοχονδριακή νόσο. Ένα ειδικό σκεύασμα με 250 mg CoQ10 πέτυχε υψηλότερη και σταθερότερη συγκέντρωση CoQ10 στο αίμα έναντι της συμβατικής μορφής (όλοι >390 ng/mL) και αύξησε την αντιοξειδωτική ικανότητα (FRAP). Τα λειτουργικά τεστ και η κόπωση δεν βελτιώθηκαν — η βιοδιαθεσιμότητα δηλαδή αυξήθηκε, το κλινικό όφελος μένει να επιβεβαιωθεί.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Δεν μετράει μόνο πόσο CoQ10 παίρνεις, αλλά πόσο φτάνει στο αίμα. Η μορφή του συμπληρώματος αλλάζει το παιχνίδι.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Προπόνηση αντίστασης + κρεατίνη σε ηλικιωμένους: οξειδωτικό στρες, φλεγμονή &amp; νευροπλαστικότητα (High-load resistance training combined with creatine supplementation in older adults)</h3>
+<div class="src">Experimental Gerontology, 2026</div>
+<p>103 ηλικιωμένοι, 16 εβδομάδες: η προπόνηση (σε στεριά ή νερό) βελτίωσε δύναμη, λειτουργικότητα, BDNF και μείωσε δείκτες οξειδωτικού στρες &amp; φλεγμονής (IL-6, TNF-α).</p>
+<p>Η <strong>κρεατίνη (3 g/ημέρα) πρόσθεσε επιπλέον όφελος</strong>: αύξησε τη γλουταθειονική υπεροξειδάση (GPx) και μείωσε IL-6/TNF-α — βιοχημική στήριξη της κυτταρικής αντιοξειδωτικής άμυνας.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41941966/">PubMed</a><a href="https://doi.org/10.1016/j.exger.2026.113122">DOI</a></div>
+<div class="hook">🎣 Hook: «Άσκηση + κρεατίνη στους ηλικιωμένους δεν χτίζει μόνο μυς — ανεβάζει την αντιοξειδωτική άμυνα του κυττάρου και ρίχνει τους φλεγμονώδεις δείκτες.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Ο χρονισμός της κρεατίνης επηρεάζει την απόδοση δύναμης</h3>
-    <span class="eng">Acute Creatine Ingestion Before Resistance Training Enhances Strength Performance More than During or After Training</span>
-    <div class="src">Nutrients, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42280432/">PubMed</a></div>
-    <p class="body">Τυχαιοποιημένο crossover σε 11 δραστήριους άνδρες. Μία δόση κρεατίνης (0,1 g/kg) λαμβανόμενη ΠΡΙΝ την προπόνηση έδωσε μεγαλύτερη απόδοση σε πάγκο και βαθύ κάθισμα από τη λήψη κατά τη διάρκεια ή μετά την άσκηση. Προκαταρκτικό εύρημα με μικρό δείγμα, αλλά δείχνει ότι ο χρονισμός μπορεί να μετράει — ακόμη και χωρίς φάση φόρτισης.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Παίρνεις κρεατίνη μετά το γυμναστήριο; Ίσως τη χρησιμοποιείς λάθος ώρα — η λήψη πριν φάνηκε πιο αποτελεσματική.</div>
-  </div>
+<div class="card">
+<span class="badge meta">Μετα-ανάλυση</span>
+<h3>Συμπλήρωμα ασταξανθίνης &amp; αποκατάσταση μετά την άσκηση (The effects of astaxanthin supplementation on exercise recovery biomarkers and performance)</h3>
+<div class="src">Nutrients, 2026</div>
+<p>24 RCT: η ασταξανθίνη (καροτενοειδές με αντιοξειδωτική δράση) <strong>μείωσε σημαντικά την κρεατινική κινάση</strong> (δείκτη μυϊκής βλάβης· SMD -0,45) και τη γαλακτική αφυδρογονάση.</p>
+<p>Δεν βελτίωσε άμεσα την VO₂max ή την απόδοση — το όφελος φαίνεται να είναι στην <strong>αποκατάσταση/μυϊκή προστασία</strong> παρά στην επίδοση. Χρειάζονται μελέτες με τυποποιημένη δόση.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42197030/">PubMed</a><a href="https://doi.org/10.3390/nu18101570">DOI</a></div>
+<div class="hook">🎣 Hook: «Η ασταξανθίνη δεν σε κάνει πιο γρήγορο — αλλά φαίνεται να προστατεύει τους μυς σου από τη βλάβη της άσκησης, ρίχνοντας τους δείκτες μυϊκής φθοράς.»</div>
+</div>
 
-  <!-- ENOTHTA 4 -->
-  <h2 class="section">🩸 Ινσουλίνη &amp; PCOS</h2>
+<!-- ENOTHTA 4 -->
+<h2 class="sec">🩸 Ινσουλίνη &amp; PCOS</h2>
 
-  <div class="card">
-    <span class="badge b-sys">Συστηματική ανασκόπηση</span>
-    <h3>Διατροφικές παρεμβάσεις &amp; γλυκαιμικός έλεγχος στον διαβήτη τύπου 2</h3>
-    <span class="eng">Nutrition Interventions Improve Glycemic Control Among People With Type 2 Diabetes in Low- and Middle-Income Countries</span>
-    <div class="src">Journal of Human Nutrition and Dietetics, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42121319/">PubMed</a></div>
-    <p class="body">Συστηματική ανασκόπηση 37 μελετών με 2.950 άτομα. Στοχευμένες διατροφικές παρεμβάσεις μείωσαν την HbA1c από 8,6% σε 7,4% και τη γλυκόζη νηστείας από 172 σε 135 mg/dL στις περισσότερες μελέτες, με υψηλή συμμόρφωση (87%). Μια χαμηλού κόστους και χαμηλού φόρτου μέθοδος για ουσιαστική βελτίωση του σακχάρου.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Χωρίς νέο φάρμακο, μόνο με αλλαγή διατροφής, η HbA1c έπεσε πάνω από μία μονάδα. Η δύναμη του πιάτου στον διαβήτη τύπου 2.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Ολιγόωρη σίτιση (time-restricted eating) για διαχείριση βάρους στο PCOS (Time-restricted eating for body weight management in women with polycystic ovary syndrome)</h3>
+<div class="src">Nature Medicine, 2026</div>
+<p>76 γυναίκες με PCOS, 6 μήνες: η σίτιση σε παράθυρο 6 ωρών (13:00–19:00, <strong>χωρίς μέτρημα θερμίδων</strong>) έδωσε απώλεια βάρους -4,32%, στατιστικά ίδια με τον κλασικό θερμιδικό περιορισμό 25% (-4,66%).</p>
+<p>Καμία σοβαρή ανεπιθύμητη ενέργεια. Για γυναίκες με PCOS που δυσκολεύονται να μετρούν θερμίδες, το «πότε τρως» μπορεί να είναι το ίδιο αποτελεσματικό με το «πόσο τρως».</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41896647/">PubMed</a><a href="https://doi.org/10.1038/s41591-026-04316-7">DOI</a></div>
+<div class="hook">🎣 Hook: «PCOS &amp; δύσκολη απώλεια βάρους; Ένα παράθυρο φαγητού 6 ωρών έδωσε ίδια αποτελέσματα με τη μέτρηση θερμίδων — χωρίς ζύγισμα μερίδων.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-sys">Συστηματική ανασκόπηση</span>
-    <h3>Προγράμματα «Food Is Medicine» στον διαβήτη τύπου 2</h3>
-    <span class="eng">Dietary, Food Security and Diabetes Outcomes Associated with Food Is Medicine Programs among Adults with Type 2 Diabetes</span>
-    <div class="src">Advances in Nutrition, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42001953/">PubMed</a></div>
-    <p class="body">Ταχεία συστηματική ανασκόπηση 23 μελετών. Τα προγράμματα παροχής υγιεινής τροφής βελτίωσαν τις διατροφικές συνήθειες (+0,2 έως +0,9 μερίδες φρούτων/λαχανικών την ημέρα) και μείωσαν την επισιτιστική ανασφάλεια έως και 53%. Ωστόσο, οι μειώσεις στην HbA1c ήταν συχνά μη κλινικά σημαντικές και η ποιότητα των μελετών μέτρια — υπόσχεση με επιφυλάξεις.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Το «φαγητό ως φάρμακο» βελτιώνει σαφώς τη διατροφή — αλλά να ρίξει το σάκχαρο σε κλινικά σημαντικό βαθμό; Εκεί τα δεδομένα είναι ακόμη ασθενή.</div>
-  </div>
+<div class="card">
+<span class="badge meta">Συστηματική Ανασκόπηση</span>
+<h3>Επιδράσεις της κετογονικής δίαιτας στις γοναδικές ορμόνες (Effects of the ketogenic diet on gonadal hormones)</h3>
+<div class="src">Nutrition Reviews, 2026</div>
+<p>7 μελέτες σε ανθρώπους: η ισοθερμιδική κετογονική δίαιτα συσχετίστηκε με μεταβολές των γοναδικών ορμονών. Σε <strong>γυναίκες με PCOS</strong> φάνηκε όφελος — μείωση τεστοστερόνης, βελτίωση του λόγου LH/FSH, καλύτερη ευαισθησία στην ινσουλίνη &amp; πιο τακτικός κύκλος.</p>
+<p>Στους άνδρες η επίδραση εξαρτιόταν από την ένταση της άσκησης &amp; την άλιπη μάζα. Τα ευρήματα είναι ενθαρρυντικά για το PCOS, αλλά οι μελέτες λίγες.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/40618222/">PubMed</a><a href="https://doi.org/10.1093/nutrit/nuaf105">DOI</a></div>
+<div class="hook">🎣 Hook: «Στο PCOS, μια χαμηλών υδατανθράκων προσέγγιση φαίνεται να ρίχνει την τεστοστερόνη και να ισορροπεί τις ορμόνες — αλλά τα στοιχεία είναι ακόμα πρώιμα.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Νιφάδες βρώμης &amp; γλυκαιμική μεταβλητότητα σε εφήβους</h3>
-    <span class="eng">Effect of Oat Flakes on Glycemic Variability, Dyslipidemia, and PDX-1 Level Among Adolescents with Type 1 Diabetes</span>
-    <div class="src">Nutrients, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42280445/">PubMed</a></div>
-    <p class="body">Τυχαιοποιημένο crossover σε 60 εφήβους με ΣΔ1. Η προσθήκη νιφάδων βρώμης μείωσε τον συντελεστή μεταβλητότητας γλυκόζης, την HbA1c και τη χοληστερόλη/τριγλυκερίδια/LDL, και αύξησε τον χρόνο εντός στόχου (TIR), την HDL και τον δείκτη PDX-1. Σημαντικό: τα οφέλη χάθηκαν μετά τη διακοπή της βρώμης — δείχνει ότι χρειάζεται συνέπεια.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Λίγες νιφάδες βρώμης την ημέρα σταθεροποίησαν το σάκχαρο — αλλά μόλις σταμάτησαν, χάθηκε το όφελος. Η συνέπεια μετράει.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Νιφάδες βρώμης &amp; γλυκαιμική μεταβλητότητα σε εφήβους με διαβήτη τύπου 1 (Effect of oat flakes on glycemic variability, dyslipidemia and PDX-1 in adolescents with type 1 diabetes)</h3>
+<div class="src">Nutrients, 2026</div>
+<p>Διασταυρούμενη RCT σε 60 εφήβους με ΣΔ1: 70,6 g βρώμης/ημέρα για 3 μήνες <strong>μείωσαν τον συντελεστή μεταβλητότητας γλυκόζης, HbA1c, χοληστερόλη, τριγλυκερίδια &amp; LDL</strong> και αύξησαν το time-in-range, HDL &amp; PDX-1.</p>
+<p>Τα οφέλη εξαφανίστηκαν μετά τη διακοπή (εκτός HDL) — η σταθερή κατανάλωση β-γλυκάνης βρώμης μετράει για τη γλυκαιμική σταθερότητα.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42280445/">PubMed</a><a href="https://doi.org/10.3390/nu18111802">DOI</a></div>
+<div class="hook">🎣 Hook: «Μια απλή χούφτα βρώμης τη μέρα “έστρωσε” τις διακυμάνσεις του σακχάρου και βελτίωσε τα λιπίδια σε εφήβους — αλλά μόνο όσο κρατούσε η συνήθεια.»</div>
+</div>
 
-  <!-- ENOTHTA 5 -->
-  <h2 class="section">🫀 Υγεία Συκωτιού</h2>
+<!-- ENOTHTA 5 -->
+<h2 class="sec">🫀 Υγεία Συκωτιού</h2>
 
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Βεταΐνη από το στόμα μειώνει τα ηπατικά ένζυμα στο MASLD</h3>
-    <span class="eng">Pilot trials of oral betaine in participants with metabolic dysfunction-associated steatotic liver disease and elevated alanine aminotransferase</span>
-    <div class="src">Hepatology, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40758380/">PubMed</a></div>
-    <p class="body">Τρεις pilot τυχαιοποιημένες δοκιμές σε άτομα με MASLD και αυξημένη ALT. Δόσεις βεταΐνης 2, 4 και 8 g/ημέρα για 12–24 εβδομάδες μείωσαν σημαντικά την ALT/AST και άλλους δείκτες ηπατικής βλάβης (cytokeratin-18, pro-C3, MASEF score) — η δόση 1 g όχι. Περίπου 35% ανέφεραν ήπια παροδικά γαστρεντερικά. Μια φθηνή διατροφική ουσία με μετρήσιμο όφελος στα ηπατικά ένζυμα.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Μια φθηνή ουσία που βρίσκεται στα παντζάρια μείωσε αποδεδειγμένα τα ηπατικά ένζυμα στο λιπώδες ήπαρ — με τη δόση να παίζει καθοριστικό ρόλο.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Απώλεια βάρους vs άσκηση: ηπατικό λίπος &amp; ποιότητα μυός (Weight loss reduces intermuscular adipose tissue and liver fat compared to exercise)</h3>
+<div class="src">J. Clinical Endocrinology &amp; Metabolism, 2026</div>
+<p>46 ενήλικες με παχυσαρκία, 12 εβδομάδες: η <strong>απώλεια βάρους</strong> (-10,5%) μείωσε την ηπατική στεάτωση <strong>-33,1%</strong> και βελτίωσε την ευαισθησία στην ινσουλίνη <strong>+42%</strong>.</p>
+<p>Η άσκηση χωρίς απώλεια βάρους βελτίωσε την ινσουλίνη (+23%) &amp; τη VO₂peak, αλλά <strong>δεν</strong> μείωσε σημαντικά το ηπατικό λίπος. Για το συκώτι, το ισοζύγιο ενέργειας έχει το πάνω χέρι.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41622038/">PubMed</a><a href="https://doi.org/10.1210/clinem/dgag018">DOI</a></div>
+<div class="hook">🎣 Hook: «Για το λιπώδες συκώτι, η άσκηση μόνη της δεν αρκεί: μόνο η απώλεια βάρους έριξε το ηπατικό λίπος κατά το ένα τρίτο.»</div>
+</div>
 
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Γιατί δεν απαντούν όλοι το ίδιο στα προβιοτικά για το λιπώδες ήπαρ</h3>
-    <span class="eng">Analysis of PNPLA3, TM6SF2 and GCKR gene polymorphisms in patients with metabolic dysfunction-associated steatohepatitis treated with probiotics</span>
-    <div class="src">Nutrición Hospitalaria, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42023869/">PubMed</a></div>
-    <p class="body">Ανάλυση 41 ασθενών με MASH από το RCT PROBILIVER (24 εβδομάδες προβιοτικών). Το γενετικό προφίλ (πολυμορφισμοί PNPLA3, TM6SF2, GCKR) επηρέασε την απόκριση: φορείς συγκεκριμένων γονοτύπων εμφάνισαν χαμηλότερη γλυκόζη, LDL ή TLR4 (φλεγμονώδη δείκτη). Δείχνει ότι η εξατομίκευση μπορεί να εξηγήσει γιατί η ίδια διατροφική παρέμβαση «πιάνει» σε άλλους και όχι σε άλλους.</p>
-    <div class="hook"><strong>🎣 Hook:</strong> Δύο άνθρωποι, ίδια προβιοτικά, διαφορετικό αποτέλεσμα — και το κλειδί κρύβεται στα γονίδιά τους. Το μέλλον της διατροφής για το συκώτι είναι εξατομικευμένο.</div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Άσκηση + δίαιτα βελτιώνουν συκώτι &amp; νόηση στη MASLD (Physical exercise improves neurocognition in patients with MASLD)</h3>
+<div class="src">Liver Transplantation, 2026</div>
+<p>40 παχύσαρκοι ασθενείς με MASLD, 16 εβδομάδες: στην ομάδα δίαιτας + άσκησης τα βήματα διπλασιάστηκαν (5.178→10.161/ημέρα), με μείωση BMI &amp; σωματικού λίπους και βελτίωση εγκεφαλικής αιμοδυναμικής.</p>
+<p>Παράλληλα βελτιώθηκε η <strong>γνωστική λειτουργία</strong> (MoCA +5,9%) — δείχνοντας ότι το όφελος της κίνησης στο λιπώδες συκώτι επεκτείνεται και στον εγκέφαλο.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41182078/">PubMed</a><a href="https://doi.org/10.1097/LVT.0000000000000767">DOI</a></div>
+<div class="hook">🎣 Hook: «Διπλασίασε τα βήματά σου: στο λιπώδες συκώτι, η κίνηση δεν καθαρίζει μόνο το ήπαρ — ακονίζει και το μυαλό.»</div>
+</div>
 
-  <footer>
-    Πηγή: PubMed / NCBI · Επαληθευμένα PMID · Μόνο ανθρώπινες μελέτες<br>
-    learnnutrition.gr — Σάββας Τσανασίδης
-  </footer>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Φύτρα μπρόκολου &amp; Pilates στα ηπατικά ένζυμα σε γυναίκες με NAFLD (Broccoli sprout supplementation and Pilates training on liver enzymes in women with NAFLD)</h3>
+<div class="src">Plant Foods for Human Nutrition, 2026</div>
+<p>32 γυναίκες με NAFLD, 8 εβδομάδες Pilates ή/και εκχύλισμα φύτρων μπρόκολου (1.000 mg/ημέρα): <strong>δεν</strong> υπήρξε σημαντική μεταβολή σε ALT, AST ή ALP σε καμία ομάδα.</p>
+<p>Ένα χρήσιμο «αρνητικό» αποτέλεσμα: η μέτρια ένταση άσκησης &amp; η συγκεκριμένη δόση συμπληρώματος ίσως ήταν ανεπαρκείς — πιθανώς χρειάζονται μεγαλύτερη ένταση &amp; διάρκεια για μετρήσιμο ηπατικό όφελος.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42228225/">PubMed</a><a href="https://doi.org/10.1007/s11130-026-01515-y">DOI</a></div>
+<div class="hook">🎣 Hook: «Όχι κάθε “αντιφλεγμονώδες” συμπλήρωμα δουλεύει: φύτρα μπρόκολου + ήπιο Pilates δεν άλλαξαν τα ηπατικά ένζυμα — η δόση &amp; η ένταση μετράνε.»</div>
+</div>
+
+<div class="foot">Δεδομένα από PubMed (NCBI). Κάθε μελέτη έχει επαληθευμένο PMID. Μόνο ανθρώπινες μελέτες.</div>
 </div>
 </body>
 </html>
