@@ -3,348 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Έρευνα Βάρους & Μεταβολισμού – 24/06/2026</title>
+<title>Έρευνες: Βάρος & Μεταβολισμός</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #f4f6f8;
-    color: #1a1a2e;
-    line-height: 1.6;
-    padding: 24px 16px 48px;
-  }
-  .container { max-width: 680px; margin: 0 auto; }
-  .header {
-    background: linear-gradient(135deg, #1a6b3c 0%, #2d9a5e 100%);
-    color: #fff;
-    border-radius: 16px;
-    padding: 28px 32px 24px;
-    margin-bottom: 28px;
-  }
-  .header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.3px; }
-  .header p { font-size: 0.85rem; opacity: 0.85; margin-top: 6px; }
-  .header-meta { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
-  .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    color: #fff;
-    border-radius: 20px;
-    padding: 3px 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-  .section-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #1a6b3c;
-    border-left: 4px solid #1a6b3c;
-    padding-left: 12px;
-    margin: 32px 0 14px;
-    letter-spacing: -0.2px;
-  }
-  .section-title.secondary { color: #2563eb; border-left-color: #2563eb; }
-  .card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 20px 22px;
-    margin-bottom: 14px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-  }
-  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
-  .card-title { font-size: 0.95rem; font-weight: 700; color: #111827; flex: 1; }
-  .method-badge {
-    display: inline-block;
-    font-size: 0.68rem;
-    font-weight: 700;
-    border-radius: 6px;
-    padding: 3px 8px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .rct { background: #dcfce7; color: #166534; }
-  .meta { background: #dbeafe; color: #1e40af; }
-  .cross { background: #fef9c3; color: #854d0e; }
-  .card-journal { font-size: 0.75rem; color: #6b7280; margin-bottom: 10px; font-style: italic; }
-  .hook {
-    border-left: 3px solid #f59e0b;
-    background: #fffbeb;
-    border-radius: 0 8px 8px 0;
-    padding: 10px 14px;
-    margin: 12px 0 10px;
-    font-size: 0.87rem;
-    color: #92400e;
-    font-weight: 500;
-  }
-  .findings { font-size: 0.85rem; color: #374151; margin-top: 8px; }
-  .findings p { margin-bottom: 5px; }
-  .findings strong { color: #111827; }
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 14px;
-    padding-top: 10px;
-    border-top: 1px solid #f3f4f6;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .population { font-size: 0.75rem; color: #6b7280; }
-  .pubmed-link {
-    font-size: 0.75rem;
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .pubmed-link:hover { text-decoration: underline; }
-  .footer-nav {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #e5e7eb;
-    font-size: 0.8rem;
-    color: #6b7280;
-  }
-  .footer-nav a { color: #1a6b3c; text-decoration: none; font-weight: 600; }
-  .footer-nav a:hover { text-decoration: underline; }
+  body{margin:0;background:#f4f6f8;color:#1f2933;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}
+  .wrap{max-width:680px;margin:0 auto;padding:18px 16px 60px;}
+  a.back{display:inline-block;color:#2563eb;text-decoration:none;font-size:15px;margin-bottom:10px;}
+  h1{font-size:23px;margin:6px 0 2px;}
+  .date{color:#6b7280;font-size:14px;margin-bottom:18px;}
+  .hl{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px;margin-bottom:26px;border-left:5px solid #f59e0b;}
+  .hl h2{font-size:17px;margin:0 0 8px;}
+  .hl ul{margin:0;padding-left:20px;}
+  .hl li{margin-bottom:6px;}
+  h2.sec{font-size:19px;margin:30px 0 14px;padding-bottom:6px;border-bottom:2px solid #e5e7eb;}
+  .card{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px;margin-bottom:16px;}
+  .card h3{font-size:16px;margin:0 0 6px;}
+  .src{color:#6b7280;font-size:13px;margin-bottom:8px;}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;margin-bottom:9px;color:#fff;}
+  .meta{background:#7c3aed;}
+  .rct{background:#059669;}
+  .obs{background:#0284c7;}
+  .card p{margin:6px 0;font-size:15px;}
+  .links a{color:#2563eb;text-decoration:none;font-size:13px;margin-right:12px;}
+  .hook{background:#fff7ed;border-left:4px solid #fb923c;border-radius:8px;padding:10px 12px;margin-top:10px;font-size:14px;}
+  .foot{color:#9ca3af;font-size:12px;text-align:center;margin-top:30px;}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
+<a class="back" href="index.html">← Daily Brief</a>
+<h1>⚖️ Έρευνες: Βάρος &amp; Μεταβολισμός</h1>
+<div class="date">24/06/2026 · Μόνο ανθρώπινες μελέτες · Πηγή: PubMed</div>
 
-  <div class="header">
-    <h1>Βάρος &amp; Μεταβολισμός</h1>
-    <p>Έρευνα PubMed · Τελευταίες 30 ημέρες · Μόνο μελέτες σε ανθρώπους</p>
-    <div class="header-meta">
-      <span class="badge">24 Ιουνίου 2026</span>
-      <span class="badge">10 μελέτες</span>
-      <span class="badge">learnnutrition.gr</span>
-    </div>
-  </div>
+<div class="hl">
+<h2>📌 Τα κύρια highlights σήμερα</h2>
+<ul>
+<li>Μετά από <strong>πολύ χαμηλών θερμίδων κετογονική (VLCKD)</strong>, το λίπος συνέχισε να πέφτει ώς −10% στους 6 μήνες, η άλιπη μάζα έμεινε σταθερή, και η <strong>μεταβολική προσαρμογή είχε εξαφανιστεί</strong> στους 6–12 μήνες (DXA + θερμιδομετρία δωματίου).</li>
+<li>Με <strong>σεμαγλουτίδη/τιρζεπατίδη</strong> το 25–35% του χαμένου βάρους είναι μυϊκή μάζα — μόνο η <strong>άσκηση αντίστασης</strong> το ρίχνει στο 17,5%.</li>
+<li>Μετά από <strong>βαριατρική</strong>, ο συρρικνούμενος ήπαρ &amp; νεφρά εξηγούν ~38% της πτώσης του βασικού μεταβολισμού — όχι μόνο η μυϊκή μάζα.</li>
+</ul>
+</div>
 
-  <div class="section-title">Δίαιτες &amp; Απώλεια Βάρους</div>
+<!-- ENOTHTA 1 -->
+<h2 class="sec">🥗 1. Δίαιτες Απώλειας Βάρους &amp; Λίπους</h2>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Ισόποση κατανομή πρωτεΐνης σε 3 γεύματα μειώνει την κατανάλωση σνακ κατά τη δίαιτα</div>
-      <span class="method-badge rct">RCT</span>
-    </div>
-    <div class="card-journal">De Leon A. et al. · Journal of the Academy of Nutrition and Dietetics · Ιούνιος 2026</div>
-    <div class="hook">
-      Να τρώτε την πρωτεΐνη σας ομοιόμορφα όλη μέρα – όχι να τη "σώζετε" για το βράδυ. Αυτό μόνο αρκεί για να μειώσει η ικανοποίηση από σνακ.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 44 γυναίκες (BMI 28–45) · 16 εβδομάδες · 20% ενεργειακός περιορισμός</p>
-      <p><strong>Σχεδιασμός:</strong> Ισόποση κατανομή (EVEN, 30g/γεύμα) vs ασύμμετρη με βαρύ δείπνο (SKEWED)</p>
-      <p><strong>Αποτέλεσμα:</strong> Ομάδα EVEN → μικρότερη "αξία ενίσχυσης" σνακ (p=0.048) και κατανάλωση 44g vs 62g σνακ (p=0.02)</p>
-      <p>· Η ισόποση κατανομή ενισχύει κορεσμό και μειώνει την παρόρμηση για σνακ</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Γυναίκες με υπερβάρο · USDA · USA</span>
-      <a class="pubmed-link" href="https://doi.org/10.1016/j.jand.2026.156391" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge obs">Προοπτική Κλινική</span>
+<h3>Σύσταση σώματος &amp; 24ωρη ενεργειακή δαπάνη 6 &amp; 12 μήνες μετά από VLCKD (Six- and Twelve-Month Changes in Body Composition and 24-h Energy Expenditure After a Very Low-Calorie Ketogenic Diet)</h3>
+<div class="src">Obesity (Silver Spring), 2026</div>
+<p>17 γυναίκες με παχυσαρκία ολοκλήρωσαν 1 μήνα VLCKD και αξιολογήθηκαν με <strong>DXA &amp; θερμιδόμετρο ολόκληρου δωματίου</strong>. Μετά την αρχική απώλεια 7%, το βάρος έπεσε κι άλλο στους 6 μήνες (−3,9%), <strong>κυρίως από λίπος (−10%)</strong>, με την άλιπη μάζα να παραμένει σταθερή.</p>
+<p>Η 24ωρη ενεργειακή δαπάνη έδειξε προοδευτική <strong>αύξηση</strong> από τον 1ο στον 6ο μήνα· η μεταβολική προσαρμογή που φάνηκε στον 1 μήνα <strong>δεν ανιχνευόταν πια</strong> στους 6 ή 12 μήνες.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42297602/">PubMed</a><a href="https://doi.org/10.1002/oby.70236">DOI</a></div>
+<div class="hook">🎣 Hook: «Ο φόβος ότι η κετογονική “καταστρέφει” τον μεταβολισμό δεν επιβεβαιώνεται: το λίπος έπεφτε, οι μύες έμειναν, κι ο μεταβολισμός ανέβηκε ξανά μέσα σε μήνες.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Ντομάτα και τοματικά προϊόντα: μείωση περιφέρειας μέσης, χωρίς επίδραση στο βάρος</div>
-      <span class="method-badge meta">META</span>
-    </div>
-    <div class="card-journal">Sani L. et al. · Food &amp; Function · 22 Ιουνίου 2026</div>
-    <div class="hook">
-      Η ντομάτα δεν αδυνατίζει – αλλά βελτιώνει καρδιομεταβολικούς δείκτες. Η δράση οφείλεται στη σύνεργία της τροφικής μήτρας, όχι μόνο στο λυκοπένιο.
-    </div>
-    <div class="findings">
-      <p><strong>Σχεδιασμός:</strong> 47 μελέτες · 11 RCT + 5 επιδημιολογικές + 31 προκλινικές</p>
-      <p><strong>Κύριο εύρημα:</strong> Μείωση περιφέρειας μέσης MD −1.15 cm (95% CI: −2.27 έως −0.04, p=0.043)</p>
-      <p>· Καμία επίδραση σε συνολικό βάρος ή BMI</p>
-      <p>· Μηχανισμός: μείωση σπλαχνικής φλεγμονής και οξειδωτικού stress</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Ενήλικες με BMI ≥25 · 47 μελέτες</span>
-      <a class="pubmed-link" href="https://doi.org/10.1039/d6fo00495d" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Ισόποση κατανομή πρωτεΐνης στα 3 γεύματα &amp; κατανάλωση σνακ κατά την απώλεια βάρους (Evenly distributing daily dietary protein across three meals reduces snack food reinforcement during weight loss)</h3>
+<div class="src">J. Academy of Nutrition and Dietetics, 2026</div>
+<p>44 γυναίκες (BMI 28–45) σε 16 εβδομάδες με 20% ενεργειακό περιορισμό: η <strong>ισόποση κατανομή πρωτεΐνης</strong> (30g/γεύμα) έναντι ασύμμετρης (βαρύ δείπνο) μείωσε την «αξία ενίσχυσης» των ενεργειακά πυκνών σνακ (p=0,048).</p>
+<p>Η ομάδα ισόποσης κατανομής κατανάλωσε <strong>λιγότερα σνακ</strong> (44g vs 62g, p=0,02) — η ώρα/κατανομή της πρωτεΐνης, όχι μόνο η ποσότητα, επηρεάζει τον κορεσμό.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42242423/">PubMed</a><a href="https://doi.org/10.1016/j.jand.2026.156391">DOI</a></div>
+<div class="hook">🎣 Hook: «Μην “φυλάς” όλη την πρωτεΐνη για το βράδυ — μοιρασμένη σε 3 γεύματα μειώνει την επιθυμία για σνακ μέσα στη μέρα.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Ψηφιακή παρέμβαση για διατήρηση βάρους (NoHoW): 1.627 συμμετέχοντες, κανένα πλεονέκτημα</div>
-      <span class="method-badge rct">RCT</span>
-    </div>
-    <div class="card-journal">Stubbs R.J. et al. · Journal of Medical Internet Research · 20 Μαΐου 2026</div>
-    <div class="hook">
-      Η τεχνολογία δεν αρκεί από μόνη της. Ψηφιακά εργαλεία αυτορρύθμισης και ρύθμισης συναισθήματος δεν υπερέχουν έναντι ενεργού ελέγχου για διατήρηση βάρους 12 μηνών.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 1.627 ενήλικες (BMI ≥25, είχαν χάσει ≥5% βάρος) · ΗΒ, Δανία, Πορτογαλία · 12 μήνες</p>
-      <p><strong>Σχεδιασμός:</strong> 2×2 factorial RCT · Εφαρμογές αυτορρύθμισης vs ρύθμισης συναισθήματος vs ενεργός έλεγχος (Fitbit + αυτοζύγιση)</p>
-      <p><strong>Αποτέλεσμα:</strong> Καμία στατιστικά σημαντική διαφορά σε κανένα βραχίονα · ~50% ανέκτησε βάρος ανεξάρτητα από ομάδα</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Ενήλικες μετά απώλεια βάρους · 3 χώρες EU</span>
-      <a class="pubmed-link" href="https://doi.org/10.2196/69634" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Γλυκαντικά αντί ζάχαρης στη διατήρηση βάρους μετά από απώλεια — υπομελέτη SWEET (Long-term effect of sweeteners and sweetness enhancers on adipose tissue function and metabolic health)</h3>
+<div class="src">Int. Journal of Obesity, 2026</div>
+<p>83 ενήλικες: 2 μήνες απώλεια βάρους + 10 μήνες συντήρηση με γλυκαντικά (S&amp;SE) ή ζάχαρη. Η ομάδα γλυκαντικών έδειξε τάση για <strong>λιγότερη επανάκτηση</strong> (3,0 vs 5,9 kg, p=0,050).</p>
+<p>Η απώλεια βάρους μείωσε το μέγεθος των λιποκυττάρων &amp; βελτίωσε την ευαισθησία στην ινσουλίνη· τα γλυκαντικά τροποποίησαν τη γονιδιακή έκφραση λιπολυτικών δεικτών (LPL, ABHD5) στον λιπώδη ιστό.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42230988/">PubMed</a><a href="https://doi.org/10.1038/s41366-026-02117-z">DOI</a></div>
+<div class="hook">🎣 Hook: «Αντικαθιστώντας τη ζάχαρη με γλυκαντικά, η επανάκτηση βάρους τείνει να είναι σχεδόν η μισή — με μετρήσιμες αλλαγές στη βιολογία του λίπους.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Γλυκαντικά αντί ζάχαρης: λιγότερη επανάκτηση βάρους &amp; αλλαγές στη γονιδιακή έκφραση λιπώδους ιστού</div>
-      <span class="method-badge rct">RCT</span>
-    </div>
-    <div class="card-journal">Pang M.D. et al. · International Journal of Obesity · 2 Ιουνίου 2026</div>
-    <div class="hook">
-      Τα γλυκαντικά δεν είναι απλώς "ουδέτερα" – τάση για 2.9 kg λιγότερη επανάκτηση σε 10 μήνες έναντι ζάχαρης, με αξιοσημείωτες αλλαγές στη βιολογία του λίπους.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 83 ενήλικες · 2 μήνες απώλεια βάρους + 10 μήνες συντήρηση (SWEET project EU)</p>
-      <p><strong>Σχεδιασμός:</strong> Γλυκαντικά (S&amp;SE) vs ζάχαρη κατά τη φάση συντήρησης</p>
-      <p><strong>Αποτέλεσμα:</strong> S&amp;SE: 3.0 kg επανάκτηση vs 5.9 kg ζάχαρη (p=0.050)</p>
-      <p>· Μεταβολές γονιδιακής έκφρασης LPL/ABHD5 (λιπολυτικοί δείκτες) στον υποδόριο λιπώδη ιστό</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Ενήλικες με υπέρβαρο · Maastricht/Κοπεγχάγη</span>
-      <a class="pubmed-link" href="https://doi.org/10.1038/s41366-026-02117-z" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<!-- ENOTHTA 2 -->
+<h2 class="sec">💊 2. Ορμόνες &amp; Φάρμακα Βάρους (GLP-1)</h2>
 
-  <div class="section-title secondary">Ενέσιμα Φάρμακα &amp; Αντιπαχυντικά</div>
+<div class="card">
+<span class="badge meta">Δικτυωτή Μετα-ανάλυση</span>
+<h3>CagriSema, σεμαγλουτίδη, καγκριλιντίδη &amp; τιρζεπατίδη στην παχυσαρκία (Comparative Effectiveness of CagriSema, Semaglutide, Cagrilintide and Tirzepatide: A Network Meta-Analysis)</h3>
+<div class="src">Endocrinology, Diabetes &amp; Metabolism, 2026</div>
+<p>25 RCT, 12 παρεμβάσεις: <strong>τιρζεπατίδη 15mg (−17,97%)</strong> &amp; <strong>CagriSema (−17,84%)</strong> πέτυχαν τη μεγαλύτερη απώλεια βάρους. Στο κατώφλι ≥20%, υπερείχε η CagriSema (RR 27,82) &amp; η τιρζεπατίδη 15mg (RR 23,70).</p>
+<p>Τα γαστρεντερικά ανεπιθύμητα αυξήθηκαν με όλα (RR 1,33–1,91), αλλά τα σοβαρά ανεπιθύμητα ήταν συγκρίσιμα με placebo.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42207966/">PubMed</a><a href="https://doi.org/10.1002/edm2.70248">DOI</a></div>
+<div class="hook">🎣 Hook: «Στην κορυφή των αντιπαχυντικών, τιρζεπατίδη &amp; CagriSema είναι σχεδόν ισόπαλες στο ~18% — η επιλογή κρίνεται από ανοχή &amp; συννοσηρότητες.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">CagriSema vs Tirzepatide vs Semaglutide: ποιο κερδίζει; Δικτυωτή μετα-ανάλυση 25 RCT</div>
-      <span class="method-badge meta">META</span>
-    </div>
-    <div class="card-journal">Hamarsheh S. et al. · Endocrinology, Diabetes &amp; Metabolism · Ιούλιος 2026</div>
-    <div class="hook">
-      Ισοπαλία στην κορυφή: tirzepatide 15mg και CagriSema πετυχαίνουν ~18% απώλεια βάρους. Τα γαστρεντερικά παραμένουν η Αχίλλειος πτέρνα όλων.
-    </div>
-    <div class="findings">
-      <p><strong>Σχεδιασμός:</strong> Δικτυωτή μετα-ανάλυση · 25 RCT · 12 παρεμβάσεις</p>
-      <p>· Tirzepatide 15mg: <strong>−17.97%</strong> σωματικό βάρος</p>
-      <p>· CagriSema (σεμαγλουτίδη + καγκριλιντίδη): <strong>−17.84%</strong></p>
-      <p>· Επίτευξη ≥20% απώλειας: CagriSema RR 27.82 · Tirzepatide 15mg RR 23.70</p>
-      <p>· Γαστρεντερικά ανεπιθύμητα: RR 1.33–1.91 · Σοβαρά: παρόμοια με placebo</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Ενήλικες με παχυσαρκία · 25 RCT παγκοσμίως</span>
-      <a class="pubmed-link" href="https://doi.org/10.1002/edm2.70248" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge meta">Μετα-ανάλυση</span>
+<h3>Μεταβολή άλιπης μάζας με ινκρετίνες vs τρόπο ζωής (Lean Mass Changes With Incretin Therapy Versus Lifestyle Intervention: Meta-Analysis of RCTs)</h3>
+<div class="src">Diabetes, Obesity &amp; Metabolism, 2026</div>
+<p>20 RCT, 15.782 συμμετέχοντες (DXA/MRI): η άλιπη μάζα ως ποσοστό της συνολικής απώλειας ήταν <strong>35,2% με σεμαγλουτίδη</strong>, 25,4% με τιρζεπατίδη, 26,8% με λιραγλουτίδη — συγκρίσιμα με τον τρόπο ζωής (26,2%).</p>
+<p>Το πιο ευνοϊκό προφίλ το είχε ο συνδυασμός <strong>τρόπος ζωής + άσκηση αντίστασης (17,5%)</strong> — η διατήρηση μυός περνά μέσα από αντίσταση, πρωτεΐνη &amp; παρακολούθηση σύστασης σώματος.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41877354/">PubMed</a><a href="https://doi.org/10.1111/dom.70666">DOI</a></div>
+<div class="hook">🎣 Hook: «Τα ενέσιμα σε αδυνατίζουν, αλλά 1 στα 3 κιλά μπορεί να είναι μυς — η άσκηση αντίστασης είναι το αντίδοτο που τα φάρμακα δεν προσφέρουν.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Incretins vs lifestyle: ίδια απώλεια μυϊκής μάζας – μόνο η αντίσταση προστατεύει</div>
-      <span class="method-badge meta">META</span>
-    </div>
-    <div class="card-journal">Eisa N. &amp; Barood O. · Diabetes, Obesity &amp; Metabolism · 24 Μαρτίου 2026</div>
-    <div class="hook">
-      Semaglutide, tirzepatide, liraglutide: χάνεις 25–35% της απώλειας σε μυϊκή μάζα. Η αντίσταση μειώνει αυτό στο 17.5% – αναντικατάστατη παρέμβαση.
-    </div>
-    <div class="findings">
-      <p><strong>Σχεδιασμός:</strong> 20 RCT · 15.782 συμμετέχοντες · DXA ή MRI σύσταση σώματος</p>
-      <p>· Σεμαγλουτίδη: <strong>35.2%</strong> απώλειας ως άλιπη μάζα (95% CI: 31.5–38.9)</p>
-      <p>· Tirzepatide: <strong>25.4%</strong> · Liraglutide: <strong>26.8%</strong></p>
-      <p>· Lifestyle μόνο: 26.2% · <strong>Lifestyle + ασκήσεις αντίστασης: 17.5%</strong> (καλύτερο)</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Ενήλικες με υπέρβαρο/παχυσαρκία · 20 RCT</span>
-      <a class="pubmed-link" href="https://doi.org/10.1111/dom.70666" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<!-- ENOTHTA 3 -->
+<h2 class="sec">💪 3. Διατροφή, Άσκηση &amp; Μυϊκή Μάζα</h2>
 
-  <div class="section-title">Μεταβολισμός &amp; Μεταβολική Προσαρμογή</div>
+<div class="card">
+<span class="badge rct">RCT (Crossover)</span>
+<h3>Σοβαρή ενεργειακή έλλειψη &amp; ρόλος της πρωτεΐνης στον μεταβολισμό &amp; την απόδοση (Short-Term Severe Low Energy Availability With Varying Protein Content on Substrate Metabolism and Performance)</h3>
+<div class="src">European Journal of Sport Science, 2026</div>
+<p>19 αθλητικά ενεργοί νέοι (9 γυναίκες, 10 άνδρες), 3 συνθήκες × 5 ημέρες. Και οι δύο συνθήκες χαμηλής ενέργειας (15 kcal/kgFFM) <strong>αύξησαν την οξείδωση λίπους ηρεμίας</strong>, όχι κατά την άσκηση.</p>
+<p>Η αναερόβια απόδοση (Wingate) έπεσε <strong>μόνο</strong> στη συνθήκη με διατηρημένη πρωτεΐνη αλλά λιγότερους υδατάνθρακες — η πρωτεΐνη δεν αντικαθιστά τους υδατάνθρακες για απόδοση.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41992072/">PubMed</a><a href="https://doi.org/10.1002/ejsc.70125">DOI</a></div>
+<div class="hook">🎣 Hook: «Σε αυστηρό έλλειμμα, η υψηλή πρωτεΐνη προστατεύει τους μυς — αλλά αν λείπουν οι υδατάνθρακες, η έντονη απόδοση πέφτει.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Μεταβολική προσαρμογή μετά bariatric: ήπαρ και νεφρά εξηγούν ~38% της πτώσης ΒΜΡ</div>
-      <span class="method-badge rct">RCT</span>
-    </div>
-    <div class="card-journal">Friedman L. et al. · Clinical Nutrition · 11 Μαρτίου 2026</div>
-    <div class="hook">
-      Ο βασικός μεταβολισμός δεν πέφτει μόνο λόγω μυϊκής μάζας. Ο συρρικνούμενος ήπαρ (−21%) και νεφρά (−11%) ευθύνονται για το 38% της πτώσης – εύρημα με μεγάλη πρακτική σημασία.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 58 άτομα με σοβαρή παχυσαρκία (ΒΜΙ ~41) · 4 ομάδες άσκησης + έλεγχος · 26 εβδομάδες</p>
-      <p>· ΒΜΡ: −356 kcal/ημέρα (−17%) · Μεταβολική προσαρμογή: −289 kcal/ημέρα</p>
-      <p>· Ήπαρ: εξηγεί <strong>32.1%</strong> της μεταβολικής προσαρμογής · Άλιπη μάζα: 29.7% · Νεφρά: 6.2%</p>
-      <p>· Καμία μορφή άσκησης δεν κατάφερε να αποτρέψει τη μεταβολική προσαρμογή</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Σοβαρή παχυσαρκία · Ισραήλ · NCT04777305</span>
-      <a class="pubmed-link" href="https://doi.org/10.1016/j.clnu.2026.106623" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Νιτρικά (χυμός παντζαριού) + άσκηση αντίστασης σε μεσήλικες &amp; ηλικιωμένους (Dietary nitrate supplementation with resistance training on skeletal muscle and vascular outcomes)</h3>
+<div class="src">Am. J. Physiology — Regulatory, 2026</div>
+<p>28 απροπόνητοι ενήλικες (~56 ετών), 12 εβδομάδες άσκησης αντίστασης με χυμό παντζαριού (800mg νιτρικά/ημέρα) ή placebo. <strong>Και οι δύο ομάδες</strong> βελτίωσαν υπερτροφία, δύναμη &amp; αγγειακή λειτουργία (FMD).</p>
+<p>Δεν υπήρξε <strong>καμία επιπλέον ωφέλεια</strong> από τα νιτρικά σε άλιπη μάζα, διατομή μηρού ή μοριακούς δείκτες — η άσκηση αντίστασης έκανε τη δουλειά, όχι το συμπλήρωμα.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41525148/">PubMed</a><a href="https://doi.org/10.1152/ajpregu.00195.2025">DOI</a></div>
+<div class="hook">🎣 Hook: «Ο χυμός παντζαριού δεν “έχτισε” παραπάνω μυ — η άσκηση αντίστασης από μόνη της έφερε υπερτροφία &amp; δύναμη σε μεσήλικες.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Σοβαρή ενεργειακή έλλειψη (15 kcal/kgFFM/ημέρα): αυξάνει οξείδωση λίπους ηρεμίας, μειώνει απόδοση</div>
-      <span class="method-badge cross">CROSSOVER</span>
-    </div>
-    <div class="card-journal">Reina B.A. et al. · European Journal of Sport Science · Μάιος 2026</div>
-    <div class="hook">
-      Ακόμα και 5 ημέρες πολύ χαμηλής πρόσληψης αλλάζουν τον μεταβολισμό ηρεμίας. Αλλά χωρίς αρκετή πρωτεΐνη, η απόδοση καταρρέει – ακόμα και βραχυπρόθεσμα.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 19 αθλητικά ενεργοί νέοι (9F, 10M) · 3 συνθήκες × 5 ημέρες (crossover)</p>
-      <p>· AEA: 45 kcal/kgFFM/ημέρα · LEA: 15 kcal/kgFFM · LEA-P: ίδια ενέργεια LEA, φυσιολογική πρωτεΐνη</p>
-      <p>· Αμφότερα LEA: ↑ οξείδωση λίπους ηρεμίας (όχι κατά άσκηση)</p>
-      <p>· Wingate: μόνο LEA-P (χωρίς carbs) μείωσε την αναερόβια απόδοση</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Νέοι αθλητικά ενεργοί · Βραζιλία / UK</span>
-      <a class="pubmed-link" href="https://doi.org/10.1002/ejsc.70125" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<!-- ENOTHTA 4 -->
+<h2 class="sec">🔬 4. Μεταβολική Υγεία &amp; Κατευθυντήριες Οδηγίες</h2>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Τεχνητή βαρύτητα κατά 60 ημέρες κατάκλισης: διατηρεί ΒΜΡ +133 kcal/ημέρα έναντι ελέγχου</div>
-      <span class="method-badge rct">RCT</span>
-    </div>
-    <div class="card-journal">Martin-Rodriguez S. et al. · The Journal of Physiology · 24 Μαΐου 2026</div>
-    <div class="hook">
-      Αδράνεια ισοδυναμεί με κατάρρευση μεταβολισμού. Η ποδηλασία με τεχνητή βαρύτητα διατήρησε ΒΜΡ και οξείδωση λίπους – αλλά η νευρομυϊκή λειτουργία επιδεινώθηκε ανεξάρτητα.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 24 υγιείς άνδρες · 60 ημέρες κατάκλισης (head-down tilt, MEDES, Τουλούζη)</p>
-      <p>· 3 ομάδες: έλεγχος (C) / ποδηλασία (EX) / ποδηλασία + τεχνητή βαρύτητα (EX-AG)</p>
-      <p>· EX-AG vs C: +133 kcal/ημέρα ΒΜΡ (p=0.017) · Οξείδωση λίπους σταθερή μόνο EX-AG</p>
-      <p>· <strong>Διαχωρισμός:</strong> μεταβολική και νευρομυϊκή προσαρμογή αποσυνδέονται σε κατάσταση αδράνειας</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Υγιείς άνδρες · BRACE study · ESA/CNES</span>
-      <a class="pubmed-link" href="https://doi.org/10.1113/JP290788" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Ήπαρ &amp; νεφρά πίσω από τη μεταβολική προσαρμογή μετά τη βαριατρική (Liver and Kidney Volume Reduction May Underlie Metabolic Adaptation After Metabolic Bariatric Surgery — POWER substudy)</h3>
+<div class="src">Clinical Nutrition, 2026</div>
+<p>58 άτομα με σοβαρή παχυσαρκία (4 ομάδες άσκησης), 26 εβδομάδες: ο βασικός μεταβολισμός έπεσε −356 kcal/ημέρα (−17%), ο <strong>ηπατικός όγκος −21%</strong> &amp; ο νεφρικός −11%.</p>
+<p>Από τη μεταβολική προσαρμογή των −289 kcal/ημέρα, το <strong>ήπαρ εξήγησε το 32,1%</strong>, η άλιπη μάζα 29,7% &amp; τα νεφρά 6,2%. Καμία μορφή άσκησης δεν την απέτρεψε.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41875670/">PubMed</a><a href="https://doi.org/10.1016/j.clnu.2026.106623">DOI</a></div>
+<div class="hook">🎣 Hook: «Ο μεταβολισμός δεν πέφτει μόνο επειδή χάνεις μυ — ακόμα κι ο όγκος του ήπατος &amp; των νεφρών μετράει, και εξηγεί το μεγαλύτερο κομμάτι.»</div>
+</div>
 
-  <div class="section-title secondary">Νηστεία &amp; Χρονοδιατροφή</div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Τεχνητή βαρύτητα διατηρεί τον βασικό μεταβολισμό σε 60 ημέρες κατάκλισης (Artificial gravity during prolonged bed rest preserves resting metabolic rate — BRACE study)</h3>
+<div class="src">The Journal of Physiology, 2026</div>
+<p>24 υγιείς άνδρες, 60 ημέρες κατάκλισης (head-down tilt): η ποδηλασία <strong>με τεχνητή βαρύτητα</strong> διατήρησε τον βασικό μεταβολισμό (+133 kcal/ημέρα έναντι ελέγχου, p=0,017) &amp; σταθερή οξείδωση λίπους.</p>
+<p>Όμως η <strong>νευρομυϊκή λειτουργία επιδεινώθηκε</strong> σε όλες τις ομάδες — η μεταβολική &amp; η μηχανική προσαρμογή στην αδράνεια αποσυνδέονται.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42178178/">PubMed</a><a href="https://doi.org/10.1113/JP290788">DOI</a></div>
+<div class="hook">🎣 Hook: «Στην ακινησία, η κίνηση με “φορτίο” κρατά ζωντανό τον μεταβολισμό — αλλά για τη δύναμη χρειάζεται κάτι παραπάνω.»</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Νυχτερινή νηστεία 13–16 ωρών συγχρονισμένη με ύπνο: καλύτερη ΑΠ, γλυκόζη, κορτιζόλη</div>
-      <span class="method-badge rct">RCT</span>
-    </div>
-    <div class="card-journal">Grimaldi D. et al. · Arteriosclerosis, Thrombosis, and Vascular Biology · 12 Φεβρουαρίου 2026</div>
-    <div class="hook">
-      Απλή οδηγία – δυνατά αποτελέσματα: τελευταίο γεύμα ≥3 ώρες πριν τον ύπνο, νηστεία 13–16 ώρες. Νύχτες με καλύτερη πίεση, γλυκόζη και HRV.
-    </div>
-    <div class="findings">
-      <p><strong>Δείγμα:</strong> 39 υπέρβαρα/παχύσαρκα άτομα (36–75 ετών) · 7.5 εβδομάδες · Northwestern University</p>
-      <p><strong>Παρέμβαση:</strong> Εκτεταμένη νυχτερινή νηστεία (13–16h) + τελευταίο γεύμα ≥3h πριν ύπνο vs συνήθης (11–13h)</p>
-      <p>· ↑ Dipping διαστολικής ΑΠ νύχτας · ↓ Καρδιακοί παλμοί νύχτας · ↑ HRV</p>
-      <p>· ↓ Κορτιζόλη νύχτας · ↓ Γλυκόζη OGTT πρωί · ↑ Ινσουλινογόνος δείκτης 30'</p>
-    </div>
-    <div class="card-footer">
-      <span class="population">Υπέρβαρα/παχύσαρκα άτομα 36–75 ετών · USA</span>
-      <a class="pubmed-link" href="https://doi.org/10.1161/ATVBAHA.125.323355" target="_blank">DOI ↗</a>
-    </div>
-  </div>
+<div class="card">
+<span class="badge rct">RCT</span>
+<h3>Ψηφιακό εργαλείο για διατήρηση βάρους σε 1.627 ενήλικες — NoHoW (A Digital Toolkit for Weight Loss Maintenance in European Adults: 2×2 Factorial RCT)</h3>
+<div class="src">J. Medical Internet Research, 2026</div>
+<p>1.627 ενήλικες που είχαν χάσει ≥5% βάρος (ΗΒ, Δανία, Πορτογαλία): εφαρμογές αυτορρύθμισης ή/και ρύθμισης συναισθήματος <strong>δεν υπερείχαν</strong> του ενεργού ελέγχου σε 12 μήνες.</p>
+<p>Περίπου το 50% επανέκτησε βάρος ανεξάρτητα από ομάδα — υπενθύμιση ότι τα ψηφιακά εργαλεία από μόνα τους δεν αρκούν για τη συντήρηση.</p>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42160776/">PubMed</a><a href="https://doi.org/10.2196/69634">DOI</a></div>
+<div class="hook">🎣 Hook: «Καμία εφαρμογή δεν έκανε μαγικά: στη διατήρηση βάρους μετράει το σύστημα υποστήριξης, όχι το gadget.»</div>
+</div>
 
-  <div class="footer-nav">
-    <p>Βάσει ανάλυσης PubMed · Μελέτες αποκλειστικά σε ανθρώπους · Τελευταίες 30 ημέρες</p>
-    <p style="margin-top:6px"><a href="index.html">← Πίσω στην αρχική</a></p>
-  </div>
-
+<div class="foot">Δεδομένα από PubMed (NCBI). Κάθε μελέτη έχει επαληθευμένο PMID. Μόνο ανθρώπινες μελέτες.</div>
 </div>
 </body>
 </html>
