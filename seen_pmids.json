@@ -1,4 +1,5 @@
 {
+  "_RUN_FIRST": "⚠️ RUN_FIRST — ΔΙΑΒΑΣΕ ΠΡΩΤΑ: (1) Πριν από οτιδηποτε, διαβασε README.md + research_config.json απο αυτο το repo. (2) ΑΝΕΒΑΣΜΑ ΜΟΝΟ ΜΕ git push (./upload.sh) — το GitHub Contents API (api.github.com, push.py) ΕΠΙΣΤΡΕΦΕΙ 403 'Resource not accessible by integration' σε αυτο το environment, ΜΗΝ το χρησιμοποιεις. Σωστο: PAT=<token> ./upload.sh <local> <repo_path> \"<msg>\"  ή git clone με x-access-token:<PAT> στο remote URL και GIT_CONFIG_GLOBAL=/dev/null.",
   "_comment": "Last updated 2026-06-24 (weight). 155 total PMIDs. Μόνο ανθρώπινες μελέτες, de-dup ενεργό.",
   "pmids": [
     "42199008",
