@@ -3,134 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Έρευνες: Βάρος & Μεταβολισμός — 22/06/2026</title>
+<title>Έρευνα Βάρους & Μεταβολισμού – 24/06/2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f4f6f8;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 24px 16px 48px;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a6b3c 0%, #2d9a5e 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 28px 32px 24px;
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.3px; }
+  .header p { font-size: 0.85rem; opacity: 0.85; margin-top: 6px; }
+  .header-meta { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a6b3c;
+    border-left: 4px solid #1a6b3c;
+    padding-left: 12px;
+    margin: 32px 0 14px;
+    letter-spacing: -0.2px;
+  }
+  .section-title.secondary { color: #2563eb; border-left-color: #2563eb; }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+  .card-title { font-size: 0.95rem; font-weight: 700; color: #111827; flex: 1; }
+  .method-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .rct { background: #dcfce7; color: #166534; }
+  .meta { background: #dbeafe; color: #1e40af; }
+  .cross { background: #fef9c3; color: #854d0e; }
+  .card-journal { font-size: 0.75rem; color: #6b7280; margin-bottom: 10px; font-style: italic; }
+  .hook {
+    border-left: 3px solid #f59e0b;
+    background: #fffbeb;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 12px 0 10px;
+    font-size: 0.87rem;
+    color: #92400e;
+    font-weight: 500;
+  }
+  .findings { font-size: 0.85rem; color: #374151; margin-top: 8px; }
+  .findings p { margin-bottom: 5px; }
+  .findings strong { color: #111827; }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #f3f4f6;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .population { font-size: 0.75rem; color: #6b7280; }
+  .pubmed-link {
+    font-size: 0.75rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .pubmed-link:hover { text-decoration: underline; }
+  .footer-nav {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+  .footer-nav a { color: #1a6b3c; text-decoration: none; font-weight: 600; }
+  .footer-nav a:hover { text-decoration: underline; }
+</style>
 </head>
-<body style="margin:0;padding:0;background:#f4f6f8;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1f2733;line-height:1.6;">
-<div style="max-width:680px;margin:0 auto;padding:18px 14px 60px;">
+<body>
+<div class="container">
 
-  <a href="index.html" style="display:inline-block;margin-bottom:14px;color:#2b7a78;text-decoration:none;font-size:15px;font-weight:600;">← Daily Brief</a>
+  <div class="header">
+    <h1>Βάρος &amp; Μεταβολισμός</h1>
+    <p>Έρευνα PubMed · Τελευταίες 30 ημέρες · Μόνο μελέτες σε ανθρώπους</p>
+    <div class="header-meta">
+      <span class="badge">24 Ιουνίου 2026</span>
+      <span class="badge">10 μελέτες</span>
+      <span class="badge">learnnutrition.gr</span>
+    </div>
+  </div>
 
-  <header style="margin-bottom:22px;">
-    <h1 style="font-size:25px;line-height:1.25;margin:0 0 6px;color:#14202e;">⚖️ Έρευνες: Βάρος &amp; Μεταβολισμός</h1>
-    <div style="font-size:14px;color:#6b7785;">Σύνοψη νέας επιστημονικής βιβλιογραφίας · 22/06/2026 · μόνο ανθρώπινες μελέτες</div>
-  </header>
+  <div class="section-title">Δίαιτες &amp; Απώλεια Βάρους</div>
 
-  <!-- HIGHLIGHTS -->
-  <section style="background:#ffffff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px 18px 6px;margin-bottom:26px;border-top:4px solid #2b7a78;">
-    <h2 style="font-size:17px;margin:0 0 10px;color:#14202e;">📌 Τα κύρια highlights σήμερα</h2>
-    <ul style="margin:0 0 12px;padding-left:20px;font-size:15px;">
-      <li style="margin-bottom:8px;">Νέος <strong>από του στόματος αγωνιστής GLP-1 (elecoglipron)</strong> πέτυχε έως <strong>-10,5% βάρος σε 26 εβδομάδες</strong> — ένα χάπι την ημέρα, χωρίς ένεση (μελέτη φάσης 2, Lancet).</li>
-      <li style="margin-bottom:8px;">Η <strong>απώλεια βάρους με δίαιτα</strong> μειώνει το ενδομυϊκό και ηπατικό λίπος <strong>πολύ περισσότερο από την άσκηση χωρίς απώλεια βάρους</strong> — και βελτιώνει την «ποιότητα του μυός».</li>
-      <li style="margin-bottom:8px;">Σε γυναίκες με <strong>PCOS</strong>, το <strong>6ωρο time-restricted eating χωρίς μέτρημα θερμίδων</strong> ήταν εξίσου αποτελεσματικό με τον κλασικό θερμιδικό περιορισμό.</li>
-    </ul>
-  </section>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Ισόποση κατανομή πρωτεΐνης σε 3 γεύματα μειώνει την κατανάλωση σνακ κατά τη δίαιτα</div>
+      <span class="method-badge rct">RCT</span>
+    </div>
+    <div class="card-journal">De Leon A. et al. · Journal of the Academy of Nutrition and Dietetics · Ιούνιος 2026</div>
+    <div class="hook">
+      Να τρώτε την πρωτεΐνη σας ομοιόμορφα όλη μέρα – όχι να τη "σώζετε" για το βράδυ. Αυτό μόνο αρκεί για να μειώσει η ικανοποίηση από σνακ.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 44 γυναίκες (BMI 28–45) · 16 εβδομάδες · 20% ενεργειακός περιορισμός</p>
+      <p><strong>Σχεδιασμός:</strong> Ισόποση κατανομή (EVEN, 30g/γεύμα) vs ασύμμετρη με βαρύ δείπνο (SKEWED)</p>
+      <p><strong>Αποτέλεσμα:</strong> Ομάδα EVEN → μικρότερη "αξία ενίσχυσης" σνακ (p=0.048) και κατανάλωση 44g vs 62g σνακ (p=0.02)</p>
+      <p>· Η ισόποση κατανομή ενισχύει κορεσμό και μειώνει την παρόρμηση για σνακ</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Γυναίκες με υπερβάρο · USDA · USA</span>
+      <a class="pubmed-link" href="https://doi.org/10.1016/j.jand.2026.156391" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <!-- ===================== ΕΝΟΤΗΤΑ 1 ===================== -->
-  <h2 style="font-size:19px;margin:0 0 14px;color:#14202e;border-left:5px solid #2b7a78;padding-left:10px;">🥗 Δίαιτες &amp; Απώλεια Βάρους</h2>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Ντομάτα και τοματικά προϊόντα: μείωση περιφέρειας μέσης, χωρίς επίδραση στο βάρος</div>
+      <span class="method-badge meta">META</span>
+    </div>
+    <div class="card-journal">Sani L. et al. · Food &amp; Function · 22 Ιουνίου 2026</div>
+    <div class="hook">
+      Η ντομάτα δεν αδυνατίζει – αλλά βελτιώνει καρδιομεταβολικούς δείκτες. Η δράση οφείλεται στη σύνεργία της τροφικής μήτρας, όχι μόνο στο λυκοπένιο.
+    </div>
+    <div class="findings">
+      <p><strong>Σχεδιασμός:</strong> 47 μελέτες · 11 RCT + 5 επιδημιολογικές + 31 προκλινικές</p>
+      <p><strong>Κύριο εύρημα:</strong> Μείωση περιφέρειας μέσης MD −1.15 cm (95% CI: −2.27 έως −0.04, p=0.043)</p>
+      <p>· Καμία επίδραση σε συνολικό βάρος ή BMI</p>
+      <p>· Μηχανισμός: μείωση σπλαχνικής φλεγμονής και οξειδωτικού stress</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Ενήλικες με BMI ≥25 · 47 μελέτες</span>
+      <a class="pubmed-link" href="https://doi.org/10.1039/d6fo00495d" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:18px;">
-    <span style="display:inline-block;background:#e3f2ef;color:#1f6e66;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">RCT</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Η απώλεια βάρους μειώνει το ενδομυϊκό &amp; ηπατικό λίπος περισσότερο από την άσκηση</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Weight loss reduces intermuscular adipose tissue and liver fat compared to exercise · J Clin Endocrinol Metab, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">RCT 12 εβδομάδων σε 46 ενήλικες με παχυσαρκία, σε 3 ομάδες: απώλεια βάρους (δίαιτα), άσκηση αντοχής <em>χωρίς</em> απώλεια βάρους, και έλεγχος. Η απώλεια βάρους (-10,5%) μείωσε το ηπατικό λίπος κατά -33% και το ενδομυϊκό λίπος (IMAT) κατά -12,7%, βελτιώνοντας την ινσουλινοευαισθησία κατά +42%. Η άσκηση χωρίς απώλεια βάρους βελτίωσε την ινσουλινοευαισθησία (+23%) και τη VO₂peak, αλλά <strong>δεν</strong> μείωσε σημαντικά IMAT ή ηπατικό λίπος. Σημαντικό: το IMAT μειώθηκε <strong>περισσότερο</strong> από τη μυϊκή μάζα (βελτίωση «ποιότητας μυός»), ενώ η DXA υπερεκτίμησε την απώλεια μυός σε σχέση με το MRI.</p>
-    <div style="background:#f7faf9;border-left:4px solid #2b7a78;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Θες να καθαρίσεις το λίπος <em>μέσα</em> στους μυς και στο συκώτι σου; Η ζυγαριά που πέφτει μετράει πιο πολύ από τα χιλιόμετρα στον διάδρομο.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/41622038/" style="font-size:13px;color:#2b7a78;text-decoration:none;font-weight:600;">PubMed → 41622038</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Ψηφιακή παρέμβαση για διατήρηση βάρους (NoHoW): 1.627 συμμετέχοντες, κανένα πλεονέκτημα</div>
+      <span class="method-badge rct">RCT</span>
+    </div>
+    <div class="card-journal">Stubbs R.J. et al. · Journal of Medical Internet Research · 20 Μαΐου 2026</div>
+    <div class="hook">
+      Η τεχνολογία δεν αρκεί από μόνη της. Ψηφιακά εργαλεία αυτορρύθμισης και ρύθμισης συναισθήματος δεν υπερέχουν έναντι ενεργού ελέγχου για διατήρηση βάρους 12 μηνών.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 1.627 ενήλικες (BMI ≥25, είχαν χάσει ≥5% βάρος) · ΗΒ, Δανία, Πορτογαλία · 12 μήνες</p>
+      <p><strong>Σχεδιασμός:</strong> 2×2 factorial RCT · Εφαρμογές αυτορρύθμισης vs ρύθμισης συναισθήματος vs ενεργός έλεγχος (Fitbit + αυτοζύγιση)</p>
+      <p><strong>Αποτέλεσμα:</strong> Καμία στατιστικά σημαντική διαφορά σε κανένα βραχίονα · ~50% ανέκτησε βάρος ανεξάρτητα από ομάδα</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Ενήλικες μετά απώλεια βάρους · 3 χώρες EU</span>
+      <a class="pubmed-link" href="https://doi.org/10.2196/69634" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:28px;">
-    <span style="display:inline-block;background:#e3f2ef;color:#1f6e66;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">RCT</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Θερμιδικά περιορισμένη δίαιτα με βρώμη &amp; εντερική διαπερατότητα στο μεταβολικό σύνδρομο</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Calorie-restricted oat diet, zonulin and short-chain fatty acid response · Gut Microbes, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">RCT σε άτομα με μεταβολικό σύνδρομο. Μια διήμερη, θερμιδικά περιορισμένη δίαιτα με υψηλή δόση βρώμης (3×100 g/ημέρα) μείωσε τη ζονουλίνη (δείκτη «leaky gut») και αύξησε το βουτυρικό οξύ έναντι ελέγχου. Αντίθετα, η εξάβδομη <em>ισοθερμιδική</em> δίαιτα βρώμης (1×80 g/ημέρα) δεν άλλαξε αυτούς τους δείκτες. Δείχνει ότι ο συνδυασμός θερμιδικού περιορισμού + έντονης πρόσληψης βρώμης μπορεί να βελτιώσει τη λειτουργία του εντερικού φραγμού, μέσω αλλαγών στο μικροβίωμα και στα λιπαρά οξέα βραχείας αλύσου.</p>
-    <div style="background:#f7faf9;border-left:4px solid #2b7a78;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Δεν είναι μόνο πόσο τρως, αλλά και τι: η βρώμη σε θερμιδικό έλλειμμα φάνηκε να “σφραγίζει” το διάτρητο έντερο στο μεταβολικό σύνδρομο.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42026801/" style="font-size:13px;color:#2b7a78;text-decoration:none;font-weight:600;">PubMed → 42026801</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Γλυκαντικά αντί ζάχαρης: λιγότερη επανάκτηση βάρους &amp; αλλαγές στη γονιδιακή έκφραση λιπώδους ιστού</div>
+      <span class="method-badge rct">RCT</span>
+    </div>
+    <div class="card-journal">Pang M.D. et al. · International Journal of Obesity · 2 Ιουνίου 2026</div>
+    <div class="hook">
+      Τα γλυκαντικά δεν είναι απλώς "ουδέτερα" – τάση για 2.9 kg λιγότερη επανάκτηση σε 10 μήνες έναντι ζάχαρης, με αξιοσημείωτες αλλαγές στη βιολογία του λίπους.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 83 ενήλικες · 2 μήνες απώλεια βάρους + 10 μήνες συντήρηση (SWEET project EU)</p>
+      <p><strong>Σχεδιασμός:</strong> Γλυκαντικά (S&amp;SE) vs ζάχαρη κατά τη φάση συντήρησης</p>
+      <p><strong>Αποτέλεσμα:</strong> S&amp;SE: 3.0 kg επανάκτηση vs 5.9 kg ζάχαρη (p=0.050)</p>
+      <p>· Μεταβολές γονιδιακής έκφρασης LPL/ABHD5 (λιπολυτικοί δείκτες) στον υποδόριο λιπώδη ιστό</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Ενήλικες με υπέρβαρο · Maastricht/Κοπεγχάγη</span>
+      <a class="pubmed-link" href="https://doi.org/10.1038/s41366-026-02117-z" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <!-- ===================== ΕΝΟΤΗΤΑ 2 ===================== -->
-  <h2 style="font-size:19px;margin:0 0 14px;color:#14202e;border-left:5px solid #b5651d;padding-left:10px;">💉 Ενέσιμα &amp; Φάρμακα Βάρους</h2>
+  <div class="section-title secondary">Ενέσιμα Φάρμακα &amp; Αντιπαχυντικά</div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:18px;">
-    <span style="display:inline-block;background:#fbede0;color:#9a5212;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">RCT (Φάση 2)</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Elecoglipron: από του στόματος αγωνιστής GLP-1 για παχυσαρκία (μελέτη VISTA)</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Elecoglipron, an oral small molecule GLP-1 receptor agonist (VISTA) · Lancet, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">Διπλά-τυφλή μελέτη φάσης 2, 310 ενήλικες με παχυσαρκία/υπέρβαρο <em>χωρίς</em> διαβήτη, διάρκειας 36 εβδομάδων. Στις 26 εβδομάδες, η μέση απώλεια βάρους κυμάνθηκε από -2,6% (5 mg) έως <strong>-10,5%</strong> (75 mg) έναντι μόλις -0,6% με placebo· έως <strong>88,8%</strong> των συμμετεχόντων πέτυχαν ≥5% απώλεια (έναντι 15,6% στο placebo). Οι παρενέργειες ήταν οι κλασικές της κατηγορίας GLP-1 (ναυτία, δυσκοιλιότητα, διάρροια, κεφαλαλγία). Ένα χάπι άπαξ ημερησίως, χωρίς περιορισμό τροφής ή υγρών — τα δεδομένα στηρίζουν τη μετάβαση σε φάση 3.</p>
-    <div style="background:#fdf6f0;border-left:4px solid #b5651d;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Το επόμενο κύμα των φαρμάκων βάρους ίσως δεν χρειάζεται βελόνα: ένα χάπι GLP-1 πέτυχε διψήφια απώλεια βάρους σε λίγους μήνες.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42259337/" style="font-size:13px;color:#b5651d;text-decoration:none;font-weight:600;">PubMed → 42259337</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">CagriSema vs Tirzepatide vs Semaglutide: ποιο κερδίζει; Δικτυωτή μετα-ανάλυση 25 RCT</div>
+      <span class="method-badge meta">META</span>
+    </div>
+    <div class="card-journal">Hamarsheh S. et al. · Endocrinology, Diabetes &amp; Metabolism · Ιούλιος 2026</div>
+    <div class="hook">
+      Ισοπαλία στην κορυφή: tirzepatide 15mg και CagriSema πετυχαίνουν ~18% απώλεια βάρους. Τα γαστρεντερικά παραμένουν η Αχίλλειος πτέρνα όλων.
+    </div>
+    <div class="findings">
+      <p><strong>Σχεδιασμός:</strong> Δικτυωτή μετα-ανάλυση · 25 RCT · 12 παρεμβάσεις</p>
+      <p>· Tirzepatide 15mg: <strong>−17.97%</strong> σωματικό βάρος</p>
+      <p>· CagriSema (σεμαγλουτίδη + καγκριλιντίδη): <strong>−17.84%</strong></p>
+      <p>· Επίτευξη ≥20% απώλειας: CagriSema RR 27.82 · Tirzepatide 15mg RR 23.70</p>
+      <p>· Γαστρεντερικά ανεπιθύμητα: RR 1.33–1.91 · Σοβαρά: παρόμοια με placebo</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Ενήλικες με παχυσαρκία · 25 RCT παγκοσμίως</span>
+      <a class="pubmed-link" href="https://doi.org/10.1002/edm2.70248" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:18px;">
-    <span style="display:inline-block;background:#fbede0;color:#9a5212;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">Μετα-ανάλυση (Cochrane)</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Μακροχρόνιες επιδράσεις των φαρμάκων απώλειας βάρους σε άτομα με υπέρταση</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Long-term effects of weight-reducing drugs in people with hypertension · Cochrane Database Syst Rev, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">4η ενημέρωση της Cochrane: 8 RCTs, ~13.000 υπερτασικοί συμμετέχοντες. Νέο στοιχείο: προστέθηκαν semaglutide &amp; tirzepatide. Παρά τη μείωση βάρους και πίεσης, τα δεδομένα για <strong>θνησιμότητα και καρδιαγγειακή νοσηρότητα παραμένουν πολύ χαμηλής βεβαιότητας</strong> — δεν επαρκούν για συμπεράσματα οφέλους σε σκληρά καταληκτικά σημεία. Το orlistat πιθανώς αυξάνει τις σοβαρές ανεπιθύμητες ενέργειες· naltrexone/bupropion και phentermine/topiramate αυξάνουν τις συνολικές παρενέργειες. Οι συγγραφείς ζητούν χωριστά δεδομένα για υπερτασικούς ασθενείς.</p>
-    <div style="background:#fdf6f0;border-left:4px solid #b5651d;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Τα φάρμακα ρίχνουν βάρος και πίεση — αλλά “σώζουν ζωές” στους υπερτασικούς; Η Cochrane λέει: ακόμη δεν το ξέρουμε.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42318855/" style="font-size:13px;color:#b5651d;text-decoration:none;font-weight:600;">PubMed → 42318855</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Incretins vs lifestyle: ίδια απώλεια μυϊκής μάζας – μόνο η αντίσταση προστατεύει</div>
+      <span class="method-badge meta">META</span>
+    </div>
+    <div class="card-journal">Eisa N. &amp; Barood O. · Diabetes, Obesity &amp; Metabolism · 24 Μαρτίου 2026</div>
+    <div class="hook">
+      Semaglutide, tirzepatide, liraglutide: χάνεις 25–35% της απώλειας σε μυϊκή μάζα. Η αντίσταση μειώνει αυτό στο 17.5% – αναντικατάστατη παρέμβαση.
+    </div>
+    <div class="findings">
+      <p><strong>Σχεδιασμός:</strong> 20 RCT · 15.782 συμμετέχοντες · DXA ή MRI σύσταση σώματος</p>
+      <p>· Σεμαγλουτίδη: <strong>35.2%</strong> απώλειας ως άλιπη μάζα (95% CI: 31.5–38.9)</p>
+      <p>· Tirzepatide: <strong>25.4%</strong> · Liraglutide: <strong>26.8%</strong></p>
+      <p>· Lifestyle μόνο: 26.2% · <strong>Lifestyle + ασκήσεις αντίστασης: 17.5%</strong> (καλύτερο)</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Ενήλικες με υπέρβαρο/παχυσαρκία · 20 RCT</span>
+      <a class="pubmed-link" href="https://doi.org/10.1111/dom.70666" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:28px;">
-    <span style="display:inline-block;background:#fbede0;color:#9a5212;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">Ανασκόπηση (scoping)</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Αγωνιστές GLP-1 σε ηλικιωμένους: ο κίνδυνος σαρκοπενίας</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">GLP-1 RA for Obesity in Older Adults: scoping review on sarcopenia · Curr Nutr Rep, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">Scoping review. Οι GLP-1 RA προκαλούν αποτελεσματική απώλεια βάρους, αλλά συχνά και ταυτόχρονη <strong>απώλεια μυϊκής μάζας</strong>, εγείροντας ανησυχία για σαρκοπενία και σαρκοπενική παχυσαρκία στους ηλικιωμένους. Η ανασκόπηση συνιστά συνδυασμό της φαρμακευτικής αγωγής με <strong>ασκήσεις αντίστασης</strong>, ελεγχόμενο θερμιδικό περιορισμό και <strong>επαρκή πρωτεΐνη (1,2–1,6 g/kg/ημέρα)</strong>, καθώς και ενεργό εμπλοκή διαιτολόγου με εξειδικευμένα πρωτόκολλα ιατρικής διατροφικής θεραπείας.</p>
-    <div style="background:#fdf6f0;border-left:4px solid #b5651d;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Χάνεις κιλά με το “σκουλήκι του Ozempic” — αλλά πόσα από αυτά είναι μυς; Πρωτεΐνη και βάρη δεν είναι προαιρετικά.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42303931/" style="font-size:13px;color:#b5651d;text-decoration:none;font-weight:600;">PubMed → 42303931</a>
-  </article>
+  <div class="section-title">Μεταβολισμός &amp; Μεταβολική Προσαρμογή</div>
 
-  <!-- ===================== ΕΝΟΤΗΤΑ 3 ===================== -->
-  <h2 style="font-size:19px;margin:0 0 14px;color:#14202e;border-left:5px solid #4a6fa5;padding-left:10px;">⚙️ Μεταβολισμός &amp; Μεταβολική Προσαρμογή</h2>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Μεταβολική προσαρμογή μετά bariatric: ήπαρ και νεφρά εξηγούν ~38% της πτώσης ΒΜΡ</div>
+      <span class="method-badge rct">RCT</span>
+    </div>
+    <div class="card-journal">Friedman L. et al. · Clinical Nutrition · 11 Μαρτίου 2026</div>
+    <div class="hook">
+      Ο βασικός μεταβολισμός δεν πέφτει μόνο λόγω μυϊκής μάζας. Ο συρρικνούμενος ήπαρ (−21%) και νεφρά (−11%) ευθύνονται για το 38% της πτώσης – εύρημα με μεγάλη πρακτική σημασία.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 58 άτομα με σοβαρή παχυσαρκία (ΒΜΙ ~41) · 4 ομάδες άσκησης + έλεγχος · 26 εβδομάδες</p>
+      <p>· ΒΜΡ: −356 kcal/ημέρα (−17%) · Μεταβολική προσαρμογή: −289 kcal/ημέρα</p>
+      <p>· Ήπαρ: εξηγεί <strong>32.1%</strong> της μεταβολικής προσαρμογής · Άλιπη μάζα: 29.7% · Νεφρά: 6.2%</p>
+      <p>· Καμία μορφή άσκησης δεν κατάφερε να αποτρέψει τη μεταβολική προσαρμογή</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Σοβαρή παχυσαρκία · Ισραήλ · NCT04777305</span>
+      <a class="pubmed-link" href="https://doi.org/10.1016/j.clnu.2026.106623" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:18px;">
-    <span style="display:inline-block;background:#e7eef7;color:#34507a;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">RCT</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Παστεριωμένο Akkermansia muciniphila για διατήρηση της απώλειας βάρους</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Pasteurized Akkermansia muciniphila for weight loss maintenance · Nature Medicine, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">RCT με 90 ενήλικες με υπέρβαρο/παχυσαρκία. Μετά από 8 εβδομάδες δίαιτας χαμηλών θερμίδων (≥8% απώλεια), ακολούθησαν 24 εβδομάδες συντήρησης με καθημερινό συμπλήρωμα παστεριωμένου <em>A. muciniphila</em> ή placebo. Η ομάδα του προβιοτικού <strong>επανέκτησε λιγότερο βάρος</strong> (1,2 vs 3,2 kg, p=0,012) και είχε μεγαλύτερη καθαρή απώλεια από την έναρξη (κατά 3,1 kg, p=0,009). Καμία σοβαρή σχετιζόμενη παρενέργεια — μια πιθανή στρατηγική κατά της επανάκτησης βάρους, της «αχίλλειας πτέρνας» κάθε δίαιτας.</p>
-    <div style="background:#f4f7fb;border-left:4px solid #4a6fa5;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Το πρόβλημα δεν είναι να χάσεις τα κιλά — είναι να μην τα ξαναπάρεις. Ένα βακτήριο του εντέρου μείωσε την επανάκτηση βάρους κατά τα 2/3.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42120725/" style="font-size:13px;color:#4a6fa5;text-decoration:none;font-weight:600;">PubMed → 42120725</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Σοβαρή ενεργειακή έλλειψη (15 kcal/kgFFM/ημέρα): αυξάνει οξείδωση λίπους ηρεμίας, μειώνει απόδοση</div>
+      <span class="method-badge cross">CROSSOVER</span>
+    </div>
+    <div class="card-journal">Reina B.A. et al. · European Journal of Sport Science · Μάιος 2026</div>
+    <div class="hook">
+      Ακόμα και 5 ημέρες πολύ χαμηλής πρόσληψης αλλάζουν τον μεταβολισμό ηρεμίας. Αλλά χωρίς αρκετή πρωτεΐνη, η απόδοση καταρρέει – ακόμα και βραχυπρόθεσμα.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 19 αθλητικά ενεργοί νέοι (9F, 10M) · 3 συνθήκες × 5 ημέρες (crossover)</p>
+      <p>· AEA: 45 kcal/kgFFM/ημέρα · LEA: 15 kcal/kgFFM · LEA-P: ίδια ενέργεια LEA, φυσιολογική πρωτεΐνη</p>
+      <p>· Αμφότερα LEA: ↑ οξείδωση λίπους ηρεμίας (όχι κατά άσκηση)</p>
+      <p>· Wingate: μόνο LEA-P (χωρίς carbs) μείωσε την αναερόβια απόδοση</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Νέοι αθλητικά ενεργοί · Βραζιλία / UK</span>
+      <a class="pubmed-link" href="https://doi.org/10.1002/ejsc.70125" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:28px;">
-    <span style="display:inline-block;background:#e7eef7;color:#34507a;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">Observational</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Η μεταβλητότητα βάρους νωρίς προβλέπει μικρότερη μετέπειτα απώλεια (μελέτη CALERIE)</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Weight Variability and Subsequent Long-Term Weight Loss in CALERIE · Obesity (Silver Spring), 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">Ανάλυση 143 ατόμων υπό <strong>25% θερμιδικό περιορισμό για 2 χρόνια</strong>. Η μεγαλύτερη μεταβλητότητα βάρους (διακυμάνσεις πάνω-κάτω) τις πρώτες 12 εβδομάδες συσχετίστηκε με <strong>μικρότερη μετέπειτα απώλεια βάρους</strong> στους 6 μήνες (και πιθανώς ως τον 1ο χρόνο). Η «αστάθεια» του βάρους νωρίς στη δίαιτα μπορεί να αντανακλά μια έμφυτη τάση του οργανισμού για σταθερότητα βάρους — ένας χρήσιμος πρώιμος δείκτης για το ποιος θα δυσκολευτεί.</p>
-    <div style="background:#f4f7fb;border-left:4px solid #4a6fa5;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Αν το βάρος σου “χοροπηδάει” τις πρώτες εβδομάδες, ίσως ο οργανισμός σου αντιστέκεται — και χρειάζεσαι διαφορετική στρατηγική.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42316515/" style="font-size:13px;color:#4a6fa5;text-decoration:none;font-weight:600;">PubMed → 42316515</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Τεχνητή βαρύτητα κατά 60 ημέρες κατάκλισης: διατηρεί ΒΜΡ +133 kcal/ημέρα έναντι ελέγχου</div>
+      <span class="method-badge rct">RCT</span>
+    </div>
+    <div class="card-journal">Martin-Rodriguez S. et al. · The Journal of Physiology · 24 Μαΐου 2026</div>
+    <div class="hook">
+      Αδράνεια ισοδυναμεί με κατάρρευση μεταβολισμού. Η ποδηλασία με τεχνητή βαρύτητα διατήρησε ΒΜΡ και οξείδωση λίπους – αλλά η νευρομυϊκή λειτουργία επιδεινώθηκε ανεξάρτητα.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 24 υγιείς άνδρες · 60 ημέρες κατάκλισης (head-down tilt, MEDES, Τουλούζη)</p>
+      <p>· 3 ομάδες: έλεγχος (C) / ποδηλασία (EX) / ποδηλασία + τεχνητή βαρύτητα (EX-AG)</p>
+      <p>· EX-AG vs C: +133 kcal/ημέρα ΒΜΡ (p=0.017) · Οξείδωση λίπους σταθερή μόνο EX-AG</p>
+      <p>· <strong>Διαχωρισμός:</strong> μεταβολική και νευρομυϊκή προσαρμογή αποσυνδέονται σε κατάσταση αδράνειας</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Υγιείς άνδρες · BRACE study · ESA/CNES</span>
+      <a class="pubmed-link" href="https://doi.org/10.1113/JP290788" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <!-- ===================== ΕΝΟΤΗΤΑ 4 ===================== -->
-  <h2 style="font-size:19px;margin:0 0 14px;color:#14202e;border-left:5px solid #8a5a9e;padding-left:10px;">⏱️ Νηστεία &amp; Χρονοδιατροφή</h2>
+  <div class="section-title secondary">Νηστεία &amp; Χρονοδιατροφή</div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:18px;">
-    <span style="display:inline-block;background:#f1e9f5;color:#6b4080;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">RCT</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Time-restricted eating για απώλεια βάρους σε γυναίκες με PCOS</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Time-restricted eating for body weight management in women with PCOS · Nature Medicine, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">RCT με 76 γυναίκες με σύνδρομο πολυκυστικών ωοθηκών (PCOS), μια κατάσταση γνωστή για αντίσταση στην απώλεια βάρους, για 6 μήνες: TRE 6 ωρών (όλα τα γεύματα 13:00–19:00, <em>χωρίς</em> καταμέτρηση θερμίδων), θερμιδικός περιορισμός 25%, ή ομάδα ελέγχου. Και οι δύο παρεμβάσεις μείωσαν σημαντικά το βάρος (~-4,3% TRE, -4,7% CR) έναντι ελέγχου, <strong>χωρίς διαφορά μεταξύ TRE και θερμιδικού περιορισμού</strong>. Το TRE προσφέρει μια απλούστερη εναλλακτική — εξίσου αποτελεσματική με το κλασικό μέτρημα θερμίδων.</p>
-    <div style="background:#f9f5fb;border-left:4px solid #8a5a9e;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Με PCOS και κουρασμένη από το μέτρημα θερμίδων; Το να τρως μέσα σε ένα παράθυρο 6 ωρών έδωσε την ίδια απώλεια βάρους — χωρίς ζυγαριά τροφίμων.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/41896647/" style="font-size:13px;color:#8a5a9e;text-decoration:none;font-weight:600;">PubMed → 41896647</a>
-  </article>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Νυχτερινή νηστεία 13–16 ωρών συγχρονισμένη με ύπνο: καλύτερη ΑΠ, γλυκόζη, κορτιζόλη</div>
+      <span class="method-badge rct">RCT</span>
+    </div>
+    <div class="card-journal">Grimaldi D. et al. · Arteriosclerosis, Thrombosis, and Vascular Biology · 12 Φεβρουαρίου 2026</div>
+    <div class="hook">
+      Απλή οδηγία – δυνατά αποτελέσματα: τελευταίο γεύμα ≥3 ώρες πριν τον ύπνο, νηστεία 13–16 ώρες. Νύχτες με καλύτερη πίεση, γλυκόζη και HRV.
+    </div>
+    <div class="findings">
+      <p><strong>Δείγμα:</strong> 39 υπέρβαρα/παχύσαρκα άτομα (36–75 ετών) · 7.5 εβδομάδες · Northwestern University</p>
+      <p><strong>Παρέμβαση:</strong> Εκτεταμένη νυχτερινή νηστεία (13–16h) + τελευταίο γεύμα ≥3h πριν ύπνο vs συνήθης (11–13h)</p>
+      <p>· ↑ Dipping διαστολικής ΑΠ νύχτας · ↓ Καρδιακοί παλμοί νύχτας · ↑ HRV</p>
+      <p>· ↓ Κορτιζόλη νύχτας · ↓ Γλυκόζη OGTT πρωί · ↑ Ινσουλινογόνος δείκτης 30'</p>
+    </div>
+    <div class="card-footer">
+      <span class="population">Υπέρβαρα/παχύσαρκα άτομα 36–75 ετών · USA</span>
+      <a class="pubmed-link" href="https://doi.org/10.1161/ATVBAHA.125.323355" target="_blank">DOI ↗</a>
+    </div>
+  </div>
 
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:18px;">
-    <span style="display:inline-block;background:#f1e9f5;color:#6b4080;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">Ανασκόπηση (scoping)</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">Διατροφή σε έναν κόσμο 24/7: χρονοδιατροφή στους εργαζόμενους σε βάρδιες</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Dietary Intake and Chrononutrition in Shift Working Populations · J Hum Nutr Diet, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">Scoping review 24 μελετών με 27.537 συμμετέχοντες. Οι εργαζόμενοι σε βάρδιες εμφανίζουν διαταραγμένο πρότυπο φαγητού: παράταση του παραθύρου φαγητού κατά <strong>2,3–2,6 ώρες</strong>, μετατόπιση του «θερμιδικού μέσου» ~2 ώρες αργότερα, με τα πιο όψιμα γεύματα να συνδέονται με μεγαλύτερη ημερήσια ενεργειακή πρόσληψη. Η ποιότητα διατροφής χειροτέρεψε στο 88% των μελετών. Κρίσιμο: το 54% των μελετών αγνόησε εντελώς τη χρονοδιατροφή — το «<strong>πότε</strong> τρώμε» παραμένει παραμελημένος αλλά τροποποιήσιμος παράγοντας κινδύνου.</p>
-    <div style="background:#f9f5fb;border-left:4px solid #8a5a9e;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Δουλεύεις νύχτες; Δεν φταίει μόνο τι τρως, αλλά πότε: το αργό φαγητό φουσκώνει τις θερμίδες χωρίς να το καταλαβαίνεις.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/42135909/" style="font-size:13px;color:#8a5a9e;text-decoration:none;font-weight:600;">PubMed → 42135909</a>
-  </article>
-
-  <article style="background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(20,40,60,0.08);padding:18px;margin-bottom:28px;">
-    <span style="display:inline-block;background:#f1e9f5;color:#6b4080;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;">RCT (διασταυρούμενο)</span>
-    <h3 style="font-size:17px;margin:0 0 4px;color:#14202e;">8ωρο time-restricted eating σε υπνική άπνοια: χωρίς όφελος σε βάρος &amp; ύπνο</h3>
-    <div style="font-size:13px;color:#8a96a3;font-style:italic;margin-bottom:8px;">Time-restricted eating on sleep and body composition in OSA · Clin Nutr ESPEN, 2026</div>
-    <p style="font-size:15px;margin:0 0 10px;">Διασταυρούμενο RCT με 12 ενήλικες με παχυσαρκία και αποφρακτική υπνική άπνοια, 12 εβδομάδες 8ωρου TRE. <strong>Δεν παρατηρήθηκαν σημαντικές μεταβολές</strong> σε βάρος, σύσταση σώματος ή παραμέτρους ύπνου. Η προσήλωση ήταν μέτρια (4,2 ημέρες/εβδομάδα). Μια χρήσιμη υπενθύμιση ότι το TRE δεν είναι πανάκεια: χωρίς ουσιαστικό ενεργειακό έλλειμμα και καλή προσήλωση, τα οφέλη μπορεί απλώς να μην εμφανιστούν.</p>
-    <div style="background:#f9f5fb;border-left:4px solid #8a5a9e;padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:10px;">🎣 <strong>Hook:</strong> «Το διαλειμματικό φαγητό από μόνο του δεν κάνει μαγικά: αν δεν μειωθούν θερμίδες και δεν υπάρχει συνέπεια, η ζυγαριά μένει στάσιμη.»</div>
-    <a href="https://pubmed.ncbi.nlm.nih.gov/41833727/" style="font-size:13px;color:#8a5a9e;text-decoration:none;font-weight:600;">PubMed → 41833727</a>
-  </article>
-
-  <footer style="font-size:12px;color:#9aa6b2;text-align:center;border-top:1px solid #e2e8ee;padding-top:16px;margin-top:10px;">
-    Πηγή: PubMed (NCBI). Όλες οι μελέτες είναι σε ανθρώπους και επαληθεύτηκαν με πραγματικό PMID.<br>
-    Ενημερωτικό περιεχόμενο — δεν αποτελεί ιατρική συμβουλή. · learnnutrition.gr
-  </footer>
+  <div class="footer-nav">
+    <p>Βάσει ανάλυσης PubMed · Μελέτες αποκλειστικά σε ανθρώπους · Τελευταίες 30 ημέρες</p>
+    <p style="margin-top:6px"><a href="index.html">← Πίσω στην αρχική</a></p>
+  </div>
 
 </div>
 </body>
