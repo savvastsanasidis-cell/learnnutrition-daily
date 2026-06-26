@@ -1,6 +1,6 @@
 {
   "_RUN_FIRST": "⚠️ RUN_FIRST — ΔΙΑΒΑΣΕ ΠΡΩΤΑ: (1) Πριν από οτιδηποτε, διαβασε README.md + research_config.json απο αυτο το repo. (2) ΑΝΕΒΑΣΜΑ ΜΟΝΟ ΜΕ git push (./upload.sh) — το GitHub Contents API (api.github.com, push.py) ΕΠΙΣΤΡΕΦΕΙ 403 'Resource not accessible by integration' σε αυτο το environment, ΜΗΝ το χρησιμοποιεις. Σωστο: PAT=<token> ./upload.sh <local> <repo_path> \"<msg>\"  ή git clone με x-access-token:<PAT> στο remote URL και GIT_CONFIG_GLOBAL=/dev/null.",
-  "_comment": "Last updated 2026-06-24 (weight). 155 total PMIDs. Μόνο ανθρώπινες μελέτες, de-dup ενεργό.",
+  "_comment": "Last updated 2026-06-26 (weight). 165 total PMIDs. Μόνο ανθρώπινες μελέτες, de-dup ενεργό.",
   "pmids": [
     "42199008",
     "42097465",
@@ -156,7 +156,17 @@
     "42319448",
     "42296333",
     "42229885",
-    "41814085"
+    "41814085",
+    "41947527",
+    "41861447",
+    "41825204",
+    "41927174",
+    "42345739",
+    "42321502",
+    "41826631",
+    "42323776",
+    "42069279",
+    "41674465"
   ],
   "history": [
     {
@@ -381,6 +391,23 @@
         "42296333",
         "42229885",
         "41814085"
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "routine": "weight",
+      "note": "10 ανθρώπινες μελέτες, 4 ενότητες — culinary medicine 1yr RCT, σίκαλη vs σιτάρι RCT, εφηβικός ύπνος/πείνα RCT, άσκηση+δίαιτα body fat RCT, GLP-1 vs βαριατρική real-world 44k, GLP-1 & άλιπη μάζα MA, μεταβολική προσαρμογή παιδιά MA, ιρισίνη/άσκηση MA, σπάσιμο καθίσματος RCT, sleep-aligned νηστεία RCT",
+      "added": [
+        "41947527",
+        "41861447",
+        "41825204",
+        "41927174",
+        "42345739",
+        "42321502",
+        "41826631",
+        "42323776",
+        "42069279",
+        "41674465"
       ]
     }
   ]
