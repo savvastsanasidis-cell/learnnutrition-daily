@@ -1,6 +1,6 @@
 {
  "_RUN_FIRST": "⚠️ RUN_FIRST — ΔΙΑΒΑΣΕ ΠΡΩΤΑ: (1) Πριν από οτιδηποτε, διαβασε README.md + research_config.json απο αυτο το repo. (2) ΑΝΕΒΑΣΜΑ ΜΟΝΟ ΜΕ git push (./upload.sh) — το GitHub Contents API (api.github.com, push.py) ΕΠΙΣΤΡΕΦΕΙ 403 'Resource not accessible by integration' σε αυτο το environment, ΜΗΝ το χρησιμοποιεις. Σωστο: PAT=<token> ./upload.sh <local> <repo_path> \"<msg>\"  ή git clone με x-access-token:<PAT> στο remote URL και GIT_CONFIG_GLOBAL=/dev/null.",
- "_comment": "Last updated 2026-07-02 (inflammation). 201 total PMIDs. Μόνο ανθρώπινες μελέτες, de-dup ενεργό.",
+ "_comment": "Last updated 2026-07-06 (weight). 220 total PMIDs. Μόνο ανθρώπινες μελέτες, de-dup ενεργό.",
  "pmids": [
   "42199008",
   "42097465",
@@ -211,7 +211,17 @@
   "42097279",
   "42043636",
   "42168690",
-  "41806970"
+  "41806970",
+  "41436888",
+  "42399732",
+  "41831607",
+  "42034831",
+  "42280424",
+  "42144246",
+  "41912835",
+  "41654010",
+  "42280368",
+  "42383913"
  ],
  "history": [
   {
@@ -524,6 +534,23 @@
     "42043636",
     "42168690",
     "41806970"
+   ]
+  },
+  {
+   "date": "2026-07-06",
+   "routine": "weight",
+   "note": "Σύνοψη Βάρος & Μεταβολισμός: 10 ανθρώπινες μελέτες, 4 ενότητες — (1) DIETFITS low-carb vs low-fat σπλαχνικό λίπος DXA RCT, diet quality UK Biobank multistate obs, VLED κετογονική vs Μεσογειακή MASLD RCT· (2) GLP-1 body composition SR/MA, GLP-1+lifestyle SR/MA· (3) CR±exercise fat-free mass NMA, REE/metabolic adaptation post-sleeve prospective, PREVIEW hepatic insulin sensitivity RCT, metabolic adaptation/weight regain review· (4) shift-worker meal timing SR of RCTs",
+   "added": [
+    "41436888",
+    "42399732",
+    "41831607",
+    "42034831",
+    "42280424",
+    "42144246",
+    "41912835",
+    "41654010",
+    "42280368",
+    "42383913"
    ]
   }
  ]
