@@ -1,227 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>🌿 Έρευνες: Δίαιτες Αποκλεισμού & Χρόνια Νοσήματα</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
 <style>
   * { box-sizing: border-box; }
   body {
-    margin: 0; padding: 0;
+    margin: 0; padding: 0 14px 48px;
     background: #f4f6f8;
-    color: #1f2933;
+    color: #24303a;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
   }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 18px 16px 60px; }
-  .backlink { display: inline-block; margin-bottom: 14px; color: #2f7a4d; text-decoration: none; font-size: 15px; font-weight: 600; }
-  .backlink:hover { text-decoration: underline; }
-  h1 { font-size: 24px; line-height: 1.25; margin: 6px 0 4px; }
-  .date { color: #6b7280; font-size: 14px; margin-bottom: 22px; }
-  .highlights {
-    background: #ffffff; border-radius: 14px; padding: 16px 18px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06); border-left: 5px solid #2f7a4d;
-    margin-bottom: 26px;
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .topbar { padding: 18px 0 4px; }
+  .topbar a { color: #2f8f6b; text-decoration: none; font-weight: 600; font-size: 15px; }
+  h1 { font-size: 25px; line-height: 1.25; margin: 12px 0 4px; }
+  .date { color: #6b7a86; font-size: 15px; margin-bottom: 4px; }
+  .intro {
+    background: #eaf5ef; border: 1px solid #cfe8db; border-radius: 14px;
+    padding: 14px 16px; margin: 18px 0 26px;
   }
-  .highlights h2 { font-size: 17px; margin: 0 0 10px; color: #2f7a4d; }
-  .highlights ul { margin: 0; padding-left: 20px; }
-  .highlights li { margin-bottom: 7px; font-size: 15px; }
-  h2.section { font-size: 19px; margin: 30px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #dfe6ec; }
+  .intro h2 { margin: 0 0 8px; font-size: 17px; color: #1f7a58; }
+  .intro ul { margin: 0; padding-left: 20px; }
+  .intro li { margin-bottom: 6px; }
+  h2.section {
+    font-size: 20px; margin: 34px 0 14px; padding-bottom: 8px;
+    border-bottom: 2px solid #d8e2e9;
+  }
   .card {
-    background: #ffffff; border-radius: 14px; padding: 17px 18px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 16px;
+    background: #fff; border-radius: 14px; padding: 18px 18px 16px;
+    box-shadow: 0 1px 3px rgba(20,40,60,.08); margin-bottom: 18px;
   }
-  .card h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35; }
-  .card .eng { color: #6b7280; font-weight: 400; font-size: 14px; }
-  .source { font-size: 13px; color: #6b7280; margin: 4px 0 10px; }
-  .source a { color: #2f7a4d; text-decoration: none; }
-  .source a:hover { text-decoration: underline; }
   .badge {
-    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .3px;
-    padding: 3px 9px; border-radius: 999px; margin-bottom: 8px; text-transform: uppercase;
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .3px;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; text-transform: uppercase;
   }
-  .b-meta { background: #e7f0fb; color: #1d4ed8; }
-  .b-rct { background: #e6f6ec; color: #1a7a3f; }
-  .b-obs { background: #fdf1e3; color: #b45309; }
-  .b-review { background: #f0ebfa; color: #6d28d9; }
+  .badge.meta { background: #e5efff; color: #1d4ed8; }
+  .badge.rct  { background: #e4f7ec; color: #16794c; }
+  .badge.obs  { background: #fdf0e3; color: #b3671a; }
+  .badge.rev  { background: #f0e9fb; color: #6d3bbf; }
+  .card h3 { font-size: 17px; margin: 2px 0 4px; line-height: 1.35; }
+  .eng { color: #6b7a86; font-size: 13.5px; font-style: italic; font-weight: 400; }
+  .source { font-size: 13.5px; margin: 6px 0 12px; }
+  .source a { color: #2f8f6b; text-decoration: none; font-weight: 600; }
   .facts {
-    background: #f3f7f4; border-radius: 10px; padding: 11px 13px; margin: 10px 0;
-    font-size: 14px;
+    background: #f5f8fa; border: 1px solid #e2eaef; border-radius: 10px;
+    padding: 11px 14px; margin: 10px 0 12px; font-size: 14.5px;
   }
   .facts div { margin: 3px 0; }
-  .facts .k { font-weight: 600; }
-  .comment { font-size: 14.5px; margin: 10px 0 12px; }
+  .comment { margin: 6px 0 12px; }
   .hook {
-    border-left: 4px solid #e0a63c; background: #fffaf0;
-    padding: 10px 13px; border-radius: 0 8px 8px 0; font-size: 14px;
+    border-left: 4px solid #2f8f6b; background: #f0f7f3;
+    padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 14.5px;
   }
-  .hook .lbl { font-weight: 700; color: #b45309; }
-  footer { margin-top: 34px; font-size: 12px; color: #9aa5b1; text-align: center; line-height: 1.5; }
-  footer a { color: #6b7280; }
+  .hook b { color: #1f7a58; }
+  footer { color: #8a97a1; font-size: 12.5px; text-align: center; margin-top: 32px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="backlink" href="index.html">← Daily Brief</a>
-  <h1>🌿 Έρευνες: Δίαιτες Αποκλεισμού & Χρόνια Νοσήματα</h1>
-  <div class="date">📅 29/07/2026 · Ανασκόπηση πρόσφατης βιβλιογραφίας (μόνο ανθρώπινες μελέτες)</div>
 
-  <div class="highlights">
+  <div class="topbar"><a href="index.html">← Daily Brief</a></div>
+  <h1>🌿 Έρευνες: Δίαιτες Αποκλεισμού &amp; Χρόνια Νοσήματα</h1>
+  <div class="date">📅 31/07/2026</div>
+
+  <div class="intro">
     <h2>✨ Τα κύρια highlights σήμερα</h2>
     <ul>
-      <li>🦋 <strong>Θυρεοειδής:</strong> Νέα ανασκόπηση (J Endocrinol Invest) βάζει τα πράγματα στη θέση τους — <em>gluten-free/lactose-free δεν φαίνεται να ωφελούν</em> τον αυτοάνοσο θυρεοειδή, ενώ η μεσογειακή διατροφή & ο περιορισμός κόκκινου κρέατος συνδέονται με καλύτερη λειτουργία. Παράλληλα, μεγάλη προοπτική μελέτη (UK Biobank, 123.812 άτομα) δείχνει +31% κίνδυνο αυτοάνοσου υποθυρεοειδισμού στους καταναλωτές πολλών υπερεπεξεργασμένων τροφίμων.</li>
-      <li>🥩 <strong>Carnivore:</strong> Δύο νέες δημοσιεύσεις (κριτική ανασκόπηση + ανάλυση social media) καταλήγουν στο ίδιο — <em>μηδενικές καλά σχεδιασμένες κλινικές μελέτες σε ανθρώπους</em>· η δημοφιλία στηρίζεται σε ανέκδοτα & influencers, όχι σε δεδομένα.</li>
-      <li>🌀 <strong>Έντερο:</strong> RCT με «αρχαία δημητριακά» πάνω σε low-FODMAP βελτίωσε σημαντικά τα συμπτώματα IBS (83% vs 35% κλινική βελτίωση), ενώ σε οισοφαγίτιδα από ηωσινόφιλα η «στοχευμένη» δίαιτα-αποκλεισμού βάσει βιοδεικτών ΔΕΝ υπερτέρησε του placebo.</li>
+      <li><b>🦋 Θυρεοειδής &amp; γλουτένη:</b> στην κοιλιοκάκη η δίαιτα χωρίς γλουτένη βελτιώνει την απορρόφηση λεβοθυροξίνης και μέρος των συμπτωμάτων, όμως η ανταπόκριση είναι έντονα ατομική — δεν «θεραπεύει» τους πάντες.</li>
+      <li><b>🧪 Ισταμίνη:</b> η δίαιτα χαμηλής ισταμίνης βοηθά περίπου το 1/3 των ασθενών με χρόνια αυτόματη κνίδωση σε 3-4 εβδομάδες — αλλά διπλά-τυφλές δοκιμές πρόκλησης δείχνουν ισχυρό φαινόμενο nocebo. Στόχος: να διευρύνουμε, όχι να στερούμε τροφές.</li>
+      <li><b>🥩 Carnivore:</b> δύο νέες ανθρώπινες αναλύσεις λειτουργούν ως αντίβαρο στο hype — αναδεικνύουν ελλείψεις (θειαμίνη, μαγνήσιο, ασβέστιο, βιτ. C, φυτικές ίνες) και ανησυχίες μακροζωίας.</li>
     </ul>
   </div>
 
-  <!-- ΕΝΟΤΗΤΑ 1 -->
-  <h2 class="section">🦋 1. Θυρεοειδής (Hashimoto) & Κοιλιοκάκη — Γλουτένη/Γαλακτικά</h2>
+  <!-- ================= ΕΝΟΤΗΤΑ 1 ================= -->
+  <h2 class="section">🦋 1. Θυρεοειδής (Hashimoto) &amp; Κοιλιοκάκη — Χωρίς Γλουτένη</h2>
 
   <div class="card">
-    <span class="badge b-review">Ανασκόπηση</span>
-    <h3>Ο ρόλος της διατροφής στην υγεία & νόσο του θυρεοειδούς: μύθοι & πραγματικότητα <span class="eng">(The role of nutrition on thyroid health and disease: myths and facts)</span></h3>
-    <div class="source">J Endocrinol Invest, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/41940915/" target="_blank">PubMed 41940915</a> · <a href="https://doi.org/10.1007/s40618-026-02852-0" target="_blank">DOI</a></div>
+    <span class="badge obs">Observational</span>
+    <h3>Δυσκοιλιότητα ως πρώτο σύμπτωμα στην παιδική κοιλιοκάκη — έκβαση με δίαιτα χωρίς γλουτένη<br><span class="eng">(Clinical outcome of constipation as the presenting symptom in children with celiac disease)</span></h3>
+    <div class="source">📖 J Pediatr Gastroenterol Nutr, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/41431920/" target="_blank">PubMed 41431920</a> · <a href="https://doi.org/10.1002/jpn3.70316" target="_blank">DOI</a></div>
     <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Δίαιτες αποκλεισμού γλουτένης/λακτόζης vs μεσογειακό/δυτικό πρότυπο</div>
-      <div><span class="k">🎯 Πάθηση:</span> Αυτοάνοση θυρεοειδίτιδα / λειτουργία θυρεοειδούς</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> — (δομημένη ανασκόπηση βιβλιογραφίας ~20 ετών)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Τα gluten-free / lactose-free σχήματα <strong>ΔΕΝ</strong> φαίνεται να προσφέρουν σημαντικό όφελος· η μεσογειακή διατροφή & ο μειωμένος κόκκινο κρέας συνδέονται με ευνοϊκότερη λειτουργία θυρεοειδούς και προστασία έναντι αυτοανοσίας.</div>
+      <div>📋 <b>Δίαιτα:</b> Πλήρης αποκλεισμός γλουτένης (GFD)</div>
+      <div>🎯 <b>Πάθηση:</b> Παιδική κοιλιοκάκη με δυσκοιλιότητα (248 παιδιά)</div>
+      <div>⏱️ <b>Διάρκεια:</b> Μέση παρακολούθηση ~5,3 έτη</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Η δυσκοιλιότητα υποχώρησε στο 32% με GFD· 68% χρειάστηκαν χρόνια υπακτικά. Η ομαλοποίηση των αντισωμάτων tTG ήταν πιο αργή στα παιδιά χωρίς ύφεση.</div>
     </div>
-    <div class="comment">Χρήσιμο «reality check» για το πελατολόγιο Hashimoto: ο αποκλεισμός γλουτένης/γαλακτικών «στα τυφλά» (χωρίς κοιλιοκάκη/δυσανεξία) δεν δικαιολογείται από τα δεδομένα. Το βάρος πέφτει σε ιώδιο, σελήνιο, βιταμίνη D και συνολικό μεσογειακό πρότυπο. Ιδανικό υλικό για να απαντάς σε πελάτες που ζητούν gluten-free «για τα αντισώματα».</div>
-    <div class="hook"><span class="lbl">🎣 Hook για άρθρο/βίντεο:</span> «Κόβεις γλουτένη για το Χασιμότο; Νέα ανασκόπηση 2026: μάλλον χάνεις τον χρόνο σου — δες τι πραγματικά μετράει για τον θυρεοειδή.»</div>
+    <div class="comment">Ενδιαφέρον για τον συλλογισμό: ο αποκλεισμός γλουτένης δεν λύνει αυτόματα κάθε πεπτικό σύμπτωμα, ακόμη κι όταν αντιμετωπίζεται η υποκείμενη αιτία. Οι συννοσηρότητες (άγχος, θυρεοειδικές διαταραχές) σχετίζονταν με χαμηλότερο ποσοστό υποχώρησης — υπενθύμιση ότι η GFD είναι απαραίτητη βάση αλλά όχι πάντα επαρκής μόνη της.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Έκοψες το γλουτένη και η δυσκοιλιότητα επιμένει; Σε 2 στα 3 παιδιά με κοιλιοκάκη η δίαιτα χωρίς γλουτένη δεν αρκεί από μόνη της — να τι δείχνει η νέα μελέτη.»</div>
   </div>
 
   <div class="card">
-    <span class="badge b-review">Ανασκόπηση</span>
-    <h3>Κοιλιοκάκη <span class="eng">(Celiac Disease)</span></h3>
-    <div class="source">N Engl J Med, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/41950475/" target="_blank">PubMed 41950475</a> · <a href="https://doi.org/10.1056/NEJMcp2415548" target="_blank">DOI</a></div>
+    <span class="badge rev">Ανασκόπηση</span>
+    <h3>Απορρόφηση λεβοθυροξίνης στην κοιλιοκάκη: προκλήσεις &amp; θεραπευτικές στρατηγικές<br><span class="eng">(Levothyroxine Absorption in Patients With Celiac Disease)</span></h3>
+    <div class="source">📖 Annals of Pharmacotherapy, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40728029/" target="_blank">PubMed 40728029</a> · <a href="https://doi.org/10.1177/10600280251361914" target="_blank">DOI</a></div>
     <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Πλήρης αποκλεισμός γλουτένης (gluten-free diet)</div>
-      <div><span class="k">🎯 Πάθηση:</span> Κοιλιοκάκη (& συν-νόσηση με αυτοάνοσο θυρεοειδή/ΣΔ1)</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> Δια βίου (ακρογωνιαίος λίθος θεραπείας)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Η αυστηρή gluten-free παραμένει η βασική θεραπεία· ~1% πληθυσμού πάσχει, συχνά με εξωεντερικές εκδηλώσεις — και συχνή συνύπαρξη με αυτοάνοσο θυρεοειδή.</div>
+      <div>📋 <b>Δίαιτα:</b> Δίαιτα χωρίς γλουτένη (GFD) ως μέρος της αντιμετώπισης</div>
+      <div>🎯 <b>Πάθηση:</b> Κοιλιοκάκη + υποθυρεοειδισμός (δυσαπορρόφηση λεβοθυροξίνης)</div>
+      <div>⏱️ <b>Διάρκεια:</b> Χρόνια διαχείριση / εξατομικευμένη</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Η GFD συχνά βελτιώνει την απορρόφηση της λεβοθυροξίνης· κάποιοι εξακολουθούν να χρειάζονται υψηλές δόσεις ή υγρή/softgel μορφή για ευθυρεοειδική κατάσταση.</div>
     </div>
-    <div class="comment">Έγκυρη, ενημερωμένη σύνοψη σε κορυφαίο περιοδικό. Θυμίζει ότι η κοιλιοκάκη «κρύβεται» πίσω από ψυχιατρικά, μυοσκελετικά & ηπατικά ευρήματα, και ότι όποιος έχει Hashimoto αξίζει έλεγχο για κοιλιοκάκη (και το αντίστροφο).</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «Έχεις Χασιμότο; Υπάρχει λόγος να ελεγχθείς και για κοιλιοκάκη — η επιστημονική σχέση των δύο εξηγείται.»</div>
+    <div class="comment">Πρακτικό για πελάτες με Hashimoto/υποθυρεοειδισμό που παραμένουν συμπτωματικοί παρά τη «σωστή» δόση: η αδιάγνωστη κοιλιοκάκη μπορεί να υποβαθμίζει την απορρόφηση. Η GFD εδώ δεν είναι απλώς επιλογή διατροφής, αλλά παράγοντας που επηρεάζει την ίδια τη φαρμακευτική αγωγή του θυρεοειδούς.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Παίρνεις σωστά τη λεβοθυροξίνη αλλά ο θυρεοειδής δεν “κάθεται”; Ίσως φταίει το έντερό σου — η σχέση κοιλιοκάκης &amp; θυρεοειδικού φαρμάκου.»</div>
+  </div>
+
+  <!-- ================= ΕΝΟΤΗΤΑ 2 ================= -->
+  <h2 class="section">🧪 2. Χαμηλή Ισταμίνη &amp; Αλλεργίες / Δυσανεξίες</h2>
+
+  <div class="card">
+    <span class="badge rev">Ανασκόπηση</span>
+    <h3>Δίαιτα χαμηλής ισταμίνης &amp; ψευδοαλλεργιογόνων στη χρόνια αυτόματη κνίδωση<br><span class="eng">(Low pseudoallergen and histamine diet in chronic spontaneous urticaria)</span></h3>
+    <div class="source">📖 Revista Alergia México, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40627139/" target="_blank">PubMed 40627139</a> · <a href="https://doi.org/10.29262/ram.v72i2.1452" target="_blank">DOI</a></div>
+    <div class="facts">
+      <div>📋 <b>Δίαιτα:</b> Περιορισμός ισταμίνης &amp; ψευδοαλλεργιογόνων (bioactive amines)</div>
+      <div>🎯 <b>Πάθηση:</b> Χρόνια αυτόματη κνίδωση (CSU)</div>
+      <div>⏱️ <b>Διάρκεια:</b> Δοκιμή 3-4 εβδομάδων για αξιολόγηση</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Έως ~1 στους 3 ασθενείς που δεν ελέγχονται επαρκώς με αντιισταμινικά ωφελείται· βελτίωση συμπτωμάτων με μείωση διαιτητικής ισταμίνης &amp; ενίσχυση της DAO.</div>
+    </div>
+    <div class="comment">Χρήσιμη «δεύτερη γραμμή» για ανθεκτική κνίδωση, με σαφές χρονικό πλαίσιο δοκιμής (3-4 εβδομάδες) που αποτρέπει την αόριστη στέρηση. Η ανασκόπηση τονίζει ότι η μεγάλη ετερογένεια στα επίπεδα ισταμίνης των τροφίμων δυσκολεύει τις τυποποιημένες οδηγίες — άρα η καθοδήγηση από διαιτολόγο είναι κρίσιμη.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Χρόνια φαγούρα &amp; πομφοί που δεν φεύγουν με τα χάπια; Για 1 στους 3, η δίαιτα χαμηλής ισταμίνης μπορεί να είναι το κομμάτι που λείπει — δοκιμή 3 εβδομάδων.»</div>
   </div>
 
   <div class="card">
-    <span class="badge b-obs">Προοπτική μελέτη</span>
-    <h3>Υπερεπεξεργασμένα τρόφιμα & εμφάνιση αυτοάνοσου υποθυρεοειδισμού <span class="eng">(Ultra-processed food consumption and incident autoimmune-related hypothyroidism — UK Biobank)</span></h3>
-    <div class="source">Am J Clin Nutr, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/41429224/" target="_blank">PubMed 41429224</a> · <a href="https://doi.org/10.1016/j.ajcnut.2025.101142" target="_blank">DOI</a></div>
+    <span class="badge rev">Ανασκόπηση / Οδηγία</span>
+    <h3>Πιθανή δυσανεξία στην ισταμίνη — πώς προχωράμε; (το φαινόμενο nocebo)<br><span class="eng">(Suspected histamine intolerance — how to proceed?)</span></h3>
+    <div class="source">📖 Dermatologie (Heidelberg), 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40063271/" target="_blank">PubMed 40063271</a> · <a href="https://doi.org/10.1007/s00105-025-05482-4" target="_blank">DOI</a></div>
     <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Περιορισμός/εξάλειψη υπερεπεξεργασμένων τροφίμων (UPF/NOVA)</div>
-      <div><span class="k">🎯 Πάθηση:</span> Αυτοάνοσος (Hashimoto) υποθυρεοειδισμός</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> Διάμεση παρακολούθηση 11,2 έτη (123.812 άτομα)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Το υψηλότερο τεταρτημόριο UPF είχε <strong>+31% κίνδυνο</strong> (HR 1,31) υποθυρεοειδισμού — και στα δύο φύλα· η κυστατίνη-C & δείκτες λιπιδίων διαμεσολαβούσαν μέρος της σχέσης.</div>
+      <div>📋 <b>Δίαιτα:</b> Περιορισμός ισταμίνης (κριτική αξιολόγηση)</div>
+      <div>🎯 <b>Πάθηση:</b> Αυτοαναφερόμενη «δυσανεξία στην ισταμίνη»</div>
+      <div>⏱️ <b>Διάρκεια:</b> —</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Διπλά-τυφλές, ελεγχόμενες με placebo δοκιμές πρόκλησης ΔΕΝ επιβεβαιώνουν αναπαραγώγιμες αντιδράσεις· συχνά συμπτώματα μετά το placebo (ισχυρό nocebo). Στόχος: βελτίωση πέψης &amp; διεύρυνση τροφών, όχι μαζική στέρηση.</div>
     </div>
-    <div class="comment">Δεν είναι δίαιτα αποκλεισμού με τη στενή έννοια, αλλά στηρίζει ισχυρά μια πρακτική σύσταση: <em>λιγότερα υπερεπεξεργασμένα</em> = δυνητικά λιγότερος κίνδυνος αυτοάνοσου θυρεοειδούς. Ισχυρός σχεδιασμός (τεράστια προοπτική κοόρτη), αν και συσχέτιση, όχι αιτιότητα.</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «123.000 άνθρωποι, 11 χρόνια: όσο πιο πολλά πακέτα & σνακ, τόσο μεγαλύτερος ο κίνδυνος για τον θυρεοειδή σου.»</div>
-  </div>
-
-  <!-- ΕΝΟΤΗΤΑ 3 -->
-  <h2 class="section">🌀 3. Low-FODMAP & Εντερικές/Λειτουργικές Διαταραχές</h2>
-
-  <div class="card">
-    <span class="badge b-rct">RCT</span>
-    <h3>Αρχαία δημητριακά ως νέα θεραπευτική προσέγγιση για το ευερέθιστο έντερο <span class="eng">(Ancient grain flour consumption as a novel therapeutic approach for IBS)</span></h3>
-    <div class="source">Eur J Nutr, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/41417098/" target="_blank">PubMed 41417098</a> · <a href="https://doi.org/10.1007/s00394-025-03859-8" target="_blank">DOI</a></div>
-    <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Low-FODMAP + λειτουργικά ζυμαρικά από αρχαία δημητριακά (μονόκοκκο/σίκαλη) vs gluten-free ζυμαρικά</div>
-      <div><span class="k">🎯 Πάθηση:</span> Σύνδρομο ευερέθιστου εντέρου (IBS), 42 ασθενείς</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> 4 εβδομάδες</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Μεγαλύτερη πτώση IBS-SSS (−153 vs −83, p=0,044)· <strong>83% vs 35%</strong> πέτυχαν κλινικά σημαντική βελτίωση (p=0,004).</div>
-    </div>
-    <div class="comment">Μικρή αλλά τυχαιοποιημένη μελέτη: πάνω στη «βάση» της low-FODMAP, η επιλογή του τύπου δημητριακού μετράει. Δείχνει ότι δεν είναι μόνο τι κόβεις, αλλά και <em>με τι το αντικαθιστάς</em>. Χρειάζεται επιβεβαίωση σε μεγαλύτερο δείγμα.</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «IBS: δεν φταίει πάντα “το σιτάρι” — φταίει ίσως ποιο σιτάρι. Ένα RCT δείχνει ότι τα αρχαία δημητριακά κάνουν διαφορά.»</div>
-  </div>
-
-  <!-- ΕΝΟΤΗΤΑ 4 -->
-  <h2 class="section">🛡️ 4. Δίαιτες Αποκλεισμού/Περιορισμού & Αυτοάνοσα</h2>
-
-  <div class="card">
-    <span class="badge b-rct">RCT (pilot)</span>
-    <h3>Επίδραση κετογονικής δίαιτας σε κλινικά & ανοσολογικά ευρήματα στη μυασθένεια gravis <span class="eng">(Impact of a ketogenic diet on clinical outcomes and immunological markers in myasthenia gravis)</span></h3>
-    <div class="source">J Autoimmun, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42000538/" target="_blank">PubMed 42000538</a> · <a href="https://doi.org/10.1016/j.jaut.2026.103562" target="_blank">DOI</a></div>
-    <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Κετογονική (αποκλεισμός υδατανθράκων/πλείστων φυτικών αμυλούχων) vs συνήθης δίαιτα</div>
-      <div><span class="k">🎯 Πάθηση:</span> Γενικευμένη μυασθένεια gravis (αυτοάνοση), n=41 (20 vs 21)</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> 12 εβδομάδες (τυχαιοποιημένη, open-label)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Αριθμητική βελτίωση: QMG (effect size 1,29), κόπωση FSS (1,19), MG-ADL διάμεση Δ −2· η ποιότητα ζωής σταθερή στην παρέμβαση vs επιδείνωση στους μάρτυρες. Εφικτή & ασφαλής (75% ολοκλήρωση).</div>
-    </div>
-    <div class="comment">Pilot με μικρό δείγμα & exploratory ανάλυση — τα ευρήματα είναι υποσχόμενα αλλά χρειάζονται τυφλές, μεγαλύτερες μελέτες. Ενδιαφέρον για όσους ρωτούν για «keto & αυτοάνοσα»: υπάρχει σήμα, όχι απόδειξη.</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «Κετογονική & αυτοάνοσα: πρώτο τυχαιοποιημένο pilot σε μυασθένεια δείχνει λιγότερη κόπωση & καλύτερη λειτουργικότητα σε 12 εβδομάδες.»</div>
-  </div>
-
-  <!-- ΕΝΟΤΗΤΑ 6 -->
-  <h2 class="section">🔥 6. Δίαιτες Αποκλεισμού & Χρόνιοι Πόνοι/Φλεγμονή</h2>
-
-  <div class="card">
-    <span class="badge b-rct">RCT (double-blind)</span>
-    <h3>Στοχευμένη δίαιτα αποκλεισμού βάσει ενδοσκοπικής μικροσκοπίας δεν προβλέπει τα «τρόφιμα-πυροδότες» στην ηωσινοφιλική οισοφαγίτιδα <span class="eng">(Confocal Laser Endomicroscopy With Duodenal Food Challenge... in Eosinophilic Esophagitis)</span></h3>
-    <div class="source">J Neurogastroenterol Motil, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42504652/" target="_blank">PubMed 42504652</a> · <a href="https://doi.org/10.5056/jnm25132" target="_blank">DOI</a></div>
-    <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> «Εξατομικευμένη» δίαιτα αποκλεισμού βάσει βιοδείκτη (CLE) vs εικονική (sham) δίαιτα</div>
-      <div><span class="k">🎯 Πάθηση:</span> Ηωσινοφιλική οισοφαγίτιδα (EoE), n=7</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> 6 εβδομάδες (τυχαιοποιημένη, διπλά-τυφλή, cross-over)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Η στοχευμένη δίαιτα <strong>ΔΕΝ</strong> υπερτέρησε του sham· ιστολογική ύφεση μόνο σε 1/7. Καμία συσχέτιση CLE με ειδικά IgE.</div>
-    </div>
-    <div class="comment">Πολύ χρήσιμο «αρνητικό» εύρημα: οι φανταχτερές μέθοδοι εντοπισμού «τροφών-πυροδοτών» (και τα τεστ IgE/IgG) δεν στέκουν — στην EoE η εμπειρική δίαιτα αποκλεισμού παραμένει ο δρόμος. Μικρό δείγμα (pilot), αλλά μεθοδολογικά αυστηρό.</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «“Τεστ για τρόφιμα-πυροδότες”; Νέο διπλά-τυφλό RCT: δεν λειτούργησε καλύτερα από το placebo — γιατί τα food-sensitivity τεστ απογοητεύουν.»</div>
+    <div class="comment">Απαραίτητο αντίβαρο στην προηγούμενη μελέτη: πολλές «δυσανεξίες στην ισταμίνη» είναι αυτοδιάγνωση με σοβαρό αντίκτυπο στην ποιότητα ζωής. Η σύσταση των αλλεργιολογικών εταιρειών είναι συνεργασία με εξειδικευμένο διαιτολόγο και αποφυγή περιττών αποκλεισμών — ακριβώς ο ρόλος μας.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «“Έχω δυσανεξία στην ισταμίνη” — ή μήπως nocebo; Γιατί οι τυφλές δοκιμές δείχνουν ότι η υπερβολική στέρηση κάνει περισσότερο κακό παρά καλό.»</div>
   </div>
 
   <div class="card">
-    <span class="badge b-review">Συστηματική ανασκόπηση</span>
-    <h3>Διατροφικές στρατηγικές & προϊόντα στη θεραπεία της ενδομητρίωσης <span class="eng">(An Overview of Essential Nutritional Strategies and Products in the Treatment of Endometriosis)</span></h3>
-    <div class="source">Nutrients, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/41515192/" target="_blank">PubMed 41515192</a> · <a href="https://doi.org/10.3390/nu18010077" target="_blank">DOI</a></div>
+    <span class="badge obs">Σειρά περιστατικών</span>
+    <h3>Επίκτητη IgE αλλεργία στο γάλα μετά από δίαιτα αποκλεισμού γάλακτος σε παιδιά με ατοπία<br><span class="eng">(Acquired IgE-mediated milk allergy after cow's milk elimination diet)</span></h3>
+    <div class="source">📖 Harefuah, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42200321/" target="_blank">PubMed 42200321</a></div>
     <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Αντιφλεγμονώδης (χαμηλή σε ζωικά/τηγανητά/επεξεργασμένα σάκχαρα)· κατά φαινότυπο low-FODMAP / χαμηλό νικέλιο / gluten-free</div>
-      <div><span class="k">🎯 Πάθηση:</span> Ενδομητρίωση (& συνυπάρχουσες αλλεργίες)</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> — (συστηματική ανασκόπηση, PRISMA)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Δεν υπάρχει μία ενιαία δίαιτα αποκλεισμού για όλες· 1ο βήμα η αντιφλεγμονώδης/μεσογειακή, μετά έλεγχος αλλεργιών & εξατομικευμένος αποκλεισμός.</div>
+      <div>📋 <b>Δίαιτα:</b> Αποκλεισμός αγελαδινού γάλακτος</div>
+      <div>🎯 <b>Πάθηση:</b> Παιδιά με ατοπική δερματίτιδα / ατοπικές παθήσεις</div>
+      <div>⏱️ <b>Διάρκεια:</b> Παρατεταμένη αποφυγή</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Η παρατεταμένη αποφυγή —χωρίς σαφή διάγνωση αλλεργίας— μπορεί να οδηγήσει σε επίκτητη IgE αλλεργία, ακόμη και κίνδυνο αναφυλαξίας κατά την επανεισαγωγή. Η δίαιτα αποκλεισμού ενδείκνυται μόνο σε τεκμηριωμένη αλλεργία.</div>
     </div>
-    <div class="comment">Καλό πλαίσιο για την ολοένα συχνότερη ερώτηση «τι τρώω με ενδομητρίωση». Το μήνυμα: εξατομίκευση, όχι μαζικός αποκλεισμός — με βάση φλεγμονή & πιθανές δυσανεξίες.</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «Ενδομητρίωση & διατροφή: δεν υπάρχει “μία δίαιτα για όλες” — δες τα βήματα που προτείνει η νέα ανασκόπηση.»</div>
+    <div class="comment">Ισχυρό μήνυμα ασφάλειας: ο «προληπτικός» αποκλεισμός τροφίμων χωρίς διάγνωση δεν είναι αθώος — μπορεί να μετατρέψει μια ανοχή σε πραγματική IgE αλλεργία. Μικρή σειρά περιστατικών, αλλά με σημαντικές κλινικές προεκτάσεις για τη σωστή χρήση των διαιτών αποκλεισμού.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Κόβεις το γάλα “για σιγουριά”; Χωρίς λόγο, ο αποκλεισμός μπορεί να δημιουργήσει την αλλεργία που φοβόσουν — προσοχή στις άσκοπες αποφυγές.»</div>
   </div>
 
-  <!-- ΕΝΟΤΗΤΑ 7 -->
-  <h2 class="section">🥩 7. Carnivore / Animal-Based & Χρόνια Νοσήματα</h2>
+  <!-- ================= ΕΝΟΤΗΤΑ 3 ================= -->
+  <h2 class="section">🌀 3. Low-FODMAP &amp; Εντερικές / Λειτουργικές Διαταραχές</h2>
 
   <div class="card">
-    <span class="badge b-review">Κριτική ανασκόπηση</span>
-    <h3>Carnivore & animal-based δίαιτες στον αθλητισμό: κριτική αξιολόγηση των δεδομένων <span class="eng">(Carnivore and Animal-Based Diets in Sport: A Critical Evaluation)</span></h3>
-    <div class="source">Nutrients, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/41901173/" target="_blank">PubMed 41901173</a> · <a href="https://doi.org/10.3390/nu18060998" target="_blank">DOI</a></div>
+    <span class="badge rct">RCT</span>
+    <h3>Δίαιτα χαμηλή σε FODMAP: ποιότητα ζωής, ένταση συμπτωμάτων &amp; «leaky gut» στο IBS<br><span class="eng">(Low-FODMAP diet on quality of life, symptoms and leaky gut in IBS)</span></h3>
+    <div class="source">📖 Nutrients, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42514440/" target="_blank">PubMed 42514440</a> · <a href="https://doi.org/10.3390/nu18142371" target="_blank">DOI</a></div>
     <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Carnivore / animal-based (μερικός ή πλήρης αποκλεισμός φυτικών τροφών)</div>
-      <div><span class="k">🎯 Πάθηση/Πεδίο:</span> Αθλητική απόδοση, μεταβολισμός, μακροχρόνια ασφάλεια</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> — (αφηγηματική ανασκόπηση)</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> <strong>Δεν υπάρχουν καλά ελεγχόμενες, μακροχρόνιες μελέτες</strong>· δεν μπορεί να συσταθεί ως ασφαλής/βέλτιστη. Ανησυχίες για ελλείψεις μικροθρεπτικών, δυσλιπιδαιμία, μεταβολές μικροβιώματος & διατροφική συμπεριφορά.</div>
+      <div>📋 <b>Δίαιτα:</b> Χαμηλή σε FODMAP (LFD) vs παραδοσιακή δίαιτα</div>
+      <div>🎯 <b>Πάθηση:</b> Σύνδρομο ευερέθιστου εντέρου (IBS) — 24 ασθενείς</div>
+      <div>⏱️ <b>Διάρκεια:</b> 4 εβδομάδες αποκλεισμού + επανεισαγωγή, επαναξιολόγηση στις 16 εβδ.</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Σημαντική βελτίωση σε συμπτώματα (IBS-SSS) &amp; ποιότητα ζωής στις 4 εβδ. — αλλά ΟΧΙ ανωτερότητα της LFD έναντι της παραδοσιακής δίαιτας. Μετά την επανεισαγωγή, τα οφέλη υποχώρησαν στις 16 εβδ. Η ζωνουλίνη (δείκτης διαπερατότητας) δεν άλλαξε.</div>
     </div>
-    <div class="comment">Η πιο «νηφάλια» επιστημονική ματιά στη μόδα του carnivore: πιθανές μεταβολικές προσαρμογές (↑οξείδωση λίπους) ΔΕΝ μεταφράζονται σε καλύτερη απόδοση. Χρήσιμο για να απαντάς τεκμηριωμένα σε πελάτες που «άκουσαν για carnivore».</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «Carnivore diet: τι λέει πραγματικά η επιστήμη το 2026; Η κριτική ανασκόπηση που λείπει από τα social media.»</div>
+    <div class="comment">Χρήσιμη υπενθύμιση ότι η LFD δουλεύει, αλλά μια καλή «παραδοσιακή» τροποποίηση διατροφής μπορεί να αποδώσει το ίδιο — και ότι η φάση επανεισαγωγής είναι που καθορίζει τη μακροπρόθεσμη έκβαση. Μικρό δείγμα (n=24), οπότε τα ευρήματα χρειάζονται επιβεβαίωση.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Το low-FODMAP λειτουργεί — αλλά όχι καλύτερα από μια σωστά δομημένη κανονική δίαιτα. Το μυστικό δεν είναι ο αποκλεισμός, είναι η επανεισαγωγή.»</div>
+  </div>
+
+  <!-- ================= ΕΝΟΤΗΤΑ 4 ================= -->
+  <h2 class="section">🛡️ 4. Δίαιτες Αποκλεισμού &amp; Αυτοάνοσα</h2>
+
+  <div class="card">
+    <span class="badge meta">Μετα-ανάλυση</span>
+    <h3>Χορτοφαγικές &amp; vegan δίαιτες στη ρευματοειδή αρθρίτιδα: δραστηριότητα νόσου, πόνος, κόπωση<br><span class="eng">(Vegetarian and vegan diets in rheumatoid arthritis — systematic review &amp; meta-analysis)</span></h3>
+    <div class="source">📖 Joint Bone Spine, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40907874/" target="_blank">PubMed 40907874</a> · <a href="https://doi.org/10.1016/j.jbspin.2025.105958" target="_blank">DOI</a></div>
+    <div class="facts">
+      <div>📋 <b>Δίαιτα:</b> Vegan / χορτοφαγική (αποκλεισμός ζωικών προϊόντων) — 7 RCT</div>
+      <div>🎯 <b>Πάθηση:</b> Ρευματοειδής αρθρίτιδα</div>
+      <div>⏱️ <b>Διάρκεια:</b> Ποικίλη (μελέτες 1979-2023)</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Μικρή αλλά σημαντική βελτίωση στον <b>πόνο</b>· ΚΑΜΙΑ σημαντική διαφορά στη δραστηριότητα της νόσου ή στη φυσική λειτουργικότητα. Βεβαιότητα στοιχείων: χαμηλή (GRADE).</div>
+    </div>
+    <div class="comment">Ρεαλιστική εικόνα: η αφαίρεση ζωικών προϊόντων μπορεί να ανακουφίσει τον πόνο στη ΡΑ, αλλά δεν αλλάζει την υποκείμενη δραστηριότητα της νόσου. Μόνο 7 μελέτες με μεθοδολογικούς περιορισμούς — χρήσιμο ως συμπληρωματική, όχι αντικαταστάτρια, στρατηγική.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Φυτική δίαιτα &amp; ρευματοειδής: λιγότερος πόνος, αλλά όχι “σβήσιμο” της νόσου. Τι πραγματικά δείχνουν 7 κλινικές δοκιμές μαζί.»</div>
   </div>
 
   <div class="card">
-    <span class="badge b-obs">Ανάλυση social media</span>
-    <h3>Προτιμήσεις & συστάσεις δημιουργών περιεχομένου για τη δίαιτα carnivore <span class="eng">(Preferences and recommendations from content creators on carnivore diets: a social media analysis)</span></h3>
-    <div class="source">J Health Popul Nutr, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42144663/" target="_blank">PubMed 42144663</a> · <a href="https://doi.org/10.1186/s41043-026-01336-4" target="_blank">DOI</a></div>
+    <span class="badge rct">RCT</span>
+    <h3>Τροποποιημένη δίαιτα αποκλεισμού Crohn (CDED) για διατήρηση ύφεσης σε παιδιά<br><span class="eng">(Modified Crohn's Disease Exclusion Diet maintains remission in pediatric Crohn's — RCT)</span></h3>
+    <div class="source">📖 Clinical Gastroenterology and Hepatology, 2024 · <a href="https://pubmed.ncbi.nlm.nih.gov/39732356/" target="_blank">PubMed 39732356</a> · <a href="https://doi.org/10.1016/j.cgh.2024.12.006" target="_blank">DOI</a></div>
     <div class="facts">
-      <div><span class="k">📋 Δίαιτα:</span> Carnivore (αποκλειστικά ζωικά τρόφιμα, έμφαση στο κόκκινο κρέας)</div>
-      <div><span class="k">🎯 Πάθηση/Πεδίο:</span> Δημόσια πληροφόρηση — 19 influencers, 1.169 αναρτήσεις (Instagram)</div>
-      <div><span class="k">⏱️ Διάρκεια:</span> 1 μήνας παρακολούθησης περιεχομένου</div>
-      <div><span class="k">✅ Αποτέλεσμα:</span> Μονόπλευρα θετική εικόνα με ισχυρισμούς υγείας/πρόληψης νόσων, συχνά μαζί με ιδεολογικό/πολιτικό περιεχόμενο — ενώ <strong>τα επιστημονικά δεδομένα είναι ελάχιστα</strong>.</div>
+      <div>📋 <b>Δίαιτα:</b> 2 εβδ. αποκλειστική εντερική διατροφή → CDED + μερική εντερική διατροφή (PEN)</div>
+      <div>🎯 <b>Πάθηση:</b> Παιδική νόσος Crohn (ήπια-σοβαρή), 56 ασθενείς</div>
+      <div>⏱️ <b>Διάρκεια:</b> Έως 24 εβδομάδες</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Ύφεση χωρίς κορτικοστεροειδή στην 14η εβδ.: 70% (CDED) vs 61,5% (μόνο εντερική) — χωρίς στατιστική διαφορά (υπο-ισχυρή μελέτη λόγω COVID). 60% των CDED διατήρησαν ύφεση ως τις 24 εβδ.· σημαντική βελτίωση δείκτη BMI στην ομάδα CDED.</div>
     </div>
-    <div class="comment">Δεν είναι κλινική μελέτη, αλλά αποτυπώνει <em>γιατί</em> έρχονται οι πελάτες με απορίες για carnivore. Υπενθύμιση: οι διαιτολόγοι πρέπει να είναι παρόντες στα social για να αντικρούουν μη-τεκμηριωμένους ισχυρισμούς.</div>
-    <div class="hook"><span class="lbl">🎣 Hook:</span> «1.169 posts για carnivore σε έναν μήνα: υπόσχονται “θαύματα”, αλλά τι δείχνει η έρευνα; Ο ρόλος του διαιτολόγου.»</div>
+    <div class="comment">Η μοναδική μελέτη Crohn σήμερα (λόγω μικρότερης βαρύτητας στο πελατολόγιο). Το μήνυμα: η δομημένη δίαιτα αποκλεισμού μπορεί να διατηρήσει ύφεση με ταυτόχρονη βελτίωση θρέψης — πλεονέκτημα έναντι της «σκέτης» εντερικής διατροφής, παρότι υπο-ισχυρή στατιστικά.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Δίαιτα αντί για κορτιζόνη; Η CDED κράτησε 6 στα 10 παιδιά με Crohn σε ύφεση για 24 εβδομάδες — και τα έθρεψε καλύτερα.»</div>
+  </div>
+
+  <!-- ================= ΕΝΟΤΗΤΑ 6 ================= -->
+  <h2 class="section">🔥 6. Δίαιτες Αποκλεισμού &amp; Χρόνιοι Πόνοι / Φλεγμονή</h2>
+
+  <div class="card">
+    <span class="badge obs">Αναδρομική (15ετία)</span>
+    <h3>Παιδική ηωσινοφιλική οισοφαγίτιδα: διαγνωστικά &amp; θεραπευτικά δεδομένα 15 ετών<br><span class="eng">(Pediatric eosinophilic esophagitis: 15-year retrospective study)</span></h3>
+    <div class="source">📖 European Journal of Pediatrics, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42530682/" target="_blank">PubMed 42530682</a> · <a href="https://doi.org/10.1007/s00431-026-07270-1" target="_blank">DOI</a></div>
+    <div class="facts">
+      <div>📋 <b>Δίαιτα:</b> Δίαιτες αποκλεισμού τροφίμων (μαζί με φαρμακευτικές επιλογές)</div>
+      <div>🎯 <b>Πάθηση:</b> Ηωσινοφιλική οισοφαγίτιδα (EoE), 138 παιδιά</div>
+      <div>⏱️ <b>Διάρκεια:</b> Διάγνωση 2009-2023 (μακροχρόνια παρακολούθηση)</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Αποτύπωση των τάσεων θεραπείας &amp; έκβασης· η δίαιτα αποκλεισμού παραμένει βασικός πυλώνας αντιμετώπισης, δίπλα στα τοπικά κορτικοστεροειδή &amp; PPI, με ετερογενή ανταπόκριση ανά ασθενή.</div>
+    </div>
+    <div class="comment">Στην EoE η δίαιτα αποκλεισμού (empiric elimination) είναι από τις λίγες παθήσεις όπου η διατροφική παρέμβαση έχει καθιερωμένο, «φαρμακευτικού τύπου» ρόλο. Η 15ετής εικόνα δείχνει σταθερή χρήση της, αλλά και την ανάγκη εξατομίκευσης.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Ηωσινοφιλική οισοφαγίτιδα: μία από τις ελάχιστες παθήσεις όπου η δίαιτα αποκλεισμού είναι κανονική θεραπεία, όχι “εναλλακτική”.»</div>
+  </div>
+
+  <div class="card">
+    <span class="badge rev">Ανασκόπηση</span>
+    <h3>Διατροφικές θεραπείες για γαστρεντερικές διαταραχές<br><span class="eng">(Dietary Therapies for Gastrointestinal Disorders)</span></h3>
+    <div class="source">📖 Nutrients, 2026 · <a href="https://pubmed.ncbi.nlm.nih.gov/42280430/" target="_blank">PubMed 42280430</a> · <a href="https://doi.org/10.3390/nu18111787" target="_blank">DOI</a></div>
+    <div class="facts">
+      <div>📋 <b>Δίαιτα:</b> Επισκόπηση διαιτών αποκλεισμού (αντιγονικά τρόφιμα, FODMAP, εξάλειψη αλλεργιογόνων)</div>
+      <div>🎯 <b>Πάθηση:</b> Φάσμα γαστρεντερικών/φλεγμονωδών διαταραχών</div>
+      <div>⏱️ <b>Διάρκεια:</b> —</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Σύνθεση του πώς τρόφιμα-αντιγόνα πυροδοτούν ανοσολογική/φλεγμονώδη απόκριση και πώς οι στοχευμένες δίαιτες αποκλεισμού μπορούν να τροποποιήσουν τα συμπτώματα και το εντερικό μικροβίωμα.</div>
+    </div>
+    <div class="comment">Καλό πλαίσιο αναφοράς για να εξηγήσουμε στους πελάτες γιατί «κάποιες τροφές» ενεργοποιούν φλεγμονή και πότε ο στοχευμένος αποκλεισμός έχει βιολογική λογική — χωρίς να ολισθαίνουμε σε άσκοπες, γενικευμένες στερήσεις.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Πότε το φαγητό γίνεται “αντιγόνο”; Ο μηχανισμός πίσω από τις δίαιτες αποκλεισμού — και πότε πραγματικά αξίζουν.»</div>
+  </div>
+
+  <!-- ================= ΕΝΟΤΗΤΑ 7 ================= -->
+  <h2 class="section">🥩 7. Carnivore / Animal-Based &amp; Χρόνια Νοσήματα</h2>
+
+  <div class="card">
+    <span class="badge meta">Συστηματική ανασκόπηση</span>
+    <h3>Το «παράδοξο της πρωτεΐνης»: carnivore, υπερτροφία vs μακροζωία<br><span class="eng">(The protein paradox, carnivore diet &amp; hypertrophy versus longevity)</span></h3>
+    <div class="source">📖 Nutrition and Health, 2025 · <a href="https://pubmed.ncbi.nlm.nih.gov/40094942/" target="_blank">PubMed 40094942</a> · <a href="https://doi.org/10.1177/02601060251314575" target="_blank">DOI</a></div>
+    <div class="facts">
+      <div>📋 <b>Δίαιτα:</b> Carnivore / έντονα κρεατοφαγική (ανασκόπηση ~100 μελετών σε ανθρώπους)</div>
+      <div>🎯 <b>Στόχος:</b> Μυϊκή υπερτροφία &amp; βραχυπρόθεσμη θρέψη vs υγιής γήρανση/μακροζωία</div>
+      <div>⏱️ <b>Διάρκεια:</b> Δεδομένα δεκαετιών (cohorts)</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Το κρέας ευνοεί υπερτροφία &amp; βραχυπρόθεσμη ενέργεια/θρέψη, αλλά η carnivore προσέγγιση συνδέεται με πλήθος δυσμενών μακροπρόθεσμων επιδράσεων (ενεργοποίηση mTOR/IGF-1, καρδιαγγειακά, φλεγμονή) — «φτωχή» επιλογή για μακροζωία.</div>
+    </div>
+    <div class="comment">Χρήσιμο, ισορροπημένο αντίβαρο στο carnivore hype. Ως συστηματική ανασκόπηση παρατηρησιακών δεδομένων έχει περιορισμούς (ετερογένεια, confounders), αλλά το μήνυμα είναι ξεκάθαρο: το «όλο κρέας» δεν είναι στρατηγική μακροζωίας.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Carnivore για μύες — ναι· για μακροζωία — όχι. Γιατί το ίδιο πιάτο κρέας δίνει διαφορετική απάντηση ανάλογα με τον στόχο σου.»</div>
+  </div>
+
+  <div class="card">
+    <span class="badge obs">Ανάλυση σύστασης</span>
+    <h3>Αξιολόγηση θρεπτικής σύστασης της carnivore δίαιτας — μοντέλο μελέτης περίπτωσης<br><span class="eng">(Assessing the Nutrient Composition of a Carnivore Diet: A Case Study Model)</span></h3>
+    <div class="source">📖 Nutrients, 2024 · <a href="https://pubmed.ncbi.nlm.nih.gov/39796574/" target="_blank">PubMed 39796574</a> · <a href="https://doi.org/10.3390/nu17010140" target="_blank">DOI</a></div>
+    <div class="facts">
+      <div>📋 <b>Δίαιτα:</b> Carnivore / animal-based (4 εκδοχές, με/χωρίς γαλακτοκομικά &amp; εντόσθια)</div>
+      <div>🎯 <b>Στόχος:</b> Επάρκεια μικροθρεπτικών vs εθνικές τιμές αναφοράς (NRV)</div>
+      <div>⏱️ <b>Διάρκεια:</b> Μοντέλο (θεωρητικά ημερήσια πλάνα)</div>
+      <div>✅ <b>Αποτέλεσμα:</b> Καλύπτονται B12, ψευδάργυρος, σελήνιο, βιτ. A/B6· ΥΠΕΡΒΑΣΗ νατρίου· ΕΛΛΕΙΨΕΙΣ σε θειαμίνη, μαγνήσιο, ασβέστιο, βιτ. C και (κατά περίπτωση) σίδηρο, φυλλικό, ιώδιο, κάλιο. Οι φυτικές ίνες πολύ κάτω των συστάσεων.</div>
+    </div>
+    <div class="comment">Πρακτικός «χάρτης κινδύνων» για όποιον πελάτη πειραματίζεται με carnivore: αναδεικνύει ακριβώς ποια θρεπτικά χρειάζονται προσοχή/συμπλήρωση. Είναι μοντέλο (όχι κλινικές εκβάσεις), αλλά πολύτιμο για ασφαλή καθοδήγηση αν κάποιος επιμένει στην προσέγγιση.</div>
+    <div class="hook">🎣 <b>Hook για άρθρο/βίντεο:</b> «Αν κάνεις carnivore, να τα 5 θρεπτικά που πιθανότατα σου λείπουν — θειαμίνη, μαγνήσιο, ασβέστιο, βιτ. C &amp; φυτικές ίνες.»</div>
   </div>
 
   <footer>
-    Πηγή δεδομένων: PubMed / NCBI E-utilities. Μόνο ανθρώπινες μελέτες, με επαληθευμένα PMID & DOI.<br>
-    Οι ενότητες «Χαμηλή Ισταμίνη/Αλλεργίες» & «Ημικρανίες» παραλείφθηκαν σήμερα (χωρίς νέες, on-topic μελέτες αποκλεισμού με σαφή διάρκεια/αποτέλεσμα).<br>
-    ⚕️ Ενημερωτικό υλικό για επαγγελματίες — δεν αποτελεί ιατρική συμβουλή.
+    Πηγή δεδομένων: PubMed / NCBI E-utilities · Μόνο ανθρώπινες μελέτες · Χωρίς επαναλήψεις (de-duplication) · learnnutrition.gr
   </footer>
+
 </div>
 </body>
 </html>
