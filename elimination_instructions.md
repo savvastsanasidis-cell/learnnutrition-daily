@@ -73,4 +73,52 @@ NCBI E-utilities μέσω curl (με `--max-time 25`). Τρέξε ΠΟΛΛΑΠΛ
 ## ΒΗΜΑ 4: HTML (LIGHT MODE) → /tmp/research-elimination.html
 Πλήρες mobile-friendly HTML. Light: background #f4f6f8, λευκές κάρτες border-radius:14px ελαφριά σκιά, font -apple-system/Segoe UI/Roboto, max-width 680px. Κορυφή: link '← Daily Brief' → index.html, favicon emoji 🌿, τίτλος '🌿 Έρευνες: Δίαιτες Αποκλεισμού & Χρόνια Νοσήματα' + σημερινή ημερομηνία (`date +%d/%m/%Y`). Οργάνωσε σε ενότητες 1→7 με `<h2>` επικεφαλίδα και από κάτω τις κάρτες. Παράλειψε κενές ενότητες. Κάθε μελέτη = κάρτα με badge· η γραμμή '📋 Δίαιτα / 🎯 Πάθηση / ⏱️ Διάρκεια / ✅ Αποτέλεσμα' σε ξεχωριστό μπλοκ με ελαφρύ background ώστε να ξεχωρίζει. Το '🎣 Hook' σε πλαίσιο με border-left. Links ως `<a href>`. Inline CSS.
 
-Μόλις φτιάξεις το /tmp/research-elimination.html, γύρνα πίσω στον σκελετό (cloud prompt) για το ανέβασμα στο GitHub και την ενημέρωση του seen_pmids_elimination.json.
+## ⚠️⚠️ ΒΗΜΑ 5: ΑΝΕΒΑΣΜΑ — ΥΠΕΡΙΣΧΥΕΙ ΤΩΝ ΒΗΜΑΤΩΝ 3 & 4 ΤΟΥ CLOUD PROMPT
+
+**Αυτό το βήμα αντικαθιστά τα Βήματα 3 & 4 του cloud prompt.** Στις 5-8-2026 το `git push` απέτυχε με 403 «GitHub access is not enabled for this session — an org admin must connect the Claude GitHub App», ενώ το πρωί της ίδιας μέρας δούλευε. Δηλαδή **η μέθοδος εγγραφής είναι ΑΣΤΑΘΗΣ σε αυτό το environment** (η ανάγνωση/`git clone` δουλεύει πάντα). Γι' αυτό: **δοκίμασε ΚΑΙ ΤΙΣ ΔΥΟ μεθόδους, με τη σειρά, και μη σταματήσεις στην πρώτη αποτυχία.**
+
+### Μέθοδος Α (δοκίμασε ΠΡΩΤΗ): GitHub Contents API
+
+**1)** Γράψε το `/tmp/push.py` — στη θέση του `<PAT>` βάλε το PAT που έχεις ήδη από το RUN_FIRST (ΠΟΤΕ μην το τυπώσεις):
+
+```python
+import base64, json, urllib.request, sys
+TOKEN='<PAT>'
+REPO='savvastsanasidis-cell/learnnutrition-daily'
+path=sys.argv[1]; localfile=sys.argv[2]; msg=sys.argv[3]
+content=open(localfile,encoding='utf-8').read()
+api='https://api.github.com/repos/'+REPO+'/contents/'+path
+sha=None
+try:
+    req=urllib.request.Request(api,headers={'Authorization':'Bearer '+TOKEN,'Accept':'application/vnd.github+json'})
+    sha=json.load(urllib.request.urlopen(req)).get('sha')
+except Exception: pass
+body={'message':msg,'content':base64.b64encode(content.encode()).decode()}
+if sha: body['sha']=sha
+req=urllib.request.Request(api,data=json.dumps(body).encode(),headers={'Authorization':'Bearer '+TOKEN,'Accept':'application/vnd.github+json'},method='PUT')
+print(urllib.request.urlopen(req).status)
+```
+
+**2)** Ανέβασε τη σελίδα:
+`python3 /tmp/push.py research-elimination.html /tmp/research-elimination.html "Update research-elimination $(date +%Y-%m-%d)"`
+Αν τυπώσει 200 ή 201, πέτυχε → πήγαινε στο βήμα 3.
+Αν βγάλει 403 («Resource not accessible by integration»), **μην τα παρατήσεις** → πήγαινε στη Μέθοδο Β.
+
+### Μέθοδος Β (fallback, μόνο αν απέτυχε η Α): git push
+
+```
+export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null
+cp /tmp/research-elimination.html /tmp/repo/research-elimination.html
+cd /tmp/repo && git -c user.email=bot@learnnutrition.gr -c user.name=daily-bot add research-elimination.html && git -c user.email=bot@learnnutrition.gr -c user.name=daily-bot commit -m "Update research-elimination $(date +%Y-%m-%d)" && git push origin main
+```
+Αν δεις `main -> main`, πέτυχε. Αν βγάλει 403 «GitHub access is not enabled for this session», τότε **και οι δύο μέθοδοι απέτυχαν**: ΜΗΝ αγγίξεις το `seen_pmids_elimination.json`, στείλε το `/tmp/research-elimination.html` στον Σάββα ως αρχείο (SendUserFile) και γράψε στην περίληψη ΠΟΙΟ ακριβώς μήνυμα σφάλματος πήρες από ΚΑΘΕ μέθοδο και τα PMIDs που έμειναν εκτός.
+
+### Μετά από επιτυχία (με όποια μέθοδο)
+
+**3) ΜΟΝΟ ΑΝ ανέβηκε η σελίδα**, ενημέρωσε τη μνήμη: πάρε ΤΩΡΑ ΞΑΝΑ την τρέχουσα έκδοση του `seen_pmids_elimination.json` από το API (`https://api.github.com/repos/savvastsanasidis-cell/learnnutrition-daily/contents/seen_pmids_elimination.json` με header `Accept: application/vnd.github.raw+json` — ΟΧΙ από το `/tmp/repo`, μπορεί να είναι παλιό), πρόσθεσε τα νέα PMIDs, κράτα ΜΟΝΑΔΙΚΑ, γράψ' το στο `/tmp/seen_pmids_elimination.json` και τρέξε:
+`python3 /tmp/push.py seen_pmids_elimination.json /tmp/seen_pmids_elimination.json "Update seen PMIDs (elimination) $(date +%Y-%m-%d)"`
+(αν χρησιμοποίησες τη Μέθοδο Β, κάνε `git pull --no-rebase origin main` πρώτα και ανέβασέ το με git με τον ίδιο τρόπο.)
+
+⚠️ ΑΝ το ανέβασμα της σελίδας ΑΠΟΤΥΧΕΙ, **ΜΗΝ** ενημερώσεις το `seen_pmids_elimination.json` — αλλιώς τα PMIDs χάνονται για πάντα.
+
+Στο τέλος: ανέφερε ΡΗΤΑ ποια μέθοδος (Α ή Β) πέτυχε — σύντομη ελληνική περίληψη highlights, πόσες μελέτες επαλήθευσες, πόσα διπλά έκοψες, πόσα PMIDs έχει πλέον το `seen_pmids_elimination.json`.
